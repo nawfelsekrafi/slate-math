@@ -11,9 +11,14 @@ import {
   unwrapList,
 } from '@udecode/plate'
 
+<<<<<<< HEAD
 export const preFormat: AutoformatBlockRule['preFormat'] = (editor) => {
   unwrapList(editor as SPEditor)
 }
+=======
+export const preFormat: AutoformatBlockRule['preFormat'] = (editor) =>
+  unwrapList(editor as SPEditor)
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 
 export const format = (editor: TEditor, customFormatting: any) => {
   if (editor.selection) {

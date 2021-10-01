@@ -68,7 +68,11 @@ export const withStyledDraggables = (components: any) => {
       onRenderDragHandle: ({ className, styles }) => {
         return (
           <Tippy {...grabberTooltipProps}>
+<<<<<<< HEAD
             <button type="button" className={className} >
+=======
+            <button type="button" className={className} css={styles}>
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
               <DragIndicator
                 style={{
                   width: 18,

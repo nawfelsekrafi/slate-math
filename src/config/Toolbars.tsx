@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'tippy.js/animations/scale.css';
 import 'tippy.js/dist/tippy.css';
 import React from 'react';
@@ -35,6 +36,12 @@ import { Link } from '@styled-icons/material/Link'
 import { FormatColorText } from '@styled-icons/material/FormatColorText'
 import { FontDownload } from '@styled-icons/material/FontDownload'
 import { TippyProps } from '@tippyjs/react';
+=======
+import 'tippy.js/animations/scale.css'
+import 'tippy.js/dist/tippy.css'
+import React from 'react'
+import { TippyProps } from '@tippyjs/react'
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 import {
   addColumn,
   addRow,
@@ -46,6 +53,10 @@ import {
   ELEMENT_ALIGN_JUSTIFY,
   ELEMENT_ALIGN_RIGHT,
   ELEMENT_BLOCKQUOTE,
+<<<<<<< HEAD
+=======
+  ELEMENT_CODE_BLOCK,
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
   ELEMENT_H1,
   ELEMENT_H2,
   ELEMENT_H3,
@@ -54,12 +65,18 @@ import {
   ELEMENT_H6,
   ELEMENT_OL,
   ELEMENT_UL,
+<<<<<<< HEAD
   getPlatePluginType,
   insertTable,
   MARK_BG_COLOR,
   MARK_BOLD,
   MARK_CODE,
   MARK_COLOR,
+=======
+  insertTable,
+  MARK_BOLD,
+  MARK_CODE,
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
   MARK_ITALIC,
   MARK_KBD,
   MARK_STRIKETHROUGH,
@@ -67,6 +84,7 @@ import {
   MARK_SUPERSCRIPT,
   MARK_UNDERLINE,
   ToolbarAlign,
+<<<<<<< HEAD
   ToolbarColorPicker,
   ToolbarElement,
   ToolbarImage,
@@ -83,6 +101,59 @@ import { MARK_HIGHLIGHT } from '@udecode/plate-highlight';
 
 export const ToolbarButtonsBasicElements = () => {
   const editor = useStoreEditorRef(useEventEditorId('focus'));
+=======
+  ToolbarCodeBlock,
+  ToolbarElement,
+  ToolbarList,
+  ToolbarMark,
+  ToolbarTable,
+  ToolbarLink,
+  ToolbarImage,
+  useStoreEditorRef,
+  useEventEditorId,
+  getPlatePluginType,
+  MARK_HIGHLIGHT,
+  MARK_COLOR,
+  MARK_BG_COLOR,
+  ToolbarColorPicker,
+} from '@udecode/plate'
+import { CodeAlt } from '@styled-icons/boxicons-regular/CodeAlt'
+import { CodeBlock } from '@styled-icons/boxicons-regular/CodeBlock'
+import { Subscript } from '@styled-icons/foundation/Subscript'
+import { Superscript } from '@styled-icons/foundation/Superscript'
+import { BorderAll } from '@styled-icons/material/BorderAll'
+import { BorderBottom } from '@styled-icons/material/BorderBottom'
+import { BorderClear } from '@styled-icons/material/BorderClear'
+import { Highlight } from '@styled-icons/material/Highlight'
+import { BorderLeft } from '@styled-icons/material/BorderLeft'
+import { BorderRight } from '@styled-icons/material/BorderRight'
+import { BorderTop } from '@styled-icons/material/BorderTop'
+import { FormatAlignCenter } from '@styled-icons/material/FormatAlignCenter'
+import { FormatAlignJustify } from '@styled-icons/material/FormatAlignJustify'
+import { FormatAlignLeft } from '@styled-icons/material/FormatAlignLeft'
+import { FormatAlignRight } from '@styled-icons/material/FormatAlignRight'
+import { FormatBold } from '@styled-icons/material/FormatBold'
+import { FormatItalic } from '@styled-icons/material/FormatItalic'
+import { FormatListBulleted } from '@styled-icons/material/FormatListBulleted'
+import { FormatListNumbered } from '@styled-icons/material/FormatListNumbered'
+import { FormatQuote } from '@styled-icons/material/FormatQuote'
+import { FormatStrikethrough } from '@styled-icons/material/FormatStrikethrough'
+import { FormatUnderlined } from '@styled-icons/material/FormatUnderlined'
+import { Keyboard } from '@styled-icons/material/Keyboard'
+import { Looks3 } from '@styled-icons/material/Looks3'
+import { Looks4 } from '@styled-icons/material/Looks4'
+import { Looks5 } from '@styled-icons/material/Looks5'
+import { Looks6 } from '@styled-icons/material/Looks6'
+import { LooksOne } from '@styled-icons/material/LooksOne'
+import { LooksTwo } from '@styled-icons/material/LooksTwo'
+import { Image } from '@styled-icons/material/Image'
+import { Link } from '@styled-icons/material/Link'
+import { FormatColorText } from '@styled-icons/material/FormatColorText'
+import { FontDownload } from '@styled-icons/material/FontDownload'
+
+export const ToolbarButtonsBasicElements = () => {
+  const editor = useStoreEditorRef(useEventEditorId('focus'))
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 
   return (
     <>
@@ -119,11 +190,19 @@ export const ToolbarButtonsBasicElements = () => {
         icon={<CodeBlock />}
       />
     </>
+<<<<<<< HEAD
   );
 };
 
 export const ToolbarButtonsList = () => {
   const editor = useStoreEditorRef(useEventEditorId('focus'));
+=======
+  )
+}
+
+export const ToolbarButtonsList = () => {
+  const editor = useStoreEditorRef(useEventEditorId('focus'))
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 
   return (
     <>
@@ -136,11 +215,19 @@ export const ToolbarButtonsList = () => {
         icon={<FormatListNumbered />}
       />
     </>
+<<<<<<< HEAD
   );
 };
 
 export const ToolbarButtonsAlign = () => {
   const editor = useStoreEditorRef(useEventEditorId('focus'));
+=======
+  )
+}
+
+export const ToolbarButtonsAlign = () => {
+  const editor = useStoreEditorRef(useEventEditorId('focus'))
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 
   return (
     <>
@@ -158,11 +245,19 @@ export const ToolbarButtonsAlign = () => {
         icon={<FormatAlignJustify />}
       />
     </>
+<<<<<<< HEAD
   );
 };
 
 export const ToolbarButtonsBasicMarks = () => {
   const editor = useStoreEditorRef(useEventEditorId('focus'));
+=======
+  )
+}
+
+export const ToolbarButtonsBasicMarks = () => {
+  const editor = useStoreEditorRef(useEventEditorId('focus'))
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 
   return (
     <>
@@ -197,30 +292,51 @@ export const ToolbarButtonsBasicMarks = () => {
         icon={<Subscript />}
       />
     </>
+<<<<<<< HEAD
   );
 };
 
 export const ToolbarKbd = () => {
   const editor = useStoreEditorRef(useEventEditorId('focus'));
+=======
+  )
+}
+
+export const ToolbarKbd = () => {
+  const editor = useStoreEditorRef(useEventEditorId('focus'))
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 
   return (
     <ToolbarMark
       type={getPlatePluginType(editor, MARK_KBD)}
       icon={<Keyboard />}
     />
+<<<<<<< HEAD
   );
 };
 
 export const ToolbarHighlight = () => {
   const editor = useStoreEditorRef(useEventEditorId('focus'));
+=======
+  )
+}
+
+export const ToolbarHighlight = () => {
+  const editor = useStoreEditorRef(useEventEditorId('focus'))
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 
   return (
     <ToolbarMark
       type={getPlatePluginType(editor, MARK_HIGHLIGHT)}
       icon={<Highlight />}
     />
+<<<<<<< HEAD
   );
 };
+=======
+  )
+}
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 
 export const ToolbarButtonsTable = () => (
   <>
@@ -231,6 +347,7 @@ export const ToolbarButtonsTable = () => (
     <ToolbarTable icon={<BorderLeft />} transform={addColumn} />
     <ToolbarTable icon={<BorderRight />} transform={deleteColumn} />
   </>
+<<<<<<< HEAD
 );
 
 export const BallonToolbarMarks = () => {
@@ -239,6 +356,17 @@ export const BallonToolbarMarks = () => {
   const arrow = false;
   const theme = 'dark';
   const direction = 'top';
+=======
+)
+
+export const BallonToolbarMarks = () => {
+  const editor = useStoreEditorRef(useEventEditorId('focus'))
+
+  const arrow = false
+  const theme = 'dark'
+  const direction = 'top'
+  const hiddenDelay = 0
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
   const tooltip: TippyProps = {
     arrow: true,
     delay: 0,
@@ -246,12 +374,21 @@ export const BallonToolbarMarks = () => {
     hideOnClick: false,
     offset: [0, 17],
     placement: 'top',
+<<<<<<< HEAD
   };
 
   return (
     <BalloonToolbar
       scrollContainer={document as any}
       direction={direction}
+=======
+  }
+
+  return (
+    <BalloonToolbar
+      direction={direction}
+      hiddenDelay={hiddenDelay}
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
       theme={theme}
       arrow={arrow}
     >
@@ -270,10 +407,17 @@ export const BallonToolbarMarks = () => {
         icon={<FormatUnderlined />}
         tooltip={{ content: 'Underline (⌘U)', ...tooltip }}
       />
+<<<<<<< HEAD
       
     </BalloonToolbar>
   );
 };
+=======
+    </BalloonToolbar>
+  )
+}
+
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 export const ToolbarButtons = () => (
   <>
     <ToolbarButtonsBasicElements />
@@ -284,7 +428,13 @@ export const ToolbarButtons = () => (
     <ToolbarButtonsAlign />
     <ToolbarLink icon={<Link />} />
     <ToolbarImage icon={<Image />} />
+<<<<<<< HEAD
 
     <ToolbarButtonsTable />
   </>
 )
+=======
+    <ToolbarButtonsTable />
+  </>
+)
+>>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
