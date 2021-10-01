@@ -1,4 +1,5 @@
 
+import { ELEMENT_TABLE } from '@udecode/plate';
 import { TElement } from '@udecode/plate-core';
 import { getEmptyFractionRowNode } from './getEmptyFractionRowNode';
 
@@ -11,7 +12,7 @@ export const getEmptyFractionNode = (
     {
       children: [{ text: " " }]
     },
-    {type: "table",
+    {type: ELEMENT_TABLE,
     children: [getEmptyFractionRowNode(1), getEmptyFractionRowNode(1)],
     },
     {

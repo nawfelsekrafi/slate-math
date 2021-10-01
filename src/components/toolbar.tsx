@@ -1,10 +1,6 @@
-import { FormatBold } from "@styled-icons/material/FormatBold";
-
-import { TippyProps } from "@tippyjs/react";
 import { insertNodes, ToolbarTable } from "@udecode/plate";
 import { useStoreEditorRef, useEventEditorId, getPlatePluginType, SPEditor, TElement, TEditor } from "@udecode/plate-core";
-import { BalloonToolbar, ToolbarButton, ToolbarElement, ToolbarMark } from "@udecode/plate-toolbar";
-import { Editor } from "slate";
+import { ToolbarButton  } from "@udecode/plate-toolbar";
 import { getEmptyBigOpNode } from "./BigOperator/getEmptyBigOpNode";
 import { BIG_OPERATOR, FRACTION, INTEGRAL, LIMIT, SUMMATION } from "./defaults";
 import { getEmptyFractionNode } from "./Fraction/thfraction/getEmptyFractionNode";
@@ -61,7 +57,6 @@ export const MathToolbar = () => {
 
 
 function insertEquation(eq: string, editor: (TEditor)): import("react").MouseEventHandler<HTMLSpanElement> | undefined {
-  console.log("test")
   switch (eq){
     case INTEGRAL:{
       insertNodes(editor, getEmptyIntegralNode());

@@ -33,7 +33,7 @@ const icon = (attributes, children) => {
       <div class="bigOperator">
         <span className="top-limit-ico">x</span>
         <span className="symbol-ico">&#11034;</span>
-        <span class="bottom-limit-ico">y=n</span>
+        <span className="bottom-limit-ico">y=n</span>
       </div>
     </>
   );

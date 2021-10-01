@@ -86,26 +86,14 @@ import { HistoryEditor } from 'slate-history'
 import { ReactEditor } from 'slate-react'
 import { css } from 'styled-components'
 import { MathToolbar} from './components/toolbar'
+import { components } from './components/plugin'
 import { createBigOperatorPlugin, createFractionPlugin, createIntegralPlugin, createLimitPlugin, createSummationPlugin } from './components/plugin'
 type TEditor = SPEditor & ReactEditor & HistoryEditor
 
 const id = 'Examples/Playground'
 
 
-const components = createPlateComponents({
-  [ELEMENT_CODE_BLOCK]: withProps(CodeBlockElement, {
-    styles: {
-      root: [
-        css`
-          background-color: #111827;
-          code {
-            color: white;
-          }
-        `,
-      ],
-    },
-  }),
-});
+
 
 
 const options = createPlateOptions({

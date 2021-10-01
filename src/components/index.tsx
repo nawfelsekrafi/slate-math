@@ -13,3 +13,5 @@ export default {
     bigOperator,
     integral
 };
+
+export * from "./plugin"

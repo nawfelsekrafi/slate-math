@@ -1,5 +1,5 @@
 
-import { ELEMENT_TABLE, TablePluginOptions
+import { ELEMENT_PARAGRAPH, ELEMENT_TH, TablePluginOptions
  } from '@udecode/plate';
 import matrixElement from "../../MatrixElement/index";
 
@@ -9,10 +9,10 @@ export const getEmptyFractionCellNode = (
   & { header?: boolean }
 ) => {
   return {
-    type: ELEMENT_TABLE,
+    type: ELEMENT_TH,
     children: [
       {
-        type: ELEMENT_TABLE,
+        type: ELEMENT_PARAGRAPH,
         children: [matrixElement.slateDOM(),],
       },
     ],

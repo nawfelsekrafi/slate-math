@@ -8,14 +8,17 @@ import { getIntegralSymbolRowNode } from './getIntegralSymbolRowNode';
 
 
 export const getEmptyIntegralNode = () => {
-  
   return <TElement>{
     children:[
     {
       children: [{ text: " " }]
     },
-    {type: ELEMENT_TABLE,
-    children: [getEmptyRowNode(1 ), getIntegralSymbolRowNode(1 ), getEmptyRowNode(1 )],
+    {
+      type: ELEMENT_TABLE,
+      children: [
+        getEmptyRowNode(1 ),
+        getIntegralSymbolRowNode(1 ),
+        getEmptyRowNode(1 )],
     },
     {
       children: [{ text: " " }]

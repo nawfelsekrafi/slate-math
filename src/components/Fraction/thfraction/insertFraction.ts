@@ -1,5 +1,5 @@
 import { Transforms, Editor } from 'slate';
-import { someNode } from '@udecode/plate';
+import { ELEMENT_TABLE, someNode } from '@udecode/plate';
 import { TablePluginOptions
  } from '@udecode/plate';
 import { getEmptyFractionNode } from './getEmptyFractionNode';
@@ -7,7 +7,7 @@ import { getEmptyFractionNode } from './getEmptyFractionNode';
 export const insertFraction = (editor: Editor, options?: TablePluginOptions
 ) => {
 
-  if (!someNode(editor, { match: { type: "table" } })) {
+  if (!someNode(editor, { match: { type: ELEMENT_TABLE } })) {
     Transforms.insertNodes(editor, getEmptyFractionNode());
     Transforms.move(editor);
   }

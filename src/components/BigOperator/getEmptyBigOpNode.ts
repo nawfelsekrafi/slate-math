@@ -1,6 +1,8 @@
 import { getEmptyRowNode } from '../tdComponents/getEmptyRowNode';
 import { ELEMENT_TABLE, TablePluginOptions } from '@udecode/plate-table';
-import { TElement } from '@udecode/plate-core';
+import { TElement, TNode } from '@udecode/plate-core';
+import { getEmptyCellNode } from '../tdComponents/getEmptyCellNode';
+import { FRACTION } from '../defaults';
 
 
 export const getEmptyBigOpNode = (options?: TablePluginOptions) => {
@@ -11,8 +13,13 @@ export const getEmptyBigOpNode = (options?: TablePluginOptions) => {
     {
       children: [{ text: " " }]
     },
-    {type: ELEMENT_TABLE,
-    children: [getEmptyRowNode(1, ), getEmptyRowNode(1, ), getEmptyRowNode(1, )],
+    {
+      type: ELEMENT_TABLE,
+      children: [
+        getEmptyRowNode(1),
+        getEmptyRowNode(1),
+        getEmptyRowNode(1)
+      ],
     },
     {
       children: [{ text: " " }]

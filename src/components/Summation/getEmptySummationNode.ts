@@ -1,10 +1,10 @@
 import { ELEMENT_TABLE, TablePluginOptions, TElement
  } from '@udecode/plate';
 import { getEmptyRowNode } from '../tdComponents/getEmptyRowNode';
+import { getSumSymbolCellNode } from './getSumSymbolCellNode';
 
 
-export const getEmptySummationNode = (options?: TablePluginOptions
-) => {
+export const getEmptySummationNode = () => {
 
 
   return <TElement>{
@@ -13,7 +13,10 @@ export const getEmptySummationNode = (options?: TablePluginOptions
       children: [{ text: " " }]
     },
     {type: ELEMENT_TABLE,
-    children: [getEmptyRowNode(1), getEmptyRowNode(1), getEmptyRowNode(1)],
+    children: [
+      getEmptyRowNode(1),
+      getSumSymbolCellNode(),
+      getEmptyRowNode(1)],
     },
     {
       children: [{ text: " " }]
