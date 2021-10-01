@@ -1,6 +1,5 @@
 {
   "private": true,
-<<<<<<< HEAD
   "name": "plate-playground",
   "description": "A simple sandbox to reproduce Plate issues in a pared down editor.",
   "keywords": [
@@ -15,11 +14,6 @@
       "react-app"
     ]
   },
-=======
-  "name": "plate-playground-forked",
-  "description": "A simple sandbox to reproduce Slate Plugins issues in a pared down editor.",
-  "keywords": [],
->>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
   "main": "index.js",
   "dependencies": {
     "@babel/core": "7.14.6",
@@ -27,37 +21,23 @@
     "@styled-icons/foundation": "10.28.0",
     "@styled-icons/material": "10.28.0",
     "@tippyjs/react": "4.2.5",
-<<<<<<< HEAD
     "@udecode/plate": "4.2.0",
-=======
-    "@udecode/plate": "3.1.3",
->>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
     "@udecode/plate-excalidraw": "3.1.3",
     "@udecode/plate-test-utils": "1.0.0",
     "babel-plugin-macros": "3.1.0",
     "babel-plugin-styled-components": "1.10.5",
     "babel-plugin-twin": "1.0.2",
     "faker": "4.1.0",
-<<<<<<< HEAD
     "react-dom": "17.0.1",
     "react-latex": "^2.0.0",
-=======
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
->>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
     "slate": "0.66.1",
     "slate-history": "0.66.0",
     "slate-hyperscript": "0.66.0",
     "slate-react": "0.66.1",
-<<<<<<< HEAD
-=======
-    "styled-components": "5.3.1",
->>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
     "tailwindcss": "2.2.4",
     "twin.macro": "2.6.2"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "@types/react": "^17.0.25",
     "@types/react-dom": "^17.0.9",
     "@types/styled-components": "^5.1.14",
@@ -66,10 +46,6 @@
     "react-scripts": "^4.0.3",
     "styled-components": "^5.3.1",
     "typescript": "^4.4.3"
-=======
-    "react-scripts": "1.0.0",
-    "typescript": "3.7.0"
->>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
   },
   "babelMacros": {
     "twin": {
@@ -78,7 +54,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-<<<<<<< HEAD
     "build": "react-scripts build"
   },
   "browserslist": {
@@ -94,11 +69,3 @@
     ]
   }
 }
-=======
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "version": "0.0.0"
-}
->>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66

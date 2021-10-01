@@ -3,9 +3,5 @@
     "babel-plugin-twin",
     "babel-plugin-macros",
     "styled-components"
-<<<<<<< HEAD
   ]
-=======
-  ],
->>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 }

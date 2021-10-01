@@ -58,11 +58,8 @@ import {
   createDeserializeMDPlugin,
   createDeserializeCSVPlugin,
   createDeserializeAstPlugin,
-<<<<<<< HEAD
   ELEMENT_CODE_BLOCK,
   CodeBlockElement,
-=======
->>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 } from '@udecode/plate'
 import {
   createExcalidrawPlugin,
@@ -87,18 +84,13 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 import { Search } from '@styled-icons/material/Search'
 import { HistoryEditor } from 'slate-history'
 import { ReactEditor } from 'slate-react'
-<<<<<<< HEAD
 import { css } from 'styled-components'
 import { MathToolbar} from './components/toolbar'
 import { createBigOperatorPlugin, createFractionPlugin, createIntegralPlugin, createLimitPlugin, createSummationPlugin } from './components/plugin'
-=======
-
->>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 type TEditor = SPEditor & ReactEditor & HistoryEditor
 
 const id = 'Examples/Playground'
 
-<<<<<<< HEAD
 
 const components = createPlateComponents({
   [ELEMENT_CODE_BLOCK]: withProps(CodeBlockElement, {
@@ -115,37 +107,12 @@ const components = createPlateComponents({
   }),
 });
 
-=======
-let components = createPlateComponents({
-  [ELEMENT_MENTION]: withProps(MentionElement, {
-    renderLabel: renderMentionLabel,
-  }),
-  [ELEMENT_EXCALIDRAW]: ExcalidrawElement,
-  [MARK_COLOR]: withStyledProps(StyledLeaf, {
-    leafProps: {
-      [MARK_COLOR]: ['color'],
-    },
-  }),
-  [MARK_BG_COLOR]: withStyledProps(StyledLeaf, {
-    leafProps: {
-      [MARK_BG_COLOR]: ['backgroundColor'],
-    },
-  }),
-  // customize your components by plugin key
-})
-components = withStyledPlaceHolders(components)
-components = withStyledDraggables(components)
->>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
 
 const options = createPlateOptions({
   // customize your options by plugin key
 })
 
-<<<<<<< HEAD
 export const Plugins = () => {
-=======
-const Plugins = () => {
->>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
   const { setSearch, plugin: searchHighlightPlugin } = useFindReplacePlugin()
   const { getMentionSelectProps, plugin: mentionPlugin } = useMentionPlugin(
     optionsMentionPlugin
@@ -190,14 +157,11 @@ const Plugins = () => {
       createSelectOnBackspacePlugin({
         allow: [ELEMENT_IMAGE, ELEMENT_EXCALIDRAW],
       }),
-<<<<<<< HEAD
       createIntegralPlugin(),
       createSummationPlugin(),
       createBigOperatorPlugin(),
       createFractionPlugin(),
       createLimitPlugin(),
-=======
->>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
       mentionPlugin,
       searchHighlightPlugin,
     ]
@@ -228,16 +192,10 @@ const Plugins = () => {
         <HeadingToolbar>
           <ToolbarButtons />
         </HeadingToolbar>
-<<<<<<< HEAD
         <HeadingToolbar>
           <MathToolbar />
         </HeadingToolbar>
         <BallonToolbarMarks />
-=======
-
-        <BallonToolbarMarks />
-
->>>>>>> 6553d41ed59554d0b118e855b9d7c926dd530e66
         <MentionSelect
           {...getMentionSelectProps()}
           renderLabel={renderMentionLabel}
