@@ -1,4 +1,4 @@
-import { insertNodes, ToolbarTable } from "@udecode/plate";
+import { insertNodes, MentionSelect, ToolbarTable, useMentionPlugin } from "@udecode/plate";
 import { useStoreEditorRef, useEventEditorId, getPlatePluginType, SPEditor, TElement, TEditor } from "@udecode/plate-core";
 import { ToolbarButton  } from "@udecode/plate-toolbar";
 import { getEmptyBigOpNode } from "./BigOperator/getEmptyBigOpNode";
@@ -12,6 +12,7 @@ import fraction from "./Fraction"
 import bigOperator from "./BigOperator"
 import limit from "./Limit"
 import { getEmptySummationNode } from "./Summation/getEmptySummationNode";
+
 
 
 export const MathToolbar = () => {
@@ -50,7 +51,6 @@ export const MathToolbar = () => {
         tooltip={{content: "Create Big Operator", theme: 'light-border'}} 
         onMouseDown={e=> insertEquation(BIG_OPERATOR, editor as TEditor)}
       />
-      
     </>
   );
 };

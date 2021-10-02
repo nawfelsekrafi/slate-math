@@ -64,9 +64,7 @@ import {
 import {
   createExcalidrawPlugin,
   ELEMENT_EXCALIDRAW,
-  ExcalidrawElement,
 } from '@udecode/plate-excalidraw'
-import { initialValuePlayground } from './config/initialValues'
 import {
   editableProps,
   optionsExitBreakPlugin,
@@ -74,11 +72,9 @@ import {
   optionsResetBlockTypePlugin,
   optionsSoftBreakPlugin,
   optionsAutoformat,
-} from './config/pluginOptions'
-import { renderMentionLabel } from './config/renderMentionLabel'
-import { BallonToolbarMarks, ToolbarButtons } from './config/Toolbars'
-import { withStyledPlaceHolders } from './config/withStyledPlaceHolders'
-import { withStyledDraggables } from './config/withStyledDraggables'
+} from './components/mention/mentionOptions'
+import { renderMentionLabel } from './components/mention/renderElementMention'
+import { BallonToolbarMarks, ToolbarButtons } from './Toolbars'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import { Search } from '@styled-icons/material/Search'
@@ -88,6 +84,7 @@ import { css } from 'styled-components'
 import { MathToolbar} from './components/toolbar'
 import { components } from './components/plugin'
 import { createBigOperatorPlugin, createFractionPlugin, createIntegralPlugin, createLimitPlugin, createSummationPlugin } from './components/plugin'
+import { onAddMention } from './components/mention/mentionOptions'
 type TEditor = SPEditor & ReactEditor & HistoryEditor
 
 const id = 'Examples/Playground'
@@ -102,7 +99,7 @@ const options = createPlateOptions({
 
 export const Plugins = () => {
   const { setSearch, plugin: searchHighlightPlugin } = useFindReplacePlugin()
-  const { getMentionSelectProps, plugin: mentionPlugin } = useMentionPlugin(
+  const { getMentionSelectProps, plugin: mentionPlugin } = useMentionPlugin( //TODO: move to plugins
     optionsMentionPlugin
   )
 
@@ -174,7 +171,6 @@ export const Plugins = () => {
         components={components}
         options={options}
         editableProps={editableProps}
-        initialValue={initialValuePlayground}
       >
         <ToolbarSearchHighlight icon={Search} setSearch={setSearch} />
         <HeadingToolbar>
@@ -187,6 +183,8 @@ export const Plugins = () => {
         <MentionSelect
           {...getMentionSelectProps()}
           renderLabel={renderMentionLabel}
+          //onClickMention = {onAddMention}
+          
         />
       </Plate>
     </DndProvider>

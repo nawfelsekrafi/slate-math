@@ -1,6 +1,7 @@
-import { CodeBlockElement, createPlateComponents, ELEMENT_CODE_BLOCK, ELEMENT_PARAGRAPH, ELEMENT_TABLE, ELEMENT_TD, ELEMENT_TH, ELEMENT_TR, HandlerReturnType, PlatePlugin, SPEditor, StyledElement, withProps } from "@udecode/plate";
+import { CodeBlockElement, createPlateComponents, createPlateOptions, ELEMENT_CODE_BLOCK, ELEMENT_MENTION, ELEMENT_PARAGRAPH, ELEMENT_TABLE, ELEMENT_TD, ELEMENT_TH, ELEMENT_TR, HandlerReturnType, MentionNodeData, PlatePlugin, SPEditor, StyledElement, useMentionPlugin, withProps } from "@udecode/plate";
 import { css } from "styled-components";
 import { FRACTION } from "./defaults";
+import { optionsMentionPlugin } from "./mention/mentionOptions";
 export const createIntegralPlugin = (): PlatePlugin => ({
     //deserialize: 
     //onKeyDown: 
@@ -40,6 +41,10 @@ export const createIntegralPlugin = (): PlatePlugin => ({
     //renderElement: 
 
   });
+
+
+
+
 
   export const components = createPlateComponents({
 
@@ -120,7 +125,7 @@ export const createIntegralPlugin = (): PlatePlugin => ({
         ],
       },
     }),
-    [FRACTION]: withProps(StyledElement, {
+/*    [FRACTION]: withProps(StyledElement, {
       className: 'slate-fraction',
       as: 'table',
       styles: {
@@ -136,5 +141,6 @@ export const createIntegralPlugin = (): PlatePlugin => ({
           }
         },
     }),
+    */
 
   });
