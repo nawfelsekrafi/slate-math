@@ -43,4 +43,23 @@
   border-top: thin solid black;
 }
 
+.slate-fraction {
+    display: inline-flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: auto;
+    text-align: center;
+}
+
+.slate-fraction > .slate-box {
+  text-align: 'center';
+  width: auto;
+  white-space: nowrap;
+}
+
+.slate-fraction > .slate-box:nth-child(2) {
+  border-top: thin solid black;
+}
+
+
 /*End of Fractions*/

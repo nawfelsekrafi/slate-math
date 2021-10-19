@@ -42,3 +42,12 @@
 .limes span.overdn {
   font-size: 100%;
 }
+
+
+span.slate-lim span.slate-eqtext:first-child {
+  text-align: center;
+}
+
+.slate-lim > tr { 
+  font-size: x-small;
+} 

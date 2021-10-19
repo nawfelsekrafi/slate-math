@@ -1,29 +1,22 @@
-import { getEmptyRowNode } from '../tdComponents/getEmptyRowNode';
-import { ELEMENT_TABLE, TablePluginOptions } from '@udecode/plate-table';
-import { TElement, TNode } from '@udecode/plate-core';
-import { getEmptyCellNode } from '../tdComponents/getEmptyCellNode';
-import { FRACTION } from '../defaults';
+import { ELEMENT_TR, TablePluginOptions } from '@udecode/plate-table';
+import { TElement } from '@udecode/plate-core';
+import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode';
+import { ELEMENT_BIG_OPERATOR } from './defaults';
 
 
 export const getEmptyBigOpNode = (options?: TablePluginOptions) => {
-
-
   return <TElement>{
-    children:[
-    {
-      children: [{ text: " " }]
-    },
-    {
-      type: ELEMENT_TABLE,
+      type: ELEMENT_BIG_OPERATOR,
       children: [
-        getEmptyRowNode(1),
-        getEmptyRowNode(1),
-        getEmptyRowNode(1)
+        getEmptyBoxNode(),
+        getEmptyBigOpCell(),
+        getEmptyBoxNode()
       ],
-    },
-    {
-      children: [{ text: " " }]
+    };
+  }
+  const getEmptyBigOpCell = () => {
+    return{
+      type: "span",
+      children: [{text: "\u2b1a"}]
     }
-    ]
-  };
-};
+  }

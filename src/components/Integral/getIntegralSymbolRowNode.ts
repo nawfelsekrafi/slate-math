@@ -1,13 +1,9 @@
-import { ELEMENT_TR, TablePluginOptions
- } from '@udecode/plate';
-import { getIntegralSymbolCellNode } from './getIntegralSymbolCellNode';
+import { ELEMENT_EQUATION_TEXT } from '../EquationText';
 
-export const getIntegralSymbolRowNode = (colCount: number, options?: TablePluginOptions
-) => {
+export const getIntegralSymbolRowNode = () => {
   return {
-    type: ELEMENT_TR,
-    children: Array(colCount)
-      .fill(colCount)
-      .map(() => getIntegralSymbolCellNode( options)),
+    type: ELEMENT_EQUATION_TEXT,
+    contentEditable: "false",
+    children: [{text: " \u222b "}]
   };
 };

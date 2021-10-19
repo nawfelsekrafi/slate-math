@@ -42,4 +42,13 @@
 
 }
 
+.slate-sum > .slate-box:nth-child(1) {
+  font-size: x-small;
+  border: red 1px solid;
+}
+.slate-sum > .slate-box:nth-child(3) {
+  font-size: x-small;
+  border: red 1px solid;
+}
+
 /*End of summations*/

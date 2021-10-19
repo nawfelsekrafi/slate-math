@@ -1,10 +1,7 @@
-import React from "react";
-import bottomlimit from "../BottomLimit";
-import toplimit from "../UpperBound";
-import symbol from "../Symbols/SummationSymbol";
+import { ClassAttributes, HTMLAttributes, ReactChild, ReactFragment, ReactPortal } from "react";
 import "./index.css";
 
-const dom = () => [
+export const dom = () => [
   {
     type: "math",
     subtype: "bigOperator",
@@ -19,7 +16,7 @@ const dom = () => [
   },
 ];
 
-const Element = (attributes, children) => {
+export const Element = (attributes: JSX.IntrinsicAttributes & ClassAttributes<HTMLSpanElement> & HTMLAttributes<HTMLSpanElement>, children: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined) => {
   return (
     <span className="bigOperator" {...attributes}>
       {children}
@@ -27,10 +24,10 @@ const Element = (attributes, children) => {
   );
 };
 
-const icon = (attributes, children) => {
+export const bigOpIcon = () => {
   return (
     <>
-      <div class="bigOperator">
+      <div className="bigOperator">
         <span className="top-limit-ico">x</span>
         <span className="symbol-ico">&#11034;</span>
         <span className="bottom-limit-ico">y=n</span>
@@ -39,4 +36,3 @@ const icon = (attributes, children) => {
   );
 };
 
-export default { slateDOM: dom, MathElement: Element, Icon: icon };

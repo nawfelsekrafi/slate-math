@@ -41,5 +41,12 @@
   font-weight: bolder;
 
 }
-
+.slate-bigop > .slate-box:nth-child(1) {
+  font-size: x-small;
+  border: red 1px solid;
+}
+.slate-bigop > .slate-box:nth-child(3) {
+  font-size: x-small;
+  border: red 1px solid;
+}
 /*End of bigOperators*/

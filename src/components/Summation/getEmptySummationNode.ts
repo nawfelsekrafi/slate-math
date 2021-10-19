@@ -1,26 +1,26 @@
-import { ELEMENT_TABLE, TablePluginOptions, TElement
+import { TElement
  } from '@udecode/plate';
-import { getEmptyRowNode } from '../tdComponents/getEmptyRowNode';
-import { getSumSymbolCellNode } from './getSumSymbolCellNode';
+import { ELEMENT_EQUATION_TEXT } from '../EquationText';
+import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode';
+import { ELEMENT_SUMMATION } from '.';
 
 
 export const getEmptySummationNode = () => {
 
 
   return <TElement>{
-    children:[
-    {
-      children: [{ text: " " }]
-    },
-    {type: ELEMENT_TABLE,
+    type: ELEMENT_SUMMATION,
     children: [
-      getEmptyRowNode(1),
-      getSumSymbolCellNode(),
-      getEmptyRowNode(1)],
-    },
-    {
-      children: [{ text: " " }]
-    }
+      getEmptyBoxNode(),
+      getEmptyLimCellNode(),
+      getEmptyBoxNode(),
     ]
   };
 };
+
+const getEmptyLimCellNode = () => {
+  return{
+    type: ELEMENT_EQUATION_TEXT,
+    children: [{text: "\u2211"}]
+  }
+}

@@ -1,14 +1,11 @@
-import React from "react";
 import bottomlimit from "../BottomLimit";
 import toplimit from "../UpperBound";
-import symbol from "../Symbols/IntegralSymbol";
 import "./index.css";
-
 export const slateDOM = () => [
   {
     type: "math",
     subtype: "integral",
-    children: [toplimit.slateDOM(), symbol.slateDOM(), bottomlimit.slateDOM()],
+    children: [toplimit.slateDOM(), IntegralSymbol(), bottomlimit.slateDOM()],
   },
   {
     children: [
@@ -26,7 +23,6 @@ export const Element = (attributes: JSX.IntrinsicAttributes & React.ClassAttribu
     </span>
   );
 };
-
 export const integralIcon = () => {
   return (
     <>
@@ -43,14 +39,29 @@ const IntegralSymbol = () => ({
   subtype: "intsymbol",
   children: [{ text: " \u222b " }],
 });
-export const intParent = () => {
+
+export const integralInsert = () => {
   return (
     <>
       <sub className="intParent">
-        <span className="toplimit">x</span>
-        <span className="symbol">&#x222B;</span>
-        <span className="bottomlimit">y</span>
+      <big>&#x222B;</big>
+      <sub className="limit" style={{left: "-0.25em"}}><var>&#x2b1a;</var></sub>
+      <sub className="limit" style={{left: "-0.4375em", marginRight: "-0.3375em" }}> </sub>
       </sub>
     </>
   );
 };
+
+/*
+  return (
+    <Latex
+      delimiters={[
+        { left: '$$', right: '$$', display: true },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '$', right: '$', display: false },
+        { left: '\\[', right: '\\]', display: true },
+      ]}>
+      {equation}
+    </Latex>
+  );
+  */

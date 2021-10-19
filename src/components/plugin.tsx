@@ -1,23 +1,39 @@
-import { CodeBlockElement, createPlateComponents, createPlateOptions, ELEMENT_CODE_BLOCK, ELEMENT_MENTION, ELEMENT_PARAGRAPH, ELEMENT_TABLE, ELEMENT_TD, ELEMENT_TH, ELEMENT_TR, HandlerReturnType, MentionNodeData, PlatePlugin, SPEditor, StyledElement, useMentionPlugin, withProps } from "@udecode/plate";
-import { css } from "styled-components";
-import { FRACTION } from "./defaults";
-import { optionsMentionPlugin } from "./mention/mentionOptions";
+import { getRenderElement, PlatePlugin, getRenderLeaf } from "@udecode/plate";
+import { ELEMENT_BIG_OPERATOR, getBigOperatorDeserialize } from "./BigOperator";
+import { ELEMENT_EQUATIONBOX, getEquationBoxDeserialize } from "./EquationBoxElement";
+import { ELEMENT_EQUATION_TEXT, getEquationTextDeserialize, getRenderLeafEqText } from "./EquationText";
+import { getEquationTextOnKeyDown } from "./EquationText/EquationTextKeyDown";
+import { ELEMENT_FRACTION, getFractionDeserialize } from "./Fraction";
+import { ELEMENT_INTEGRAL, getIntDeserialize} from "./Integral";
+import { ELEMENT_LIMIT, getLimitDeserialize } from "./Limit";
+import { ELEMENT_SUMMATION, getSumDeserialize } from "./Summation";
+
+
+
+export const createEquationBoxPlugin = (): PlatePlugin => ({
+  pluginKeys: ELEMENT_EQUATIONBOX,
+  renderElement: getRenderElement(ELEMENT_EQUATIONBOX),
+  deserialize: getEquationBoxDeserialize(),
+  renderLeaf: getRenderLeaf(ELEMENT_EQUATIONBOX)
+  //onKeyDown: getEquationBoxOnKeyDown(), 
+  
+});
+export const createEquationTextPlugin = (): PlatePlugin => ({
+  pluginKeys: ELEMENT_EQUATION_TEXT,
+  renderElement: getRenderElement(ELEMENT_EQUATION_TEXT),
+  deserialize: getEquationTextDeserialize(),
+  onKeyDownCapture: getEquationTextOnKeyDown(), 
+  renderLeaf: getRenderLeafEqText(ELEMENT_EQUATION_TEXT)
+  
+  //onClickCapture: asa(),
+  
+});
+
 export const createIntegralPlugin = (): PlatePlugin => ({
-    //deserialize: 
-    //onKeyDown: 
-    //pluginKeys: 
-    //renderElement: 
-
-  });
-  export const createSummationPlugin = (): PlatePlugin => ({
-    //deserialize: 
-    //onKeyDown: 
-    //pluginKeys: 
-    //renderElement: 
-
-  });
-
-  export const createBigOperatorPlugin = (): PlatePlugin => ({
+    pluginKeys: ELEMENT_INTEGRAL,
+    renderElement: getRenderElement(ELEMENT_INTEGRAL),
+    deserialize: getIntDeserialize(),
+    renderLeaf: getRenderLeaf(ELEMENT_INTEGRAL)
     //deserialize: 
     //onKeyDown: 
     //pluginKeys: 
@@ -26,121 +42,30 @@ export const createIntegralPlugin = (): PlatePlugin => ({
   });
 
   export const createFractionPlugin = (): PlatePlugin => ({
-    //deserialize: 
-    //onKeyDown: 
-    //pluginKeys: 
-    //renderElement: 
-
+    pluginKeys: ELEMENT_FRACTION,
+    renderElement: getRenderElement(ELEMENT_FRACTION),
+    deserialize: getFractionDeserialize(),
   });
+  export const createSummationPlugin = (): PlatePlugin => ({
+    pluginKeys: ELEMENT_SUMMATION,
+    renderElement: getRenderElement(ELEMENT_SUMMATION),
+    deserialize: getSumDeserialize(),
+  });
+
+  export const createBigOperatorPlugin = (): PlatePlugin => ({
+    pluginKeys: ELEMENT_BIG_OPERATOR,
+    renderElement: getRenderElement(ELEMENT_BIG_OPERATOR),
+    deserialize: getBigOperatorDeserialize(),
+  });
+
+
 
   
   export const createLimitPlugin = (): PlatePlugin => ({
-    //deserialize: 
-    //onKeyDown: 
-    //pluginKeys: 
-    //renderElement: 
-
+    pluginKeys: ELEMENT_LIMIT,
+    renderElement: getRenderElement(ELEMENT_LIMIT),
+    deserialize: getLimitDeserialize(),
+    
   });
 
 
-
-
-
-  export const components = createPlateComponents({
-
-    [ELEMENT_TABLE]: withProps(StyledElement, {
-
-      className: 'slate-table',
-      as: 'table',
-      styles: {
-        root: {
-          display: 'inline-block',
-          verticalAlign: 'middle',
-          padding: '0px',
-          margin: '0px',
-          borderBottom: '0px',
-          lineHeight: '0.1',
-          textAlign: 'center',
-        },
-      },
-    }),
-    [ELEMENT_TR]: withProps(StyledElement, {
-      className: 'slate-tr',
-      as: 'tr',
-    }),
-    [ELEMENT_TH]: 
-    withProps(StyledElement, {
-      className: 'slate-th',
-      as: 'th',
-      styles: {
-        root: {
-          backgroundColor: 'rgb(255, 255, 255)',
-          border: '1px solid black',
-          borderTop: '0px',
-          borderRight: '0px',
-          borderLeft: '0px',
-          padding: '0px',
-          fontWeight: 'normal',
-          margin: '0px',          
-          minWidth: '21px',
-          verticalAlign: 'middle',
-          lineHeight: '1.5',
-          textAlign: 'center',
-          selectors: {
-            '> *': {
-              margin: 0,
-            },
-          },
-        },
-      },
-    }),
-    [ELEMENT_TD]: withProps(StyledElement, {
-      className: 'slate-td',
-      as: 'td',
-      styles: {
-        root: {
-          backgroundColor: 'rgb(255, 255, 255)',
-          border: '0px solid rgb(0, 0, 0)',
-          paddingRight: '4px',
-          minWidth: '14px',
-          minHeight: '14px',
-          selectors: {
-            '> *': {
-              margin: 0,
-            },
-          },
-        },
-      },
-      
-    }),
-    [ELEMENT_CODE_BLOCK]: withProps(CodeBlockElement, {
-      styles: {
-        root: [
-          css`
-            background-color: #111827;
-            code {
-              color: white;
-            }
-          `,
-        ],
-      },
-    }),
-/*    [FRACTION]: withProps(StyledElement, {
-      className: 'slate-fraction',
-      as: 'table',
-      styles: {
-        root: {
-            display: 'flex',
-            flexDirection: 'column',
-            verticalAlign: 'middle',
-            padding: '0px',
-            margin: '0px',
-            borderBottom: '0px',
-            lineHeight: '0.1',
-            textAlign: 'center'
-          }
-        },
-    }),
-    */
-
-  });
