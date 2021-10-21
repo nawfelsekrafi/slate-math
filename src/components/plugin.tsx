@@ -1,12 +1,12 @@
-import { getRenderElement, PlatePlugin, getRenderLeaf } from "@udecode/plate";
+import { getRenderElement, PlatePlugin, getRenderLeaf, getPlatePluginTypes } from "@udecode/plate";
 import { ELEMENT_BIG_OPERATOR, getBigOperatorDeserialize } from "./BigOperator";
 import { ELEMENT_EQUATIONBOX, getEquationBoxDeserialize } from "./EquationBoxElement";
-import { ELEMENT_EQUATION_TEXT, getEquationTextDeserialize, getRenderLeafEqText } from "./EquationText";
-import { getEquationTextOnKeyDown } from "./EquationText/EquationTextKeyDown";
+import { ELEMENT_EQUATION_TEXT, getEquationTextDeserialize } from "./EquationText";
 import { ELEMENT_FRACTION, getFractionDeserialize } from "./Fraction";
 import { ELEMENT_INTEGRAL, getIntDeserialize} from "./Integral";
 import { ELEMENT_LIMIT, getLimitDeserialize } from "./Limit";
 import { ELEMENT_SUMMATION, getSumDeserialize } from "./Summation";
+import { equationBoxOnKeyDown } from "./util";
 
 
 
@@ -14,16 +14,16 @@ export const createEquationBoxPlugin = (): PlatePlugin => ({
   pluginKeys: ELEMENT_EQUATIONBOX,
   renderElement: getRenderElement(ELEMENT_EQUATIONBOX),
   deserialize: getEquationBoxDeserialize(),
-  renderLeaf: getRenderLeaf(ELEMENT_EQUATIONBOX)
-  //onKeyDown: getEquationBoxOnKeyDown(), 
+  renderLeaf: getRenderLeaf(ELEMENT_EQUATIONBOX),
+  onKeyDown: equationBoxOnKeyDown()
   
 });
 export const createEquationTextPlugin = (): PlatePlugin => ({
   pluginKeys: ELEMENT_EQUATION_TEXT,
   renderElement: getRenderElement(ELEMENT_EQUATION_TEXT),
   deserialize: getEquationTextDeserialize(),
-  onKeyDownCapture: getEquationTextOnKeyDown(), 
-  renderLeaf: getRenderLeafEqText(ELEMENT_EQUATION_TEXT)
+  //renderLeaf: getRenderLeafEqText(ELEMENT_EQUATION_TEXT),
+  //voidTypes: getPlatePluginTypes(ELEMENT_EQUATION_TEXT),
   
   //onClickCapture: asa(),
   

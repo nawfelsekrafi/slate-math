@@ -47,7 +47,11 @@
 span.slate-lim span.slate-eqtext:first-child {
   text-align: center;
 }
-
-.slate-lim > tr { 
-  font-size: x-small;
+.slate-lim > div {
+  display:block;
+  margin-top: -1ex;
+  margin-right: .3ex;
+}
+.slate-lim > div > .slate-box { 
+  font-size: small;
 } 
