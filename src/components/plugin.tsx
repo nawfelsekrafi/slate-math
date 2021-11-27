@@ -5,6 +5,7 @@ import { ELEMENT_EQUATION_TEXT, getEquationTextDeserialize } from "./EquationTex
 import { ELEMENT_FRACTION, getFractionDeserialize } from "./Fraction";
 import { ELEMENT_INTEGRAL, getIntDeserialize} from "./Integral";
 import { ELEMENT_LIMIT, getLimitDeserialize } from "./Limit";
+import { ELEMENT_MATRIX } from "./Matrix/defaults";
 import { ELEMENT_SUMMATION, getSumDeserialize } from "./Summation";
 import { equationBoxOnKeyDown } from "./util";
 
@@ -14,31 +15,28 @@ export const createEquationBoxPlugin = (): PlatePlugin => ({
   pluginKeys: ELEMENT_EQUATIONBOX,
   renderElement: getRenderElement(ELEMENT_EQUATIONBOX),
   deserialize: getEquationBoxDeserialize(),
-  renderLeaf: getRenderLeaf(ELEMENT_EQUATIONBOX),
+  //renderLeaf: getRenderLeaf(ELEMENT_EQUATIONBOX),
   onKeyDown: equationBoxOnKeyDown()
+  
+});
+
+export const createMatrixPlugin = (): PlatePlugin => ({
+  pluginKeys: ELEMENT_MATRIX,
+  renderElement: getRenderElement(ELEMENT_MATRIX),
+  //renderLeaf: getRenderLeaf(ELEMENT_EQUATIONBOX),
   
 });
 export const createEquationTextPlugin = (): PlatePlugin => ({
   pluginKeys: ELEMENT_EQUATION_TEXT,
   renderElement: getRenderElement(ELEMENT_EQUATION_TEXT),
   deserialize: getEquationTextDeserialize(),
-  //renderLeaf: getRenderLeafEqText(ELEMENT_EQUATION_TEXT),
-  //voidTypes: getPlatePluginTypes(ELEMENT_EQUATION_TEXT),
-  
-  //onClickCapture: asa(),
-  
+  voidTypes: getPlatePluginTypes(ELEMENT_EQUATION_TEXT),
 });
 
 export const createIntegralPlugin = (): PlatePlugin => ({
     pluginKeys: ELEMENT_INTEGRAL,
     renderElement: getRenderElement(ELEMENT_INTEGRAL),
     deserialize: getIntDeserialize(),
-    renderLeaf: getRenderLeaf(ELEMENT_INTEGRAL)
-    //deserialize: 
-    //onKeyDown: 
-    //pluginKeys: 
-    //renderElement: 
-
   });
 
   export const createFractionPlugin = (): PlatePlugin => ({
@@ -58,9 +56,6 @@ export const createIntegralPlugin = (): PlatePlugin => ({
     deserialize: getBigOperatorDeserialize(),
   });
 
-
-
-  
   export const createLimitPlugin = (): PlatePlugin => ({
     pluginKeys: ELEMENT_LIMIT,
     renderElement: getRenderElement(ELEMENT_LIMIT),

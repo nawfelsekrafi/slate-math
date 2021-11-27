@@ -1,3 +1,4 @@
+import { RenderLeaf } from "@udecode/plate";
 import bottomlimit from "../BottomLimit";
 import toplimit from "../UpperBound";
 import "./index.css";
@@ -51,6 +52,8 @@ export const integralInsert = () => {
     </>
   );
 };
+
+
 
 /*
   return (

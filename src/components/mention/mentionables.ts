@@ -1,8 +1,7 @@
 import { MentionNodeData } from '@udecode/plate';
+export const MENTIONABLES: MentionNodeData[] = []
 
-
-// 88 - 4 symbol/component options
-export const MENTIONABLES: MentionNodeData[] = [
+/*export const MENTIONABLES: MentionNodeData[] = [
   { value: '\u003D', name: 'equals' },
   { value:  '\u2260', name: 'notequalto'},
   { value:  '\u2248', name: 'approximation'},
@@ -54,7 +53,6 @@ export const MENTIONABLES: MentionNodeData[] = [
   { value:  '\u{1D452}', name: 'euler'},
   { value:  '\u03C6', name: 'phi'},
   { value:  'lim', name: 'lim'},
-  { value:  'lim component', name: 'limcomponent'},
   { value:  'log', name: 'log'},
   { value:  'ln', name: 'naturallog'},
   { value:  'ln', name: 'ln'},
@@ -77,7 +75,6 @@ export const MENTIONABLES: MentionNodeData[] = [
   { value:  '\u2227', name: 'and'},
   { value:  '\u2228', name: 'or'},
   { value:  '\u222b', name: 'integral'},
-  { value:  '\u222b component', name: 'integralcomponent'},
   { value:  '\u222c', name: 'integraldouble'},
   { value:  '\u222d', name: 'integraltriple'},
   { value:  '\u2a0c', name: 'integralquadruple'},
@@ -85,9 +82,9 @@ export const MENTIONABLES: MentionNodeData[] = [
   { value:  '\u222f', name: 'integralsurface'},
   { value:  '\u2230', name: 'integralvolume'},
   { value:  '\u2211', name: 'sum'},
-  { value:  '\u2211 component', name: 'sumcomponent'},
   { value:  '\u00bc', name: 'fraction'},
   { value:  'bigoperator', name: 'bigoperator'},
   { value:  '\u220f', name: 'product'},
   { value:  '\u2210', name: 'coproduct'},
 ];
+*/

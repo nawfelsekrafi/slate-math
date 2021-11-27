@@ -1,4 +1,4 @@
-import { MentionNodeData, PlatePluginKey, SPEditor } from "@udecode/plate";
+import { MentionNodeData, PlatePluginKey, PEditor } from "@udecode/plate";
 
 export interface MentionPluginOptions extends PlatePluginKey {
     createTag(tag: string): Promise<string>
@@ -40,7 +40,7 @@ export interface MentionPluginOptions extends PlatePluginKey {
      * Callback called when clicking on a mention option
      */
     onClickMention?: (
-      editor: SPEditor,
+      editor: PEditor,
       option: MentionNodeData | 'create'
     ) => void
   }

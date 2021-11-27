@@ -4,6 +4,6 @@ export const getIntegralSymbolRowNode = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
     contentEditable: "false",
-    children: [{text: " \u222b "}]
+    children: [{text: "\u222b"}]
   };
 };

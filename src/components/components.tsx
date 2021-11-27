@@ -7,21 +7,29 @@ import { ELEMENT_FRACTION } from "./Fraction";
 import { ELEMENT_INTEGRAL } from "./Integral";
 import { ELEMENT_LIMIT } from "./Limit";
 import { ELEMENT_SUMMATION } from "./Summation";
+import { PlateMath } from "./EquationText/getEquationTextRenderLeaf";
+import { ELEMENT_MATRIX } from "./Matrix/defaults";
   export const components = createPlateComponents({
-    [ELEMENT_EQUATION_TEXT]: withProps(StyledElement, {
-      className: 'slate-eqtext',
-      as: 'span',
+    [ELEMENT_EQUATION_TEXT]: (children) => {
+      return <PlateMath {...children} />
+    },
+    //[ELEMENT_EQUATION_TEXT]: withProps(StyledElement, {
+    //  className: 'slate-mathtext',
+    //  as: 'span',
+    //}),
+    [ELEMENT_MATRIX]: withProps(StyledElement, {
+      className: 'slate-matrix',
+      as: 'table',
       styles: {
-        root: {
-          paddingRight: '4px',
-          minWidth: '14px',
-          minHeight: '14px',
-          selectors: {
-            '> *': {
-              margin: 0,
-            },
-          },
-        },
+        root: [
+          css`
+          display: inline-table;
+          vertical-align: middle;
+          border-collapse: separate;
+          max-width: none !important;
+
+        `,
+      ],
       },
     }),
     [ELEMENT_INTEGRAL]: withProps(StyledElement, {

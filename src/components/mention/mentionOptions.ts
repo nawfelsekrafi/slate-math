@@ -1,4 +1,4 @@
-import { createPlateOptions, ELEMENT_BLOCKQUOTE, ELEMENT_CODE_BLOCK, ELEMENT_IMAGE, ELEMENT_MENTION, ELEMENT_PARAGRAPH, ELEMENT_TD, ELEMENT_TODO_LI, ExitBreakPluginOptions, insertNodes, isBlockAboveEmpty, isSelectionAtBlockStart, KEYS_HEADING, MentionNode, MentionNodeData, MentionPluginOptions, ResetBlockTypePluginOptions, SoftBreakPluginOptions, SPEditor, WithAutoformatOptions } from "@udecode/plate"
+import { createPlateOptions, ELEMENT_BLOCKQUOTE, ELEMENT_CODE_BLOCK, ELEMENT_IMAGE, ELEMENT_MENTION, ELEMENT_PARAGRAPH, ELEMENT_TD, ELEMENT_TODO_LI, ExitBreakPluginOptions, insertNodes, isBlockAboveEmpty, isSelectionAtBlockStart, KEYS_HEADING, MentionNode, MentionNodeData, MentionPluginOptions, ResetBlockTypePluginOptions, SoftBreakPluginOptions, PEditor, WithAutoformatOptions } from "@udecode/plate"
 import { getEmptyBigOpNode } from "../BigOperator/getEmptyBigOpNode"
 import { getEmptyFractionNode } from "../Fraction"
 import { getEmptyIntegralNode } from "../Integral/getEmptyIntegralNode"
@@ -100,14 +100,14 @@ export const optionsExitBreakPlugin: ExitBreakPluginOptions = {
 
   //when mentionables is clicked
   export const onAddMention = 
-    (editor: SPEditor, data: MentionNodeData) => {
+    (editor: PEditor, data: MentionNodeData) => {
         insertMention(editor, data, options);
       }
 
 
   
 export const insertMention = (
-  editor: SPEditor,
+  editor: PEditor,
   mentionable: MentionNodeData,
   options?: MentionPluginOptions
 ) => {

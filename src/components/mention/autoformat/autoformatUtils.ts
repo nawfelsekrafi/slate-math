@@ -5,14 +5,15 @@ import {
   getParent,
   isElement,
   isType,
-  SPEditor,
+  PEditor,
+  PlateEditor,
   TEditor,
   toggleList,
   unwrapList,
 } from '@udecode/plate'
 
 export const preFormat: AutoformatBlockRule['preFormat'] = (editor) => {
-  unwrapList(editor as SPEditor)
+  unwrapList(editor as PlateEditor)
 }
 
 export const format = (editor: TEditor, customFormatting: any) => {
@@ -22,8 +23,8 @@ export const format = (editor: TEditor, customFormatting: any) => {
     const [node] = parentEntry
     if (
       isElement(node) &&
-      !isType(editor as SPEditor, node, ELEMENT_CODE_BLOCK) &&
-      !isType(editor as SPEditor, node, ELEMENT_CODE_LINE)
+      !isType(editor as PlateEditor, node, ELEMENT_CODE_BLOCK) &&
+      !isType(editor as PlateEditor, node, ELEMENT_CODE_LINE)
     ) {
       customFormatting()
     }
@@ -32,7 +33,7 @@ export const format = (editor: TEditor, customFormatting: any) => {
 
 export const formatList = (editor: TEditor, elementType: string) => {
   format(editor, () =>
-    toggleList(editor as SPEditor, {
+    toggleList(editor as PlateEditor, {
       type: elementType,
     })
   )

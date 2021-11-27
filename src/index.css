@@ -26,3 +26,24 @@ body {
 table tr:last-child th {
   border-bottom: 0;
 }
+
+.slate-equationtext {
+  font-family: Cambria, Georgia, serif; font-size: 24px; font-style: normal; font-variant: normal; 
+}
+
+.matrix-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-column-gap: 0.5em;
+}
+
+.slate-matrix > tr > td  {
+  text-align: center;
+  font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
+  z-index: -1;
+}
+
+.slate-matrix > tr > td > div > p > span  {
+  border: 1px solid black;
+}
+

@@ -6,10 +6,8 @@ import {
   ELEMENT_IMAGE,
   ELEMENT_PARAGRAPH,
   HeadingToolbar,
-  MentionSelect,
   PlatePlugin,
   Plate,
-  ToolbarSearchHighlight,
   createAlignPlugin,
   createAutoformatPlugin,
   createBlockquotePlugin,
@@ -42,13 +40,58 @@ import {
   createUnderlinePlugin,
   createDeserializeHTMLPlugin,
   useFindReplacePlugin,
-  useMentionPlugin,
-  SPEditor,
   createFontColorPlugin,
   createFontBackgroundColorPlugin,
   createDeserializeMDPlugin,
   createDeserializeCSVPlugin,
   createDeserializeAstPlugin,
+  ColorPickerToolbarDropdown,
+  MARK_COLOR,
+  createComboboxPlugin,
+  createFontFamilyPlugin,
+  createFontSizePlugin,
+  createFontWeightPlugin,
+  createHorizontalRulePlugin,
+  createIndentPlugin,
+  createLineHeightPlugin,
+  createMentionPlugin,
+  createNormalizeTypesPlugin,
+  ImageToolbarButton,
+  LineHeightToolbarDropdown,
+  LinkToolbarButton,
+  MARK_BG_COLOR,
+  MediaEmbedToolbarButton,
+  MentionCombobox,
+  SearchHighlightToolbar,
+  createPlateOptions,
+  KEYS_HEADING,
+  AlignPluginOptions,
+  AutoformatPluginOptions,
+  CodeBlockElement,
+  createPlateComponents,
+  ELEMENT_BLOCKQUOTE,
+  ELEMENT_CODE_BLOCK,
+  ELEMENT_H1,
+  ELEMENT_H2,
+  ELEMENT_H3,
+  ELEMENT_H4,
+  ELEMENT_H5,
+  ELEMENT_H6,
+  ELEMENT_HR,
+  ELEMENT_TD,
+  ExitBreakPluginOptions,
+  IndentPluginOptions,
+  isBlockAboveEmpty,
+  isSelectionAtBlockStart,
+  LineHeightPluginOptions,
+  NormalizeTypesPluginOptions,
+  PlatePluginOptions,
+  ResetBlockTypePluginOptions,
+  SelectOnBackspacePluginOptions,
+  SoftBreakPluginOptions,
+  TrailingBlockPluginOptions,
+  withProps,
+  ELEMENT_TODO_LI,
 } from '@udecode/plate'
 import {
   createExcalidrawPlugin,
@@ -63,18 +106,161 @@ import {
   optionsAutoformat,
 } from './components/mention/mentionOptions'
 import { renderMentionLabel } from './components/mention/renderElementMention'
-import { BallonToolbarMarks, ToolbarButtons } from './Toolbars'
+import { AlignToolbarButtons, BasicElementToolbarButtons, BasicMarkToolbarButtons, IndentToolbarButtons, ListToolbarButtons, TableToolbarButtons } from './Toolbars'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import { Search } from '@styled-icons/material/Search'
 import { HistoryEditor } from 'slate-history'
 import { ReactEditor } from 'slate-react'
-import { components, createEquationBoxPlugin, createEquationTextPlugin, MathToolbar, createPlateOptions } from './components'
+import { components, createEquationBoxPlugin, createEquationTextPlugin, createMatrixPlugin, MathToolbar } from './components'
 import { createBigOperatorPlugin, createFractionPlugin, createIntegralPlugin, createLimitPlugin, createSummationPlugin } from './components'
-type TEditor = SPEditor & ReactEditor & HistoryEditor
+import { FormatColorText } from '@styled-icons/material/FormatColorText'
+import { Check, Link, Image } from '@styled-icons/boxicons-regular'
+import { FontDownload, LineWeight, OndemandVideo } from '@styled-icons/material'
+import { EditableProps } from 'slate-react/dist/components/editable'
+import { css } from 'styled-components'
+import { autoformatRules } from './components/mention/autoformat/autoformatRules'
+import { MENTIONABLES } from './components/mention/mentionables'
+import { MatrixTableDropDown } from './components/Matrix/matrixDropDown'
+//import { MENTIONABLES } from './components/mention/mentionables'
 
 const id = 'Examples/Playground'
+const resetBlockTypesCommonRule = {
+  types: [ELEMENT_BLOCKQUOTE, ELEMENT_TODO_LI],
+  defaultType: ELEMENT_PARAGRAPH,
+};
+const CONFIG: {
+  options: Record<string, PlatePluginOptions>;
+  components: Record<string, any>;
+  editableProps: EditableProps;
 
+  align: AlignPluginOptions;
+  autoformat: AutoformatPluginOptions;
+  exitBreak: ExitBreakPluginOptions;
+  forceLayout: NormalizeTypesPluginOptions;
+  indent: IndentPluginOptions;
+  lineHeight: LineHeightPluginOptions;
+  mentionItems: any;
+  resetBlockType: ResetBlockTypePluginOptions;
+  selectOnBackspace: SelectOnBackspacePluginOptions;
+  softBreak: SoftBreakPluginOptions;
+  trailingBlock: TrailingBlockPluginOptions;
+} = {
+  editableProps: {
+    autoFocus: process.env.NODE_ENV !== 'production',
+    spellCheck: false,
+    placeholder: 'Type…',
+    style: {
+      padding: '15px',
+    },
+  },
+  options: createPlateOptions(),
+  components: createPlateComponents({
+    [ELEMENT_CODE_BLOCK]: withProps(CodeBlockElement, {
+      styles: {
+        root: [
+          css`
+            background-color: #111827;
+            code {
+              color: white;
+            }
+          `,
+        ],
+      },
+    }),
+  }),
+
+  align: {
+    validTypes: [
+      ELEMENT_PARAGRAPH,
+      ELEMENT_H1,
+      ELEMENT_H2,
+      ELEMENT_H3,
+      ELEMENT_H4,
+      ELEMENT_H5,
+      ELEMENT_H6,
+    ],
+  },
+  indent: {
+    validTypes: [
+      ELEMENT_PARAGRAPH,
+      ELEMENT_H1,
+      ELEMENT_H2,
+      ELEMENT_H3,
+      ELEMENT_H4,
+      ELEMENT_H5,
+      ELEMENT_H6,
+      ELEMENT_BLOCKQUOTE,
+      ELEMENT_CODE_BLOCK,
+    ],
+  },
+  lineHeight: {
+    defaultNodeValue: 1.5,
+    validNodeValues: [1, 1.2, 1.5, 2, 3],
+    validTypes: [
+      ELEMENT_PARAGRAPH,
+      ELEMENT_H1,
+      ELEMENT_H2,
+      ELEMENT_H3,
+      ELEMENT_H4,
+      ELEMENT_H5,
+      ELEMENT_H6,
+    ],
+  },
+  resetBlockType: {
+    rules: [
+      {
+        ...resetBlockTypesCommonRule,
+        hotkey: 'Enter',
+        predicate: isBlockAboveEmpty,
+      },
+      {
+        ...resetBlockTypesCommonRule,
+        hotkey: 'Backspace',
+        predicate: isSelectionAtBlockStart,
+      },
+    ],
+  },
+  trailingBlock: { type: ELEMENT_PARAGRAPH },
+  softBreak: {
+    rules: [
+      { hotkey: 'shift+enter' },
+      {
+        hotkey: 'enter',
+        query: {
+          allow: [ELEMENT_CODE_BLOCK, ELEMENT_BLOCKQUOTE, ELEMENT_TD],
+        },
+      },
+    ],
+  },
+  exitBreak: {
+    rules: [
+      {
+        hotkey: 'mod+enter',
+      },
+      {
+        hotkey: 'mod+shift+enter',
+        before: true,
+      },
+      {
+        hotkey: 'enter',
+        query: {
+          start: true,
+          end: true,
+          allow: KEYS_HEADING,
+        },
+      },
+    ],
+  },
+  selectOnBackspace: { allow: [ELEMENT_IMAGE, ELEMENT_HR] },
+  autoformat: {
+    rules: autoformatRules,
+  },
+  mentionItems: MENTIONABLES,
+  forceLayout: {
+    rules: [{ path: [0], strictType: ELEMENT_H1 }],
+  },
+};
 
 const options = createPlateOptions()
 
@@ -82,12 +268,12 @@ const options = createPlateOptions()
 
 
 export const Plugins = () => {
-  const { setSearch, plugin: searchHighlightPlugin } = useFindReplacePlugin()
-  const { getMentionSelectProps, plugin: mentionPlugin } = useMentionPlugin( //TODO: move to plugins
-    optionsMentionPlugin
-  )
+  const { setSearch, plugin: searchHighlightPlugin } = useFindReplacePlugin();
+  //const { getMentionSelectProps, plugin: mentionPlugin } = useMentionPlugin( //TODO: move to plugins
+  //  optionsMentionPlugin
+  //)
 
-  const pluginsMemo: PlatePlugin<TEditor>[] = useMemo(() => {
+  const pluginsMemo = useMemo(() => {
     const plugins = [
       createReactPlugin(),
       createHistoryPlugin(),
@@ -96,13 +282,14 @@ export const Plugins = () => {
       createTodoListPlugin(),
       createHeadingPlugin(),
       createImagePlugin(),
+      createHorizontalRulePlugin(),
+      createLineHeightPlugin(CONFIG.lineHeight),
       createLinkPlugin(),
       createListPlugin(),
       createTablePlugin(),
       createMediaEmbedPlugin(),
       createCodeBlockPlugin(),
-      createExcalidrawPlugin(),
-      createAlignPlugin(),
+      createAlignPlugin(CONFIG.align),
       createBoldPlugin(),
       createCodePlugin(),
       createItalicPlugin(),
@@ -111,21 +298,23 @@ export const Plugins = () => {
       createStrikethroughPlugin(),
       createSubscriptPlugin(),
       createSuperscriptPlugin(),
-      createFontColorPlugin(),
       createFontBackgroundColorPlugin(),
+      createFontFamilyPlugin(),
+      createFontColorPlugin(),
+      createFontSizePlugin(),
+      createFontWeightPlugin(),
       createKbdPlugin(),
       createNodeIdPlugin(),
-      createDndPlugin(),
-      createAutoformatPlugin(optionsAutoformat),
-      createResetNodePlugin(optionsResetBlockTypePlugin),
-      createSoftBreakPlugin(optionsSoftBreakPlugin),
-      createExitBreakPlugin(optionsExitBreakPlugin),
-      createTrailingBlockPlugin({
-        type: ELEMENT_PARAGRAPH,
-      }),
-      createSelectOnBackspacePlugin({
-        allow: [ELEMENT_IMAGE, ELEMENT_EXCALIDRAW],
-      }),
+      createIndentPlugin(CONFIG.indent),
+      createAutoformatPlugin(CONFIG.autoformat),
+      createResetNodePlugin(CONFIG.resetBlockType),
+      createSoftBreakPlugin(CONFIG.softBreak),
+      createExitBreakPlugin(CONFIG.exitBreak),
+      createNormalizeTypesPlugin(CONFIG.forceLayout),
+      createTrailingBlockPlugin(CONFIG.trailingBlock),
+      createSelectOnBackspacePlugin(CONFIG.selectOnBackspace),
+      createComboboxPlugin(),
+      createMentionPlugin(),
       createIntegralPlugin(),
       createSummationPlugin(),
       createBigOperatorPlugin(),
@@ -133,8 +322,7 @@ export const Plugins = () => {
       createLimitPlugin(),
       createEquationBoxPlugin(),
       createEquationTextPlugin(),
-      mentionPlugin,
-      searchHighlightPlugin,
+      createMatrixPlugin(),
     ]
 
     plugins.push(
@@ -144,37 +332,51 @@ export const Plugins = () => {
         createDeserializeHTMLPlugin({ plugins }),
         createDeserializeAstPlugin({ plugins }),
       ]
-    )
+    );
 
     return plugins
-  }, [mentionPlugin, searchHighlightPlugin])
+  }, [options, searchHighlightPlugin])
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <Plate
-        id={id}
-        plugins={pluginsMemo}
-        components={components}
-        options={options}
-        editableProps={editableProps}
-      >
-        <ToolbarSearchHighlight icon={Search} setSearch={setSearch} />
-        <HeadingToolbar>
-          <ToolbarButtons />
-        </HeadingToolbar>
-        <HeadingToolbar>
-          <MathToolbar />
-        </HeadingToolbar>
-        <BallonToolbarMarks />
-        <MentionSelect
-          {...getMentionSelectProps()}
-          renderLabel={renderMentionLabel}
-          //onClickMention = {onAddMention}
-          
+    <Plate
+      id="playground"
+      plugins={pluginsMemo}
+      components={components}
+      options={options}
+      editableProps={CONFIG.editableProps}
+    >
+      <SearchHighlightToolbar icon={Search} setSearch={setSearch} />
+      <HeadingToolbar>
+        <BasicElementToolbarButtons />
+        <ListToolbarButtons />
+        <IndentToolbarButtons />
+        <BasicMarkToolbarButtons />
+        <ColorPickerToolbarDropdown
+          pluginKey={MARK_COLOR}
+          icon={<FormatColorText />}
+          selectedIcon={<Check />}
+          tooltip={{ content: 'Text color' }}
         />
-      </Plate>
-    </DndProvider>
-  )
+        <ColorPickerToolbarDropdown
+          pluginKey={MARK_BG_COLOR}
+          icon={<FontDownload />}
+          selectedIcon={<Check />}
+          tooltip={{ content: 'Highlight color' }}
+        />
+        <AlignToolbarButtons />
+        <LineHeightToolbarDropdown icon={<LineWeight />} />
+        <LinkToolbarButton icon={<Link />} />
+        <ImageToolbarButton icon={<Image />} />
+        <MediaEmbedToolbarButton icon={<OndemandVideo />} />
+        <TableToolbarButtons />
+      </HeadingToolbar>
+      <HeadingToolbar> 
+        <MathToolbar></MathToolbar>
+      </HeadingToolbar>
+
+
+    </Plate>
+  );
 }
 
 const rootElement = document.getElementById('root')

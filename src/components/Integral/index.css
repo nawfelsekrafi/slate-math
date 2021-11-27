@@ -35,14 +35,16 @@
 .slate-int > .slate-box:nth-child(1) {
   grid-area: top;
   font-size: x-small;
-  border: red 1px solid;
+  /*border: red 1px solid;*/
 }
 
 .slate-int > .slate-box:nth-child(3) {
   font-size: x-small;
-  border: red 1px solid;
+  /*border: red 1px solid;*/
   
 }
 
-
+table > .slate-int {
+  display: inline;
+}
 /*End of Integrals*/
