@@ -27,9 +27,7 @@ table tr:last-child th {
   border-bottom: 0;
 }
 
-.slate-equationtext {
-  font-family: Cambria, Georgia, serif; font-size: 24px; font-style: normal; font-variant: normal; 
-}
+
 
 .matrix-container {
   display: grid;
@@ -37,13 +35,22 @@ table tr:last-child th {
   grid-column-gap: 0.5em;
 }
 
-.slate-matrix > tr > td  {
+.slate-matrix > .slate-tr > .slate-td  {
   text-align: center;
   font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
   z-index: -1;
 }
 
-.slate-matrix > tr > td > div > p > span  {
-  border: 1px solid black;
+.slate-matrix > .slate-tr > .slate-td {
+  border: 1px solid rgb(255, 0, 0);
 }
 
+.slate-equationMentionInsert {
+  font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
+  font-size: 1.5em; 
+}
+
+.slate-equationtext {
+  font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
+  font-size: 1.5em; 
+}

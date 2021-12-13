@@ -1,4 +1,4 @@
-import { createPlateComponents, ELEMENT_TABLE, withProps, StyledElement, ELEMENT_TR, ELEMENT_TH, ELEMENT_TD, ELEMENT_CODE_BLOCK, CodeBlockElement } from "@udecode/plate";
+import {  ELEMENT_TABLE, withProps, StyledElement, ELEMENT_TR, ELEMENT_TH, ELEMENT_TD, ELEMENT_CODE_BLOCK, CodeBlockElement, MentionElement, createPlateUI } from "@udecode/plate";
 import { css } from "styled-components";
 import { ELEMENT_BIG_OPERATOR } from "./BigOperator";
 import { ELEMENT_EQUATIONBOX } from "./EquationBoxElement";
@@ -9,10 +9,12 @@ import { ELEMENT_LIMIT } from "./Limit";
 import { ELEMENT_SUMMATION } from "./Summation";
 import { PlateMath } from "./EquationText/getEquationTextRenderLeaf";
 import { ELEMENT_MATRIX } from "./Matrix/defaults";
-  export const components = createPlateComponents({
-    [ELEMENT_EQUATION_TEXT]: (children) => {
-      return <PlateMath {...children} />
-    },
+import { ELEMENT_EQUATION_MENTION } from "./mention/constants";
+import { EquationMentionElement } from "./mention/equationMentionElement";
+import { ELEMENT_MENTION, ELEMENT_MENTION_INPUT } from "@udecode/plate-mention";
+  export const components = createPlateUI({
+    //[ELEMENT_MENTION]: EquationMentionElement,
+
     //[ELEMENT_EQUATION_TEXT]: withProps(StyledElement, {
     //  className: 'slate-mathtext',
     //  as: 'span',
@@ -39,6 +41,7 @@ import { ELEMENT_MATRIX } from "./Matrix/defaults";
         root: [
           css`
           display: inline-flex;
+          position: relative;
           flex-wrap: wrap;
           justify-content: flex-start;
           flex-direction: column;

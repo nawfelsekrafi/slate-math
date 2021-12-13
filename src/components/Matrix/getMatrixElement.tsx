@@ -1,8 +1,4 @@
-import { getEmptyTableNode, getPlatePluginOptions, isCollapsed, someNode, ToolbarButton, ToolbarDropdown } from "@udecode/plate";
-import { GetElementDeserializerOptions, usePlateEditorState } from "@udecode/plate-core";
-import { ToolbarButtonProps } from "@udecode/plate-toolbar";
-import React, { useCallback } from "react";
-import { ReactEditor } from "slate-react";
+;
 
 export const matrixIcon = () => {
     return (

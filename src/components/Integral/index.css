@@ -35,11 +35,13 @@
 .slate-int > .slate-box:nth-child(1) {
   grid-area: top;
   font-size: x-small;
+  font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
   /*border: red 1px solid;*/
 }
 
 .slate-int > .slate-box:nth-child(3) {
   font-size: x-small;
+  font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
   /*border: red 1px solid;*/
   
 }

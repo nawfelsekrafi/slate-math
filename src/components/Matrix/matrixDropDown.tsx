@@ -1,6 +1,5 @@
 import { RestartAlt } from "@styled-icons/material";
-import { ToolbarButtonProps, ToolbarDropdown, ToolbarButton, isCollapsed, someNode, isMarkActive } from "@udecode/plate";
-import { getPlatePluginType, usePlateEditorRef, usePlateEditorState } from "@udecode/plate-core";
+import { ToolbarButtonProps, ToolbarDropdown, ToolbarButton, isCollapsed, someNode, isMarkActive, getPluginType, usePlateEditorRef, usePlateEditorState } from "@udecode/plate";
 import React, { ReactNode, useCallback } from "react";
 import { Transforms } from "slate";
 import { ReactEditor } from "slate-react";
@@ -27,16 +26,14 @@ export const MatrixTableDropDown = ({
     const [open, setOpen] = React.useState(false);
     const editor = usePlateEditorState()!;
     const editorRef = usePlateEditorRef()!;
-    const type = getPlatePluginType(editorRef, pluginKey);
+    const type = getPluginType(editorRef, pluginKey);
     const onToggle = useCallback(() => {
       setOpen(!open);
     }, [open, setOpen]);
-    console.log(matrixes)
-    console.log(open)
 
     const updateMatrix = (rows:number, cols:number) => {
       if (editorRef && editor && editor.selection) {
-        var node = createMatrix(editor, rows, cols)
+        var node = createMatrix(editorRef, rows, cols)
         editor.insertNode(node)
         Transforms.select(editorRef, editor.selection);
         ReactEditor.focus(editorRef);

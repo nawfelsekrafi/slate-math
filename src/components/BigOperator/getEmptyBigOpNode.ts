@@ -10,7 +10,7 @@ export const getEmptyBigOpNode = (options?: TablePluginOptions) => {
       children: [
         getEmptyBoxNode(),
         getEmptyBigOpCell(),
-        getEmptyBoxNode()
+        getEmptyBoxNode(),
       ],
     };
   }

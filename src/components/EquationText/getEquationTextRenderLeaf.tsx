@@ -1,8 +1,6 @@
-import { getPlatePluginTypes, getRenderElement, NodeProps, Plate, PlatePlugin, RenderElement, RenderLeaf } from '@udecode/plate-core';
-import { ELEMENT_EQUATION_TEXT } from '.';
-import { components } from '..';
-import { MathComponent } from 'mathjax-react'
-import { EquationTextRoot } from './equationText.styles';
+import { getEquationTextStyles } from './equationText.styles';
+import { useSelected, useFocused } from 'slate-react';
+import { AnyObject } from '@udecode/plate-autoformat/node_modules/@udecode/plate-core';
 
 
 export const PlateMath = ({
@@ -10,22 +8,16 @@ export const PlateMath = ({
   children,
   element,
   className,
-}: NodeProps) => {
+}: AnyObject) => {
   var c = children.props.children.props.text
-  var s = element.style
-  console.log(s)
   return (
-    <EquationTextRoot 
+    <span 
       {...attributes}
       contentEditable={false}
-      style={s}
       className={className}
-      
-
-      
     >
       {c.text}
       {children}
-    </EquationTextRoot>
+    </span>
   )
 }

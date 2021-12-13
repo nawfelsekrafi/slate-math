@@ -1,7 +1,6 @@
 import Tippy from "@tippyjs/react";
 import { getEmptyRowNode, getEmptyTableNode, PlateEditor, usePlateEditorState } from "@udecode/plate";
 import { createStyles } from "@udecode/plate-styled-components";
-import { css } from "styled-components";
 import tw from "twin.macro";
 import { ELEMENT_MATRIX } from "./defaults";
 import { getMatrixButtonStyles } from "./matrixButton.styles";

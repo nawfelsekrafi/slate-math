@@ -1,17 +1,11 @@
-import React from 'react';
-import { Combobox, ComboboxProps, comboboxStore } from '@udecode/plate-combobox';
-import { getPlatePluginOptions, usePlateEditorRef } from '@udecode/plate-core';
+import { getPluginOptions, usePlateEditorRef } from '@udecode/plate-core';
 import {
   ELEMENT_MENTION,
-  ELEMENT_MENTION_INPUT,
-  MentionNode,
   MentionPlugin,
 } from '@udecode/plate-mention';
-import { ComboboxOnSelectItem, getBlockAbove, insertNodes } from '@udecode/plate';
-import { Editor, Transforms } from 'slate';
 import { mathMentionOnSelect } from './mathMentionOnSelect';
-export declare type NoData = undefined;
-export declare type Data = unknown;
+import { Combobox, ComboboxProps, Data, NoData } from '@udecode/plate';
+
 export const MathMentionCombobox = <TData extends Data = NoData>({
   items,
   component,
@@ -19,13 +13,13 @@ export const MathMentionCombobox = <TData extends Data = NoData>({
   pluginKey = ELEMENT_MENTION,
   id = pluginKey,
 }: Pick<
-  Partial<ComboboxProps<undefined>>,
+  Partial<ComboboxProps<TData>>,
   'id' | 'items' | 'component' | 'onRenderItem'
 > & { pluginKey?: string }) => {
   const editor = usePlateEditorRef()!;
 
-  const { trigger } = getPlatePluginOptions<MentionPlugin>(editor, pluginKey);
-
+  const { trigger } = getPluginOptions<MentionPlugin>(editor, pluginKey);
+  console.log(trigger)
   return (
     <Combobox
       id={id}
@@ -35,11 +29,8 @@ export const MathMentionCombobox = <TData extends Data = NoData>({
       component={component}
       onRenderItem={onRenderItem}
       onSelectItem={mathMentionOnSelect({
-        pluginKey: pluginKey,
+        key: pluginKey,
       })}
     />
   );
 };
-
-
-

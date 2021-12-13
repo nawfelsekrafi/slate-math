@@ -1,5 +1,4 @@
-import { getEmptyRowNode, getEmptyTableNode } from "@udecode/plate"
-import { PlateEditor } from "@udecode/plate-core"
+import { getEmptyRowNode, getEmptyTableNode, PlateEditor } from "@udecode/plate"
 import { ELEMENT_EQUATION_TEXT } from "../EquationText"
 import { ELEMENT_MATRIX } from "./defaults"
 

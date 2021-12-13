@@ -5,7 +5,6 @@ import {
   getParent,
   isElement,
   isType,
-  PEditor,
   PlateEditor,
   TEditor,
   toggleList,

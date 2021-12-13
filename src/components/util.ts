@@ -1,11 +1,11 @@
 import { transform } from "@babel/core";
-import { findNode, getNode, getNodesRange, getRangeBefore, isCollapsed, KeyboardHandler, selectEditor, someNode } from "@udecode/plate";
-import { getPlatePluginType, PEditor, PlateEditor,  } from "@udecode/plate-core";
+import { findNode, getNode, getNodesRange, getRangeBefore, isCollapsed, KeyboardHandler, selectEditor, someNode, getPluginType, PlateEditor } from "@udecode/plate";
+import { PEditor } from "@udecode/plate-core";
 import { BaseEditor, Editor, Path, Range, Transforms } from "slate";
 import { ReactEditor } from "slate-react";
 import { ELEMENT_EQUATIONBOX } from "./EquationBoxElement";
 
-export const getCurrentSelection = (editor:PEditor, root?:boolean):Path | undefined => {
+export const getCurrentSelection = (editor:PlateEditor, root?:boolean):Path | undefined => {
     var at = editor.selection
     var _at: Path;
     if (Range.isRange(at) && !isCollapsed(at)) {
@@ -24,21 +24,31 @@ export const getCurrentSelection = (editor:PEditor, root?:boolean):Path | undefi
     return _at
 
 }
-export const selectFirstBox = (editor: BaseEditor | undefined) => {
-    var selection = getCurrentSelection(editor as PEditor, true)
+export const selectFirstBox = (editor:PlateEditor) => {
+    var selection = getCurrentSelection(editor, true)
+    
     if(selection){
-        let textNode = findNode(editor as PEditor, {at: selection, match: {type: getPlatePluginType(editor as PlateEditor, ELEMENT_EQUATIONBOX)}})
+        let textNode = findNode(editor, {at: selection, match: {type: getPluginType(editor, ELEMENT_EQUATIONBOX)}})
         if(textNode){
-            let target = Editor.range(editor as PEditor, textNode[1])
-            ReactEditor.focus(editor as ReactEditor)
-            Transforms.setSelection(editor as PEditor, target)
+            let target = Editor.range(editor, textNode[1])
+            ReactEditor.focus(editor as unknown as ReactEditor)
+            Transforms.setSelection(editor, target)
+            let path = target.anchor.path as Path 
+            path = Path.parent(path)            
+            while (someNode(editor, {at:path }))
+            {
+              path = Path.next(path);
+            }
+            path = Path.previous(path);
+            return path;
+
         }
     }
     
     
 }
 
-export const equationBoxOnKeyDown = (): KeyboardHandler => (editor:PEditor) => (e) => {
+export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {
     if (e.key === 'Tab' || e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         var found = false
         var selection = getCurrentSelection(editor)
@@ -48,7 +58,7 @@ export const equationBoxOnKeyDown = (): KeyboardHandler => (editor:PEditor) => (
             var pathParent = Path.parent(selection) //get parent
             let sibling = Path.next(pathParent)
             while (getNode(editor,sibling)){ //check if math equation node has any more boxes
-              let textNode = findNode(editor, {at: sibling, match: {type: getPlatePluginType(editor as PlateEditor, ELEMENT_EQUATIONBOX)}})
+              let textNode = findNode(editor, {at: sibling, match: {type: getPluginType(editor, ELEMENT_EQUATIONBOX)}})
               if(textNode){ //if found another box, select it
                 found = true
                 let target = Editor.range(editor, sibling)
@@ -70,7 +80,7 @@ export const equationBoxOnKeyDown = (): KeyboardHandler => (editor:PEditor) => (
             if(pathParent.at(pathParent.length-1)!==0) { //make sure sibling isnt negative
                 let sibling = Path.previous(pathParent)
                 while (getNode(editor,sibling)){ //check if math equation node has any more boxes
-                let textNode = findNode(editor, {at: sibling, match: {type: getPlatePluginType(editor as PlateEditor, ELEMENT_EQUATIONBOX)}})
+                let textNode = findNode(editor, {at: sibling, match: {type: getPluginType(editor as PlateEditor, ELEMENT_EQUATIONBOX)}})
                 if(textNode){ //if found another box, select it
                     found = true
                     let target = Editor.range(editor, sibling)
@@ -86,6 +96,6 @@ export const equationBoxOnKeyDown = (): KeyboardHandler => (editor:PEditor) => (
     }
     
 }
-export const containsMath = (editor: BaseEditor | undefined, selection:Path ):boolean => {
-    return someNode(editor as PEditor, {at:selection, match: {type: getPlatePluginType(editor as PlateEditor, ELEMENT_EQUATIONBOX),} })
+export const containsMath = (editor:PlateEditor, selection:Path ):boolean => {
+    return someNode(editor, {at:selection, match: {type: getPluginType(editor, ELEMENT_EQUATIONBOX)} })
 }

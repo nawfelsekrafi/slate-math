@@ -44,11 +44,11 @@
 
 .slate-sum > .slate-box:nth-child(1) {
   font-size: x-small;
-  border: red 1px solid;
+  font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
 }
 .slate-sum > .slate-box:nth-child(3) {
   font-size: x-small;
-  border: red 1px solid;
+  font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
 }
 
 /*End of summations*/
