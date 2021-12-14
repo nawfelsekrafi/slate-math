@@ -54,3 +54,22 @@ table tr:last-child th {
   font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
   font-size: 1.5em; 
 }
+
+.slate-lim > .slate-equationbox {
+  grid-area: right;
+}
+.slate-lim > div {
+  bottom: .5em;
+}
+.slate-lim > .slate-equationtext {
+  position: relative;
+  top: .5em;
+}
+
+.slate-ubigop > .slate-equationbox:nth-child(4){
+  grid-area: right;
+  border-width: 1px;
+  border-color: red;
+
+}
+

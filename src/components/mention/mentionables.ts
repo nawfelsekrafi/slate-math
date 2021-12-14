@@ -1,12 +1,11 @@
 import { AnyObject, MentionNodeData, TComboboxItem, TElement } from '@udecode/plate';
 import { getEmptyBigOpNode } from '../BigOperator/getEmptyBigOpNode';
 import { getEmptyFractionNode } from '../Fraction';
-import { getEmptyDoubleIntegralNode, getEmptyIntegralNode, getEmptyTripleIntegralNode } from '../Integral/getEmptyIntegralNode';
 import { getEmptyLimNode } from '../Limit/getEmptyLimNode';
-import { getEmptySummationNode } from '../Summation/getEmptySummationNode';
+import { getEmptyUneditableBigOpNode } from '../UneditableBigOperator/getEmptyBigOpNode';
 
 export type MentionEquationData = {
-    node: undefined | (() => TElement<AnyObject>),
+    node: undefined | ((arg0?: string) => TElement<AnyObject>),
     value:string
 
 }
@@ -83,14 +82,14 @@ export const MENTIONABLES: TComboboxItem<MentionEquationData>[] = [
   { key: '69', data: { node: undefined,  value:    '\u22c2'}, text: 'intersection'},
   { key: '70', data: { node: undefined,  value:    '\u2227'}, text: 'and'},
   { key: '71', data: { node: undefined,  value:    '\u2228'}, text: 'or'},
-  { key: '72', data: { node: getEmptyIntegralNode,  value:    '\u222b'}, text: 'integral'},
-  { key: '73', data: { node: getEmptyDoubleIntegralNode,  value:    '\u222c'}, text: 'integraldouble'},
-  { key: '74', data: { node: getEmptyTripleIntegralNode,  value:    '\u222d'}, text: 'integraltriple'},
-  { key: '75', data: { node: undefined,  value:    '\u2a0c'}, text: 'integralquadruple'},
+  { key: '72', data: { node: getEmptyUneditableBigOpNode,  value:    '\u222b'}, text: 'integral'},
+  { key: '73', data: { node: getEmptyUneditableBigOpNode,  value:    '\u222c'}, text: 'integraldouble'},
+  { key: '74', data: { node: getEmptyUneditableBigOpNode,  value:    '\u222d'}, text: 'integraltriple'},
+  { key: '75', data: { node: getEmptyUneditableBigOpNode,  value:    '\u2a0c'}, text: 'integralquadruple'},
   { key: '76', data: { node: undefined,  value:    '\u222e'}, text: 'integralcontour'},
   { key: '77', data: { node: undefined,  value:    '\u222f'}, text: 'integralsurface'},
   { key: '78', data: { node: undefined,  value:    '\u2230'}, text: 'integralvolume'},
-  { key: '79', data: { node: getEmptySummationNode,  value:    '\u2211'}, text: 'sum'},
+  { key: '79', data: { node: getEmptyUneditableBigOpNode,  value:    '\u2211'}, text: 'sum'},
   { key: '80', data: { node: getEmptyFractionNode,  value:    '\u00bc'}, text: 'fraction'},
   { key: '81', data: { node: getEmptyBigOpNode,  value:    'bigoperator'}, text: 'bigoperator'},
   { key: '82', data: { node: undefined,  value:    '\u220f'}, text: 'product'},

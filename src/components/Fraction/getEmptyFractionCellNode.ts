@@ -6,8 +6,7 @@ import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode';
 
 
 export const getEmptyFractionNode = (
-  options?: TablePluginOptions
-  & { header?: boolean }
+
 ) => {
   return <TElement>{
     type: ELEMENT_FRACTION,

@@ -5,12 +5,10 @@ import { css } from "styled-components";
 import { ELEMENT_BIG_OPERATOR } from "./components/BigOperator";
 import { ELEMENT_EQUATION_TEXT } from "./components/EquationText";
 import { ELEMENT_FRACTION } from "./components/Fraction";
-import { ELEMENT_INTEGRAL } from "./components/Integral";
 import { ELEMENT_LIMIT } from "./components/Limit";
 import { ELEMENT_MATRIX } from "./components/Matrix/defaults";
 import { autoformatRules } from "./components/mention/autoformat/autoformatRules";
 import { MENTIONABLES } from "./components/mention/mentionables";
-import { ELEMENT_SUMMATION } from "./components/Summation";
 
 const resetBlockTypesCommonRule = {
     types: [ELEMENT_BLOCKQUOTE, ELEMENT_TODO_LI],
@@ -162,7 +160,7 @@ const resetBlockTypesCommonRule = {
     selectOnBackspace: {
       options: {
         query: {
-          allow: [ELEMENT_IMAGE, ELEMENT_MEDIA_EMBED, ELEMENT_HR, ELEMENT_EQUATION_TEXT, ELEMENT_INTEGRAL, ELEMENT_SUMMATION, ELEMENT_LIMIT, ELEMENT_FRACTION, ELEMENT_BIG_OPERATOR, ELEMENT_MATRIX],
+          allow: [ELEMENT_IMAGE, ELEMENT_MEDIA_EMBED, ELEMENT_HR, ELEMENT_EQUATION_TEXT, ELEMENT_LIMIT, ELEMENT_FRACTION, ELEMENT_BIG_OPERATOR, ELEMENT_MATRIX],
         },
       },
     },

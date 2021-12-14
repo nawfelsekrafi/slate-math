@@ -2,13 +2,11 @@ import { insertNodes , getPluginType, getPlateEditorRef, PlateEditor, getPluginO
 import { ToolbarButton  } from "@udecode/plate-toolbar";
 import { getEmptyBigOpNode } from "./BigOperator/getEmptyBigOpNode";
 import { BIG_OPERATOR, FRACTION, INTEGRAL, LIMIT, MATRIX, SUMMATION } from "./defaults";
-import {integralIcon} from "./Integral/getIntegralElements"
-import { getEmptyIntegralNode } from "./Integral/getEmptyIntegralNode";
+import {integralIcon} from "./Icons/Integral/icon"
 import { getEmptyLimNode } from "./Limit/getEmptyLimNode";
-import  { summationIcon } from "./Summation"
+import  { summationIcon } from "./Icons/Summation/icon"
 import { bigOpIcon } from "./BigOperator"
 import { limitIcon } from "./Limit";
-import { getEmptySummationNode } from "./Summation/getEmptySummationNode";
 import { fractionIcon, getEmptyFractionNode } from "./Fraction"
 import { Path, BaseEditor, Transforms } from "slate";
 import { containsMath, getCurrentSelection, selectFirstBox } from "./util";
@@ -20,6 +18,7 @@ import { MentionCombobox } from "@udecode/plate-mention-ui";
 import { MENTIONABLES } from "./mention/mentionables";
 import { MathMentionCombobox } from "./mention/mathMentionComboBox";
 import { EditRoadDimensions } from "@styled-icons/material/EditRoad";
+import { getEmptyUneditableBigOpNode } from "./UneditableBigOperator/getEmptyBigOpNode";
 
 
 export const MathToolbar = () => {
@@ -77,12 +76,12 @@ function insertEquation(eq: string, editor: PlateEditor): import("react").MouseE
   }
   switch (eq){
     case INTEGRAL:{      
-      insertNodes(editor, getEmptyIntegralNode(), );
+      insertNodes(editor, getEmptyUneditableBigOpNode('\u222b'));
       selectFirstBox(editor)
         break; 
       }
     case SUMMATION: {
-      insertNodes(editor, getEmptySummationNode(), )
+      insertNodes(editor, getEmptyUneditableBigOpNode('\u2211'))
       selectFirstBox(editor)
       break; }
     case LIMIT: {

@@ -7,7 +7,7 @@ import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode';
 
 
 
-export const getEmptyLimNode = (options?: TablePluginOptions
+export const getEmptyLimNode = (
 ) => {
 
   return <TElement>{
@@ -15,6 +15,7 @@ export const getEmptyLimNode = (options?: TablePluginOptions
     children: [
       getEmptyLimCellNode(),
       getEmptyLimRowNode(),
+      getEmptyBoxNode()
     ]
   };
 };
@@ -22,9 +23,9 @@ const getEmptyLimRowNode = () => {
   return{
     type: "span",
     children: [
-      getEmptyBoxNode(),
+      getEmptyBoxNode(.75),
       getEmptyArrowCellNode(),
-      getEmptyBoxNode()
+      getEmptyBoxNode(.75)
     ]
   }
 }

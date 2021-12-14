@@ -1,0 +1,47 @@
+/*summations*/
+.summation {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+  }
+  
+  .summation > span {
+    display: block;
+    font-size: 80%;
+  }
+  
+  .summation .top-limit {
+    margin-bottom: -0.1ex;
+  }
+  
+  .summation .bottom-limit {
+    margin-top: -0.5ex;
+    font-weight: bolder;
+  }
+  
+  .summation .sum-symbol {
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+  
+  .summation .sum-symbol-ico {
+    font-size: 1.5em;
+    font-weight: bolder;
+  }
+  
+  .summation .top-limit-ico {
+    margin-bottom: -0.3ex;
+    font-weight: bolder;
+  
+  }
+  
+  .summation .bottom-limit-ico {
+    margin-top: -0.3ex;
+    font-weight: bolder;
+  
+  }
+  
+
+  /*End of summations*/
+  

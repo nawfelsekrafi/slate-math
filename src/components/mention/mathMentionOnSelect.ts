@@ -43,7 +43,7 @@ export const mathMentionOnSelect = <TData extends Data = NoData>({
     });
     var t = item.data as MentionEquationData
     if(t.node)
-      insertNodes(editor,t.node())
+      insertNodes(editor,t.node(t.value))
     else{
       insertNodes<MentionNode>(editor, {
         type: ELEMENT_EQUATION_MENTION_INSERT,
