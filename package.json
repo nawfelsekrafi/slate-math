@@ -30,6 +30,7 @@
     "@udecode/plate-mention": "^8.3.0",
     "@udecode/plate-mention-ui": "^8.3.0",
     "@udecode/plate-test-utils": "1.0.0",
+    "@udecode/plate-ui-toolbar": "^9.0.0",
     "babel-plugin-macros": "3.1.0",
     "babel-plugin-styled-components": "1.10.5",
     "babel-plugin-twin": "1.0.2",

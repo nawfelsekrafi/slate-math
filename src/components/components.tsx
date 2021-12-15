@@ -1,15 +1,8 @@
 import {  ELEMENT_TABLE, withProps, StyledElement, ELEMENT_TR, ELEMENT_TH, ELEMENT_TD, ELEMENT_CODE_BLOCK, CodeBlockElement, MentionElement, createPlateUI } from "@udecode/plate";
 import { css } from "styled-components";
 import { ELEMENT_BIG_OPERATOR } from "./BigOperator";
-import { ELEMENT_EQUATIONBOX } from "./EquationBoxElement";
-import { ELEMENT_EQUATION_TEXT } from "./EquationText";
 import { ELEMENT_FRACTION } from "./Fraction";
 import { ELEMENT_LIMIT } from "./Limit";
-import { PlateMath } from "./EquationText/getEquationTextRenderLeaf";
-import { ELEMENT_MATRIX } from "./Matrix/defaults";
-import { ELEMENT_EQUATION_MENTION } from "./mention/constants";
-import { EquationMentionElement } from "./mention/equationMentionElement";
-import { ELEMENT_MENTION, ELEMENT_MENTION_INPUT } from "@udecode/plate-mention";
 import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/defaults";
   export const components = createPlateUI({
     //[ELEMENT_MENTION]: EquationMentionElement,
@@ -61,7 +54,7 @@ import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/default
         root: [
           css`
           display: grid;
-          gap: 0px 0px;
+          gap: 0px 3px;
           grid-auto-flow: column;
           grid-template-columns: 1em fit-content(1em);
           grid-template-rows: auto auto;

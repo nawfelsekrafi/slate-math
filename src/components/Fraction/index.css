@@ -51,13 +51,13 @@
     text-align: center;
 }
 
-.slate-fraction > .slate-box {
+.slate-fraction > .slate-equationbox {
   text-align: 'center';
   width: auto;
   white-space: nowrap;
 }
 
-.slate-fraction > .slate-box:nth-child(2) {
+.slate-fraction > .slate-equationbox:nth-child(2) {
   border-top: thin solid black;
 }
 

@@ -1,12 +1,12 @@
 import { FormatColorText, Check, FontDownload, LineWeight, Link, OndemandVideo } from "@styled-icons/material";
-import { createPlugins, createBlockquotePlugin, createTodoListPlugin, createImagePlugin, createHorizontalRulePlugin, createLineHeightPlugin, createLinkPlugin, createListPlugin, createTablePlugin, createMediaEmbedPlugin, createCodeBlockPlugin, createAlignPlugin, createBoldPlugin, createCodePlugin, createItalicPlugin, createHighlightPlugin, createUnderlinePlugin, createStrikethroughPlugin, createSubscriptPlugin, createSuperscriptPlugin, createFontBackgroundColorPlugin, createFontFamilyPlugin, createFontColorPlugin, createFontSizePlugin, createFontWeightPlugin, createKbdPlugin, createNodeIdPlugin, createIndentPlugin, createResetNodePlugin, createSoftBreakPlugin, createExitBreakPlugin, createNormalizeTypesPlugin, createTrailingBlockPlugin, createSelectOnBackspacePlugin, createComboboxPlugin, createDeserializeMdPlugin, createDeserializeCsvPlugin, createDeserializeDocxPlugin, createJuicePlugin, ColorPickerToolbarDropdown, HeadingToolbar, ImageToolbarButton, LineHeightToolbarDropdown, LinkToolbarButton, MARK_BG_COLOR, MARK_COLOR, MediaEmbedToolbarButton, Plate } from "@udecode/plate";
+import { createPlugins, createBlockquotePlugin, createTodoListPlugin, createImagePlugin, createHorizontalRulePlugin, createLineHeightPlugin, createLinkPlugin, createListPlugin, createTablePlugin, createMediaEmbedPlugin, createCodeBlockPlugin, createAlignPlugin, createBoldPlugin, createCodePlugin, createItalicPlugin, createHighlightPlugin, createUnderlinePlugin, createStrikethroughPlugin, createSubscriptPlugin, createSuperscriptPlugin, createFontBackgroundColorPlugin, createFontFamilyPlugin, createFontColorPlugin, createFontSizePlugin, createFontWeightPlugin, createKbdPlugin, createNodeIdPlugin, createIndentPlugin, createResetNodePlugin, createSoftBreakPlugin, createExitBreakPlugin, createNormalizeTypesPlugin, createTrailingBlockPlugin, createSelectOnBackspacePlugin, createComboboxPlugin, createDeserializeMdPlugin, createDeserializeCsvPlugin, createDeserializeDocxPlugin, createJuicePlugin, ColorPickerToolbarDropdown, HeadingToolbar, ImageToolbarButton, LineHeightToolbarDropdown, LinkToolbarButton, MARK_BG_COLOR, MARK_COLOR, MediaEmbedToolbarButton, Plate, createPlateUI } from "@udecode/plate";
 import { createMathPlugins, MathToolbar } from "./components";
 import { BasicElementToolbarButtons, ListToolbarButtons, IndentToolbarButtons, BasicMarkToolbarButtons, AlignToolbarButtons, TableToolbarButtons } from "./Toolbars";
 import { Image } from '@styled-icons/boxicons-regular'
 import {CONFIG} from "./config"
 
 export const Plugins = () => {
-  
+  let components = createPlateUI();
   const plugins = createPlugins([
     createBlockquotePlugin(),
     createTodoListPlugin(),
@@ -47,7 +47,9 @@ export const Plugins = () => {
     createDeserializeCsvPlugin(),
     createDeserializeDocxPlugin(),
     createJuicePlugin(),
-  ]);
+  ], {
+    components,
+  });
   plugins.push(...createMathPlugins())
   return (
     <Plate

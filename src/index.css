@@ -42,7 +42,7 @@ table tr:last-child th {
 }
 
 .slate-matrix > .slate-tr > .slate-td {
-  border: 1px solid rgb(255, 0, 0);
+  border: 1px solid rgb(90, 0, 0);
 }
 
 .slate-equationMentionInsert {
@@ -53,6 +53,9 @@ table tr:last-child th {
 .slate-equationtext {
   font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
   font-size: 1.5em; 
+}
+.slate-equationbox {
+  font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
 }
 
 .slate-lim > .slate-equationbox {
