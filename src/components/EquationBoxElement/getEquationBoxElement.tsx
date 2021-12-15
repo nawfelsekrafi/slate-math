@@ -6,7 +6,6 @@ export const EquationBox = ({
     element,
     className,
   }: AnyObject) => {
-    console.log(element.size)
     const style ={fontSize: element.size + 'em'}
     return (
       <span 

@@ -26,7 +26,7 @@ export const getCurrentSelection = (editor:PlateEditor, root?:boolean):Path | un
 }
 export const selectFirstBox = (editor:PlateEditor) => {
     var selection = getCurrentSelection(editor, true)
-    
+    console.log(selection)
     if(selection){
         let textNode = findNode(editor, {at: selection, match: {type: getPluginType(editor, ELEMENT_EQUATIONBOX)}})
         if(textNode){

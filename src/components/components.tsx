@@ -39,10 +39,17 @@ import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/default
       styles: {
         root: [
           css`
-          display: grid; 
-          grid-auto-columns: fit-content(3rem);
-          grid-auto-rows: auto auto; 
-          gap: 0px 0px;
+          display: grid;
+          gap: 0px 3px;
+          grid-auto-flow: column;
+          grid-template-columns: 1em fit-content(1em);
+          grid-template-rows: auto auto;
+          grid-template-areas:
+          ". ."
+          ". right"
+          ". .";
+          align-items: center;
+          justify-items: center;
         `,
       ],
       },

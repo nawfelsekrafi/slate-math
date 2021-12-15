@@ -72,7 +72,11 @@ table tr:last-child th {
 .slate-ubigop > .slate-equationbox:nth-child(4){
   grid-area: right;
   border-width: 1px;
+
+}
+.slate-bigop > .slate-equationbox:nth-child(4){
+  grid-area: right;
+  border-width: 1px;
   border-color: red;
 
 }
-

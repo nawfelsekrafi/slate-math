@@ -94,4 +94,8 @@ export const MENTIONABLES: TComboboxItem<MentionEquationData>[] = [
   { key: '81', data: { node: getEmptyBigOpNode,            value:    'bigoperator'}, text: 'bigoperator'},
   { key: '82', data: { node: undefined,                    value:    '\u220f'}, text: 'product'},
   { key: '83', data: { node: undefined,                    value:    '\u2210'}, text: 'coproduct'},
+  { key: '84', data: { node: getEmptyUneditableBigOpNode,                    value:    '\u22c3'}, text: 'union with limits'},
+  { key: '85', data: { node: getEmptyUneditableBigOpNode,                    value:    '\u22c2'}, text: 'intersection with limits'},
+  { key: '86', data: { node: getEmptyUneditableBigOpNode,                    value:    '\u2227'}, text: 'and with limits'},
+  { key: '87', data: { node: getEmptyUneditableBigOpNode,                    value:    '\u2228'}, text: 'or with limits'},
 ];
