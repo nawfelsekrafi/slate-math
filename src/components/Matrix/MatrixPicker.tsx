@@ -1,5 +1,4 @@
-import { MatrixButton } from "./matrixButton";
-import { getMatrixPickerStyles } from "./matrixPicker.styles";
+import { MatrixButton } from "./MatrixButton";
 import { MatrixType } from "./matrixType";
 
 type MatrixPickerProps = {
@@ -13,7 +12,7 @@ type MatrixPickerProps = {
       matrixes,
       updateMatrix
   }:MatrixPickerProps) => {
-    const styles = getMatrixPickerStyles();
+    //const styles = getMatrixPickerStyles();
     return (
         <div className="matrix-container">
           {matrixes.map(({ name, rows, cols }) => (

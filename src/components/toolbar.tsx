@@ -10,7 +10,7 @@ import { limitIcon } from "./Limit";
 import { fractionIcon, getEmptyFractionNode } from "./Fraction"
 import { Path, BaseEditor, Transforms } from "slate";
 import { containsMath, getCurrentSelection, selectFirstBox } from "./util";
-import { MatrixTableDropDown } from "./Matrix/matrixDropDown";
+import { MatrixTableDropDown } from "./Matrix/MatrixDropDown";
 import { ELEMENT_MATRIX } from "./Matrix/defaults";
 import { Matrix} from "@styled-icons/simple-icons/Matrix"
 import { ELEMENT_EQUATION_MENTION } from "./mention/constants";
