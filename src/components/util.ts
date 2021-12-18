@@ -1,5 +1,5 @@
 import { transform } from "@babel/core";
-import { findNode, getNode, getNodesRange, getRangeBefore, isCollapsed, KeyboardHandler, selectEditor, someNode, getPluginType, PlateEditor } from "@udecode/plate";
+import { findNode, getNode, getNodesRange, getRangeBefore, isCollapsed, KeyboardHandler, selectEditor, someNode, getPluginType, PlateEditor, comboboxStore } from "@udecode/plate";
 import { PEditor } from "@udecode/plate-core";
 import { BaseEditor, Editor, Path, Range, Transforms } from "slate";
 import { ReactEditor } from "slate-react";
@@ -53,7 +53,7 @@ export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {
         var found = false
         var selection = getCurrentSelection(editor)
           if (selection) {
-            if(!containsMath(editor,selection))
+            if(!containsMath(editor,selection)||comboboxStore.get.isOpen()) //if not at math node of if combobox is open do nothing
               return
             var pathParent = Path.parent(selection) //get parent
             let sibling = Path.next(pathParent)
@@ -74,7 +74,7 @@ export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {
     if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         var selection = getCurrentSelection(editor)
         if (selection) {
-            if(!containsMath(editor,selection))
+            if(!containsMath(editor,selection)||comboboxStore.get.isOpen()) ////if not at math node of if combobox is open do nothing
               return
             var pathParent = Path.parent(selection) //get parent
             if(pathParent.at(pathParent.length-1)!==0) { //make sure sibling isnt negative

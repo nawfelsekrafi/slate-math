@@ -77,7 +77,7 @@ import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/default
     }),
     [ELEMENT_FRACTION]: withProps(StyledElement, {
       className: 'slate-fraction',
-      as: 'table',
+      as: 'span',
       styles: {
         root: [
           css`

@@ -13,7 +13,7 @@ export const getEmptyUneditableBigOpNode = (text?:string) => {
         getEmptyBoxNode(.75),
         getEquationTextNode(text),
         getEmptyBoxNode(.75),
-        getEmptyBoxNode()
+        getEmptyBoxNode(1,'right')
       ],
     };
   }

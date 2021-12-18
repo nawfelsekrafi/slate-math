@@ -1,4 +1,4 @@
-import { insertNodes , getPluginType, getPlateEditorRef, PlateEditor, getPluginOptions, MentionPlugin, Data, getPlugin, comboboxStore, insertEmptyElement} from "@udecode/plate";
+import { insertNodes , getPluginType, getPlateEditorRef, PlateEditor, getPluginOptions, MentionPlugin, Data, getPlugin, comboboxStore, insertEmptyElement, getComboboxStoreById, useActiveComboboxStore, Combobox} from "@udecode/plate";
 import { ToolbarButton  } from "@udecode/plate-toolbar";
 import { getEmptyBigOpNode } from "./BigOperator/getEmptyBigOpNode";
 import { BIG_OPERATOR, FRACTION, INTEGRAL, LIMIT, MATRIX, SUMMATION } from "./defaults";
@@ -17,7 +17,6 @@ import { ELEMENT_EQUATION_MENTION } from "./mention/constants";
 import { MentionCombobox } from "@udecode/plate-mention-ui";
 import { MENTIONABLES } from "./mention/mentionables";
 import { MathMentionCombobox } from "./mention/mathMentionComboBox";
-import { EditRoadDimensions } from "@styled-icons/material/EditRoad";
 import { getEmptyUneditableBigOpNode } from "./UneditableBigOperator/getEmptyBigOpNode";
 
 
@@ -94,6 +93,7 @@ function insertEquation(eq: string, editor: PlateEditor): import("react").MouseE
       break; }
     case FRACTION: {
       insertNodes(editor, getEmptyFractionNode(), )
+        
       selectFirstBox(editor)
       
       break;
