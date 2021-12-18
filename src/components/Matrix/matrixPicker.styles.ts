@@ -7,7 +7,8 @@ export const getMatrixPickerStyles = () =>
     { prefixClassNames: 'matrix-container' },
     {
       root: [
-      css`
+        tw`cursor-pointer h-4 w-4 border-0`,
+        css`
         .matrix-container {
             display: grid;
             grid-template-columns: repeat(10, 1fr);
