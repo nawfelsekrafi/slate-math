@@ -5,7 +5,7 @@ import { Transforms } from "slate";
 import { ReactEditor } from "slate-react";
 import { getDefaultMatrixes } from "./constants";
 import { createMatrix } from "./createMatrix";
-import {  MatrixButton } from "./MatrixButton";
+import {  MatrixButton } from "./matrixButton";
 import { MatrixPicker } from "./MatrixPicker";
 import { MatrixType } from "./matrixType";
 

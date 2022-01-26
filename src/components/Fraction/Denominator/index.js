@@ -5,7 +5,7 @@ const dom = () => ({
   children: [
     {
       type: "input",
-      children: [{ text: '\u2b1a' }]
+      children: [{ text: '\u2b1a' }] // HTML dotted square ⬚ , Unicode number	U+2B1A
     }
   ]
 });

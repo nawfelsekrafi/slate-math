@@ -1,0 +1,26 @@
+/*Log icon*/
+.logs {
+  position: relative;
+  display: inline-block;
+  margin: 0 0.2em;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: bolder;
+  margin-left: 25px;
+}
+
+.logs > span {
+  display: block;
+  margin: -0.5ex auto;
+}
+
+.logs .symbol-ico {
+  font-size: 0.7em;
+  font-weight: normal;
+}
+
+.logs .symbol-ico2 {
+  font-size: 1em;
+  font-weight: normal;
+  vertical-align:super;
+}

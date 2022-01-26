@@ -1,4 +1,4 @@
-import { MatrixButton } from "./MatrixButton";
+import { MatrixButton } from "./matrixButton";
 import { MatrixType } from "./matrixType";
 
 type MatrixPickerProps = {

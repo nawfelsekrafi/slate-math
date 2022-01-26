@@ -12,6 +12,16 @@
   "eslintConfig": {
     "extends": [
       "react-app"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "main": "index.js",
@@ -44,6 +54,12 @@
     "twin.macro": "2.6.2"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.4.14",
+    "@storybook/addon-essentials": "^6.4.14",
+    "@storybook/addon-links": "^6.4.14",
+    "@storybook/node-logger": "^6.4.14",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.4.14",
     "@styled-icons/simple-icons": "^10.45.0",
     "@types/katex": "^0.11.1",
     "@types/react": "^17.0.25",
@@ -62,7 +78,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "browserslist": {
     "production": [

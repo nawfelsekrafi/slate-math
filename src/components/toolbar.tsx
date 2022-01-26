@@ -1,16 +1,18 @@
 import { insertNodes , getPluginType, getPlateEditorRef, PlateEditor, getPluginOptions, MentionPlugin, Data, getPlugin, comboboxStore, insertEmptyElement, getComboboxStoreById, useActiveComboboxStore, Combobox} from "@udecode/plate";
 import { ToolbarButton  } from "@udecode/plate-toolbar";
 import { getEmptyBigOpNode } from "./BigOperator/getEmptyBigOpNode";
-import { BIG_OPERATOR, FRACTION, INTEGRAL, LIMIT, MATRIX, SUMMATION } from "./defaults";
+import { BIG_OPERATOR, FRACTION, INTEGRAL, LIMIT, LOG, MATRIX, SUMMATION } from "./defaults";
 import {integralIcon} from "./Icons/Integral/icon"
 import { getEmptyLimNode } from "./Limit/getEmptyLimNode";
+import {getEmptyLogNode} from "./Log/getEmptyLogNode";
 import  { summationIcon } from "./Icons/Summation/icon"
 import { bigOpIcon } from "./BigOperator"
 import { limitIcon } from "./Limit";
+import { logIcon } from './Log/getLogElements';
 import { fractionIcon, getEmptyFractionNode } from "./Fraction"
 import { Path, BaseEditor, Transforms } from "slate";
 import { containsMath, getCurrentSelection, selectFirstBox } from "./util";
-import { MatrixTableDropDown } from "./Matrix/MatrixDropDown";
+import { MatrixTableDropDown } from "./Matrix/matrixDropDown";
 import { ELEMENT_MATRIX } from "./Matrix/defaults";
 import { Matrix} from "@styled-icons/simple-icons/Matrix"
 import { ELEMENT_EQUATION_MENTION } from "./mention/constants";
@@ -44,6 +46,18 @@ export const MathToolbar = () => {
         onMouseDown={e=> insertEquation(LIMIT, editor)}
       />
       <ToolbarButton
+          styles={{
+            root: {
+              'marginLeft':10,
+              'marginRight': 20
+            }
+          }}
+          type={getPluginType(editor, LOG)}
+          icon={logIcon()}
+          tooltip={{content: "Create Log", theme: 'light-border'}} 
+          onMouseDown={e=> insertEquation(LOG, editor)}
+      />
+      <ToolbarButton
         type={getPluginType(editor, FRACTION)}
         icon={fractionIcon()}
         tooltip={{content: "Create Fraction", theme: 'light-border'}} 
@@ -55,9 +69,15 @@ export const MathToolbar = () => {
         tooltip={{content: "Create Big Operator", theme: 'light-border'}} 
         onMouseDown={e=> insertEquation(BIG_OPERATOR, editor)}
       />
-
       <MatrixTableDropDown pluginKey={ELEMENT_MATRIX} icon={<Matrix />} selectedIcon={<Matrix />} />
       <MathMentionCombobox items={MENTIONABLES} id={ELEMENT_EQUATION_MENTION} />
+      {/* <ToolbarButton
+        type={getPluginType(editor, LOG)}
+        icon={logIcon()}
+        tooltip={{content: "Create Log", theme: 'light-border'}} 
+        onMouseDown={e=> insertEquation(LOG, editor)}
+      /> */}
+      
       
     </>
   );
@@ -87,6 +107,11 @@ function insertEquation(eq: string, editor: PlateEditor): import("react").MouseE
       insertNodes(editor, getEmptyLimNode(), )
       selectFirstBox(editor)
       break; }
+    case LOG : {
+      insertNodes(editor, getEmptyLogNode(),)
+      selectFirstBox(editor)
+      break;
+    }
     case BIG_OPERATOR: {
       insertNodes(editor, getEmptyBigOpNode(), )
       selectFirstBox(editor)

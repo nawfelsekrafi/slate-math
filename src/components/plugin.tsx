@@ -9,6 +9,7 @@ import { ELEMENT_EQUATION_TEXT } from "./EquationText";
 import { PlateMath } from "./EquationText/getEquationTextRenderLeaf";
 import { ELEMENT_FRACTION } from "./Fraction";
 import { ELEMENT_LIMIT } from "./Limit";
+import { ELEMENT_LOG } from './Log';
 import { ELEMENT_MATRIX } from "./Matrix/defaults";
 import { ELEMENT_EQUATION_MENTION } from "./mention/constants";
 import { ELEMENT_EQUATION_MENTION_INSERT } from "./mention/defaults";
@@ -27,8 +28,6 @@ export const createEquationBoxPlugin = createPluginFactory({
   handlers: {
     onKeyDown: equationBoxOnKeyDown()
   }
-  
-  
 });
 
 
@@ -49,6 +48,7 @@ export const createMatrixPlugin = createPluginFactory({
       },
     }),
 });
+
 export const createEquationTextPlugin = createPluginFactory({
   key: ELEMENT_EQUATION_TEXT,
   component: PlateMath,
@@ -64,6 +64,7 @@ export const createUneditableBigOperator = createPluginFactory({
   //renderLeaf: getRenderLeaf(ELEMENT_EQUATIONBOX),
   
 });
+
 
 
 export   const createFractionPlugin = createPluginFactory({
@@ -84,9 +85,13 @@ export const createBigOperatorPlugin = createPluginFactory({
     key: ELEMENT_LIMIT,
     //isInline: true,
     isElement: true,
-
   });
 
+   export const createLogPlugin = createPluginFactory({
+    key: ELEMENT_LOG,
+    //isInline: true,
+    isElement: true,
+  });
   
  export const createEquationMentionInsert = createPluginFactory({
   key: ELEMENT_EQUATION_MENTION_INSERT,
@@ -96,29 +101,28 @@ export const createBigOperatorPlugin = createPluginFactory({
 
 });
   
-
-
 export const createEquationMentionPlugin = (): PlatePlugin => {
   return createMentionPlugin({ options: { trigger: '/', createMentionNode: (item) => equationMentionNode(item), id: ELEMENT_EQUATION_MENTION}, key: ELEMENT_EQUATION_MENTION  })
 }
   
 
-  export const createMathPlugins = () => {
-    const plugins = createPlugins([
-      createEquationBoxPlugin(),
-      createUneditableBigOperator(),
-      createLimitPlugin(),
-      createBigOperatorPlugin(),
-      createFractionPlugin(),
-      createEquationTextPlugin(),
-      createMatrixPlugin(),
-      createEquationMentionInsert(),
-      createEquationMentionPlugin()
-    ],{
-      components: components,
-    });
-    return plugins
-  }
+export const createMathPlugins = () => {
+  const plugins = createPlugins([
+    createEquationBoxPlugin(),
+    createUneditableBigOperator(),
+    createLimitPlugin(),
+    createLogPlugin(),
+    createBigOperatorPlugin(),
+    createFractionPlugin(),
+    createEquationTextPlugin(),
+    createMatrixPlugin(),
+    createEquationMentionInsert(),
+    createEquationMentionPlugin()
+  ],{
+    components: components,
+  });
+  return plugins
+}
 
 
 

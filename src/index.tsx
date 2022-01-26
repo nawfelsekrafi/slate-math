@@ -84,9 +84,6 @@ export const Plugins = () => {
       <HeadingToolbar> 
           <MathToolbar></MathToolbar>
       </HeadingToolbar>
-        
-        
-
     </Plate>
   );
 }

@@ -19,10 +19,12 @@ export const limitDOM = () => [
   }
 ];
 
-export const limitElement = (attributes: JSX.IntrinsicAttributes & React.ClassAttributes<HTMLSpanElement> & React.HTMLAttributes<HTMLSpanElement>, children: string | number | boolean | {} | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactNodeArray | React.ReactPortal | null | undefined) => {
+export const limitElement = (attributes: JSX.IntrinsicAttributes & React.ClassAttributes<HTMLSpanElement> & 
+  React.HTMLAttributes<HTMLSpanElement>, children: string | number | boolean | {} | React.ReactElement<any, string | 
+  React.JSXElementConstructor<any>> | React.ReactNodeArray | React.ReactPortal | null | undefined) => {
   return (
     <span className="limit" {...attributes}>
-      lim{children}y
+      lim{children}
     </span>
   );
 };

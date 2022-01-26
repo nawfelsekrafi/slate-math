@@ -3,7 +3,7 @@ import { getEmptyRowNode, getEmptyTableNode, PlateEditor, usePlateEditorState } 
 import { createStyles } from "@udecode/plate-styled-components";
 import tw from "twin.macro";
 import { ELEMENT_MATRIX } from "./defaults"; 
-import { getMatrixButtonStyles } from "./MatrixButton.styles";
+import { getMatrixButtonStyles } from "./matrixButton.styles";
 
 type MatrixButtonProps = {
     name:string
