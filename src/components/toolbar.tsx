@@ -1,7 +1,7 @@
 import { insertNodes , getPluginType, getPlateEditorRef, PlateEditor, getPluginOptions, MentionPlugin, Data, getPlugin, comboboxStore, insertEmptyElement, getComboboxStoreById, useActiveComboboxStore, Combobox} from "@udecode/plate";
 import { ToolbarButton  } from "@udecode/plate-toolbar";
 import { getEmptyBigOpNode } from "./BigOperator/getEmptyBigOpNode";
-import { BIG_OPERATOR, FRACTION, INTEGRAL, LIMIT, LOG, MATRIX, SUMMATION } from "./defaults";
+import { ACCENT, BIG_OPERATOR, FRACTION, INTEGRAL, LIMIT, LOG, MATRIX, SUMMATION } from "./defaults";
 import {integralIcon} from "./Icons/Integral/icon"
 import { getEmptyLimNode } from "./Limit/getEmptyLimNode";
 import {getEmptyLogNode} from "./Log/getEmptyLogNode";
@@ -20,6 +20,8 @@ import { MentionCombobox } from "@udecode/plate-mention-ui";
 import { MENTIONABLES } from "./mention/mentionables";
 import { MathMentionCombobox } from "./mention/mathMentionComboBox";
 import { getEmptyUneditableBigOpNode } from "./UneditableBigOperator/getEmptyBigOpNode";
+import { accentIcon } from './Accent/getAccentElements';
+import { getEmptyAccentNode } from './Accent/getEmptyAccentNode';
 
 
 export const MathToolbar = () => {
@@ -78,7 +80,12 @@ export const MathToolbar = () => {
         onMouseDown={e=> insertEquation(LOG, editor)}
       /> */}
       
-      
+      <ToolbarButton
+        type={getPluginType(editor, ACCENT)}
+        icon={accentIcon()}
+        tooltip={{content: "Create Accent", theme: 'light-border'}} 
+        onMouseDown={e=> insertEquation(ACCENT, editor)}
+      />
     </>
   );
 };
@@ -113,15 +120,18 @@ function insertEquation(eq: string, editor: PlateEditor): import("react").MouseE
       selectFirstBox(editor)
       break;
     }
+    case ACCENT: {
+      insertNodes(editor,getEmptyAccentNode(),)
+      selectFirstBox(editor)
+      break;
+    }
     case BIG_OPERATOR: {
       insertNodes(editor, getEmptyBigOpNode(), )
       selectFirstBox(editor)
       break; }
     case FRACTION: {
       insertNodes(editor, getEmptyFractionNode(), )
-        
       selectFirstBox(editor)
-      
       break;
     }
     default: {

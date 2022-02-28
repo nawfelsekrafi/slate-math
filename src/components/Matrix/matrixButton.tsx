@@ -24,11 +24,12 @@ export const MatrixButton = ({
     const styles = getMatrixButtonStyles();
     const content = (
         <div className="matrix-selector-data">
-            <button 
-            data-testid="matrix-selector-button"
+            <button
+            className="matrixButton-YAWANG" 
+            data-testid="matrix-selector-button-YAWANG"
             type="button"
-            aria-label={name}
-            name={name}
+            aria-label={'\u2b1a'}
+            name={'\u2b1a'}
             onClick={() => updateMatrix(rowNum, colNum)}
             css={styles.root.css}
             ></button>
