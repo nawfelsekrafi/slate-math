@@ -18,6 +18,8 @@ import { equationMentionNode } from "./mention/equationMentionNode";
 import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/defaults";
 import { equationBoxOnKeyDown } from "./util";
 import {LogComponent} from './Log/getLogElements';
+import { AccentComponent } from './Accent/getAccentElements';
+import { ELEMENT_ACCENT } from './Accent';
 // import {limitElement} from './Limit/getLimitElements';
 
 
@@ -96,6 +98,12 @@ export const createLogPlugin = createPluginFactory({
     component: LogComponent,
   }); // parameter is a PlatePlugin object
   
+export const createAccentPlugin = createPluginFactory({
+    key: ELEMENT_ACCENT,
+    isElement: true,
+    component: AccentComponent,
+  }); // parameter is a PlatePlugin object
+  
 export const createEquationMentionInsert = createPluginFactory({
   key: ELEMENT_EQUATION_MENTION_INSERT,
   component: EquationMentionElement,
@@ -115,6 +123,7 @@ export const createMathPlugins = () => {
     createUneditableBigOperator(),
     createLimitPlugin(),
     createLogPlugin(),
+    createAccentPlugin(),
     createBigOperatorPlugin(),
     createFractionPlugin(),
     createEquationTextPlugin(),
