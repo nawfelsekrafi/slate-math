@@ -2,6 +2,7 @@ import React from "react";
 import LimIndex from "./LimIndex";
 import LimValue from "./LimValue";
 import "./index.css";
+import { AnyObject } from '@udecode/plate-dnd/node_modules/@udecode/plate-core';
 //import LimImage from '../LimImage.png';
 
 export const limitDOM = () => [
@@ -29,6 +30,21 @@ export const limitElement = (attributes: JSX.IntrinsicAttributes & React.ClassAt
   );
 };
 
+export const LimitComponent = ({
+    attributes,
+    children,
+    element,
+    className,
+  }: AnyObject) => {
+  return (
+    <span 
+      {...attributes}
+      className={`${className} limes`}
+    >
+      {children}
+    </span>
+  );
+}
 
 export const limitIcon = () => {
   return (

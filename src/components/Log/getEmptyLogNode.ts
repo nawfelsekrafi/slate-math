@@ -4,10 +4,8 @@ import { ELEMENT_LOG } from './defaults';
 import { ELEMENT_EQUATION_TEXT } from '../EquationText';
 import { getEmptyBoxNode,getEmptyBoxNodePower } from '../EquationBoxElement/getEquationBoxNode';
 
-
 export const getEmptyLogNode = (
 ) => {
-
   return <TElement>{
     type: ELEMENT_LOG,
     children: [

@@ -9,8 +9,22 @@
   margin-left: 25px;
 }
 
+.logs > div {
+  display: inline-block;
+  font-size: 1.4em;
+}
+
+.logs > div:nth-child(2) {
+  font-size: 0.75em;
+}
+
+.logs > div:nth-child(3) {
+  font-size: 1em;
+  vertical-align: super;
+}
+
 .logs > span {
-  display: block;
+  display: inline-block;
   margin: -0.5ex auto;
 }
 
@@ -22,5 +36,9 @@
 .logs .symbol-ico2 {
   font-size: 1em;
   font-weight: normal;
-  vertical-align:super;
+  vertical-align: super;
+}
+
+.logs .slate-equationbox:nth-child(3) {
+  vertical-align: super;
 }

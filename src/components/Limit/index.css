@@ -1,25 +1,23 @@
 /*Limit*/
-.LimIndex{
+.LimIndex {
   position: relative;
-  top: .8em;
+  top: 0.8em;
   right: 2.4em;
   font-size: 60%;
 }
 
-
-.arrow{
+.arrow {
   position: relative;
-  top: .8em;
+  top: 0.8em;
   right: 2.3em;
   font-size: 60%;
 }
 
-
-.LimValue{
+.LimValue {
   position: relative;
-  top: .8em;
+  top: 0.8em;
   right: 2.2em;
-  font-size: 60%;;
+  font-size: 60%;
 }
 
 /*Limit icon*/
@@ -29,12 +27,38 @@
   margin: 0 0.2em;
   vertical-align: middle;
   text-align: center;
+  font-family: Cambria, Georgia, serif;
+  font-style: normal;
+  font-variant: normal;
   font-weight: bolder;
-
 }
 
-.limes>span {
+.limes > div {
+  position: relative;
   display: block;
+  font-size: 1.4em;
+}
+.limes > div:nth-child(2) {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  display: flex;
+  font-family: Cambria, Georgia, serif;
+  font-style: normal;
+  font-variant: normal;
+  font-size: 0.8em;
+}
+
+.limes > div:nth-child(3) {
+  position: absolute;
+  top: -40px;
+  display: inline-block;
+  left: 30px;
+}
+
+.limes > span {
+  display: block;
+  display: inline-block;
   margin: -0.5ex auto;
 }
 
@@ -42,4 +66,3 @@
 .limes span.overdn {
   font-size: 100%;
 }
-

@@ -86,13 +86,12 @@ export const MathToolbar = () => {
 //export const getPreviewRenderLeaf = (): RenderLeaf => () => (props: RenderLeafProps) => <Latex {...props} />;
 
 function insertEquation(eq: string, editor: PlateEditor): import("react").MouseEventHandler<HTMLSpanElement> | undefined {
-
-
   var selection = getCurrentSelection(editor)
   if(selection){
     if(containsMath(editor, Path.levels(selection)[1]))
       return
   }
+  console.log("==========" + eq);
   switch (eq){
     case INTEGRAL:{      
       insertNodes(editor, getEmptyUneditableBigOpNode('\u222b'));
@@ -108,7 +107,9 @@ function insertEquation(eq: string, editor: PlateEditor): import("react").MouseE
       selectFirstBox(editor)
       break; }
     case LOG : {
-      insertNodes(editor, getEmptyLogNode(),)
+      const test1 = getEmptyLogNode()
+      // insertNodes(editor, getEmptyLogNode(),)
+      insertNodes(editor, test1,)
       selectFirstBox(editor)
       break;
     }

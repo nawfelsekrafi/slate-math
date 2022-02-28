@@ -8,7 +8,7 @@ import { EquationBox } from "./EquationBoxElement/getEquationBoxElement";
 import { ELEMENT_EQUATION_TEXT } from "./EquationText";
 import { PlateMath } from "./EquationText/getEquationTextRenderLeaf";
 import { ELEMENT_FRACTION } from "./Fraction";
-import { ELEMENT_LIMIT } from "./Limit";
+import { ELEMENT_LIMIT, LimitComponent } from "./Limit";
 import { ELEMENT_LOG } from './Log';
 import { ELEMENT_MATRIX } from "./Matrix/defaults";
 import { ELEMENT_EQUATION_MENTION } from "./mention/constants";
@@ -17,6 +17,8 @@ import { EquationMentionElement } from "./mention/equationMentionElement";
 import { equationMentionNode } from "./mention/equationMentionNode";
 import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/defaults";
 import { equationBoxOnKeyDown } from "./util";
+import {LogComponent} from './Log/getLogElements';
+// import {limitElement} from './Limit/getLimitElements';
 
 
 
@@ -81,19 +83,20 @@ export const createBigOperatorPlugin = createPluginFactory({
 
   });
 
- export const createLimitPlugin = createPluginFactory({
+export const createLimitPlugin = createPluginFactory({
     key: ELEMENT_LIMIT,
     //isInline: true,
     isElement: true,
+    component: LimitComponent,
   });
 
-   export const createLogPlugin = createPluginFactory({
+export const createLogPlugin = createPluginFactory({
     key: ELEMENT_LOG,
-    //isInline: true,
     isElement: true,
-  });
+    component: LogComponent,
+  }); // parameter is a PlatePlugin object
   
- export const createEquationMentionInsert = createPluginFactory({
+export const createEquationMentionInsert = createPluginFactory({
   key: ELEMENT_EQUATION_MENTION_INSERT,
   component: EquationMentionElement,
   isInline: true,
