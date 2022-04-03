@@ -18,8 +18,16 @@
 .accents .slate-equationbox:nth-child(2) {
   display: block;
   margin-top: -15px;
+  margin-bottom: 20px;
 }
 
 .accents > div:nth-child(2) {
   margin-top: -14px;
+}
+
+.accent-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 0.8em;
+  grid-row-gap: 0.8em;
 }

@@ -22,6 +22,8 @@ import { MathMentionCombobox } from "./mention/mathMentionComboBox";
 import { getEmptyUneditableBigOpNode } from "./UneditableBigOperator/getEmptyBigOpNode";
 import { accentIcon } from './Accent/getAccentElements';
 import { getEmptyAccentNode } from './Accent/getEmptyAccentNode';
+import { AccentTableDropDown } from './Accent/accentDropDown';
+import { ELEMENT_ACCENT } from './Accent';
 
 
 export const MathToolbar = () => {
@@ -42,6 +44,12 @@ export const MathToolbar = () => {
         onMouseDown={e=> insertEquation(SUMMATION, editor)}
       />
       <ToolbarButton
+          styles={{
+            root: {
+              'marginLeft':10,
+              'marginRight': 15
+            }
+          }}
         type={getPluginType(editor, LIMIT)}
         icon={limitIcon()}
         tooltip={{content: "Create Limit", theme: 'light-border'}} 
@@ -50,7 +58,6 @@ export const MathToolbar = () => {
       <ToolbarButton
           styles={{
             root: {
-              'marginLeft':10,
               'marginRight': 20
             }
           }}
@@ -71,8 +78,15 @@ export const MathToolbar = () => {
         tooltip={{content: "Create Big Operator", theme: 'light-border'}} 
         onMouseDown={e=> insertEquation(BIG_OPERATOR, editor)}
       />
-      <MatrixTableDropDown pluginKey={ELEMENT_MATRIX} icon={<Matrix />} selectedIcon={<Matrix />} />
-      <MathMentionCombobox items={MENTIONABLES} id={ELEMENT_EQUATION_MENTION} />
+      <MatrixTableDropDown 
+        pluginKey={ELEMENT_MATRIX} 
+        icon={<Matrix />} 
+        selectedIcon={<Matrix />} />
+
+      <MathMentionCombobox 
+        items={MENTIONABLES} 
+        id={ELEMENT_EQUATION_MENTION} />
+        
       {/* <ToolbarButton
         type={getPluginType(editor, LOG)}
         icon={logIcon()}
@@ -86,6 +100,12 @@ export const MathToolbar = () => {
         tooltip={{content: "Create Accent", theme: 'light-border'}} 
         onMouseDown={e=> insertEquation(ACCENT, editor)}
       />
+
+      {/*for accent icon, it can be clicked to show a drop down menu*/}
+       <AccentTableDropDown 
+        pluginKey={ELEMENT_ACCENT} 
+        icon={accentIcon()} 
+        selectedIcon={accentIcon()} />
     </>
   );
 };
