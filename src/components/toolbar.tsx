@@ -1,7 +1,7 @@
-import { insertNodes , getPluginType, getPlateEditorRef, PlateEditor, getPluginOptions, MentionPlugin, Data, getPlugin, comboboxStore, insertEmptyElement, getComboboxStoreById, useActiveComboboxStore, Combobox} from "@udecode/plate";
+import { insertNodes , getPluginType, getPlateEditorRef, PlateEditor, serializeHtml} from "@udecode/plate";
 import { ToolbarButton  } from "@udecode/plate-toolbar";
 import { getEmptyBigOpNode } from "./BigOperator/getEmptyBigOpNode";
-import { ACCENT, BIG_OPERATOR, FRACTION, INTEGRAL, LIMIT, LOG, MATRIX, SUMMATION } from "./defaults";
+import { ACCENT, BIG_OPERATOR, FRACTION, INTEGRAL, LIMIT, LOG, SUMMATION } from "./defaults";
 import {integralIcon} from "./Icons/Integral/icon"
 import { getEmptyLimNode } from "./Limit/getEmptyLimNode";
 import {getEmptyLogNode} from "./Log/getEmptyLogNode";
@@ -9,23 +9,32 @@ import  { summationIcon } from "./Icons/Summation/icon"
 import { bigOpIcon } from "./BigOperator"
 import { limitIcon } from "./Limit";
 import { logIcon } from './Log/getLogElements';
+import {FolderDownload} from "@styled-icons/icomoon/FolderDownload";
+import {FolderUpload} from "@styled-icons/icomoon/FolderUpload";
+
 import { fractionIcon, getEmptyFractionNode } from "./Fraction"
-import { Path, BaseEditor, Transforms } from "slate";
-import { containsMath, getCurrentSelection, selectFirstBox } from "./util";
+import {  containsMathContainer, getCurrentSelection, selectFirstBox } from "./util";
 import { MatrixTableDropDown } from "./Matrix/matrixDropDown";
 import { ELEMENT_MATRIX } from "./Matrix/defaults";
 import { Matrix} from "@styled-icons/simple-icons/Matrix"
 import { ELEMENT_EQUATION_MENTION } from "./mention/constants";
-import { MentionCombobox } from "@udecode/plate-mention-ui";
 import { MENTIONABLES } from "./mention/mentionables";
 import { MathMentionCombobox } from "./mention/mathMentionComboBox";
 import { getEmptyUneditableBigOpNode } from "./UneditableBigOperator/getEmptyBigOpNode";
 import { accentIcon } from './Accent/getAccentElements';
 import { getEmptyAccentNode } from './Accent/getEmptyAccentNode';
+import { ReactEditor } from "slate-react";
+import { getContainerNode } from "./MathContainer/getContainerNode";
+import { useFilePicker } from "use-file-picker";
+import EqLoader from "./load";
+import EqSaver from "./save";
+import { createMathPlugins } from "./plugin";
 
 
 export const MathToolbar = () => {
+
   const editor = getPlateEditorRef()!
+
   return (
     
     <>
@@ -71,6 +80,7 @@ export const MathToolbar = () => {
         tooltip={{content: "Create Big Operator", theme: 'light-border'}} 
         onMouseDown={e=> insertEquation(BIG_OPERATOR, editor)}
       />
+
       <MatrixTableDropDown pluginKey={ELEMENT_MATRIX} icon={<Matrix />} selectedIcon={<Matrix />} />
       <MathMentionCombobox items={MENTIONABLES} id={ELEMENT_EQUATION_MENTION} />
       {/* <ToolbarButton
@@ -86,6 +96,9 @@ export const MathToolbar = () => {
         tooltip={{content: "Create Accent", theme: 'light-border'}} 
         onMouseDown={e=> insertEquation(ACCENT, editor)}
       />
+
+      <EqLoader/>
+      <EqSaver />
     </>
   );
 };
@@ -95,50 +108,136 @@ export const MathToolbar = () => {
 function insertEquation(eq: string, editor: PlateEditor): import("react").MouseEventHandler<HTMLSpanElement> | undefined {
   var selection = getCurrentSelection(editor)
   if(selection){
-    if(containsMath(editor, Path.levels(selection)[1]))
-      return
+    console.log(selection)
+    console.log(containsMathContainer(editor,selection));
   }
-  console.log("==========" + eq);
+    
+  var isFocused = ReactEditor.isFocused(editor)
   switch (eq){
-    case INTEGRAL:{      
-      insertNodes(editor, getEmptyUneditableBigOpNode('\u222b'));
-      selectFirstBox(editor)
+    case INTEGRAL:{ 
+      insertNodes(editor, getContainerNode(getEmptyUneditableBigOpNode('\u222b')));
+      selectFirstBox(editor);
+      
         break; 
       }
     case SUMMATION: {
-      insertNodes(editor, getEmptyUneditableBigOpNode('\u2211'))
+      insertNodes(editor, getContainerNode(getEmptyUneditableBigOpNode('\u2211')))
       selectFirstBox(editor)
       break; }
     case LIMIT: {
-      insertNodes(editor, getEmptyLimNode(), )
+      insertNodes(editor, getContainerNode(getEmptyLimNode()))
       selectFirstBox(editor)
       break; }
     case LOG : {
-      const test1 = getEmptyLogNode()
-      // insertNodes(editor, getEmptyLogNode(),)
-      insertNodes(editor, test1,)
+      insertNodes(editor, getContainerNode(getEmptyLogNode()))
       selectFirstBox(editor)
       break;
     }
     case ACCENT: {
-      insertNodes(editor,getEmptyAccentNode(),)
+      insertNodes(editor, getContainerNode(getEmptyAccentNode()))
       selectFirstBox(editor)
       break;
     }
     case BIG_OPERATOR: {
-      insertNodes(editor, getEmptyBigOpNode(), )
+      insertNodes(editor, getContainerNode(getEmptyBigOpNode()))
       selectFirstBox(editor)
       break; }
     case FRACTION: {
-      insertNodes(editor, getEmptyFractionNode(), )
+      insertNodes(editor, getContainerNode(getEmptyFractionNode()))
       selectFirstBox(editor)
       break;
     }
     default: {
       break; }
   }
+  /*
+  if(isFocused){
+    console.log("foc");
+    switch (eq){
+      case INTEGRAL:{ 
+        insertNodes(editor, getMathEditor(getEmptyUneditableBigOpNode('\u222b')));
+        selectFirstBox(editor)
+          break; 
+        }
+      case SUMMATION: {
+        insertNodes(editor, getMathEditor(getEmptyUneditableBigOpNode('\u2211')))
+        selectFirstBox(editor)
+        break; }
+      case LIMIT: {
+        insertNodes(editor, getMathEditor(getEmptyLimNode()) )
+        selectFirstBox(editor)
+        break; }
+      case LOG : {
+        const test1 = getEmptyLogNode()
+        // insertNodes(editor, getEmptyLogNode(),)
+        insertNodes(editor, getMathEditor(getEmptyLogNode()))
+        selectFirstBox(editor)
+        break;
+      }
+      case ACCENT: {
+        insertNodes(editor, getMathEditor(getEmptyAccentNode()))
+        selectFirstBox(editor)
+        break;
+      }
+      case BIG_OPERATOR: {
+        insertNodes(editor, getMathEditor(getEmptyBigOpNode()))
+        selectFirstBox(editor)
+        break; }
+      case FRACTION: {
+        insertNodes(editor, getMathEditor(getEmptyFractionNode()) )
+        selectFirstBox(editor)
+        break;
+      }
+      default: {
+        break; }
+    }
+  }
+  else{
+    switch (eq){
+      case INTEGRAL:{ 
+        insertNodes(editor, getEmptyUneditableBigOpNode('\u222b'));
+        selectFirstBox(editor);
+        
+          break; 
+        }
+      case SUMMATION: {
+        insertNodes(editor, getEmptyUneditableBigOpNode('\u2211'))
+        selectFirstBox(editor)
+        break; }
+      case LIMIT: {
+        insertNodes(editor, getEmptyLimNode(), )
+        selectFirstBox(editor)
+        break; }
+      case LOG : {
+        const test1 = getEmptyLogNode()
+        // insertNodes(editor, getEmptyLogNode(),)
+        insertNodes(editor, test1,)
+        selectFirstBox(editor)
+        break;
+      }
+      case ACCENT: {
+        insertNodes(editor,getEmptyAccentNode(),)
+        selectFirstBox(editor)
+        break;
+      }
+      case BIG_OPERATOR: {
+        insertNodes(editor, getEmptyBigOpNode(), )
+        selectFirstBox(editor)
+        break; }
+      case FRACTION: {
+        insertNodes(editor, getEmptyFractionNode(), )
+        selectFirstBox(editor)
+        break;
+      }
+      default: {
+        break; }
+    }
+    
+  }
+*/
   return undefined;
 }
+
 
 
 

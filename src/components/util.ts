@@ -4,6 +4,7 @@ import { PEditor } from "@udecode/plate-core";
 import { BaseEditor, Editor, Path, Range, Transforms } from "slate";
 import { ReactEditor } from "slate-react";
 import { ELEMENT_EQUATIONBOX } from "./EquationBoxElement";
+import { ELEMENT_MATH_CONTAINER } from "./MathContainer/defaults";
 
 export const getCurrentSelection = (editor:PlateEditor, root?:boolean):Path | undefined => {
     var at = editor.selection
@@ -26,7 +27,6 @@ export const getCurrentSelection = (editor:PlateEditor, root?:boolean):Path | un
 }
 export const selectFirstBox = (editor:PlateEditor) => {
     var selection = getCurrentSelection(editor, true)
-    console.log(selection)
     if(selection){
         let textNode = findNode(editor, {at: selection, match: {type: getPluginType(editor, ELEMENT_EQUATIONBOX)}})
         if(textNode){
@@ -49,6 +49,7 @@ export const selectFirstBox = (editor:PlateEditor) => {
 }
 
 export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {
+  console.log("FDS");
     if (e.key === 'Tab' || e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         var found = false
         var selection = getCurrentSelection(editor)
@@ -98,4 +99,12 @@ export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {
 }
 export const containsMath = (editor:PlateEditor, selection:Path ):boolean => {
     return someNode(editor, {at:selection, match: {type: getPluginType(editor, ELEMENT_EQUATIONBOX)} })
+}
+
+export const containsMathContainer = (editor:PlateEditor, selection:Path ):boolean => {
+
+  
+  var n = findNode(editor, {at: selection.slice(0,selection.length-2), match: {type: getPluginType(editor as PlateEditor, ELEMENT_MATH_CONTAINER)}})
+  console.log(n)
+  return n!=undefined;
 }

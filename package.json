@@ -27,8 +27,10 @@
   "main": "index.js",
   "dependencies": {
     "@babel/core": "7.14.6",
+    "@emotion/babel-preset-css-prop": "^11.2.0",
     "@styled-icons/boxicons-regular": "10.23.0",
     "@styled-icons/foundation": "10.28.0",
+    "@styled-icons/icomoon": "^10.34.0",
     "@styled-icons/material": "10.28.0",
     "@tippyjs/react": "4.2.5",
     "@udecode/plate": "^8.3.1",
@@ -45,13 +47,15 @@
     "babel-plugin-styled-components": "1.10.5",
     "babel-plugin-twin": "1.0.2",
     "faker": "4.1.0",
+    "file-saver": "^2.0.5",
     "react-dom": "17.0.1",
     "slate": "0.66.1",
     "slate-history": "0.66.0",
     "slate-hyperscript": "0.66.0",
     "slate-react": "0.66.1",
     "tailwindcss": "2.2.4",
-    "twin.macro": "2.6.2"
+    "twin.macro": "2.6.2",
+    "use-file-picker": "^1.4.2"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.4.14",
@@ -61,10 +65,12 @@
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.4.14",
     "@styled-icons/simple-icons": "^10.45.0",
+    "@types/file-saver": "^2.0.5",
     "@types/katex": "^0.11.1",
     "@types/react": "^17.0.25",
     "@types/react-dom": "^17.0.9",
     "@types/styled-components": "^5.1.14",
+    "babel-preset-gatsby": "^2.9.0",
     "katex": "^0.13.24",
     "react": "^17.0.1",
     "react-scripts": "^4.0.3",
@@ -73,6 +79,7 @@
   },
   "babelMacros": {
     "twin": {
+      "config": "./components/tailwind.config.js",
       "preset": "styled-components"
     }
   },

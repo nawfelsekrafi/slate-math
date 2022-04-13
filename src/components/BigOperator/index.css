@@ -41,17 +41,5 @@
   font-weight: bolder;
 
 }
-.slate-bigop > .slate-box:nth-child(1) {
-  font-size: x-small;
-  font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
-}
 
-.slate-bigop > div{
-  font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
-  font-size: 1.5em; 
-}
-.slate-bigop > .slate-box:nth-child(3) {
-  font-size: x-small;
-  font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
-}
 /*End of bigOperators*/

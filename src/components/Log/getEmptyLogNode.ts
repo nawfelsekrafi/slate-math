@@ -2,7 +2,7 @@ import { ELEMENT_TR, TablePluginOptions, TElement
  } from '@udecode/plate';
 import { ELEMENT_LOG } from './defaults';
 import { ELEMENT_EQUATION_TEXT } from '../EquationText';
-import { getEmptyBoxNode,getEmptyBoxNodePower } from '../EquationBoxElement/getEquationBoxNode';
+import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode';
 
 export const getEmptyLogNode = (
 ) => {
@@ -11,7 +11,7 @@ export const getEmptyLogNode = (
     children: [
       getEmptyLogCellNode(),
       getEmptyBoxNode(0.75, 'right'),
-      getEmptyBoxNodePower(1,'right')
+      getEmptyBoxNode(1,'right')
     ]
   };
 };

@@ -20,15 +20,19 @@ import { equationBoxOnKeyDown } from "./util";
 import {LogComponent} from './Log/getLogElements';
 import { AccentComponent } from './Accent/getAccentElements';
 import { ELEMENT_ACCENT } from './Accent';
+import { ELEMENT_MATHEDITOR } from "./MathEditor/constants";
+import { MathEditor } from "./MathEditor/MathEditor";
 // import {limitElement} from './Limit/getLimitElements';
-
+import {withBox} from "./EquationBoxElement/withBox"
+import { ELEMENT_MATH_CONTAINER } from "./MathContainer/defaults";
 
 
 export const createEquationBoxPlugin = createPluginFactory({
   key: ELEMENT_EQUATIONBOX,
-  //isInline: true,
+  isInline: true,
   isElement: true,
   component: EquationBox,
+  withOverrides: withBox,
   handlers: {
     onKeyDown: equationBoxOnKeyDown()
   }
@@ -56,14 +60,14 @@ export const createMatrixPlugin = createPluginFactory({
 export const createEquationTextPlugin = createPluginFactory({
   key: ELEMENT_EQUATION_TEXT,
   component: PlateMath,
-  //isInline: true,
+  isInline: true,
   isVoid: true,
   isElement: true,
 });
 
 export const createUneditableBigOperator = createPluginFactory({
   key: ELEMENT_UNEDITABLE_BIG_OPERATOR,
-  //isInline: true,
+  isInline: true,
   isElement: true,
   //renderLeaf: getRenderLeaf(ELEMENT_EQUATIONBOX),
   
@@ -111,14 +115,29 @@ export const createEquationMentionInsert = createPluginFactory({
   isElement: true,
 
 });
+export const createMathContainerPlugin = createPluginFactory({
+  key: ELEMENT_MATH_CONTAINER,
+  isInline: true,
+  isElement: true,
+
+});
   
 export const createEquationMentionPlugin = (): PlatePlugin => {
   return createMentionPlugin({ options: { trigger: '/', createMentionNode: (item) => equationMentionNode(item), id: ELEMENT_EQUATION_MENTION}, key: ELEMENT_EQUATION_MENTION  })
 }
-  
+
+export const createMathEditorPlugin = createPluginFactory({
+  key: ELEMENT_MATHEDITOR,
+  component: MathEditor,
+  //isInline: true,
+  isVoid: true,
+  isElement: true,
+
+});
 
 export const createMathPlugins = () => {
   const plugins = createPlugins([
+    createMathContainerPlugin(),
     createEquationBoxPlugin(),
     createUneditableBigOperator(),
     createLimitPlugin(),
@@ -129,7 +148,8 @@ export const createMathPlugins = () => {
     createEquationTextPlugin(),
     createMatrixPlugin(),
     createEquationMentionInsert(),
-    createEquationMentionPlugin()
+    createEquationMentionPlugin(),
+    createMathEditorPlugin(),
   ],{
     components: components,
   });

@@ -15,7 +15,6 @@ export const getEmptyLimNode = (
     children: [
       getEmptyLimCellNode(),
       getEmptyLimRowNode(),
-      getEmptyBoxNode(1,'right')
     ]
   };
 };

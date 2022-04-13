@@ -27,13 +27,12 @@ export const mathMentionOnSelect = <TData extends Data = NoData>({
     editor.selection &&
     pathAbove &&
     Editor.isEnd(editor, editor.selection.anchor, pathAbove);
-
   Editor.withoutNormalizing(editor, () => {
     // insert a space to fix the bug
     if (isBlockEnd) {
+      console.log("block end")
       Transforms.insertText(editor, ' ');
     }
-
     // select the text and insert the element
     Transforms.select(editor, targetRange);
     
@@ -59,6 +58,7 @@ export const mathMentionOnSelect = <TData extends Data = NoData>({
 
     // delete the inserted space
     if (isBlockEnd && !insertSpaceAfterMention) {
+      console.log("delete")
       Transforms.delete(editor);
     }
   });
