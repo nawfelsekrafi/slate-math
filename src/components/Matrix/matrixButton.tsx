@@ -25,8 +25,8 @@ export const MatrixButton = ({
     const content = (
         <div className="matrix-selector-data">
             <button
-            className="matrixButton-YAWANG" 
-            data-testid="matrix-selector-button-YAWANG"
+            className="matrixButton" 
+            data-testid="matrix-selector-button"
             type="button"
             aria-label={'\u2b1a'}
             name={'\u2b1a'}

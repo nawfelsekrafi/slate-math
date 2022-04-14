@@ -51,6 +51,12 @@ export const MathToolbar = () => {
         onMouseDown={e=> insertEquation(SUMMATION, editor)}
       />
       <ToolbarButton
+          styles={{
+            root: {
+              'marginLeft':10,
+              'marginRight': 15
+            }
+          }}
         type={getPluginType(editor, LIMIT)}
         icon={limitIcon()}
         tooltip={{content: "Create Limit", theme: 'light-border'}} 
@@ -59,7 +65,6 @@ export const MathToolbar = () => {
       <ToolbarButton
           styles={{
             root: {
-              'marginLeft':10,
               'marginRight': 20
             }
           }}

@@ -6,7 +6,6 @@
   vertical-align: middle;
   text-align: center;
   font-weight: bolder;
-  margin-left: 25px;
 }
 
 .logs > div {
@@ -41,4 +40,8 @@
 
 .logs .slate-equationbox:nth-child(3) {
   vertical-align: super;
+}
+
+.logs .overup {
+  margin-left: 15px;
 }
