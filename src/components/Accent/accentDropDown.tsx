@@ -21,13 +21,11 @@ import { getAccentDropDownMenu } from './constants'
 type AccentPickerToolbarDropdownProps = {
   pluginKey: string
   icon: ReactNode
-  selectedIcon: ReactNode
   accents?: AccentType[]
 }
-export const AccentTableDropDown = ({
+export const AccentMenu = ({
   pluginKey,
   icon,
-  selectedIcon,
   accents = getAccentDropDownMenu(),
   ...rest
 }: AccentPickerToolbarDropdownProps) => {

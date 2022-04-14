@@ -29,7 +29,7 @@ import { useFilePicker } from "use-file-picker";
 import EqLoader from "./load";
 import EqSaver from "./save";
 import { createMathPlugins } from "./plugin";
-import { AccentTableDropDown } from "./Accent/accentDropDown";
+import { AccentMenu} from "./Accent/accentDropDown";
 import { ELEMENT_ACCENT } from "./Accent";
 
 
@@ -98,10 +98,11 @@ export const MathToolbar = () => {
       /> */}
       
 
-       <AccentTableDropDown 
+       <AccentMenu 
         pluginKey={ELEMENT_ACCENT} 
         icon={accentIcon()} 
-        selectedIcon={accentIcon()} />
+      />
+
       <EqLoader/>
       <EqSaver />
     </>

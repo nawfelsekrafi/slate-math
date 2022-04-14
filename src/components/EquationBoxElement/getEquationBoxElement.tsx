@@ -19,7 +19,7 @@ export const EquationBox = (props: EquationBoxElementStyleProps) => {
     `background-color: #FFFFFF;`,
     isEmpty && `background-color: #eee;`,
     selected && tw`boxShadow[0 0 0 2px #B4D5FF] bg-gray-300`,
-    `margin: 0 auto;`,
+    `margin-top: 5px;`,
     `:hover {box-shadow: 0px 0px 5px 1px #9a9a9a;}`]
     if(element.gridArea)
       styles.push(`grid-area: ` + element.gridArea + `;`)
