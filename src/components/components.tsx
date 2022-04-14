@@ -1,106 +1,117 @@
-import {  ELEMENT_TABLE, withProps, StyledElement, ELEMENT_TR, ELEMENT_TH, ELEMENT_TD, ELEMENT_CODE_BLOCK, CodeBlockElement, MentionElement, createPlateUI } from "@udecode/plate";
-import { css } from "styled-components";
-import { ELEMENT_ACCENT } from "./Accent";
-import { ELEMENT_BIG_OPERATOR } from "./BigOperator";
-import { ELEMENT_FRACTION } from "./Fraction";
-import { ELEMENT_LIMIT } from "./Limit";
-import { ELEMENT_LOG } from "./Log";
-import { ELEMENT_MATH_CONTAINER } from "./MathContainer/defaults";
-import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/defaults";
-  export const components = createPlateUI({
-    //[ELEMENT_MENTION]: EquationMentionElement,
+import {
+  ELEMENT_TABLE,
+  withProps,
+  StyledElement,
+  ELEMENT_TR,
+  ELEMENT_TH,
+  ELEMENT_TD,
+  ELEMENT_CODE_BLOCK,
+  CodeBlockElement,
+  MentionElement,
+  createPlateUI,
+} from '@udecode/plate'
+import { css } from 'styled-components'
+import { ELEMENT_ACCENT } from './Accent'
+import { ELEMENT_BIG_OPERATOR } from './BigOperator'
+import { ELEMENT_FRACTION } from './Fraction'
+import { ELEMENT_LIMIT } from './Limit'
+import { ELEMENT_LOG } from './Log'
+import { ELEMENT_MATH_CONTAINER } from './MathContainer/defaults'
+import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from './UneditableBigOperator/defaults'
+export const components = createPlateUI({
+  //[ELEMENT_MENTION]: EquationMentionElement,
 
-    //[ELEMENT_EQUATION_TEXT]: withProps(StyledElement, {
-    //  className: 'slate-mathtext',
-    //  as: 'span',
-    //}),
-    [ELEMENT_MATH_CONTAINER]: withProps(StyledElement, {
-      className: 'slate-mathcontainer',
-      as: 'span',
-      styles: {
-        root: [
-          css`
+  //[ELEMENT_EQUATION_TEXT]: withProps(StyledElement, {
+  //  className: 'slate-mathtext',
+  //  as: 'span',
+  //}),
+  [ELEMENT_MATH_CONTAINER]: withProps(StyledElement, {
+    className: 'slate-mathcontainer',
+    as: 'span',
+    styles: {
+      root: [
+        css`
           display: inline-flex;
           align-items: center;
           justify-items: center;
         `,
       ],
-      },
-    }),
-    [ELEMENT_LIMIT]:  withProps(StyledElement, {
-      className: 'slate-lim',
-      as: 'span',
-      styles: {
-        root: [
-          css`
-          display: inline-grid;
+    },
+  }),
+  [ELEMENT_LIMIT]: withProps(StyledElement, {
+    className: 'slate-lim',
+    as: 'span',
+    styles: {
+      root: [
+        css`
+          position: relative;
+          display: inline-flex;
+          flex-direction: column;
           gap: 3px 3px;
           grid-auto-flow: column;
           grid-template-columns: 3em fit-content(1em);
           grid-template-rows: auto auto;
-          grid-template-areas: 
-            ". right"
-            ". right";
+          grid-template-areas:
+            '. right'
+            '. right';
           align-items: center;
           justify-items: center;
         `,
       ],
-      },
-    }),
-    [ELEMENT_BIG_OPERATOR]: withProps(StyledElement, {
-      className: 'slate-bigop',
-      as: 'span',
-      styles: {
-        root: [
-          css`
+    },
+  }),
+  [ELEMENT_BIG_OPERATOR]: withProps(StyledElement, {
+    className: 'slate-bigop',
+    as: 'span',
+    styles: {
+      root: [
+        css`
           display: inline-grid;
           gap: 3px 3px;
           grid-auto-flow: column;
 
           grid-template-rows: auto auto;
           grid-template-areas:
-          ". ."
-          ". right"
-          ". .";
+            '. .'
+            '. right'
+            '. .';
           align-items: center;
           justify-items: center;
         `,
       ],
-      },
-    }),
-    [ELEMENT_UNEDITABLE_BIG_OPERATOR]: withProps(StyledElement, {
-      className: 'slate-ubigop',
-      as: 'span',
-      styles: {
-        root: [
-          css`
+    },
+  }),
+  [ELEMENT_UNEDITABLE_BIG_OPERATOR]: withProps(StyledElement, {
+    className: 'slate-ubigop',
+    as: 'span',
+    styles: {
+      root: [
+        css`
           display: inline-grid;
           gap: 3px 3px;
           grid-auto-flow: column;
 
           grid-template-rows: auto auto;
           grid-template-areas:
-          ". ."
-          ". right"
-          ". .";
+            '. .'
+            '. right'
+            '. .';
           align-items: center;
           justify-items: center;
-
         `,
       ],
-      },
-    }),
-    [ELEMENT_LOG]: withProps(StyledElement, {
-      className: 'slate-log',
-      as: 'span',
-
-    }),
-    [ELEMENT_ACCENT]: withProps(StyledElement, {
-      className: 'slate-accent',
-      as: 'span',
-      styles: {
-        root: [
-          css`
+    },
+  }),
+  [ELEMENT_LOG]: withProps(StyledElement, {
+    className: 'slate-log',
+    as: 'span',
+  }),
+  [ELEMENT_ACCENT]: withProps(StyledElement, {
+    className: 'slate-accent',
+    as: 'span',
+    styles: {
+      root: [
+        css`
           display: inline-flex;
           justify-content: flex-start;
           flex-direction: column;
@@ -110,14 +121,14 @@ import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/default
           bottom: 11px;
         `,
       ],
-      },
-    }),
-    [ELEMENT_FRACTION]: withProps(StyledElement, {
-      className: 'slate-fraction',
-      as: 'span',
-      styles: {
-        root: [
-          css`
+    },
+  }),
+  [ELEMENT_FRACTION]: withProps(StyledElement, {
+    className: 'slate-fraction',
+    as: 'span',
+    styles: {
+      root: [
+        css`
           display: inline-flex;
           justify-content: flex-start;
           flex-direction: column;
@@ -125,22 +136,22 @@ import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/default
           text-align: center;
         `,
       ],
-      },
-    }),
-    [ELEMENT_CODE_BLOCK]: withProps(CodeBlockElement, {
-      styles: {
-        root: [
-          css`
-            background-color: #111827;
-            code {
-              color: white;
-            }
-          `,
-        ],
-      },
-    }),
+    },
+  }),
+  [ELEMENT_CODE_BLOCK]: withProps(CodeBlockElement, {
+    styles: {
+      root: [
+        css`
+          background-color: #111827;
+          code {
+            color: white;
+          }
+        `,
+      ],
+    },
+  }),
 
-/*    [FRACTION]: withProps(StyledElement, {
+  /*    [FRACTION]: withProps(StyledElement, {
       className: 'slate-fraction',
       as: 'table',
       styles: {
@@ -157,8 +168,4 @@ import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/default
         },
     }),
     */
-
-  });
-
-
-
+})
