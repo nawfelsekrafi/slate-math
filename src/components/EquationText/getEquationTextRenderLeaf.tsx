@@ -1,6 +1,6 @@
 import { getEquationTextStyles } from './equationText.styles';
 import { useSelected, useFocused } from 'slate-react';
-import { AnyObject } from '@udecode/plate-autoformat/node_modules/@udecode/plate-core';
+import { AnyObject } from '@udecode/plate-core';
 
 
 export const PlateMath = ({
