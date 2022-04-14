@@ -14,6 +14,7 @@ export const EquationBox = (props: EquationBoxElementStyleProps) => {
     const isEmpty = element.children[0].text == ''
     const styles = 
     [`position: inherit;`,
+    `z-index: -1`,
     tw`my-0 mx-px align-baseline inline-grid`,
     `background-color: #FFFFFF;`,
     isEmpty && `background-color: #eee;`,

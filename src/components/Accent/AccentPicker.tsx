@@ -19,89 +19,93 @@ import Acute from '../../assets/Acute.png'
 import { insertNodes, getPlateEditorRef } from '@udecode/plate'
 import { selectFirstBox } from '../util'
 import {
-  getAcuteAccentNode,
-  getBarAccentNode,
-  getBreveAccentNode,
-  getCheckAccentNode,
-  getDotAccentNode,
-  getDoubleDotAccentNode,
-  getGraveAccentNode,
-  getHatAccentNode,
-  getLeftwardsArrowAboveAccentNode,
-  getOverCurlyBraceNode,
-  getOverParenthesisAccentNode,
-  getRightLeftArrowAboveAccentNode,
-  getRightwardHarpoonAccentNode,
-  getRightwardsArrowAboveAccentNode,
-  getTildeAccentNode,
-  getTripleDotAccentNode,
-} from './getEmptyAccentNode'
+  getEmptyAccentNode,
 
+} from './getEmptyAccentNode'
+import { insertMathNode } from '../toolbar'
+/*
+rightward: 	\u2192
+leftward 	\u2190
+leftarrow 	\u2194
+tilde:		\u007E
+dot:		\u00B7
+ddot		\u0022
+rharpoon:	\u21C0
+bar:		\u2015
+overcurley	\u23DE
+overpar		\u23DC
+breve		\u23D1
+hat		\u005E
+check acc	\u02C7
+triple dot	\u20DB
+grave		\u0060
+acute		\u02CA
+*/
 const initializeEquationMap = () => {
   const editor = getPlateEditorRef()!
   const nameToClickFuncMap = new Map<string, any>()
   nameToClickFuncMap.set('1x1', () => {
-    insertNodes(editor, getRightwardsArrowAboveAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u2192')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('1x2', () => {
-    insertNodes(editor, getLeftwardsArrowAboveAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u2190')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('1x3', () => {
-    insertNodes(editor, getRightLeftArrowAboveAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u2194')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('1x4', () => {
-    insertNodes(editor, getTildeAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u007E')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('2x1', () => {
-    insertNodes(editor, getDotAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u00B7')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('2x2', () => {
-    insertNodes(editor, getDoubleDotAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u0022')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('2x3', () => {
-    insertNodes(editor, getRightwardHarpoonAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u21C0')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('2x4', () => {
-    insertNodes(editor, getBarAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u2015')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('3x1', () => {
-    insertNodes(editor, getOverCurlyBraceNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u23DE')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('3x2', () => {
-    insertNodes(editor, getOverParenthesisAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u23DC')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('3x3', () => {
-    insertNodes(editor, getBreveAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u23D1')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('3x4', () => {
-    insertNodes(editor, getHatAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u005E')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('4x1', () => {
-    insertNodes(editor, getCheckAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u02C7')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('4x2', () => {
-    insertNodes(editor, getTripleDotAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u20DB')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('4x3', () => {
-    insertNodes(editor, getGraveAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u0060')
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('4x4', () => {
-    insertNodes(editor, getAcuteAccentNode())
+    insertMathNode(getEmptyAccentNode, editor, '\u02CA')
     selectFirstBox(editor)
   })
 

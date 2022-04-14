@@ -22,6 +22,6 @@ Primary.args = {
   id: "1",
   plugins,
   initialValue: [
-    getEmptyAccentNode(),
+    getEmptyAccentNode('\u02CA'),
   ]
 };

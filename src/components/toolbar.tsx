@@ -1,4 +1,4 @@
-import { insertNodes , getPluginType, getPlateEditorRef, PlateEditor, serializeHtml} from "@udecode/plate";
+import { insertNodes , getPluginType, getPlateEditorRef, PlateEditor, serializeHtml, TElement, AnyObject} from "@udecode/plate";
 import { ToolbarButton  } from "@udecode/plate-toolbar";
 import { getEmptyBigOpNode } from "./BigOperator/getEmptyBigOpNode";
 import { ACCENT, BIG_OPERATOR, FRACTION, INTEGRAL, LIMIT, LOG, SUMMATION } from "./defaults";
@@ -29,6 +29,8 @@ import { useFilePicker } from "use-file-picker";
 import EqLoader from "./load";
 import EqSaver from "./save";
 import { createMathPlugins } from "./plugin";
+import { AccentTableDropDown } from "./Accent/accentDropDown";
+import { ELEMENT_ACCENT } from "./Accent";
 
 
 export const MathToolbar = () => {
@@ -42,13 +44,13 @@ export const MathToolbar = () => {
         type={getPluginType(editor, INTEGRAL)}
         icon={integralIcon()}
         tooltip={{content: "Create Integral", theme: 'light-border'}} 
-        onMouseDown={e=> insertEquation(INTEGRAL, editor)}
+        onMouseDown={e=> insertMathNode(getEmptyUneditableBigOpNode, editor, '\u222b')}
       />
       <ToolbarButton
         type={getPluginType(editor, SUMMATION)}
         icon={summationIcon()}
         tooltip={{content: "Create Summation", theme: 'light-border'}} 
-        onMouseDown={e=> insertEquation(SUMMATION, editor)}
+        onMouseDown={e=> insertMathNode(getEmptyUneditableBigOpNode, editor, '\u2211')}
       />
       <ToolbarButton
           styles={{
@@ -60,7 +62,7 @@ export const MathToolbar = () => {
         type={getPluginType(editor, LIMIT)}
         icon={limitIcon()}
         tooltip={{content: "Create Limit", theme: 'light-border'}} 
-        onMouseDown={e=> insertEquation(LIMIT, editor)}
+        onMouseDown={e=> insertMathNode(getEmptyLimNode, editor)}
       />
       <ToolbarButton
           styles={{
@@ -71,19 +73,19 @@ export const MathToolbar = () => {
           type={getPluginType(editor, LOG)}
           icon={logIcon()}
           tooltip={{content: "Create Log", theme: 'light-border'}} 
-          onMouseDown={e=> insertEquation(LOG, editor)}
+          onMouseDown={e=> insertMathNode(getEmptyLogNode, editor)}
       />
       <ToolbarButton
         type={getPluginType(editor, FRACTION)}
         icon={fractionIcon()}
         tooltip={{content: "Create Fraction", theme: 'light-border'}} 
-        onMouseDown={e=> insertEquation(FRACTION, editor)}
+        onMouseDown={e=> insertMathNode(getEmptyFractionNode, editor)}
       />
       <ToolbarButton
         type={getPluginType(editor, BIG_OPERATOR)}
         icon={bigOpIcon()}
         tooltip={{content: "Create Big Operator", theme: 'light-border'}} 
-        onMouseDown={e=> insertEquation(BIG_OPERATOR, editor)}
+        onMouseDown={e=> insertMathNode(getEmptyBigOpNode, editor)}
       />
 
       <MatrixTableDropDown pluginKey={ELEMENT_MATRIX} icon={<Matrix />} selectedIcon={<Matrix />} />
@@ -95,154 +97,26 @@ export const MathToolbar = () => {
         onMouseDown={e=> insertEquation(LOG, editor)}
       /> */}
       
-      <ToolbarButton
-        type={getPluginType(editor, ACCENT)}
-        icon={accentIcon()}
-        tooltip={{content: "Create Accent", theme: 'light-border'}} 
-        onMouseDown={e=> insertEquation(ACCENT, editor)}
-      />
 
+       <AccentTableDropDown 
+        pluginKey={ELEMENT_ACCENT} 
+        icon={accentIcon()} 
+        selectedIcon={accentIcon()} />
       <EqLoader/>
       <EqSaver />
     </>
   );
 };
 
+
 //export const getPreviewRenderLeaf = (): RenderLeaf => () => (props: RenderLeafProps) => <Latex {...props} />;
 
-function insertEquation(eq: string, editor: PlateEditor): import("react").MouseEventHandler<HTMLSpanElement> | undefined {
-  var selection = getCurrentSelection(editor)
-  if(selection){
-    console.log(selection)
-    console.log(containsMathContainer(editor,selection));
-  }
-    
-  var isFocused = ReactEditor.isFocused(editor)
-  switch (eq){
-    case INTEGRAL:{ 
-      insertNodes(editor, getContainerNode(getEmptyUneditableBigOpNode('\u222b')));
-      selectFirstBox(editor);
-      
-        break; 
-      }
-    case SUMMATION: {
-      insertNodes(editor, getContainerNode(getEmptyUneditableBigOpNode('\u2211')))
-      selectFirstBox(editor)
-      break; }
-    case LIMIT: {
-      insertNodes(editor, getContainerNode(getEmptyLimNode()))
-      selectFirstBox(editor)
-      break; }
-    case LOG : {
-      insertNodes(editor, getContainerNode(getEmptyLogNode()))
-      selectFirstBox(editor)
-      break;
-    }
-    case ACCENT: {
-      insertNodes(editor, getContainerNode(getEmptyAccentNode()))
-      selectFirstBox(editor)
-      break;
-    }
-    case BIG_OPERATOR: {
-      insertNodes(editor, getContainerNode(getEmptyBigOpNode()))
-      selectFirstBox(editor)
-      break; }
-    case FRACTION: {
-      insertNodes(editor, getContainerNode(getEmptyFractionNode()))
-      selectFirstBox(editor)
-      break;
-    }
-    default: {
-      break; }
-  }
-  /*
-  if(isFocused){
-    console.log("foc");
-    switch (eq){
-      case INTEGRAL:{ 
-        insertNodes(editor, getMathEditor(getEmptyUneditableBigOpNode('\u222b')));
-        selectFirstBox(editor)
-          break; 
-        }
-      case SUMMATION: {
-        insertNodes(editor, getMathEditor(getEmptyUneditableBigOpNode('\u2211')))
-        selectFirstBox(editor)
-        break; }
-      case LIMIT: {
-        insertNodes(editor, getMathEditor(getEmptyLimNode()) )
-        selectFirstBox(editor)
-        break; }
-      case LOG : {
-        const test1 = getEmptyLogNode()
-        // insertNodes(editor, getEmptyLogNode(),)
-        insertNodes(editor, getMathEditor(getEmptyLogNode()))
-        selectFirstBox(editor)
-        break;
-      }
-      case ACCENT: {
-        insertNodes(editor, getMathEditor(getEmptyAccentNode()))
-        selectFirstBox(editor)
-        break;
-      }
-      case BIG_OPERATOR: {
-        insertNodes(editor, getMathEditor(getEmptyBigOpNode()))
-        selectFirstBox(editor)
-        break; }
-      case FRACTION: {
-        insertNodes(editor, getMathEditor(getEmptyFractionNode()) )
-        selectFirstBox(editor)
-        break;
-      }
-      default: {
-        break; }
-    }
-  }
-  else{
-    switch (eq){
-      case INTEGRAL:{ 
-        insertNodes(editor, getEmptyUneditableBigOpNode('\u222b'));
-        selectFirstBox(editor);
-        
-          break; 
-        }
-      case SUMMATION: {
-        insertNodes(editor, getEmptyUneditableBigOpNode('\u2211'))
-        selectFirstBox(editor)
-        break; }
-      case LIMIT: {
-        insertNodes(editor, getEmptyLimNode(), )
-        selectFirstBox(editor)
-        break; }
-      case LOG : {
-        const test1 = getEmptyLogNode()
-        // insertNodes(editor, getEmptyLogNode(),)
-        insertNodes(editor, test1,)
-        selectFirstBox(editor)
-        break;
-      }
-      case ACCENT: {
-        insertNodes(editor,getEmptyAccentNode(),)
-        selectFirstBox(editor)
-        break;
-      }
-      case BIG_OPERATOR: {
-        insertNodes(editor, getEmptyBigOpNode(), )
-        selectFirstBox(editor)
-        break; }
-      case FRACTION: {
-        insertNodes(editor, getEmptyFractionNode(), )
-        selectFirstBox(editor)
-        break;
-      }
-      default: {
-        break; }
-    }
-    
-  }
-*/
-  return undefined;
+
+
+
+
+
+export function insertMathNode(nodeFunction: any, editor: PlateEditor<{}>, nodeValue?:any): void {
+  insertNodes(editor, getContainerNode(nodeFunction(nodeValue)));
 }
-
-
-
 

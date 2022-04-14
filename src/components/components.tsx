@@ -1,8 +1,10 @@
 import {  ELEMENT_TABLE, withProps, StyledElement, ELEMENT_TR, ELEMENT_TH, ELEMENT_TD, ELEMENT_CODE_BLOCK, CodeBlockElement, MentionElement, createPlateUI } from "@udecode/plate";
 import { css } from "styled-components";
+import { ELEMENT_ACCENT } from "./Accent";
 import { ELEMENT_BIG_OPERATOR } from "./BigOperator";
 import { ELEMENT_FRACTION } from "./Fraction";
 import { ELEMENT_LIMIT } from "./Limit";
+import { ELEMENT_LOG } from "./Log";
 import { ELEMENT_MATH_CONTAINER } from "./MathContainer/defaults";
 import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/defaults";
   export const components = createPlateUI({
@@ -84,6 +86,28 @@ import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/default
           align-items: center;
           justify-items: center;
 
+        `,
+      ],
+      },
+    }),
+    [ELEMENT_LOG]: withProps(StyledElement, {
+      className: 'slate-log',
+      as: 'span',
+
+    }),
+    [ELEMENT_ACCENT]: withProps(StyledElement, {
+      className: 'slate-accent',
+      as: 'span',
+      styles: {
+        root: [
+          css`
+          display: inline-flex;
+          justify-content: flex-start;
+          flex-direction: column;
+          width: auto;
+          text-align: center;
+          position: relative;
+          bottom: 11px;
         `,
       ],
       },

@@ -106,6 +106,7 @@ export const createAccentPlugin = createPluginFactory({
     key: ELEMENT_ACCENT,
     isElement: true,
     component: AccentComponent,
+    isInline: true
   }); // parameter is a PlatePlugin object
   
 export const createEquationMentionInsert = createPluginFactory({
