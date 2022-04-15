@@ -41,11 +41,8 @@ export const selectFirstBox = (editor:PlateEditor) => {
             }
             path = Path.previous(path);
             return path;
-
         }
     }
-    
-    
 }
 
 export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {

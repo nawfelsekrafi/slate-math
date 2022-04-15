@@ -45,3 +45,11 @@
 .logs .overup {
   margin-left: 15px;
 }
+
+.log-container {
+  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 0.8em;
+  grid-row-gap: 0.8em;
+}
+
