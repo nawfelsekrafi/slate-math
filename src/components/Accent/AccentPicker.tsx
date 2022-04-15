@@ -106,6 +106,7 @@ const initializeEquationMap = () => {
     selectFirstBox(editor)
   })
 
+  //this component is used to map the images of each accent based on the postion(rowNum and colNum)
   const nameToImgMap = new Map<string, any>()
   nameToImgMap.set('1x1', RightwardsArrowAbove)
   nameToImgMap.set('1x2', LeftwardsArrowAbove)
@@ -123,7 +124,26 @@ const initializeEquationMap = () => {
   nameToImgMap.set('4x2', TripleDot)
   nameToImgMap.set('4x3', Grave)
   nameToImgMap.set('4x4', Acute)
-  return { nameToClickFuncMap, nameToImgMap }
+
+  //this component is used to show the name of each accent
+  const nameToAccentNameMap = new Map<string, string>()
+  nameToAccentNameMap.set('1x1', 'Rightwards Arrow')
+  nameToAccentNameMap.set('1x2', 'Leftwards Arrow')
+  nameToAccentNameMap.set('1x3', 'Right-Left Arrow')
+  nameToAccentNameMap.set('1x4', 'Tilde')
+  nameToAccentNameMap.set('2x1', 'Dot')
+  nameToAccentNameMap.set('2x2', 'Double Dot')
+  nameToAccentNameMap.set('2x3', 'Rightward Harpoon Accent')
+  nameToAccentNameMap.set('2x4', 'Bar')
+  nameToAccentNameMap.set('3x2', 'Over Parenthesis')
+  nameToAccentNameMap.set('3x3', 'Breve')
+  nameToAccentNameMap.set('3x4', 'Hat Accent')
+  nameToAccentNameMap.set('4x1', 'Check')
+  nameToAccentNameMap.set('4x2', 'Triple Dot')
+  nameToAccentNameMap.set('4x3', 'Grave')
+  nameToAccentNameMap.set('4x4', 'Acute')
+
+  return { nameToClickFuncMap, nameToImgMap, nameToAccentNameMap }
 }
 
 type AccentPickerProps = {
@@ -132,12 +152,14 @@ type AccentPickerProps = {
 }
 
 export const AccentPicker = ({ accents }: AccentPickerProps) => {
-  const { nameToClickFuncMap, nameToImgMap } = initializeEquationMap()
+  const { nameToClickFuncMap, nameToImgMap, nameToAccentNameMap } =
+    initializeEquationMap()
   return (
     <div className="accent-container" id="accentContainer">
       {accents.map(({ name }) => (
         <AccentButton
           name={name}
+          accentName={nameToAccentNameMap.get(name)}
           image={nameToImgMap.get(name)}
           onClick={nameToClickFuncMap.get(name)}
         />
