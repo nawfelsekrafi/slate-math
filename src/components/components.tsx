@@ -105,7 +105,15 @@ export const components = createPlateUI({
   [ELEMENT_LOG]: withProps(StyledElement, {
     className: 'slate-log',
     as: 'span',
+    styles: {
+      root: [
+        css`
+          marginRight:20 ;
+        `,
+      ],
+    },
   }),
+  
   [ELEMENT_ACCENT]: withProps(StyledElement, {
     className: 'slate-accent',
     as: 'span',
