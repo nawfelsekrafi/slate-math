@@ -15,7 +15,6 @@ import { Transforms } from 'slate'
 import { ReactEditor } from 'slate-react'
 import { AccentPicker } from './AccentPicker'
 import { AccentType } from './AccentType'
-import { createAccentDropDownMenu } from './createAccentDropDownMenu'
 import { getAccentDropDownMenu } from './constants'
 
 type AccentPickerToolbarDropdownProps = {
@@ -23,7 +22,7 @@ type AccentPickerToolbarDropdownProps = {
   icon: ReactNode
   accents?: AccentType[]
 }
-export const AccentMenu = ({
+export const AccentDropDownMenu = ({
   pluginKey,
   icon,
   accents = getAccentDropDownMenu(),
@@ -37,16 +36,6 @@ export const AccentMenu = ({
     setOpen(!open)
   }, [open, setOpen])
 
-  const updateAccent = (rows: number, cols: number) => {
-    if (editorRef && editor && editor.selection) {
-      var node = createAccentDropDownMenu(editorRef, rows, cols)
-      editor.insertNode(node)
-      Transforms.select(editorRef, editor.selection)
-      ReactEditor.focus(editorRef)
-      onToggle()
-    }
-  }
-
   return (
     <div>
       <ToolbarDropdown
@@ -54,6 +43,7 @@ export const AccentMenu = ({
           <ToolbarButton
             active={!!editor?.selection && isMarkActive(editor, type)}
             icon={icon}
+            tooltip={{ content: 'Create Accent', theme: 'light-border' }}
             {...rest}
           />
         }

@@ -1,27 +1,24 @@
 import { AccentButton } from './AccentButton'
 import { AccentType } from './AccentType'
-import RightwardsArrowAbove from '../../assets/RightwardsArrowAbove.png'
-import LeftwardsArrowAbove from '../../assets/LeftwardsArrowAbove.png'
-import RightLeftArrowAbove from '../../assets/RightLeftArrowAbove.png'
-import Tilde from '../../assets/Tilde.png'
-import Dot from '../../assets/Dot.png'
-import DoubleDot from '../../assets/DoubleDot.png'
-import RightwardHarpoonAccent from '../../assets/RightwardHarpoonAccent.png'
-import Bar from '../../assets/Bar.png'
-import OverCurlyBrace from '../../assets/OverCurlyBrace.png'
-import OverParenthesis from '../../assets/OverParenthesis.png'
-import Breve from '../../assets/Breve.png'
-import HatAccent from '../../assets/HatAccent.png'
-import Check from '../../assets/Check.png'
-import TripleDot from '../../assets/TripleDot.png'
-import Grave from '../../assets/Grave.png'
-import Acute from '../../assets/Acute.png'
+import RightwardsArrowAbove from '../../assets/Accents/RightwardsArrowAbove.png'
+import LeftwardsArrowAbove from '../../assets/Accents/LeftwardsArrowAbove.png'
+import RightLeftArrowAbove from '../../assets/Accents/RightLeftArrowAbove.png'
+import Tilde from '../../assets/Accents/Tilde.png'
+import Dot from '../../assets/Accents/Dot.png'
+import DoubleDot from '../../assets/Accents/DoubleDot.png'
+import RightwardHarpoonAccent from '../../assets/Accents/RightwardHarpoonAccent.png'
+import Bar from '../../assets/Accents/Bar.png'
+import OverCurlyBrace from '../../assets/Accents/OverCurlyBrace.png'
+import OverParenthesis from '../../assets/Accents/OverParenthesis.png'
+import Breve from '../../assets/Accents/Breve.png'
+import HatAccent from '../../assets/Accents/HatAccent.png'
+import Check from '../../assets/Accents/Check.png'
+import TripleDot from '../../assets/Accents/TripleDot.png'
+import Grave from '../../assets/Accents/Grave.png'
+import Acute from '../../assets/Accents/Acute.png'
 import { insertNodes, getPlateEditorRef } from '@udecode/plate'
 import { selectFirstBox } from '../util'
-import {
-  getEmptyAccentNode,
-
-} from './getEmptyAccentNode'
+import { getEmptyAccentNode } from './getEmptyAccentNode'
 import { insertMathNode } from '../toolbar'
 /*
 rightward: 	\u2192
@@ -109,6 +106,7 @@ const initializeEquationMap = () => {
     selectFirstBox(editor)
   })
 
+  //this component is used to map the images of each accent based on the postion(rowNum and colNum)
   const nameToImgMap = new Map<string, any>()
   nameToImgMap.set('1x1', RightwardsArrowAbove)
   nameToImgMap.set('1x2', LeftwardsArrowAbove)
@@ -126,7 +124,26 @@ const initializeEquationMap = () => {
   nameToImgMap.set('4x2', TripleDot)
   nameToImgMap.set('4x3', Grave)
   nameToImgMap.set('4x4', Acute)
-  return { nameToClickFuncMap, nameToImgMap }
+
+  //this component is used to show the name of each accent
+  const nameToAccentNameMap = new Map<string, string>()
+  nameToAccentNameMap.set('1x1', 'Rightwards Arrow')
+  nameToAccentNameMap.set('1x2', 'Leftwards Arrow')
+  nameToAccentNameMap.set('1x3', 'Right-Left Arrow')
+  nameToAccentNameMap.set('1x4', 'Tilde')
+  nameToAccentNameMap.set('2x1', 'Dot')
+  nameToAccentNameMap.set('2x2', 'Double Dot')
+  nameToAccentNameMap.set('2x3', 'Rightward Harpoon Accent')
+  nameToAccentNameMap.set('2x4', 'Bar')
+  nameToAccentNameMap.set('3x2', 'Over Parenthesis')
+  nameToAccentNameMap.set('3x3', 'Breve')
+  nameToAccentNameMap.set('3x4', 'Hat Accent')
+  nameToAccentNameMap.set('4x1', 'Check')
+  nameToAccentNameMap.set('4x2', 'Triple Dot')
+  nameToAccentNameMap.set('4x3', 'Grave')
+  nameToAccentNameMap.set('4x4', 'Acute')
+
+  return { nameToClickFuncMap, nameToImgMap, nameToAccentNameMap }
 }
 
 type AccentPickerProps = {
@@ -135,12 +152,14 @@ type AccentPickerProps = {
 }
 
 export const AccentPicker = ({ accents }: AccentPickerProps) => {
-  const { nameToClickFuncMap, nameToImgMap } = initializeEquationMap()
+  const { nameToClickFuncMap, nameToImgMap, nameToAccentNameMap } =
+    initializeEquationMap()
   return (
     <div className="accent-container" id="accentContainer">
       {accents.map(({ name }) => (
         <AccentButton
           name={name}
+          accentName={nameToAccentNameMap.get(name)}
           image={nameToImgMap.get(name)}
           onClick={nameToClickFuncMap.get(name)}
         />
