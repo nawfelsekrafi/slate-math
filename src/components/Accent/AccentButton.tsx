@@ -8,11 +8,11 @@ type AccentButtonProps = {
   onClick: () => void
 }
 
-export const AccentButton = ({ image, name, accentName, onClick }: AccentButtonProps) => {
+export const AccentButton = ({ image, accentName, onClick }: AccentButtonProps) => {
   const styles = getAccentButtonStyles()
   const content = (
-    <div className="accentButton">
-      <button onClick={onClick} css={styles.root.css}>
+    <div className="accentButtons">
+      <button className="accentButton" onClick={onClick} css={styles.root.css}>
         <img src={image} />
       </button>
     </div>

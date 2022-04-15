@@ -14,13 +14,9 @@ import {
   getEmptyNaturalLogarithmNode,
 } from './getEmptyLogNode'
 
-function initializeEquationMap(): {
-  nameToClickFuncMap: any
-  nameToImgMap: any
-} {
+const initializeEquationMap = () => {
   const editor = getPlateEditorRef()!
   const nameToClickFuncMap = new Map<string, any>()
-
   nameToClickFuncMap.set('1x1', () => {
     insertMathNode(getEmptyNaturalLogarithmNode, editor)
     selectFirstBox(editor)
@@ -46,7 +42,14 @@ function initializeEquationMap(): {
   nameToImgMap.set('1x2', Logarithm)
   nameToImgMap.set('1x3', LogarithmToBaseTen)
   nameToImgMap.set('1x4', LogarithmToBaseN)
-  return { nameToClickFuncMap, nameToImgMap }
+
+  const nameToLogNameMap = new Map<string, string>()
+  nameToLogNameMap.set('1x1', 'Natural Logarithm')
+  nameToLogNameMap.set('1x2', 'Logarithm')
+  nameToLogNameMap.set('1x3', 'Logarithm To Base 10')
+  nameToLogNameMap.set('1x4', 'Logarithm To Base n')
+
+  return { nameToClickFuncMap, nameToImgMap, nameToLogNameMap }
 }
 
 type LogPickerProps = {
@@ -55,12 +58,14 @@ type LogPickerProps = {
 }
 
 export const LogPicker = ({ logs }: LogPickerProps) => {
-  const { nameToClickFuncMap, nameToImgMap } = initializeEquationMap()
+  const { nameToClickFuncMap, nameToImgMap, nameToLogNameMap } =
+    initializeEquationMap()
   return (
     <div className="log-container" id="logContainer">
       {logs.map(({ name }) => (
         <LogButton
           name={name}
+          logName={nameToLogNameMap.get(name)}
           image={nameToImgMap.get(name)}
           onClick={nameToClickFuncMap.get(name)}
         />
