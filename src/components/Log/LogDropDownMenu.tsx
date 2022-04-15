@@ -18,7 +18,6 @@ import { getLogDropDownMenu } from './constants'
 import { LogPicker } from './LogPicker'
 import { LogType } from './LogType'
 
-
 type LogPickerToolbarDropdownProps = {
   pluginKey: string
   icon: ReactNode
@@ -46,6 +45,7 @@ export const LogDropDownMenu = ({
           <ToolbarButton
             active={!!editor?.selection && isMarkActive(editor, type)}
             icon={icon}
+            tooltip={{ content: 'Create Log', theme: 'light-border' }}
             {...rest}
           />
         }

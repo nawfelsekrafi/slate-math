@@ -36,7 +36,6 @@ export const AccentDropDownMenu = ({
     setOpen(!open)
   }, [open, setOpen])
 
-
   return (
     <div>
       <ToolbarDropdown
@@ -44,6 +43,7 @@ export const AccentDropDownMenu = ({
           <ToolbarButton
             active={!!editor?.selection && isMarkActive(editor, type)}
             icon={icon}
+            tooltip={{ content: 'Create Accent', theme: 'light-border' }}
             {...rest}
           />
         }

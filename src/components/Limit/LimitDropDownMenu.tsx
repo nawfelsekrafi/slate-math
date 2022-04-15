@@ -40,6 +40,7 @@ export const LimitDropDownMenu = ({
           <ToolbarButton
             active={!!editor?.selection && isMarkActive(editor, type)}
             icon={icon}
+            tooltip={{ content: 'Create Limit', theme: 'light-border' }}
             {...rest}
           />
         }
