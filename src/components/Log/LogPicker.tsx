@@ -1,5 +1,4 @@
 import { getPlateEditorRef } from '@udecode/plate-core'
-import { getEmptyAccentNode } from '../Accent'
 import { insertMathNode } from '../toolbar'
 import { selectFirstBox } from '../util'
 import { LogButton } from './LogButton'

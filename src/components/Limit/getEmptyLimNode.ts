@@ -17,6 +17,7 @@ const getEmptyLimRowNode = () => {
       getEmptyBoxNode(0.75),
       getEmptyArrowCellNode(),
       getEmptyBoxNode(0.75),
+     
     ],
   }
 }
@@ -32,5 +33,31 @@ const getEmptyArrowCellNode = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
     children: [{ text: '\u2192' }],
+  }
+}
+
+export const getLimToInfinityNode = () => {
+  return <TElement>{
+    type: ELEMENT_LIMIT,
+    children: [getEmptyLimCellNode(), getEmptyLimRowWithInfinityNode()],
+  }
+}
+
+const getEmptyLimRowWithInfinityNode = () => {
+  return {
+    type: 'span',
+    children: [
+      getEmptyBoxNode(0.75),
+      getEmptyArrowCellNode(),
+      getInfinity(),
+     
+    ],
+  }
+}
+
+const getInfinity = () => {
+  return {
+    type: ELEMENT_EQUATION_TEXT,
+    children: [{ text: '\u221E' }],
   }
 }

@@ -23,7 +23,7 @@ import { getEmptyLimNode } from './Limit/getEmptyLimNode'
 import { getLogarithmToBaseNnode } from './Log/getEmptyLogNode'
 import { summationIcon } from './Icons/Summation/icon'
 import { bigOpIcon } from './BigOperator'
-import { limitIcon } from './Limit'
+import { ELEMENT_LIMIT, limitIcon } from './Limit'
 import { logIcon } from './Log/getLogElements'
 import { FolderDownload } from '@styled-icons/icomoon/FolderDownload'
 import { FolderUpload } from '@styled-icons/icomoon/FolderUpload'
@@ -53,6 +53,7 @@ import { ELEMENT_ACCENT } from './Accent'
 import { AccentDropDownMenu } from './Accent/AccentDropDownMenu'
 import { LogDropDownMenu } from './Log/LogDropDownMenu'
 import { ELEMENT_LOG } from './Log'
+import { LimitDropDownMenu } from './Limit/LimitDropDownMenu'
 
 export const MathToolbar = () => {
   const editor = getPlateEditorRef()!
@@ -75,7 +76,19 @@ export const MathToolbar = () => {
           insertMathNode(getEmptyUneditableBigOpNode, editor, '\u2211')
         }
       />
-      <ToolbarButton
+
+      <LimitDropDownMenu
+        pluginKey={ELEMENT_LIMIT}
+        icon={limitIcon()}
+        styles={{
+          root: {
+            marginLeft: 10,
+            marginRight: 15,
+          },
+        }}
+      />
+
+      {/* <ToolbarButton
         styles={{
           root: {
             marginLeft: 10,
@@ -86,7 +99,7 @@ export const MathToolbar = () => {
         icon={limitIcon()}
         tooltip={{ content: 'Create Limit', theme: 'light-border' }}
         onMouseDown={(e) => insertMathNode(getEmptyLimNode, editor)}
-      />
+      /> */}
 
       <LogDropDownMenu
         pluginKey={ELEMENT_LOG}
