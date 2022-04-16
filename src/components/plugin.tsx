@@ -1,38 +1,27 @@
-import { Laugh } from '@styled-icons/boxicons-regular'
-import {
-  PlatePlugin,
-  createMentionPlugin,
-  createComboboxPlugin,
-  createPlateUI,
-  createPluginFactory,
-  MentionElement,
-  StyledElement,
-  createExitBreakPlugin,
-  KEYS_HEADING,
-  ExitBreakPlugin,
-} from '@udecode/plate'
-import { createPlugins, withProps } from '@udecode/plate-core'
-import { components } from '.'
-import { ELEMENT_BIG_OPERATOR } from './BigOperator'
-import { ELEMENT_EQUATIONBOX } from './EquationBoxElement'
-import { EquationBox } from './EquationBoxElement/getEquationBoxElement'
-import { ELEMENT_EQUATION_TEXT } from './EquationText'
-import { PlateMath } from './EquationText/getEquationTextRenderLeaf'
-import { ELEMENT_FRACTION } from './Fraction'
-import { ELEMENT_LIMIT, LimitComponent } from './Limit'
-import { ELEMENT_LOG } from './Log'
-import { ELEMENT_MATRIX } from './Matrix/defaults'
-import { ELEMENT_EQUATION_MENTION } from './mention/constants'
-import { ELEMENT_EQUATION_MENTION_INSERT } from './mention/defaults'
-import { EquationMentionElement } from './mention/equationMentionElement'
-import { equationMentionNode } from './mention/equationMentionNode'
-import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from './UneditableBigOperator/defaults'
-import { equationBoxOnKeyDown } from './util'
-import { LogComponent } from './Log/getLogElements'
-import { AccentComponent } from './Accent/getAccentElements'
-import { ELEMENT_ACCENT } from './Accent'
-import { ELEMENT_MATHEDITOR } from './MathEditor/constants'
-import { MathEditor } from './MathEditor/MathEditor'
+import { Laugh } from "@styled-icons/boxicons-regular";
+import { PlatePlugin, createMentionPlugin, createComboboxPlugin, createPlateUI, createPluginFactory, MentionElement, StyledElement, createExitBreakPlugin, KEYS_HEADING, ExitBreakPlugin } from "@udecode/plate";
+import { createPlugins, withProps } from "@udecode/plate-core";
+import { components } from ".";
+import { ELEMENT_BIG_OPERATOR } from "./BigOperator";
+import { ELEMENT_EQUATIONBOX } from "./EquationBoxElement";
+import { EquationBox } from "./EquationBoxElement/getEquationBoxElement";
+import { ELEMENT_EQUATION_TEXT } from "./EquationText";
+import { PlateMath } from "./EquationText/getEquationTextRenderLeaf";
+import { ELEMENT_FRACTION } from "./Fraction";
+import { ELEMENT_LIMIT, LimitComponent } from "./Limit";
+import { ELEMENT_LOG } from './Log';
+import { ELEMENT_MATRIX } from "./Matrix/defaults";
+import { ELEMENT_EQUATION_MENTION } from "./mention/constants";
+import { ELEMENT_EQUATION_MENTION_INSERT } from "./mention/defaults";
+import { EquationMentionElement } from "./mention/equationMentionElement";
+import { equationMentionNode } from "./mention/equationMentionNode";
+import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/defaults";
+import { equationBoxOnKeyDown } from "./util";
+import {LogComponent} from './Log/getLogElements';
+import { AccentComponent } from './Accent/getAccentElements';
+import { ELEMENT_ACCENT } from './Accent';
+import { ELEMENT_MATHEDITOR } from "./MathEditor/constants";
+import { MathEditor } from "./MathEditor/MathEditor";
 // import {limitElement} from './Limit/getLimitElements';
 import { withBox } from './EquationBoxElement/withBox'
 import { ELEMENT_MATH_CONTAINER } from './MathContainer/defaults'
@@ -81,24 +70,26 @@ export const createUneditableBigOperator = createPluginFactory({
   //renderLeaf: getRenderLeaf(ELEMENT_EQUATIONBOX),
 })
 
-export const createFractionPlugin = createPluginFactory({
-  key: ELEMENT_FRACTION,
-  isInline: true,
-  isElement: true,
-})
+export   const createFractionPlugin = createPluginFactory({
+    key: ELEMENT_FRACTION,
+    isInline: true,
+    isElement: true,
+
+  });
 
 export const createBigOperatorPlugin = createPluginFactory({
-  key: ELEMENT_BIG_OPERATOR,
-  isInline: true,
-  isElement: true,
-})
+    key: ELEMENT_BIG_OPERATOR,
+    isInline: true,
+    isElement: true,
+
+  });
 
 export const createLimitPlugin = createPluginFactory({
-  key: ELEMENT_LIMIT,
-  isInline: true,
-  isElement: true,
-  component: LimitComponent,
-})
+    key: ELEMENT_LIMIT,
+    isInline: true,
+    isElement: true,
+    component: LimitComponent,
+  });
 
 export const createLogPlugin = createPluginFactory({
   key: ELEMENT_LOG,
@@ -124,6 +115,7 @@ export const createMathContainerPlugin = createPluginFactory({
   isInline: true,
   isElement: true,
 })
+
 export const createEquationMentionPlugin = (): PlatePlugin => {
   return createMentionPlugin({
     options: {
@@ -144,24 +136,21 @@ export const createMathEditorPlugin = createPluginFactory({
 })
 
 export const createMathPlugins = () => {
-  return createPlugins(
-    [
-      createMathContainerPlugin(),
-      createEquationBoxPlugin(),
-      createUneditableBigOperator(),
-      createLimitPlugin(),
-      createLogPlugin(),
-      createAccentPlugin(),
-      createBigOperatorPlugin(),
-      createFractionPlugin(),
-      createEquationTextPlugin(),
-      createMatrixPlugin(),
-      createEquationMentionInsert(),
-      createEquationMentionPlugin(),
-      createMathEditorPlugin(),
-    ],
-    {
-      components: components,
-    }
-  )
+  return createPlugins([
+    createMathContainerPlugin(),
+    createEquationBoxPlugin(),
+    createUneditableBigOperator(),
+    createLimitPlugin(),
+    createLogPlugin(),
+    createAccentPlugin(),
+    createBigOperatorPlugin(),
+    createFractionPlugin(),
+    createEquationTextPlugin(),
+    createMatrixPlugin(),
+    createEquationMentionInsert(),
+    createEquationMentionPlugin(),
+    createMathEditorPlugin(),
+  ],{
+    components: components,
+  });
 }

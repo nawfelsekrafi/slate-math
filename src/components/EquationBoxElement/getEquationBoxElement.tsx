@@ -10,9 +10,7 @@ import { useFocused, useSelected } from 'slate-react'
 import tw from 'twin.macro'
 import { EquationBoxElementStyleProps } from './getEquationBoxElement.types'
 export const EquationBox = (props: EquationBoxElementStyleProps) => {
-  const onClick = () => {
-    console.log(isEmpty)
-  }
+
   const { attributes, children, nodeProps, element, as } = props
 
   const selected = useSelected()
@@ -45,7 +43,7 @@ export const EquationBox = (props: EquationBoxElementStyleProps) => {
       as={as}
       data-slate-value={element.value}
       css={styles}
-      onClick={getHandler(onClick)}
+      /*onClick={getHandler(onClick)}*/
     >
       {children}
     </span>

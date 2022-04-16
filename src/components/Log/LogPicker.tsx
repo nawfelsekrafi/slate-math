@@ -64,6 +64,7 @@ export const LogPicker = ({ logs }: LogPickerProps) => {
     <div className="log-container" id="logContainer">
       {logs.map(({ name }) => (
         <LogButton
+          key={name}
           name={name}
           logName={nameToLogNameMap.get(name)}
           image={nameToImgMap.get(name)}

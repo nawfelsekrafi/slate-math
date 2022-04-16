@@ -13,6 +13,7 @@ import {
 import { css } from 'styled-components'
 import { ELEMENT_ACCENT } from './Accent'
 import { ELEMENT_BIG_OPERATOR } from './BigOperator'
+import { ELEMENT_EQUATIONBOX } from './EquationBoxElement'
 import { ELEMENT_FRACTION } from './Fraction'
 import { ELEMENT_LIMIT } from './Limit'
 import { ELEMENT_LOG } from './Log'
