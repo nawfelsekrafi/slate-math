@@ -1,5 +1,5 @@
 import { Laugh } from "@styled-icons/boxicons-regular";
-import { PlatePlugin, createMentionPlugin, createComboboxPlugin, createPlateUI, createPluginFactory, MentionElement, StyledElement } from "@udecode/plate";
+import { PlatePlugin, createMentionPlugin, createComboboxPlugin, createPlateUI, createPluginFactory, MentionElement, StyledElement, createExitBreakPlugin, KEYS_HEADING, ExitBreakPlugin } from "@udecode/plate";
 import { createPlugins, withProps } from "@udecode/plate-core";
 import { components } from ".";
 import { ELEMENT_BIG_OPERATOR } from "./BigOperator";
@@ -77,21 +77,21 @@ export const createUneditableBigOperator = createPluginFactory({
 
 export   const createFractionPlugin = createPluginFactory({
     key: ELEMENT_FRACTION,
-    //isInline: true,
+    isInline: true,
     isElement: true,
 
   });
 
 export const createBigOperatorPlugin = createPluginFactory({
     key: ELEMENT_BIG_OPERATOR,
-    //isInline: true,
+    isInline: true,
     isElement: true,
 
   });
 
 export const createLimitPlugin = createPluginFactory({
     key: ELEMENT_LIMIT,
-    //isInline: true,
+    isInline: true,
     isElement: true,
     component: LimitComponent,
   });
@@ -122,7 +122,6 @@ export const createMathContainerPlugin = createPluginFactory({
   isElement: true,
 
 });
-  
 export const createEquationMentionPlugin = (): PlatePlugin => {
   return createMentionPlugin({ options: { trigger: '/', createMentionNode: (item) => equationMentionNode(item), id: ELEMENT_EQUATION_MENTION}, key: ELEMENT_EQUATION_MENTION  })
 }
@@ -137,7 +136,7 @@ export const createMathEditorPlugin = createPluginFactory({
 });
 
 export const createMathPlugins = () => {
-  const plugins = createPlugins([
+  return createPlugins([
     createMathContainerPlugin(),
     createEquationBoxPlugin(),
     createUneditableBigOperator(),
@@ -154,9 +153,7 @@ export const createMathPlugins = () => {
   ],{
     components: components,
   });
-  return plugins
 }
-
 
 
 

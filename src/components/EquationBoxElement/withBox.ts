@@ -1,5 +1,9 @@
 import { getBlockAbove, getPlugin, getPluginType, isCollapsed, isElement, MentionPlugin, TElement, WithOverride } from "@udecode/plate";
-import { Editor, Transforms, Node, Point } from "slate";
+import { Editor, Transforms, Node, Point, Path } from "slate";
+import { ELEMENT_EQUATION_TEXT } from "../EquationText";
+import { ELEMENT_MATH_CONTAINER } from "../MathContainer/defaults";
+import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "../UneditableBigOperator/defaults";
+import { isMathNode } from "../util";
 import { ELEMENT_EQUATIONBOX } from "./defaults";
 import { EquationBoxInputElementProps } from "./getEquationBoxElement.types";
 
@@ -8,18 +12,35 @@ export const withBox: WithOverride<{}, EquationBoxInputElementProps> = (
   editor
 ) => {
 
-    const { apply, normalizeNode, insertText, deleteBackward, deleteForward } = editor;
+    const { normalizeNode, deleteBackward, deleteForward } = editor;
+    
+    // can only have 1 entry
+    editor.normalizeNode = ([node, path]) => {
+      if (isMathNode(node,editor)){
+        if (isElement(node) && (node.type === getPluginType(editor, ELEMENT_EQUATIONBOX) )){
+          if (node.children.length > 1) {
+            for(var i = 0; i<node.children.length; i++){
+              if(node.children[i].text!=undefined){
+                
+                Transforms.removeNodes(editor, {
+                  at: path.concat(i),
+                });
+              }
+            }
+          }
+        }
+        return node;
+      }
+      return normalizeNode([node, path])
+      
+      
+    };
     const matchCells = (node: Node) => {
         return (
           isElement(node) &&
           (node.type === getPluginType(editor, ELEMENT_EQUATIONBOX)));
       };
-    editor.normalizeNode = ([node, path]) => {
-    
-        
-    
-        return node;
-      };
+
       const preventDeleteCell = (
         operation: any,
         pointCallback: any,
@@ -59,7 +80,7 @@ export const withBox: WithOverride<{}, EquationBoxInputElementProps> = (
         Transforms.insertText(editor, text);
       };
 
-        
+      
       editor.deleteBackward = preventDeleteCell(
         deleteBackward,
         Editor.start,
