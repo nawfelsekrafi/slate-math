@@ -18,18 +18,18 @@ import { getLogDropDownMenu } from './constants'
 import { LogPicker } from './LogPicker'
 import { LogType } from './LogType'
 
-type LogPickerToolbarDropdownProps = {
+type ToolbarDropdownProps = {
   pluginKey: string
   icon: ReactNode
   logs?: LogType[]
   styles?: Partial<RootStyles>
 }
-export const LogDropDownMenu = ({
+export const LogToolBarButton = ({
   pluginKey,
   icon,
   logs = getLogDropDownMenu(),
   ...rest
-}: LogPickerToolbarDropdownProps) => {
+}: ToolbarDropdownProps) => {
   const [open, setOpen] = React.useState(false)
   const editor = usePlateEditorState()!
   const editorRef = usePlateEditorRef()!
