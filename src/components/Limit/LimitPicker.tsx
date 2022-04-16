@@ -47,6 +47,7 @@ export const LimitPicker = ({ limits }: LimitPickerProps) => {
           limitName={nameToLimitNameMap.get(name)}
           image={nameToImgMap.get(name)}
           onClick={nameToClickFuncMap.get(name)}
+          key={name}
         />
       ))}
     </div>

@@ -162,6 +162,7 @@ export const AccentPicker = ({ accents }: AccentPickerProps) => {
           accentName={nameToAccentNameMap.get(name)}
           image={nameToImgMap.get(name)}
           onClick={nameToClickFuncMap.get(name)}
+          key={name}
         />
       ))}
     </div>

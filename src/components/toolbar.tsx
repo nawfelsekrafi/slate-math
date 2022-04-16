@@ -50,10 +50,10 @@ import EqLoader from './load'
 import EqSaver from './save'
 import { createMathPlugins } from './plugin'
 import { ELEMENT_ACCENT } from './Accent'
-import { AccentDropDownMenu } from './Accent/AccentDropDownMenu'
-import { LogDropDownMenu } from './Log/LogDropDownMenu'
 import { ELEMENT_LOG } from './Log'
-import { LimitDropDownMenu } from './Limit/LimitDropDownMenu'
+import { LimitToolBarButton } from './Limit/LimitDropDownMenu'
+import { LogToolBarButton } from './Log/LogDropDownMenu'
+import { AccentToolBarButton } from './Accent/AccentDropDownMenu'
 
 export const MathToolbar = () => {
   const editor = getPlateEditorRef()!
@@ -77,7 +77,7 @@ export const MathToolbar = () => {
         }
       />
 
-      <LimitDropDownMenu
+      <LimitToolBarButton
         pluginKey={ELEMENT_LIMIT}
         icon={limitIcon()}
         styles={{
@@ -101,7 +101,7 @@ export const MathToolbar = () => {
         onMouseDown={(e) => insertMathNode(getEmptyLimNode, editor)}
       /> */}
 
-      <LogDropDownMenu
+      <LogToolBarButton
         pluginKey={ELEMENT_LOG}
         icon={logIcon()}
         styles={{
@@ -143,7 +143,7 @@ export const MathToolbar = () => {
       />
       <MathMentionCombobox items={MENTIONABLES} id={ELEMENT_EQUATION_MENTION} />
 
-      <AccentDropDownMenu pluginKey={ELEMENT_ACCENT} icon={accentIcon()} />
+      <AccentToolBarButton pluginKey={ELEMENT_ACCENT} icon={accentIcon()} />
 
       <EqLoader />
       <EqSaver />
