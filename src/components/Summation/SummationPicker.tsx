@@ -20,20 +20,8 @@ import { selectFirstBox } from '../util'
 import { SummationButton } from './SummationButton'
 import { SummationType } from './SummationType'
 import {
-  getCoProductWithLimitNode,
-  getCoProductWithSubscriptLimitNode,
-  getIntersectionWithLimitNode,
-  getIntersectionWithSubscriptLimitNode,
-  getLogicalAndWithLimitNode,
-  getLogicalAndWithSubscriptLimitNode,
-  getLogicalOrWithLimitNode,
-  getLogicalOrWithSubscriptLimitNode,
-  getProductWithLimitNode,
-  getProductWithSubscriptLimitNode,
   getSummationWithLimitNode,
   getSummationWithSubscriptLimitNode,
-  getUnionWithLimitNode,
-  getUnionWithSubscriptLimitNode,
 } from './getEmptySummationNode'
 
 const initializeEquationMap = () => {
@@ -48,37 +36,37 @@ const initializeEquationMap = () => {
 
   //product
   nameToClickFuncMap.set('1x2', () => {
-    insertMathNode(getProductWithLimitNode, editor, '\u220f')
+    insertMathNode(getSummationWithLimitNode, editor, '\u220f')
     selectFirstBox(editor)
   })
 
   //co-product
   nameToClickFuncMap.set('1x3', () => {
-    insertMathNode(getCoProductWithLimitNode, editor, '\u2210')
+    insertMathNode(getSummationWithLimitNode, editor, '\u2210')
     selectFirstBox(editor)
   })
 
   //Union
   nameToClickFuncMap.set('1x4', () => {
-    insertMathNode(getUnionWithLimitNode, editor, '\u22c3')
+    insertMathNode(getSummationWithLimitNode, editor, '\u22c3')
     selectFirstBox(editor)
   })
 
   //Or
   nameToClickFuncMap.set('1x5', () => {
-    insertMathNode(getLogicalOrWithLimitNode, editor, '\u2228')
+    insertMathNode(getSummationWithLimitNode, editor, '\u2228')
     selectFirstBox(editor)
   })
 
   //Intersection
   nameToClickFuncMap.set('1x6', () => {
-    insertMathNode(getIntersectionWithLimitNode, editor, '\u22c2')
+    insertMathNode(getSummationWithLimitNode, editor, '\u22c2')
     selectFirstBox(editor)
   })
 
   //And
   nameToClickFuncMap.set('1x7', () => {
-    insertMathNode(getLogicalAndWithLimitNode, editor, '\u2227')
+    insertMathNode(getSummationWithLimitNode, editor, '\u2227')
     selectFirstBox(editor)
   })
 
@@ -90,37 +78,37 @@ const initializeEquationMap = () => {
 
   //product
   nameToClickFuncMap.set('2x2', () => {
-    insertMathNode(getProductWithSubscriptLimitNode, editor, '\u220f')
+    insertMathNode(getSummationWithSubscriptLimitNode, editor, '\u220f')
     selectFirstBox(editor)
   })
 
   //co-product
   nameToClickFuncMap.set('2x3', () => {
-    insertMathNode(getCoProductWithSubscriptLimitNode, editor, '\u2210')
+    insertMathNode(getSummationWithSubscriptLimitNode, editor, '\u2210')
     selectFirstBox(editor)
   })
 
   //Union
   nameToClickFuncMap.set('2x4', () => {
-    insertMathNode(getUnionWithSubscriptLimitNode, editor, '\u22c3')
+    insertMathNode(getSummationWithSubscriptLimitNode, editor, '\u22c3')
     selectFirstBox(editor)
   })
 
   //Or
   nameToClickFuncMap.set('2x5', () => {
-    insertMathNode(getLogicalOrWithSubscriptLimitNode, editor, '\u2228')
+    insertMathNode(getSummationWithSubscriptLimitNode, editor, '\u2228')
     selectFirstBox(editor)
   })
 
   //Intersection
   nameToClickFuncMap.set('2x6', () => {
-    insertMathNode(getIntersectionWithSubscriptLimitNode, editor, '\u22c2')
+    insertMathNode(getSummationWithSubscriptLimitNode, editor, '\u22c2')
     selectFirstBox(editor)
   })
 
   //And
   nameToClickFuncMap.set('2x7', () => {
-    insertMathNode(getLogicalAndWithSubscriptLimitNode, editor, '\u2227')
+    insertMathNode(getSummationWithSubscriptLimitNode, editor, '\u2227')
     selectFirstBox(editor)
   })
 
