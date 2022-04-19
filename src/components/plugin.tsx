@@ -26,7 +26,10 @@ import { ELEMENT_EQUATION_MENTION } from './mention/constants'
 import { ELEMENT_EQUATION_MENTION_INSERT } from './mention/defaults'
 import { EquationMentionElement } from './mention/equationMentionElement'
 import { equationMentionNode } from './mention/equationMentionNode'
-import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from './UneditableBigOperator/defaults'
+import {
+  ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
+  ELEMENT_UNEDITABLE_BIG_OPERATOR,
+} from './UneditableBigOperator/defaults'
 import { equationBoxOnKeyDown } from './util'
 import { LogComponent } from './Log/getLogElements'
 import { AccentComponent } from './Accent/getAccentElements'
@@ -76,6 +79,13 @@ export const createEquationTextPlugin = createPluginFactory({
 
 export const createUneditableBigOperator = createPluginFactory({
   key: ELEMENT_UNEDITABLE_BIG_OPERATOR,
+  isInline: true,
+  isElement: true,
+  //renderLeaf: getRenderLeaf(ELEMENT_EQUATIONBOX),
+})
+
+export const createUneditableBigOperatorStacked = createPluginFactory({
+  key: ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
   isInline: true,
   isElement: true,
   //renderLeaf: getRenderLeaf(ELEMENT_EQUATIONBOX),
@@ -151,6 +161,7 @@ export const createMathPlugins = () => {
       createMathContainerPlugin(),
       createEquationBoxPlugin(),
       createUneditableBigOperator(),
+      createUneditableBigOperatorStacked(),
       createLimitPlugin(),
       createLogPlugin(),
       createAccentPlugin(),

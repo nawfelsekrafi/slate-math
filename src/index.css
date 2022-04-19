@@ -53,9 +53,11 @@ table tr:last-child th {
 .slate-equationtext {
   font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
   font-size: 1.5em; 
+  grid-area: symbol;
 }
 .slate-equationbox {
   font-family: Cambria, Georgia, serif; font-style: normal; font-variant: normal; 
+
 }
 
 .slate-lim > div {

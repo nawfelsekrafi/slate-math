@@ -18,12 +18,8 @@ import { selectFirstBox } from '../util'
 import { IntegralType } from './IntegralType'
 import { getEmptyUneditableBigOpNode } from '../UneditableBigOperator/getEmptyBigOpNode'
 import {
-  getDoubleIntegralWithLimitNode,
   getIntegralWithLimitNode,
   getIntegralWithStackedLimtNode,
-  getSurfaceIntegralWithLimitNode,
-  getTripleIntegralWithLimitNode,
-  getVolumeIntegralWithLimitNode,
 } from './getEmptyIntegralNode'
 
 const initializeEquationMap = () => {
@@ -68,12 +64,12 @@ const initializeEquationMap = () => {
   })
 
   nameToClickFuncMap.set('2x2', () => {
-    insertMathNode(getDoubleIntegralWithLimitNode, editor, '\u222c')
+    insertMathNode(getIntegralWithLimitNode, editor, '\u222c')
     selectFirstBox(editor)
   })
 
   nameToClickFuncMap.set('2x3', () => {
-    insertMathNode(getTripleIntegralWithLimitNode, editor, '\u222d')
+    insertMathNode(getIntegralWithLimitNode, editor, '\u222d')
     selectFirstBox(editor)
   })
 
@@ -84,12 +80,12 @@ const initializeEquationMap = () => {
   })
 
   nameToClickFuncMap.set('2x5', () => {
-    insertMathNode(getSurfaceIntegralWithLimitNode, editor, '\u222f')
+    insertMathNode(getIntegralWithLimitNode, editor, '\u222f')
     selectFirstBox(editor)
   })
 
   nameToClickFuncMap.set('2x6', () => {
-    insertMathNode(getVolumeIntegralWithLimitNode, editor, '\u2230')
+    insertMathNode(getIntegralWithLimitNode, editor, '\u2230')
     selectFirstBox(editor)
   })
 
