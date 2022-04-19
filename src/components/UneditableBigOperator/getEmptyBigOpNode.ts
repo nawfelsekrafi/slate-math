@@ -10,7 +10,7 @@ export const getEmptyUneditableBigOpNode = (text?:string) => {
   return <TElement>{
     type: ELEMENT_UNEDITABLE_BIG_OPERATOR,
     children: [
-      getEmptyBoxNode(.75),
+      getEmptyBoxNode(.75,'auto','12px','-10px'),
       getEquationTextNode(text),
       getEmptyBoxNode(.75),
     ],

@@ -11,7 +11,7 @@ export const getEmptyFractionNode = (
   return <TElement>{
     type: ELEMENT_FRACTION,
     children: [
-      getEmptyBoxNode(.75,undefined,undefined,3,2),
+      getEmptyBoxNode(.75,undefined,undefined,undefined,undefined,3,2),
       getEmptyBoxNode(.75),
     ],
   };

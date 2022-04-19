@@ -18,10 +18,10 @@ import {
   LOG,
   SUMMATION,
 } from './defaults'
-import { integralIcon } from './Icons/Integral/icon'
+import { integralIcon } from './Integral/icon'
 import { getEmptyLimNode } from './Limit/getEmptyLimNode'
 import { getLogarithmToBaseNnode } from './Log/getEmptyLogNode'
-import { summationIcon } from './Icons/Summation/icon'
+import { summationIcon } from './Summation/icon'
 import { bigOpIcon } from './BigOperator'
 import { ELEMENT_LIMIT, limitIcon } from './Limit'
 import { logIcon } from './Log/getLogElements'
@@ -54,12 +54,19 @@ import { ELEMENT_LOG } from './Log'
 import { LimitToolBarButton } from './Limit/LimitDropDownMenu'
 import { LogToolBarButton } from './Log/LogDropDownMenu'
 import { AccentToolBarButton } from './Accent/AccentDropDownMenu'
+import { IntegralToolBarButton } from './Integral/IntegralDropDownMenu'
+import { ELEMENT_INTEGRAL } from './Integral/defaults'
 
 export const MathToolbar = () => {
   const editor = getPlateEditorRef()!
 
   return (
     <>
+      <IntegralToolBarButton
+        pluginKey={ELEMENT_INTEGRAL}
+        icon={integralIcon()}
+      />
+      {/* 
       <ToolbarButton
         type={getPluginType(editor, INTEGRAL)}
         icon={integralIcon()}
@@ -67,7 +74,8 @@ export const MathToolbar = () => {
         onMouseDown={(e) =>
           insertMathNode(getEmptyUneditableBigOpNode, editor, '\u222b')
         }
-      />
+      /> */}
+
       <ToolbarButton
         type={getPluginType(editor, SUMMATION)}
         icon={summationIcon()}
@@ -141,6 +149,7 @@ export const MathToolbar = () => {
         icon={<Matrix />}
         selectedIcon={<Matrix />}
       />
+
       <MathMentionCombobox items={MENTIONABLES} id={ELEMENT_EQUATION_MENTION} />
 
       <AccentToolBarButton pluginKey={ELEMENT_ACCENT} icon={accentIcon()} />

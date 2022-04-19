@@ -10,9 +10,9 @@ export const getLogarithmToBaseNnode = (
     type: ELEMENT_LOG,
     children: [
       getLogarithmSymbol(),
-      getEmptyBoxNode(0.75, 'right'),
+      getEmptyBoxNode(0.75),
       getLeftBracket(),
-      getEmptyBoxNode(1,'right'),
+      getEmptyBoxNode(1),
       getRightBracket()
     ]
   };
@@ -32,7 +32,7 @@ export const getEmptyNaturalLogarithmNode = (
     children: [
       getNaturalLogarithmSymbol(),
       getLeftBracket(),
-      getEmptyBoxNode(1,'right'),
+      getEmptyBoxNode(1),
       getRightBracket()
     ]
   };
@@ -52,7 +52,7 @@ export const getEmptyLogarithmNode = (
     children: [
       getLogarithmSymbol(),
       getLeftBracket(),
-      getEmptyBoxNode(1,'right'),
+      getEmptyBoxNode(1),
       getRightBracket()
     ]
   };
@@ -66,7 +66,7 @@ export const getEmptyLogarithmToBaseTenNode = (
       getLogarithmSymbol(),
       getLeftBracket(),
       getNumberTen(),
-      getEmptyBoxNode(1,'right'),
+      getEmptyBoxNode(1),
       getRightBracket()
     ]
   };

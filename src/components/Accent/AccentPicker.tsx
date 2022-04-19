@@ -18,7 +18,25 @@ import Grave from '../../assets/Accents/Grave.png'
 import Acute from '../../assets/Accents/Acute.png'
 import { insertNodes, getPlateEditorRef } from '@udecode/plate'
 import { selectFirstBox } from '../util'
-import { getEmptyAccentNode } from './getEmptyAccentNode'
+import {
+  getAcuteAccentNode,
+  getBarAccentNode,
+  getBreveAccentNode,
+  getCheckAccentNode,
+  getDotAccentNode,
+  getDoubleDotAccentNode,
+  getEmptyAccentNode,
+  getGraveAccentNode,
+  getHatAccentNode,
+  getLeftwardsArrowAboveAccentNode,
+  getOverCurlyBraceNode,
+  getOverParenthesisAccentNode,
+  getRightLeftArrowAboveAccentNode,
+  getRightwardHarpoonAccentNode,
+  getRightwardsArrowAboveAccentNode,
+  getTildeAccentNode,
+  getTripleDotAccentNode,
+} from './getEmptyAccentNode'
 import { insertMathNode } from '../toolbar'
 /*
 rightward: 	\u2192
@@ -41,71 +59,135 @@ acute		\u02CA
 const initializeEquationMap = () => {
   const editor = getPlateEditorRef()!
   const nameToClickFuncMap = new Map<string, any>()
+  // nameToClickFuncMap.set('1x1', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u2192')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('1x2', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u2190')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('1x3', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u2194')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('1x4', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u007E')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('2x1', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u00B7')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('2x2', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u0022')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('2x3', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u21C0')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('2x4', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u2015')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('3x1', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u23DE')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('3x2', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u23DC')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('3x3', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u23D1')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('3x4', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u005E')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('4x1', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u02C7')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('4x2', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u20DB')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('4x3', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u0060')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('4x4', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u02CA')
+  //   selectFirstBox(editor)
+  // })
+  /////////////////////////////////////////////////////////////////////////
   nameToClickFuncMap.set('1x1', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u2192')
+    insertMathNode(getRightwardsArrowAboveAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('1x2', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u2190')
+    insertMathNode(getLeftwardsArrowAboveAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('1x3', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u2194')
+    insertMathNode(getRightLeftArrowAboveAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('1x4', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u007E')
+    insertMathNode(getTildeAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('2x1', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u00B7')
+    insertMathNode(getDotAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('2x2', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u0022')
+    insertMathNode(getDoubleDotAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('2x3', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u21C0')
+    insertMathNode(getRightwardHarpoonAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('2x4', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u2015')
+    insertMathNode(getBarAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('3x1', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u23DE')
+    insertMathNode(getOverCurlyBraceNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('3x2', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u23DC')
+    insertMathNode(getOverParenthesisAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('3x3', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u23D1')
+    insertMathNode(getBreveAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('3x4', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u005E')
+    insertMathNode(getHatAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('4x1', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u02C7')
+    insertMathNode(getCheckAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('4x2', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u20DB')
+    insertMathNode(getTripleDotAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('4x3', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u0060')
+    insertMathNode(getGraveAccentNode, editor)
     selectFirstBox(editor)
   })
   nameToClickFuncMap.set('4x4', () => {
-    insertMathNode(getEmptyAccentNode, editor, '\u02CA')
+    insertMathNode(getAcuteAccentNode, editor)
     selectFirstBox(editor)
   })
-
   //this component is used to map the images of each accent based on the postion(rowNum and colNum)
   const nameToImgMap = new Map<string, any>()
   nameToImgMap.set('1x1', RightwardsArrowAbove)
