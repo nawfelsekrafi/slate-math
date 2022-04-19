@@ -1,1 +1,1 @@
-export const ELEMENT_INTEGRAL = "logsymbol"
+export const ELEMENT_INTEGRAL = "integralsymbol"

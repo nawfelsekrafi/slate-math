@@ -56,6 +56,8 @@ import { LogToolBarButton } from './Log/LogDropDownMenu'
 import { AccentToolBarButton } from './Accent/AccentDropDownMenu'
 import { IntegralToolBarButton } from './Integral/IntegralDropDownMenu'
 import { ELEMENT_INTEGRAL } from './Integral/defaults'
+import { SummationToolBarButton } from './Summation/SummationDropDownMenu'
+import { ELEMENT_SUMMATION } from './Summation/defaults'
 
 export const MathToolbar = () => {
   const editor = getPlateEditorRef()!
@@ -76,14 +78,19 @@ export const MathToolbar = () => {
         }
       /> */}
 
-      <ToolbarButton
+      <SummationToolBarButton
+        pluginKey={ELEMENT_SUMMATION}
+        icon={summationIcon()}
+      />
+
+      {/* <ToolbarButton
         type={getPluginType(editor, SUMMATION)}
         icon={summationIcon()}
         tooltip={{ content: 'Create Summation', theme: 'light-border' }}
         onMouseDown={(e) =>
           insertMathNode(getEmptyUneditableBigOpNode, editor, '\u2211')
         }
-      />
+      /> */}
 
       <LimitToolBarButton
         pluginKey={ELEMENT_LIMIT}

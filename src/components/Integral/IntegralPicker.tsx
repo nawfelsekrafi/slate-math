@@ -107,21 +107,21 @@ const initializeEquationMap = () => {
   nameToImgMap.set('2x5', SurfaceIntegralWithLimits)
   nameToImgMap.set('2x6', VolumeIntegralWithLimits)
 
-  const nameToLogNameMap = new Map<string, string>()
-  nameToLogNameMap.set('1x1', 'Integral with Stacked Limits')
-  nameToLogNameMap.set('1x2', 'Double Integral with Stacked Limits')
-  nameToLogNameMap.set('1x3', 'Triple Integral with Stacked Limits')
-  nameToLogNameMap.set('1x4', 'Contour Integral with Stacked Limits')
-  nameToLogNameMap.set('1x5', 'Surface Integral with Stacked Limits')
-  nameToLogNameMap.set('1x6', 'Volume Integral with Stacked Limits')
-  nameToLogNameMap.set('2x1', 'Integral with limits')
-  nameToLogNameMap.set('2x2', 'Double Integral with Limits')
-  nameToLogNameMap.set('2x3', 'Triple Integral with Limits')
-  nameToLogNameMap.set('2x4', 'Contour Integral with Limits')
-  nameToLogNameMap.set('2x5', 'Surface Integral with Limits')
-  nameToLogNameMap.set('2x6', 'Volume Integral with Limits')
+  const nameToIntegralNameMap = new Map<string, string>()
+  nameToIntegralNameMap.set('1x1', 'Integral with Stacked Limits')
+  nameToIntegralNameMap.set('1x2', 'Double Integral with Stacked Limits')
+  nameToIntegralNameMap.set('1x3', 'Triple Integral with Stacked Limits')
+  nameToIntegralNameMap.set('1x4', 'Contour Integral with Stacked Limits')
+  nameToIntegralNameMap.set('1x5', 'Surface Integral with Stacked Limits')
+  nameToIntegralNameMap.set('1x6', 'Volume Integral with Stacked Limits')
+  nameToIntegralNameMap.set('2x1', 'Integral with limits')
+  nameToIntegralNameMap.set('2x2', 'Double Integral with Limits')
+  nameToIntegralNameMap.set('2x3', 'Triple Integral with Limits')
+  nameToIntegralNameMap.set('2x4', 'Contour Integral with Limits')
+  nameToIntegralNameMap.set('2x5', 'Surface Integral with Limits')
+  nameToIntegralNameMap.set('2x6', 'Volume Integral with Limits')
 
-  return { nameToClickFuncMap, nameToImgMap, nameToLogNameMap }
+  return { nameToClickFuncMap, nameToImgMap, nameToIntegralNameMap }
 }
 
 type IntegralPickerProps = {
@@ -130,14 +130,14 @@ type IntegralPickerProps = {
 }
 
 export const IntegralPicker = ({ integrals }: IntegralPickerProps) => {
-  const { nameToClickFuncMap, nameToImgMap, nameToLogNameMap } =
+  const { nameToClickFuncMap, nameToImgMap, nameToIntegralNameMap } =
     initializeEquationMap()
   return (
     <div className="integral-container" id="integralContainer">
       {integrals.map(({ name }) => (
         <IntegralButton
           name={name}
-          integralName={nameToLogNameMap.get(name)}
+          integralName={nameToIntegralNameMap.get(name)}
           image={nameToImgMap.get(name)}
           onClick={nameToClickFuncMap.get(name)}
           key={name}
