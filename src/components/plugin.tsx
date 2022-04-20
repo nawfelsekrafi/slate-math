@@ -84,7 +84,7 @@ export const createUneditableBigOperator = createPluginFactory({
   //renderLeaf: getRenderLeaf(ELEMENT_EQUATIONBOX),
 })
 
-export const createUneditableBigOperatorStacked = createPluginFactory({
+export const createBigOperatorWithLimitsOnRight = createPluginFactory({
   key: ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
   isInline: true,
   isElement: true,
@@ -161,7 +161,7 @@ export const createMathPlugins = () => {
       createMathContainerPlugin(),
       createEquationBoxPlugin(),
       createUneditableBigOperator(),
-      createUneditableBigOperatorStacked(),
+      createBigOperatorWithLimitsOnRight(),
       createLimitPlugin(),
       createLogPlugin(),
       createAccentPlugin(),
