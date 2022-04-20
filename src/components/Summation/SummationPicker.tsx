@@ -150,9 +150,13 @@ const initializeEquationMap = () => {
 type SummationPickerProps = {
   summation?: string
   summations: SummationType[]
+  onToggle: () => void
 }
 
-export const SummationPicker = ({ summations }: SummationPickerProps) => {
+export const SummationPicker = ({
+  summations,
+  onToggle,
+}: SummationPickerProps) => {
   const { nameToClickFuncMap, nameToImgMap, nameToSummationNameMap } =
     initializeEquationMap()
   return (
@@ -162,7 +166,11 @@ export const SummationPicker = ({ summations }: SummationPickerProps) => {
           name={name}
           summationName={nameToSummationNameMap.get(name)}
           image={nameToImgMap.get(name)}
-          onClick={nameToClickFuncMap.get(name)}
+          onClick={() => {
+            const getEquation = nameToClickFuncMap.get(name)
+            getEquation()
+            onToggle()
+          }}
           key={name}
         />
       ))}

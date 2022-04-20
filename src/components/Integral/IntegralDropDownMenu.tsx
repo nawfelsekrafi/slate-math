@@ -9,6 +9,7 @@ import {
 } from '@udecode/plate'
 import React, { ReactNode, useCallback } from 'react'
 import { getIntegralDropDownMenu } from './constants'
+import { IntegralButton } from './IntegralButton'
 import { IntegralPicker } from './IntegralPicker'
 import { IntegralType } from './IntegralType'
 
@@ -32,7 +33,6 @@ export const IntegralToolBarButton = ({
     setOpen(!open)
   }, [open, setOpen])
 
-
   return (
     <div>
       <ToolbarDropdown
@@ -51,6 +51,7 @@ export const IntegralToolBarButton = ({
         <IntegralPicker
           integral={'integral'}
           integrals={integrals}
+          onToggle={onToggle}
         />
       </ToolbarDropdown>
     </div>

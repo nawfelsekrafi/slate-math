@@ -51,7 +51,11 @@ export const AccentToolBarButton = ({
         onOpen={onToggle}
         onClose={onToggle}
       >
-        <AccentPicker accent={'accents'} accents={accents} />
+        <AccentPicker
+          accent={'accents'}
+          accents={accents}
+          onToggle={onToggle}
+        />
       </ToolbarDropdown>
     </div>
   )

@@ -2,9 +2,9 @@ import Tippy from '@tippyjs/react'
 import { getIntegralButtonStyles } from './getIntegralButtonStyles'
 
 type IntegralButtonProps = {
-  name: string
-  integralName: any
-  image: any
+  name?: string
+  integralName?: any
+  image?: any
   onClick: () => void
 }
 

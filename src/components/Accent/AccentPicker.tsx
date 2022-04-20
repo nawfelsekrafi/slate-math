@@ -231,9 +231,10 @@ const initializeEquationMap = () => {
 type AccentPickerProps = {
   accent?: string
   accents: AccentType[]
+  onToggle: () => void
 }
 
-export const AccentPicker = ({ accents }: AccentPickerProps) => {
+export const AccentPicker = ({ accents, onToggle }: AccentPickerProps) => {
   const { nameToClickFuncMap, nameToImgMap, nameToAccentNameMap } =
     initializeEquationMap()
   return (
@@ -243,7 +244,11 @@ export const AccentPicker = ({ accents }: AccentPickerProps) => {
           name={name}
           accentName={nameToAccentNameMap.get(name)}
           image={nameToImgMap.get(name)}
-          onClick={nameToClickFuncMap.get(name)}
+          onClick={() => {
+            const getEquation = nameToClickFuncMap.get(name)
+            getEquation()
+            onToggle()
+          }}
           key={name}
         />
       ))}

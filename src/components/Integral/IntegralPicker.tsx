@@ -123,9 +123,13 @@ const initializeEquationMap = () => {
 type IntegralPickerProps = {
   integral?: string
   integrals: IntegralType[]
+  onToggle: () => void
 }
 
-export const IntegralPicker = ({ integrals }: IntegralPickerProps) => {
+export const IntegralPicker = ({
+  integrals,
+  onToggle,
+}: IntegralPickerProps) => {
   const { nameToClickFuncMap, nameToImgMap, nameToIntegralNameMap } =
     initializeEquationMap()
   return (
@@ -135,7 +139,11 @@ export const IntegralPicker = ({ integrals }: IntegralPickerProps) => {
           name={name}
           integralName={nameToIntegralNameMap.get(name)}
           image={nameToImgMap.get(name)}
-          onClick={nameToClickFuncMap.get(name)}
+          onClick={() => {
+            const getEquation = nameToClickFuncMap.get(name)
+            getEquation()
+            onToggle()
+          }}
           key={name}
         />
       ))}

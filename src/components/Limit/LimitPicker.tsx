@@ -34,9 +34,10 @@ const initializeEquationMap = () => {
 type LimitPickerProps = {
   limit?: string
   limits: LimitType[]
+  onToggle: () => void
 }
 
-export const LimitPicker = ({ limits }: LimitPickerProps) => {
+export const LimitPicker = ({ limits, onToggle }: LimitPickerProps) => {
   const { nameToClickFuncMap, nameToImgMap, nameToLimitNameMap } =
     initializeEquationMap()
   return (
@@ -46,7 +47,11 @@ export const LimitPicker = ({ limits }: LimitPickerProps) => {
           name={name}
           limitName={nameToLimitNameMap.get(name)}
           image={nameToImgMap.get(name)}
-          onClick={nameToClickFuncMap.get(name)}
+          onClick={() => {
+            const getEquation = nameToClickFuncMap.get(name)
+            getEquation()
+            onToggle()
+          }}
           key={name}
         />
       ))}

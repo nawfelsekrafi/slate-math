@@ -48,7 +48,7 @@ export const LimitToolBarButton = ({
         onOpen={onToggle}
         onClose={onToggle}
       >
-        <LimitPicker limit={'limits'} limits={limits} />
+        <LimitPicker limit={'limits'} limits={limits} onToggle={onToggle} />
       </ToolbarDropdown>
     </div>
   )

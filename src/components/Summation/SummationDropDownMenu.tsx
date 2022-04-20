@@ -47,7 +47,11 @@ export const SummationToolBarButton = ({
         onOpen={onToggle}
         onClose={onToggle}
       >
-        <SummationPicker summation={'summation'} summations={summations} />
+        <SummationPicker
+          summation={'summation'}
+          summations={summations}
+          onToggle={onToggle}
+        />
       </ToolbarDropdown>
     </div>
   )

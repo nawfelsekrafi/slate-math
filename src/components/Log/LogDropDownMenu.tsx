@@ -53,7 +53,7 @@ export const LogToolBarButton = ({
         onOpen={onToggle}
         onClose={onToggle}
       >
-        <LogPicker log={'logs'} logs={logs} />
+        <LogPicker log={'logs'} logs={logs} onToggle={onToggle} />
       </ToolbarDropdown>
     </div>
   )
