@@ -10,7 +10,6 @@ import { useFocused, useSelected } from 'slate-react'
 import tw from 'twin.macro'
 import { EquationBoxElementStyleProps } from './getEquationBoxElement.types'
 export const EquationBox = (props: EquationBoxElementStyleProps) => {
-
   const { attributes, children, nodeProps, element, as } = props
 
   const selected = useSelected()
@@ -27,13 +26,17 @@ export const EquationBox = (props: EquationBoxElementStyleProps) => {
     `font-style: normal; font-variant: normal;`,
     isEmpty && `background-color: #eee;`,
     selected && tw`boxShadow[0 0 0 2px #B4D5FF] bg-gray-300`,
-    `margin-top: 5px;`,
+    `margin-top: -10px;`,
+    // `margin-top: 5px;`,
     `:hover {box-shadow: 0px 0px 5px 1px #9a9a9a;}`,
   ]
   if (element.gridArea) 
     styles.push(`grid-area: ` + element.gridArea + `;`)
   if (element.bottomBorder)
     styles.push(`border-bottom: ` + element.bottomBorder + `px solid black;`)
+  if (element.left) styles.push(`left:` + element.left + ';')
+  if (element.bottom) styles.push(`bottom:` + element.bottom + ';')
+  if (element.top) styles.push(`top:` + element.top + ';')
   styles.push(`padding: 0px ` + element.padding + `px 0px;`)
   styles.push(isEmpty && `padding: 0px ` + (element.padding + 3) + `px 0px;`)
 

@@ -11,8 +11,10 @@ import {
   INTEGRAL,
   SUMMATION,
 } from './defaults'
-import { integralIcon } from './Icons/Integral/icon'
-import { summationIcon } from './Icons/Summation/icon'
+import { integralIcon } from './Integral/icon'
+import { getEmptyLimNode } from './Limit/getEmptyLimNode'
+import { getLogarithmToBaseNnode } from './Log/getEmptyLogNode'
+import { summationIcon } from './Summation/icon'
 import { bigOpIcon } from './BigOperator'
 import { ELEMENT_LIMIT, limitIcon } from './Limit'
 import { logIcon } from './Log/getLogElements'
@@ -26,20 +28,29 @@ import { accentIcon } from './Accent/getAccentElements'
 import EqLoader from './load'
 import EqSaver from './save'
 import { ELEMENT_ACCENT } from './Accent'
-import { AccentDropDownMenu } from './Accent/AccentDropDownMenu'
-import { LogDropDownMenu } from './Log/LogDropDownMenu'
 import { ELEMENT_LOG } from './Log'
-import { LimitDropDownMenu } from './Limit/LimitDropDownMenu'
-import { MathMentionCombobox } from './mention/mathMentionComboBox'
-import { ELEMENT_EQUATION_MENTION } from './mention/constants'
-import { MENTIONABLES } from './mention/mentionables'
+import { LimitToolBarButton } from './Limit/LimitDropDownMenu'
+import { LogToolBarButton } from './Log/LogDropDownMenu'
+import { AccentToolBarButton } from './Accent/AccentDropDownMenu'
+import { IntegralToolBarButton } from './Integral/IntegralDropDownMenu'
+import { ELEMENT_INTEGRAL } from './Integral/defaults'
+import { SummationToolBarButton } from './Summation/SummationDropDownMenu'
+import { ELEMENT_SUMMATION } from './Summation/defaults'
 import { insertMathNode } from './insertMathNode'
+import { MathMentionCombobox } from './mention/mathMentionComboBox'
+import { MENTIONABLES } from './mention/mentionables'
+import { ELEMENT_EQUATION_MENTION } from './mention/constants'
 
 export const MathToolbar = () => {
   const editor = getPlateEditorRef()!
 
   return (
     <>
+      <IntegralToolBarButton
+        pluginKey={ELEMENT_INTEGRAL}
+        icon={integralIcon()}
+      />
+      {/* 
       <ToolbarButton
         type={getPluginType(editor, INTEGRAL)}
         icon={integralIcon()}
@@ -47,17 +58,23 @@ export const MathToolbar = () => {
         onMouseDown={(e) =>
           insertMathNode(getIntegralNode, editor)
         }
+      /> */}
+
+      <SummationToolBarButton
+        pluginKey={ELEMENT_SUMMATION}
+        icon={summationIcon()}
       />
-      <ToolbarButton
+
+      {/* <ToolbarButton
         type={getPluginType(editor, SUMMATION)}
         icon={summationIcon()}
         tooltip={{ content: 'Create Summation', theme: 'light-border' }}
         onMouseDown={(e) =>
           insertMathNode(getSummationNode, editor)
         }
-      />
+      /> */}
 
-      <LimitDropDownMenu
+      <LimitToolBarButton
         pluginKey={ELEMENT_LIMIT}
         icon={limitIcon()}
         styles={{
@@ -81,7 +98,7 @@ export const MathToolbar = () => {
         onMouseDown={(e) => insertMathNode(getEmptyLimNode, editor)}
       /> */}
 
-      <LogDropDownMenu
+      <LogToolBarButton
         pluginKey={ELEMENT_LOG}
         icon={logIcon()}
         styles={{
@@ -121,9 +138,10 @@ export const MathToolbar = () => {
         icon={<Matrix />}
         selectedIcon={<Matrix />}
       />
-      
+
       <MathMentionCombobox items={MENTIONABLES} id={ELEMENT_EQUATION_MENTION} />
-      <AccentDropDownMenu pluginKey={ELEMENT_ACCENT} icon={accentIcon()} />
+
+      <AccentToolBarButton pluginKey={ELEMENT_ACCENT} icon={accentIcon()} />
 
       <EqLoader />
       <EqSaver />

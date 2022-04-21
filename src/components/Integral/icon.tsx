@@ -1,6 +1,6 @@
 import { RenderLeaf } from "@udecode/plate";
-import bottomlimit from "../BottomLimit";
-import toplimit from "../UpperBound";
+import bottomlimit from "../Icons/BottomLimit";
+import toplimit from "../Icons/UpperBound";
 import "./index.css";
 export const slateDOM = () => [
   {

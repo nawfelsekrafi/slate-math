@@ -41,6 +41,71 @@ acute		\u02CA
 const initializeEquationMap = () => {
   const editor = getPlateEditorRef()!
   const nameToClickFuncMap = new Map<string, any>()
+  // nameToClickFuncMap.set('1x1', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u2192')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('1x2', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u2190')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('1x3', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u2194')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('1x4', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u007E')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('2x1', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u00B7')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('2x2', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u0022')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('2x3', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u21C0')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('2x4', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u2015')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('3x1', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u23DE')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('3x2', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u23DC')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('3x3', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u23D1')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('3x4', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u005E')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('4x1', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u02C7')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('4x2', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u20DB')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('4x3', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u0060')
+  //   selectFirstBox(editor)
+  // })
+  // nameToClickFuncMap.set('4x4', () => {
+  //   insertMathNode(getEmptyAccentNode, editor, '\u02CA')
+  //   selectFirstBox(editor)
+  // })
+  /////////////////////////////////////////////////////////////////////////
   nameToClickFuncMap.set('1x1', () => {
     insertMathNode( getRightwardsArrowAboveAccentNode,editor,undefined,false,true)
   })
@@ -89,7 +154,6 @@ const initializeEquationMap = () => {
   nameToClickFuncMap.set('4x4', () => {
     insertMathNode( getAcuteAccentNode,editor,undefined,false,true)
   })
-
   //this component is used to map the images of each accent based on the postion(rowNum and colNum)
   const nameToImgMap = new Map<string, any>()
   nameToImgMap.set('1x1', RightwardsArrowAbove)
@@ -133,9 +197,10 @@ const initializeEquationMap = () => {
 type AccentPickerProps = {
   accent?: string
   accents: AccentType[]
+  onToggle: () => void
 }
 
-export const AccentPicker = ({ accents }: AccentPickerProps) => {
+export const AccentPicker = ({ accents, onToggle }: AccentPickerProps) => {
   const { nameToClickFuncMap, nameToImgMap, nameToAccentNameMap } =
     initializeEquationMap()
   return (
@@ -145,7 +210,12 @@ export const AccentPicker = ({ accents }: AccentPickerProps) => {
           name={name}
           accentName={nameToAccentNameMap.get(name)}
           image={nameToImgMap.get(name)}
-          onClick={nameToClickFuncMap.get(name)}
+          onClick={() => {
+            const getEquation = nameToClickFuncMap.get(name)
+            getEquation()
+            onToggle()
+          }}
+          key={name}
         />
       ))}
     </div>

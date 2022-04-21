@@ -29,3 +29,9 @@
     font-weight: bolder;
   }
   
+  .integral-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-column-gap: 0.8em;
+    grid-row-gap: 0.8em;
+  }

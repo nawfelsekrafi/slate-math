@@ -17,17 +17,17 @@ import { AccentPicker } from './AccentPicker'
 import { AccentType } from './AccentType'
 import { getAccentDropDownMenu } from './constants'
 
-type AccentPickerToolbarDropdownProps = {
+type ToolbarDropdownProps = {
   pluginKey: string
   icon: ReactNode
   accents?: AccentType[]
 }
-export const AccentDropDownMenu = ({
+export const AccentToolBarButton = ({
   pluginKey,
   icon,
   accents = getAccentDropDownMenu(),
   ...rest
-}: AccentPickerToolbarDropdownProps) => {
+}: ToolbarDropdownProps) => {
   const [open, setOpen] = React.useState(false)
   const editor = usePlateEditorState()!
   const editorRef = usePlateEditorRef()!
@@ -51,7 +51,11 @@ export const AccentDropDownMenu = ({
         onOpen={onToggle}
         onClose={onToggle}
       >
-        <AccentPicker accent={'accents'} accents={accents} />
+        <AccentPicker
+          accent={'accents'}
+          accents={accents}
+          onToggle={onToggle}
+        />
       </ToolbarDropdown>
     </div>
   )

@@ -1,48 +1,67 @@
-import { transform } from "@babel/core";
-import { findNode, getNode, getNodesRange, getRangeBefore, isCollapsed, KeyboardHandler, selectEditor, someNode, getPluginType, PlateEditor, comboboxStore } from "@udecode/plate";
-import { findDescendant, PEditor, TNode } from "@udecode/plate-core";
-import { BaseEditor, Editor, Path, Range, Transforms } from "slate";
-import { ReactEditor } from "slate-react";
-import { ELEMENT_ACCENT } from "./Accent";
-import { ELEMENT_BIG_OPERATOR } from "./BigOperator";
-import { ELEMENT_EQUATIONBOX } from "./EquationBoxElement";
-import { ELEMENT_EQUATION_TEXT } from "./EquationText";
-import { ELEMENT_FRACTION } from "./Fraction";
-import { ELEMENT_LIMIT } from "./Limit";
-import { ELEMENT_LOG } from "./Log";
-import { ELEMENT_MATH_CONTAINER } from "./MathContainer/defaults";
-import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from "./UneditableBigOperator/defaults";
+import { transform } from '@babel/core'
+import {
+  findNode,
+  getNode,
+  getNodesRange,
+  getRangeBefore,
+  isCollapsed,
+  KeyboardHandler,
+  selectEditor,
+  someNode,
+  getPluginType,
+  PlateEditor,
+  comboboxStore,
+} from '@udecode/plate'
+import { findDescendant, PEditor, TNode } from '@udecode/plate-core'
+import { BaseEditor, Editor, Path, Range, Transforms } from 'slate'
+import { ReactEditor } from 'slate-react'
+import { ELEMENT_ACCENT } from './Accent'
+import { ELEMENT_BIG_OPERATOR } from './BigOperator'
+import { ELEMENT_EQUATIONBOX } from './EquationBoxElement'
+import { ELEMENT_EQUATION_TEXT } from './EquationText'
+import { ELEMENT_FRACTION } from './Fraction'
+import { ELEMENT_LIMIT } from './Limit'
+import { ELEMENT_LOG } from './Log'
+import { ELEMENT_MATH_CONTAINER } from './MathContainer/defaults'
+import {
+  ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
+  ELEMENT_UNEDITABLE_BIG_OPERATOR,
+} from './UneditableBigOperator/defaults'
 
-export const getCurrentSelection = (editor:PlateEditor):Path | undefined => {
-    var at = editor.selection
-    var _at: Path;
-    if (Range.isRange(at) && !isCollapsed(at)) {
-      _at = at.focus.path;
-    } else if (Range.isRange(at)) {
-      _at = at.anchor.path;
-    } else {
-      _at = at as unknown as Path;
-    }
-    return _at
-
+export const getCurrentSelection = (editor: PlateEditor): Path | undefined => {
+  var at = editor.selection
+  var _at: Path
+  if (Range.isRange(at) && !isCollapsed(at)) {
+    _at = at.focus.path
+  } else if (Range.isRange(at)) {
+    _at = at.anchor.path
+  } else {
+    _at = at as unknown as Path
+  }
+  return _at
 }
-export const selectFirstBox = (editor:PlateEditor) => {
-    var selection = getCurrentSelection(editor)
-    if(selection){
-        let textNode = findNode(editor, {at: selection, match: {type: getPluginType(editor, ELEMENT_MATH_CONTAINER)}})
-        if(textNode){
-            let firstNode = findNode(editor, {at: textNode[1], mode:"highest", match: {type: getPluginType(editor, ELEMENT_EQUATIONBOX)}})
-            console.log(textNode)
-            if(firstNode){
-              console.log(firstNode)
-              let target = Editor.range(editor, firstNode[1])
-              ReactEditor.focus(editor as unknown as ReactEditor)
-              Transforms.setSelection(editor, target)
-            }
-
-
-        }
+export const selectFirstBox = (editor: PlateEditor) => {
+  var selection = getCurrentSelection(editor)
+  if (selection) {
+    let textNode = findNode(editor, {
+      at: selection,
+      match: { type: getPluginType(editor, ELEMENT_MATH_CONTAINER) },
+    })
+    if (textNode) {
+      let firstNode = findNode(editor, {
+        at: textNode[1],
+        mode: 'highest',
+        match: { type: getPluginType(editor, ELEMENT_EQUATIONBOX) },
+      })
+      console.log(textNode)
+      if (firstNode) {
+        console.log(firstNode)
+        let target = Editor.range(editor, firstNode[1])
+        ReactEditor.focus(editor as unknown as ReactEditor)
+        Transforms.setSelection(editor, target)
+      }
     }
+  }
 }
 
 export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {
@@ -93,40 +112,58 @@ export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {
                 }
             }
         }
+      }
     }
-    
-}
-export const isInsideBox = (editor:PlateEditor, selection:Path | undefined): boolean => {
-  if (!selection) return false;
+export const isInsideBox = (
+  editor: PlateEditor,
+  selection: Path | undefined
+): boolean => {
+  if (!selection) return false
   var pathParent = Path.parent(selection) //get parent
-  let node = getNode(editor,pathParent)
-  if (node){
-    let n:TNode = node as TNode;
-    if (n.type === getPluginType(editor, ELEMENT_EQUATIONBOX))
-      return true;
+  let node = getNode(editor, pathParent)
+  if (node) {
+    let n: TNode = node as TNode
+    if (n.type === getPluginType(editor, ELEMENT_EQUATIONBOX)) return true
   }
-  return false;
+  return false
 }
 
-export const containsMath = (editor:PlateEditor, selection:Path ):boolean => {
-    return someNode(editor, {at:selection, match: {type: getPluginType(editor, ELEMENT_EQUATIONBOX)} })
+export const containsMath = (editor: PlateEditor, selection: Path): boolean => {
+  return someNode(editor, {
+    at: selection,
+    match: { type: getPluginType(editor, ELEMENT_EQUATIONBOX) },
+  })
 }
 
-export const containsMathContainer = (editor:PlateEditor, selection:Path ):boolean => {
-
-  
-  var n = findNode(editor, {at: selection.slice(0,selection.length-2), match: {type: getPluginType(editor as PlateEditor, ELEMENT_MATH_CONTAINER)}})
+export const containsMathContainer = (
+  editor: PlateEditor,
+  selection: Path
+): boolean => {
+  var n = findNode(editor, {
+    at: selection.slice(0, selection.length - 2),
+    match: {
+      type: getPluginType(editor as PlateEditor, ELEMENT_MATH_CONTAINER),
+    },
+  })
   console.log(n)
-  return n!=undefined;
+  return n != undefined
 }
 
-export const isMathNode = (node:any, editor:PlateEditor):boolean => {
+export const isMathNode = (node: any, editor: PlateEditor): boolean => {
   //dont normalize these nodes
-  const types = [ELEMENT_EQUATIONBOX, ELEMENT_EQUATION_TEXT, ELEMENT_UNEDITABLE_BIG_OPERATOR, ELEMENT_BIG_OPERATOR, ELEMENT_ACCENT, ELEMENT_LOG, ELEMENT_LIMIT, ELEMENT_FRACTION]
-  for(var i = 0; i<types.length; i++){ 
-    if (node.type === getPluginType(editor, types[i]))
-      return true;
+  const types = [
+    ELEMENT_EQUATIONBOX,
+    ELEMENT_EQUATION_TEXT,
+    ELEMENT_UNEDITABLE_BIG_OPERATOR,
+    ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
+    ELEMENT_BIG_OPERATOR,
+    ELEMENT_ACCENT,
+    ELEMENT_LOG,
+    ELEMENT_LIMIT,
+    ELEMENT_FRACTION,
+  ]
+  for (var i = 0; i < types.length; i++) {
+    if (node.type === getPluginType(editor, types[i])) return true
   }
-  return false;
-
+  return false
 }

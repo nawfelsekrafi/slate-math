@@ -13,18 +13,18 @@ import { getLimitDropDownMenu } from './constants'
 import { LimitPicker } from './LimitPicker'
 import { LimitType } from './LimitType'
 
-type LimitPickerToolbarDropdownProps = {
+type ToolbarDropdownProps = {
   pluginKey: string
   icon: ReactNode
   limits?: LimitType[]
   styles?: Partial<RootStyles>
 }
-export const LimitDropDownMenu = ({
+export const LimitToolBarButton = ({
   pluginKey,
   icon,
   limits = getLimitDropDownMenu(),
   ...rest
-}: LimitPickerToolbarDropdownProps) => {
+}: ToolbarDropdownProps) => {
   const [open, setOpen] = React.useState(false)
   const editor = usePlateEditorState()!
   const editorRef = usePlateEditorRef()!
@@ -48,7 +48,7 @@ export const LimitDropDownMenu = ({
         onOpen={onToggle}
         onClose={onToggle}
       >
-        <LimitPicker limit={'limits'} limits={limits} />
+        <LimitPicker limit={'limits'} limits={limits} onToggle={onToggle} />
       </ToolbarDropdown>
     </div>
   )

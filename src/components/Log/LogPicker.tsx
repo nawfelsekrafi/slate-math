@@ -55,20 +55,25 @@ const initializeEquationMap = () => {
 type LogPickerProps = {
   log?: string
   logs: LogType[]
+  onToggle: () => void
 }
 
-export const LogPicker = ({ logs }: LogPickerProps) => {
+export const LogPicker = ({ logs, onToggle }: LogPickerProps) => {
   const { nameToClickFuncMap, nameToImgMap, nameToLogNameMap } =
     initializeEquationMap()
   return (
     <div className="log-container" id="logContainer">
       {logs.map(({ name }) => (
         <LogButton
-          key={name}
           name={name}
           logName={nameToLogNameMap.get(name)}
           image={nameToImgMap.get(name)}
-          onClick={nameToClickFuncMap.get(name)}
+          onClick={() => {
+            const getEquation = nameToClickFuncMap.get(name)
+            getEquation()
+            onToggle()
+          }}
+          key={name}
         />
       ))}
     </div>

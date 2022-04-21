@@ -18,7 +18,10 @@ import { ELEMENT_FRACTION } from './Fraction'
 import { ELEMENT_LIMIT } from './Limit'
 import { ELEMENT_LOG } from './Log'
 import { ELEMENT_MATH_CONTAINER } from './MathContainer/defaults'
-import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from './UneditableBigOperator/defaults'
+import {
+  ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
+  ELEMENT_UNEDITABLE_BIG_OPERATOR,
+} from './UneditableBigOperator/defaults'
 export const components = createPlateUI({
   //[ELEMENT_MENTION]: EquationMentionElement,
 
@@ -90,12 +93,32 @@ export const components = createPlateUI({
         css`
           display: inline-grid;
           gap: 3px 3px;
-          grid-auto-flow: column;
-
-          grid-template-rows: auto auto;
+          grid-auto-flow: row;
+          grid-template-rows: auto;
           grid-template-areas:
-            '. .'
-            '. right'
+            '. '
+            'symbol'
+            '.';
+          align-items: center;
+          justify-items: center;
+        `,
+      ],
+    },
+  }),
+
+  [ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT]: withProps(StyledElement, {
+    className: 'slate-ubigop-limits-on-right',
+    as: 'span',
+    styles: {
+      root: [
+        css`
+          display: inline-grid;
+          gap: 3px 3px;
+          grid-auto-flow: row;
+          grid-template-rows: auto auto auto;
+          grid-template-areas:
+            'symbol .'
+            'symbol .'
             '. .';
           align-items: center;
           justify-items: center;
@@ -103,18 +126,19 @@ export const components = createPlateUI({
       ],
     },
   }),
+
   [ELEMENT_LOG]: withProps(StyledElement, {
     className: 'slate-log',
     as: 'span',
     styles: {
       root: [
         css`
-          marginRight:20 ;
+          marginright: 20;
         `,
       ],
     },
   }),
-  
+
   [ELEMENT_ACCENT]: withProps(StyledElement, {
     className: 'slate-accent',
     as: 'span',

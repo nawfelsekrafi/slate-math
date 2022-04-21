@@ -8,7 +8,7 @@ type LogButtonProps = {
   onClick: () => void
 }
 
-export const LogButton = ({ image, logName,onClick }: LogButtonProps) => {
+export const LogButton = ({ image, logName, onClick }: LogButtonProps) => {
   const styles = getLogButtonStyles()
   const content = (
     <div className="logButtons">
@@ -17,5 +17,5 @@ export const LogButton = ({ image, logName,onClick }: LogButtonProps) => {
       </button>
     </div>
   )
-   return logName ? <Tippy content={logName}>{content}</Tippy> : content
+  return logName ? <Tippy content={logName}>{content}</Tippy> : content
 }
