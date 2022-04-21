@@ -6,15 +6,16 @@ import {
   ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
   ELEMENT_UNEDITABLE_BIG_OPERATOR,
 } from '../UneditableBigOperator/defaults'
+import { css } from 'twin.macro'
 
 export const getSummationWithLimitNode = (text?: string) => {
   if (!text) return <TElement>{}
   return <TElement>{
     type: ELEMENT_UNEDITABLE_BIG_OPERATOR,
     children: [
-      getEmptyBoxNode(0.75, 'auto', undefined, '-5px'),
+      getEmptyBoxNode(css`font-size: 10px; top: 8px;`),
       getEquationTextNode(text),
-      getEmptyBoxNode(0.75, 'auto', undefined, undefined, '10px'),
+      getEmptyBoxNode(css`font-size: 10px; bottom: 7px;`),
     ],
   }
 }
@@ -25,9 +26,9 @@ export const getSummationWithSubscriptLimitNode = (text?: string) => {
   return <TElement>{
     type: ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
     children: [
-      getEmptyBoxNode(0.75),
+      getEmptyBoxNode(css`font-size: 10px;`),
       getEquationTextNode(text),
-      getEmptyBoxNode(0.75, undefined, undefined, undefined, '10px'),
+      getEmptyBoxNode(css`font-size: 10px;`),
     ],
   }
 }

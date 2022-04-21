@@ -3,6 +3,7 @@ import { ELEMENT_TR, TablePluginOptions, TElement
 import { ELEMENT_LOG } from './defaults';
 import { ELEMENT_EQUATION_TEXT } from '../EquationText';
 import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode';
+import { css } from 'twin.macro';
 
 export const getLogarithmToBaseNnode = (
 ) => {
@@ -10,9 +11,9 @@ export const getLogarithmToBaseNnode = (
     type: ELEMENT_LOG,
     children: [
       getLogarithmSymbol(),
-      getEmptyBoxNode(0.75),
+      getEmptyBoxNode(css`font-size: 10px;`),
       getLeftBracket(),
-      getEmptyBoxNode(1),
+      getEmptyBoxNode(),
       getRightBracket()
     ]
   };
@@ -32,7 +33,7 @@ export const getEmptyNaturalLogarithmNode = (
     children: [
       getNaturalLogarithmSymbol(),
       getLeftBracket(),
-      getEmptyBoxNode(1),
+      getEmptyBoxNode(),
       getRightBracket()
     ]
   };
@@ -52,7 +53,7 @@ export const getEmptyLogarithmNode = (
     children: [
       getLogarithmSymbol(),
       getLeftBracket(),
-      getEmptyBoxNode(1),
+      getEmptyBoxNode(),
       getRightBracket()
     ]
   };
@@ -66,7 +67,7 @@ export const getEmptyLogarithmToBaseTenNode = (
       getLogarithmSymbol(),
       getLeftBracket(),
       getNumberTen(),
-      getEmptyBoxNode(1),
+      getEmptyBoxNode(),
       getRightBracket()
     ]
   };

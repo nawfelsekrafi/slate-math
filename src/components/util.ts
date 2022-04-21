@@ -12,7 +12,7 @@ import {
   PlateEditor,
   comboboxStore,
 } from '@udecode/plate'
-import { findDescendant, PEditor, TNode } from '@udecode/plate-core'
+import { copyBlockMarksToSpanChild, findDescendant, PEditor, TNode } from '@udecode/plate-core'
 import { BaseEditor, Editor, Path, Range, Transforms } from 'slate'
 import { ReactEditor } from 'slate-react'
 import { ELEMENT_ACCENT } from './Accent'
@@ -67,6 +67,12 @@ export const selectFirstBox = (editor: PlateEditor) => {
 export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {
   var selection = getCurrentSelection(editor)
     if (e.key === 'Enter'){
+      if(comboboxStore.get.isOpen())
+      {
+        console.log("open")
+        e.preventDefault()
+        e.stopPropagation()
+      }
       if(isInsideBox(editor,selection))
       {
         e.preventDefault()

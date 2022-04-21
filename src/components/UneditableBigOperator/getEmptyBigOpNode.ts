@@ -3,16 +3,17 @@ import { ELEMENT_DEFAULT, TElement } from '@udecode/plate-core';
 import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode';
 import { ELEMENT_UNEDITABLE_BIG_OPERATOR } from './defaults';
 import { getEquationTextNode } from '../EquationText';
+import { css } from 'twin.macro';
 
 
 export const getEmptyUneditableBigOpNode = (text?:string) => {
-  if(!text) return <TElement>{}
+  
   return <TElement>{
     type: ELEMENT_UNEDITABLE_BIG_OPERATOR,
     children: [
-      getEmptyBoxNode(.75,'auto','12px','-10px'),
-      getEquationTextNode(text),
-      getEmptyBoxNode(.75),
+      getEmptyBoxNode(css`font-size: 10px; top:10px;`),
+      getEquationTextNode(text?text:''),
+      getEmptyBoxNode(css`font-size: 10px;`),
     ],
   };
 }

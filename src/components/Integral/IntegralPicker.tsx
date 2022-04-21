@@ -13,7 +13,6 @@ import SurfaceIntegralWithLimits from '../../assets/Integrals/SurfaceIntegralWit
 import VolumeIntegralWithLimits from '../../assets/Integrals/VolumeIntegralWithLimits.png'
 
 import { IntegralButton } from './IntegralButton'
-import { insertMathNode } from '../toolbar'
 import { selectFirstBox } from '../util'
 import { IntegralType } from './IntegralType'
 import { getEmptyUneditableBigOpNode } from '../UneditableBigOperator/getEmptyBigOpNode'
@@ -21,6 +20,7 @@ import {
   getIntegralWithLimitNode,
   getIntegralWithStackedLimtNode,
 } from './getEmptyIntegralNode'
+import { insertMathNode } from '../insertMathNode'
 
 const initializeEquationMap = () => {
   const editor = getPlateEditorRef()!

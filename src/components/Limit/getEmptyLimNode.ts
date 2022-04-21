@@ -2,6 +2,7 @@ import { ELEMENT_TR, TablePluginOptions, TElement } from '@udecode/plate'
 import { ELEMENT_LIMIT } from './defaults'
 import { ELEMENT_EQUATION_TEXT } from '../EquationText'
 import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode'
+import { css } from 'twin.macro'
 
 export const getEmptyLimNode = () => {
   return <TElement>{
@@ -14,9 +15,9 @@ const getEmptyLimRowNode = () => {
   return {
     type: 'span',
     children: [
-      getEmptyBoxNode(0.75),
+      getEmptyBoxNode(css`font-size: 10px;`),
       getEmptyArrowCellNode(),
-      getEmptyBoxNode(0.75),
+      getEmptyBoxNode(css`font-size: 10px;`),
      
     ],
   }
@@ -47,7 +48,7 @@ const getEmptyLimRowWithInfinityNode = () => {
   return {
     type: 'span',
     children: [
-      getEmptyBoxNode(0.75),
+      getEmptyBoxNode(css`font-size: 10px;`),
       getEmptyArrowCellNode(),
       getInfinity(),
      

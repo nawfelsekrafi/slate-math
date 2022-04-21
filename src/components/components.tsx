@@ -133,7 +133,9 @@ export const components = createPlateUI({
     styles: {
       root: [
         css`
-          marginright: 20;
+          display: inline-flex;
+          justify-content: flex-start;
+          flex-direction: row;
         `,
       ],
     },

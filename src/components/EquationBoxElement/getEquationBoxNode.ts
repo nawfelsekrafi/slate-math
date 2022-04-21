@@ -9,22 +9,11 @@ import { LeftArrow } from '@styled-icons/boxicons-regular';
 import BottomLimit from '../Icons/BottomLimit';
 
 export const getEmptyBoxNode = (
-  size:number = 1, 
-  gridArea?:string, 
-  left?:string, 
-  bottom?:string, 
-  top?:string,
-  padding:number = 3, 
-  bottomBorder?:number) => {
+styles?:any
+) => {
   return {
     type: ELEMENT_EQUATIONBOX,
     children: [{text: ''}],
-    size: size,
-    gridArea: gridArea,
-    left: left,
-    bottom:bottom,
-    top:top,
-    padding: padding,
-    bottomBorder: bottomBorder
+    styles:styles
   }
 }

@@ -1,4 +1,4 @@
-import { ELEMENT_TR, TablePluginOptions, TElement } from '@udecode/plate'
+import { ELEMENT_TR, StyledElement, TablePluginOptions, TElement, withProps } from '@udecode/plate'
 import { ELEMENT_ACCENT } from './defaults'
 import { ELEMENT_EQUATION_TEXT } from '../EquationText'
 import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode'
@@ -6,7 +6,7 @@ import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode'
 export const getRightwardsArrowAboveAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getRightwardsArrowSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getRightwardsArrowSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -24,7 +24,7 @@ export const getLeftwardsArrowAboveAccentNode = () => {
   return <TElement>{
     
     type: ELEMENT_ACCENT,
-    children: [getLefttwardsArrowSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getLefttwardsArrowSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -41,7 +41,7 @@ const getLefttwardsArrowSymbol = () => {
 export const getRightLeftArrowAboveAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getRightLeftArrowSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getRightLeftArrowSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -59,7 +59,7 @@ export const getTildeAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
     
-    children: [getTildeSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getTildeSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -76,7 +76,7 @@ const getTildeSymbol = () => {
 export const getDotAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getDotSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getDotSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -93,7 +93,7 @@ const getDotSymbol = () => {
 export const getDoubleDotAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getDoubleDotSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getDoubleDotSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -110,7 +110,7 @@ const getDoubleDotSymbol = () => {
 export const getRightwardHarpoonAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getRightwardHarpoonSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getRightwardHarpoonSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -128,7 +128,7 @@ const getRightwardHarpoonSymbol = () => {
 export const getBarAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getBarSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getBarSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -145,7 +145,7 @@ const getBarSymbol = () => {
 export const getOverCurlyBraceNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getOverCurlyBraceSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getOverCurlyBraceSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -162,7 +162,7 @@ const getOverCurlyBraceSymbol = () => {
 export const getOverParenthesisAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getOverParenthesisSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getOverParenthesisSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -179,7 +179,7 @@ const getOverParenthesisSymbol = () => {
 export const getBreveAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getBreveSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getBreveSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -196,7 +196,7 @@ const getBreveSymbol = () => {
 export const getHatAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getHatSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getHatSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -213,7 +213,7 @@ const getHatSymbol = () => {
 export const getCheckAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getCheckSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getCheckSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -230,7 +230,7 @@ const getCheckSymbol = () => {
 export const getTripleDotAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getTripleDotSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getTripleDotSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -247,7 +247,7 @@ const getTripleDotSymbol = () => {
 export const getGraveAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getGraveSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getGraveSymbol(), getEmptyBoxNode()],
   }
 }
 
@@ -264,7 +264,7 @@ const getGraveSymbol = () => {
 export const getAcuteAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
-    children: [getAcuteSymbol(), getEmptyBoxNode(1, 'right')],
+    children: [getAcuteSymbol(), getEmptyBoxNode()],
   }
 }
 

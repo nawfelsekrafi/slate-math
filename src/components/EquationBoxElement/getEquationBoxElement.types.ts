@@ -5,6 +5,7 @@ export interface EquationBoxElementStyleProps
   extends EquationBoxInputElementProps {
   selected?: boolean;
   focused?: boolean;
+  isEmpty?: boolean;
 }
 
 // renderElement props

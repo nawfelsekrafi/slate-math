@@ -14,7 +14,6 @@ import LogicalOrWithSubscriptLimits from '../../assets/Summations/LogicalOrWithS
 import IntersectionWithSubscriptLimits from '../../assets/Summations/IntersectionWithSubscriptLimits.png'
 import LogicalAndWithSubscriptLimits from '../../assets/Summations/LogicalAndWithSubscriptLimits.png'
 
-import { insertMathNode } from '../toolbar'
 import { selectFirstBox } from '../util'
 
 import { SummationButton } from './SummationButton'
@@ -23,6 +22,7 @@ import {
   getSummationWithLimitNode,
   getSummationWithSubscriptLimitNode,
 } from './getEmptySummationNode'
+import { insertMathNode } from '../insertMathNode'
 
 const initializeEquationMap = () => {
   const editor = getPlateEditorRef()!
