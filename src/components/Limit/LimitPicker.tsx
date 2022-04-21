@@ -1,5 +1,5 @@
 import { getPlateEditorRef } from '@udecode/plate-core'
-import { insertMathNode } from '../toolbar'
+import { insertMathNode } from "../insertMathNode"
 import { selectFirstBox } from '../util'
 import Limit from '../../assets/Limits/Limit.png'
 import LimitToInfinity from '../../assets/Limits/LimitToInfinity.png'

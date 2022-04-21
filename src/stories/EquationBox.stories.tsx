@@ -2,7 +2,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import {Plate, createPlugins} from '@udecode/plate';
 import {createEquationBoxPlugin} from '../components/plugin';
-import { getEmptyAccentNode } from '../components/Accent';
 import { getEmptyBoxNode } from '../components/EquationBoxElement/getEquationBoxNode';
 import { MathEditor } from '../components/MathEditor/MathEditor';
 

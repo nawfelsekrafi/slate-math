@@ -2,7 +2,9 @@
 import { ComboboxOnSelectItem, comboboxStore, Data, ELEMENT_MENTION, ELEMENT_MENTION_INPUT, getBlockAbove, getPlugin, getPluginOptions, insertNodes, MentionNode, MentionNodeData, MentionPlugin, NoData, PlatePluginKey, TComboboxItem } from '@udecode/plate';
 
 import { Editor, Transforms } from 'slate';
-import { ELEMENT_EQUATION_TEXT } from '../EquationText';
+import { HistoryEditor } from 'slate-history';
+import { ELEMENT_EQUATION_TEXT, getEquationTextNode } from '../EquationText';
+import { insertMathNode } from "../insertMathNode";
 import { ELEMENT_EQUATION_MENTION } from './constants';
 import { ELEMENT_EQUATION_MENTION_INSERT } from './defaults';
 import { MentionEquationData } from './mentionables';
@@ -27,30 +29,30 @@ export const mathMentionOnSelect = <TData extends Data = NoData>({
     editor.selection &&
     pathAbove &&
     Editor.isEnd(editor, editor.selection.anchor, pathAbove);
+
   Editor.withoutNormalizing(editor, () => {
     // insert a space to fix the bug
     if (isBlockEnd) {
-      console.log("block end")
       Transforms.insertText(editor, ' ');
     }
-    // select the text and insert the element
+
     Transforms.select(editor, targetRange);
-    
-    Transforms.removeNodes(editor, {
-      // TODO: replace any
-      match: (node: any) => node.type === ELEMENT_MENTION_INPUT,
-    });
-    var t = item.data as MentionEquationData
-    if(t.node){
-      insertNodes(editor,t.node(t.value))
+
+    HistoryEditor.withoutMerging(editor, () =>
+      Transforms.removeNodes(editor, {
+        // TODO: replace any
+        match: (node: any) => node.type === ELEMENT_MENTION_INPUT,
+      })
+    );
+
+
+    var mentionData = item.data as MentionEquationData
+    console.log(mentionData)
+    if(mentionData.node){
+      insertMathNode(mentionData.node,editor)
     }
-      
     else{
-      insertNodes<MentionNode>(editor, {
-        type: ELEMENT_EQUATION_MENTION_INSERT,
-        children: [{ text: '' }],
-        ...createMentionNode!(item),
-      });
+      insertMathNode(getEquationTextNode,editor,mentionData.value)
     }
 
     // move the selection after the element

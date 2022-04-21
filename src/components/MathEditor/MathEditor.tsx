@@ -1,7 +1,6 @@
 import { createBoldPlugin, createCodePlugin, createItalicPlugin, createStrikethroughPlugin, createSubscriptPlugin,
   createSuperscriptPlugin,
   createUnderlinePlugin,  AnyObject, createParagraphPlugin, createPlugins, Plate, createBlockquotePlugin, createCodeBlockPlugin, createHeadingPlugin, createPlateUI, TElement, setNodes, ELEMENT_DEFAULT  } from "@udecode/plate";
-import { useEditorState, useEventEditorStore } from "@udecode/plate-core";
 import { useState } from "react";
 import { ReactEditor, useFocused, useSelected } from "slate-react";
 import tw from "twin.macro";

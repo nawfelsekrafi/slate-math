@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import {Plate, createPlugins} from '@udecode/plate';
 import {createAccentPlugin} from '../components/plugin';
-import { getEmptyAccentNode } from '../components/Accent';
+import { getDotAccentNode } from '../components/Accent';
 
 
 export default {
@@ -22,6 +22,6 @@ Primary.args = {
   id: "1",
   plugins,
   initialValue: [
-    getEmptyAccentNode('\u02CA'),
+    getDotAccentNode(),
   ]
 };

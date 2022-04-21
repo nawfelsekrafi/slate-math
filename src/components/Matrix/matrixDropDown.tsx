@@ -63,7 +63,6 @@ export const MatrixTableDropDown = ({
       open={open}
       onOpen={onToggle}
       onClose={onToggle}
-      css={'z-index: 10;'}
     >
       <MatrixPicker
         matrix={'matrixes'}

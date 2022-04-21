@@ -26,6 +26,7 @@ import { MathEditor } from "./MathEditor/MathEditor";
 import {withBox} from "./EquationBoxElement/withBox"
 import { ELEMENT_MATH_CONTAINER } from "./MathContainer/defaults";
 
+import { TComboboxItem } from '@udecode/plate';
 
 export const createEquationBoxPlugin = createPluginFactory({
   key: ELEMENT_EQUATIONBOX,
@@ -154,6 +155,7 @@ export const createMathPlugins = () => {
     components: components,
   });
 }
+
 
 
 

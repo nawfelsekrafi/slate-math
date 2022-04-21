@@ -1,10 +1,11 @@
-import { getPluginOptions, usePlateEditorRef } from '@udecode/plate-core';
+import { getPluginOptions, RenderFunction, usePlateEditorRef } from '@udecode/plate-core';
 import {
   ELEMENT_MENTION,
   MentionPlugin,
 } from '@udecode/plate-mention';
 import { mathMentionOnSelect } from './mathMentionOnSelect';
-import { Combobox, ComboboxProps, Data, NoData } from '@udecode/plate';
+import { Combobox, ComboboxProps, Data, NoData, TComboboxItem } from '@udecode/plate';
+import { MentionEquationData } from './mentionables';
 
 export const MathMentionCombobox = <TData extends Data = NoData>({
   items,
@@ -17,7 +18,7 @@ export const MathMentionCombobox = <TData extends Data = NoData>({
   'id' | 'items' | 'component' | 'onRenderItem'
 > & { pluginKey?: string }) => {
   const editor = usePlateEditorRef()!;
-
+  
   const { trigger } = getPluginOptions<MentionPlugin>(editor, pluginKey);
   return (
     <Combobox
@@ -26,10 +27,17 @@ export const MathMentionCombobox = <TData extends Data = NoData>({
       controlled
       items={items}
       component={component}
-      onRenderItem={onRenderItem}
+      onRenderItem={RenderItem}
       onSelectItem={mathMentionOnSelect({
         key: pluginKey,
       })}
     />
   );
 };
+
+
+export const RenderItem = (props:any) =>{
+  return (
+    <div> {props.item.data.icon?props.item.data.icon:props.item.data.value}</div>
+  )
+}

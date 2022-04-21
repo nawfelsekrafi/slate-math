@@ -1,7 +1,7 @@
 import React from 'react';
-import { getHandler } from '@udecode/plate-common';
 import { useFocused, useSelected } from 'slate-react';
 import { MentionElementProps, getMentionElementStyles } from '@udecode/plate-mention-ui';
+import { getHandler } from '@udecode/plate-core';
 
 export const UneditableBigOpElement = (props: MentionElementProps) => {
   const {

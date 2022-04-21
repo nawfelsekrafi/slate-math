@@ -1,5 +1,5 @@
 {
-  "files": ["types/twin.d.ts"],
+  "files": ["types/twin.d.ts", "./src/components/insertMathNode.tsx"],
   "compilerOptions": {
     "target": "es5",
     "lib": [

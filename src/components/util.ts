@@ -46,16 +46,15 @@ export const selectFirstBox = (editor:PlateEditor) => {
 }
 
 export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {
+  var selection = getCurrentSelection(editor)
     if (e.key === 'Enter'){
-      let sel = getCurrentSelection(editor)
-      if(sel)
+      if(isInsideBox(editor,selection))
       {
         e.preventDefault()
         e.stopPropagation()
       }
     }
     else if (e.key === 'Tab' || e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-        let selection = getCurrentSelection(editor)
           if (selection) {
             if(!containsMath(editor,selection)||comboboxStore.get.isOpen()) //if not at math node of if combobox is open do nothing
               return
@@ -75,7 +74,6 @@ export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {
           }
     }
     else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-        let selection = getCurrentSelection(editor)
         if (selection) {
             if(!containsMath(editor,selection)||comboboxStore.get.isOpen()) ////if not at math node of if combobox is open do nothing
               return

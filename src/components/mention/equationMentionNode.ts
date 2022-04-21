@@ -1,11 +1,12 @@
 import { TComboboxItem, TComboboxItemWithData } from "@udecode/plate"
 import { MentionEquationData } from "./mentionables"
 
-export const equationMentionNode = (item: TComboboxItem): MentionEquationData => {
-    var item2 = item as TComboboxItemWithData<MentionEquationData>
+export const equationMentionNode = (element: TComboboxItem): MentionEquationData => {
+    let item = element as TComboboxItemWithData<MentionEquationData>
     return {
-      value: item2.data.value,
-      node: item2.data.node
+      value: item.data.value,
+      node: item.data.node,
+      icon: item.data.icon
     }
   }
   

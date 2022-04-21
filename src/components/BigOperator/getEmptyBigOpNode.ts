@@ -12,7 +12,6 @@ export const getEmptyBigOpNode = () => {
         getEmptyBoxNode(.75),
         getEmptyBoxNode(1.5),
         getEmptyBoxNode(.75),
-        getEmptyBoxNode(1,'right')
       ],
     };
   }

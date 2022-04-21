@@ -19,7 +19,7 @@ export const EquationBox = (props: EquationBoxElementStyleProps) => {
   const isEmpty = element.children[0].text == ''
   const styles = [
     `position: inherit;`,
-    `z-index: -1`,
+    `z-index: -1;`,
     tw`my-0 mx-px align-baseline inline-grid`,
     `background-color: #FFFFFF;`,
     `font-family: Symbola-mq,"Times New Roman",serif;`,
@@ -30,7 +30,8 @@ export const EquationBox = (props: EquationBoxElementStyleProps) => {
     `margin-top: 5px;`,
     `:hover {box-shadow: 0px 0px 5px 1px #9a9a9a;}`,
   ]
-  if (element.gridArea) styles.push(`grid-area: ` + element.gridArea + `;`)
+  if (element.gridArea) 
+    styles.push(`grid-area: ` + element.gridArea + `;`)
   if (element.bottomBorder)
     styles.push(`border-bottom: ` + element.bottomBorder + `px solid black;`)
   styles.push(`padding: 0px ` + element.padding + `px 0px;`)

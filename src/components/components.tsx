@@ -127,7 +127,7 @@ export const components = createPlateUI({
           width: auto;
           text-align: center;
           position: relative;
-          bottom: 11px;
+          bottom: .78rem;
         `,
       ],
     },
@@ -143,18 +143,6 @@ export const components = createPlateUI({
           flex-direction: column;
           width: auto;
           text-align: center;
-        `,
-      ],
-    },
-  }),
-  [ELEMENT_CODE_BLOCK]: withProps(CodeBlockElement, {
-    styles: {
-      root: [
-        css`
-          background-color: #111827;
-          code {
-            color: white;
-          }
         `,
       ],
     },

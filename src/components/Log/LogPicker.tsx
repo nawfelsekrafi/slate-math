@@ -1,5 +1,5 @@
 import { getPlateEditorRef } from '@udecode/plate-core'
-import { insertMathNode } from '../toolbar'
+import { insertMathNode } from "../insertMathNode"
 import { selectFirstBox } from '../util'
 import { LogButton } from './LogButton'
 import { LogType } from './LogType'

@@ -17,4 +17,10 @@ export const getEmptyUneditableBigOpNode = (text?:string) => {
   };
 }
 
+export const getIntegralNode = () => {
+  return <TElement>getEmptyUneditableBigOpNode('\u222b')
+}
 
+export const getSummationNode = () => {
+  return <TElement>getEmptyUneditableBigOpNode('\u2211')
+}
