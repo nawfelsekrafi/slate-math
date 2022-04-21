@@ -1,66 +1,70 @@
-import { ELEMENT_TR, TablePluginOptions, TElement
- } from '@udecode/plate';
-import { ELEMENT_LOG } from './defaults';
-import { ELEMENT_EQUATION_TEXT } from '../EquationText';
-import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode';
-import { css } from 'twin.macro';
+import { ELEMENT_TR, TablePluginOptions, TElement } from '@udecode/plate'
+import { ELEMENT_LOG } from './defaults'
+import { ELEMENT_EQUATION_TEXT } from '../EquationText'
+import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode'
+import { css } from 'twin.macro'
 
-export const getLogarithmToBaseNnode = (
-) => {
+export const getLogarithmToBaseNnode = () => {
   return <TElement>{
     type: ELEMENT_LOG,
     children: [
       getLogarithmSymbol(),
-      getEmptyBoxNode(css`font-size: 10px;`),
+      getEmptyBoxNode(
+        css`
+          margin-top: 15px;
+          margin-bottom: 5px;
+        `
+      ),
       getLeftBracket(),
-      getEmptyBoxNode(),
-      getRightBracket()
-    ]
-  };
-};
+      getEmptyBoxNode(
+        css`
+          margin-bottom: 20px;
+        `
+      ),
+      getRightBracket(),
+    ],
+  }
+}
 
 const getLogarithmSymbol = () => {
-  return{
+  return {
     type: ELEMENT_EQUATION_TEXT,
-    children: [{text: "Log"}]
+    children: [{ text: 'Log' }],
   }
-};
+}
 
-export const getEmptyNaturalLogarithmNode = (
-) => {
+export const getEmptyNaturalLogarithmNode = () => {
   return <TElement>{
     type: ELEMENT_LOG,
     children: [
       getNaturalLogarithmSymbol(),
       getLeftBracket(),
       getEmptyBoxNode(),
-      getRightBracket()
-    ]
-  };
-};
+      getRightBracket(),
+    ],
+  }
+}
 
 const getNaturalLogarithmSymbol = () => {
-  return{
+  return {
     type: ELEMENT_EQUATION_TEXT,
-    children: [{text: "Ln"}]
+    children: [{ text: 'Ln' }],
   }
-};
+}
 
-export const getEmptyLogarithmNode = (
-) => {
+export const getEmptyLogarithmNode = () => {
   return <TElement>{
     type: ELEMENT_LOG,
     children: [
       getLogarithmSymbol(),
       getLeftBracket(),
       getEmptyBoxNode(),
-      getRightBracket()
-    ]
-  };
-};
+      getRightBracket(),
+    ],
+  }
+}
 
-export const getEmptyLogarithmToBaseTenNode = (
-) => {
+export const getEmptyLogarithmToBaseTenNode = () => {
   return <TElement>{
     type: ELEMENT_LOG,
     children: [
@@ -68,28 +72,30 @@ export const getEmptyLogarithmToBaseTenNode = (
       getLeftBracket(),
       getNumberTen(),
       getEmptyBoxNode(),
-      getRightBracket()
-    ]
-  };
-};
+      getRightBracket(),
+    ],
+  }
+}
 
 const getNumberTen = () => {
-  return{
+  return {
     type: ELEMENT_EQUATION_TEXT,
-    children: [{text: '10,'}]
+    children: [{ text: '10,' }],
   }
-};
+}
 
-const getLeftBracket = () => {
-  return{
+const getLeftBracket = (styles?: any) => {
+  return {
     type: ELEMENT_EQUATION_TEXT,
-    children: [{text: '('}]
+    children: [{ text: '(' }],
+    styles: styles,
   }
-};
+}
 
-const getRightBracket = () => {
-  return{
+const getRightBracket = (styles?: any) => {
+  return {
     type: ELEMENT_EQUATION_TEXT,
-    children: [{text: ')'}]
+    children: [{ text: ')' }],
+    styles: styles,
   }
-};
+}

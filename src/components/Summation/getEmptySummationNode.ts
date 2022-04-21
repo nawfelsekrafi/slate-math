@@ -13,7 +13,7 @@ export const getSummationWithLimitNode = (text?: string) => {
   return <TElement>{
     type: ELEMENT_UNEDITABLE_BIG_OPERATOR,
     children: [
-      getEmptyBoxNode(css`font-size: 10px; top: 8px;`),
+      getEmptyBoxNode(css`font-size: 10px; bottom: 3px;`),
       getEquationTextNode(text),
       getEmptyBoxNode(css`font-size: 10px; bottom: 7px;`),
     ],

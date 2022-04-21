@@ -15,10 +15,23 @@ const getEmptyLimRowNode = () => {
   return {
     type: 'span',
     children: [
-      getEmptyBoxNode(css`font-size: 10px;`),
-      getEmptyArrowCellNode(),
-      getEmptyBoxNode(css`font-size: 10px;`),
-     
+      getEmptyBoxNode(
+        css`
+          font-size: 10px;
+          top: -5px;
+        `
+      ),
+      getEmptyArrowCellNode(
+        css`
+          top: -5px;
+        `
+      ),
+      getEmptyBoxNode(
+        css`
+          font-size: 10px;
+          top: -5px;
+        `
+      ),
     ],
   }
 }
@@ -30,10 +43,11 @@ const getEmptyLimCellNode = () => {
   }
 }
 
-const getEmptyArrowCellNode = () => {
+const getEmptyArrowCellNode = (styles?: any) => {
   return {
     type: ELEMENT_EQUATION_TEXT,
     children: [{ text: '\u2192' }],
+    styles: styles,
   }
 }
 
@@ -48,10 +62,14 @@ const getEmptyLimRowWithInfinityNode = () => {
   return {
     type: 'span',
     children: [
-      getEmptyBoxNode(css`font-size: 10px;`),
+      getEmptyBoxNode(
+        css`
+          font-size: 10px;
+          top: -5px;
+        `
+      ),
       getEmptyArrowCellNode(),
       getInfinity(),
-     
     ],
   }
 }
