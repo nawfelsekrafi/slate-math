@@ -6,7 +6,6 @@ import { HistoryEditor } from 'slate-history';
 import { ELEMENT_EQUATION_TEXT, getEquationTextNode } from '../EquationText';
 import { insertMathNode } from "../insertMathNode";
 import { ELEMENT_EQUATION_MENTION } from './constants';
-import { ELEMENT_EQUATION_MENTION_INSERT } from './defaults';
 import { MentionEquationData } from './mentionables';
 
 

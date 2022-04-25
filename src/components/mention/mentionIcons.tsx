@@ -55,158 +55,158 @@ import LogarithmToBaseN from '../../assets/Logs/LogarithmToBaseN.png'
 
 //accent icons
 export const RightArrowIcon = () => {
-  return <img src={RightwardsArrowAbove} />
+  return <img alt={"RightwardsArrowAbove"} src={RightwardsArrowAbove} />
 }
 export const LeftArrowIcon = () => {
-  return <img src={LeftwardsArrowAbove} />
+  return <img alt={"LeftwardsArrowAbove"} src={LeftwardsArrowAbove} />
 }
 export const RightLeftArrowIcon = () => {
-  return <img src={RightLeftArrowAbove} />
+  return <img alt={"RightLeftArrowAbove"} src={RightLeftArrowAbove} />
 }
 export const TildeIcon = () => {
-  return <img src={Tilde} />
+  return <img alt={"Tilde"} src={Tilde} />
 }
 export const DotIcon = () => {
-  return <img src={Dot} />
+  return <img alt={"Dot"} src={Dot} />
 }
 export const DoubleDotIcon = () => {
-  return <img src={DoubleDot} />
+  return <img alt={"DoubleDot"} src={DoubleDot} />
 }
 export const RightwardHarpoonIcon = () => {
-  return <img src={RightwardHarpoonAccent} />
+  return <img alt={"RightwardHarpoonAccent"} src={RightwardHarpoonAccent} />
 }
 export const BarIcon = () => {
-  return <img src={Bar} />
+  return <img alt={"Bar"} src={Bar} />
 }
 export const OverCurlyBraceIcon = () => {
-  return <img src={OverCurlyBrace} />
+  return <img alt={"OverCurlyBrace"} src={OverCurlyBrace} />
 }
 export const OverParenthesisIcon = () => {
-  return <img src={OverParenthesis} />
+  return <img alt={"OverParenthesis"} src={OverParenthesis} />
 }
 export const BreveIcon = () => {
-  return <img src={Breve} />
+  return <img alt={"Breve"} src={Breve} />
 }
 
 export const HatAccentIcon = () => {
-  return <img src={HatAccent} />
+  return <img alt={"HatAccent"} src={HatAccent} />
 }
 
 export const CheckIcon = () => {
-  return <img src={Check} />
+  return <img alt={"Check"} src={Check} />
 }
 
 export const TripleDotIcon = () => {
-  return <img src={TripleDot} />
+  return <img alt={"TripleDot"} src={TripleDot}/>
 }
 
 export const GraveIcon = () => {
-  return <img src={Grave} />
+  return <img alt={"Grave"} src={Grave} />
 }
 export const AcuteIcon = () => {
-  return <img src={Acute} />
+  return <img alt={"Acute"} src={Acute} />
 }
 
 //integral incons
 export const IntegralWithStackedLimitsIcon = () => {
-  return <img src={IntegralWithStackedLimits} />
+  return <img alt={"IntegralWithStackedLimits"} src={IntegralWithStackedLimits} />
 }
 export const DoubleIntegralWithStackedLimitsIcon = () => {
-  return <img src={DoubleIntegralWithStackedLimits} />
+  return <img alt={"DoubleIntegralWithStackedLimits"} src={DoubleIntegralWithStackedLimits} />
 }
 export const TripleIntegralWithStackedLimitsIcon = () => {
-  return <img src={TripleIntegralWithStackedLimits} />
+  return <img alt={"TripleIntegralWithStackedLimits"} src={TripleIntegralWithStackedLimits} />
 }
 export const ContourIntegralWithStackedLimitsIcon = () => {
-  return <img src={ContourIntegralWithStackedLimits} />
+  return <img alt={"ContourIntegralWithStackedLimits"} src={ContourIntegralWithStackedLimits} />
 }
 export const SurfaceIntegralWithStackedLimitsIcon = () => {
-  return <img src={SurfaceIntegralWithStackedLimits} />
+  return <img alt={"SurfaceIntegralWithStackedLimits"} src={SurfaceIntegralWithStackedLimits} />
 }
 export const VolumeIntegralWithStackedLimitsIcon = () => {
-  return <img src={VolumeIntegralWithStackedLimits} />
+  return <img alt={"VolumeIntegralWithStackedLimits"} src={VolumeIntegralWithStackedLimits} />
 }
 export const IntegralWithLimitsIcon = () => {
-  return <img src={IntegralWithLimits} />
+  return <img alt={"IntegralWithLimits"} src={IntegralWithLimits} />
 }
 export const DoubleIntegralWithLimitsIcon = () => {
-  return <img src={DoubleIntegralWithLimits} />
+  return <img alt={"DoubleIntegralWithLimits"} src={DoubleIntegralWithLimits} />
 }
 export const TripleIntegralWithLimitsIcon = () => {
-  return <img src={TripleIntegralWithLimits} />
+  return <img alt={"TripleIntegralWithLimits"} src={TripleIntegralWithLimits} />
 }
 export const ContourIntegralWithLimitsIcon = () => {
-  return <img src={ContourIntegralWithLimits} />
+  return <img alt={"ContourIntegralWithLimits"} src={ContourIntegralWithLimits} />
 }
 export const SurfaceIntegralWithLimitsIcon = () => {
-  return <img src={SurfaceIntegralWithLimits} />
+  return <img alt={"SurfaceIntegralWithLimits"} src={SurfaceIntegralWithLimits} />
 }
 export const VolumeIntegralWithLimitsIcon = () => {
-  return <img src={VolumeIntegralWithLimits} />
+  return <img alt={"VolumeIntegralWithLimits"} src={VolumeIntegralWithLimits} />
 }
 
 //Limits icons
 export const SummationWithLimitsIcon = () => {
-  return <img src={SummationWithLimits} />
+  return <img alt={"SummationWithLimits"} src={SummationWithLimits} />
 }
 export const ProductWithLimitsIcon = () => {
-  return <img src={ProductWithLimits} />
+  return <img alt={"ProductWithLimits"} src={ProductWithLimits} />
 }
 export const CoProductWithLimitsIcon = () => {
-  return <img src={CoProductWithLimits} />
+  return <img alt={"CoProductWithLimits"} src={CoProductWithLimits} />
 }
 export const UnionWithLimitsIcon = () => {
-  return <img src={UnionWithLimits} />
+  return <img alt={"UnionWithLimits"} src={UnionWithLimits} />
 }
 export const LogicalOrWithLimitsIcon = () => {
-  return <img src={LogicalOrWithLimits} />
+  return <img alt={"LogicalOrWithLimits"} src={LogicalOrWithLimits} />
 }
 export const IntersectionWithLimitsIcon = () => {
-  return <img src={IntersectionWithLimits} />
+  return <img alt={"IntersectionWithLimits"} src={IntersectionWithLimits} />
 }
 export const LogicalAndWithLimitsIcon = () => {
-  return <img src={LogicalAndWithLimits} />
+  return <img alt={"LogicalAndWithLimits"} src={LogicalAndWithLimits} />
 }
 export const SummationWithSubscriptLimitsIcon = () => {
-  return <img src={SummationWithSubscriptLimits} />
+  return <img alt={"SummationWithSubscriptLimits"} src={SummationWithSubscriptLimits} />
 }
 export const ProductWithSubscriptLimitsIcon = () => {
-  return <img src={ProductWithSubscriptLimits} />
+  return <img alt={"ProductWithSubscriptLimits"} src={ProductWithSubscriptLimits} />
 }
 export const CoProductWithSubscriptLimitsIcon = () => {
-  return <img src={CoProductWithSubscriptLimits} />
+  return <img alt={"CoProductWithSubscriptLimits"} src={CoProductWithSubscriptLimits} />
 }
 export const UnionWithSubscriptLimitsIcon = () => {
-  return <img src={UnionWithSubscriptLimits} />
+  return <img alt={"UnionWithSubscriptLimits"} src={UnionWithSubscriptLimits} />
 }
 export const LogicalOrWithSubscriptLimitsIcon = () => {
-  return <img src={LogicalOrWithSubscriptLimits} />
+  return <img alt={"LogicalOrWithSubscriptLimits"} src={LogicalOrWithSubscriptLimits} />
 }
 export const IntersectionWithSubscriptLimitsIcon = () => {
-  return <img src={IntersectionWithSubscriptLimits} />
+  return <img alt={"IntersectionWithSubscriptLimits"} src={IntersectionWithSubscriptLimits} />
 }
 export const LogicalAndWithSubscriptLimitsIcon = () => {
-  return <img src={LogicalAndWithSubscriptLimits} />
+  return <img alt={"LogicalAndWithSubscriptLimits"} src={LogicalAndWithSubscriptLimits} />
 }
 
 //limits
 export const LimitIcon = () => {
-  return <img src={Limit} />
+  return <img alt={"Limit"} src={Limit} />
 }
 export const LimitToInfinityIcon = () => {
-  return <img src={LimitToInfinity} />
+  return <img alt={"LimitToInfinity"} src={LimitToInfinity} />
 }
 
 //logs
 export const NaturalLogarithmIcon = () => {
-  return <img src={NaturalLogarithm} />
+  return <img alt={"NaturalLogarithm"} src={NaturalLogarithm} />
 }
 export const LogarithmIcon = () => {
-  return <img src={Logarithm} />
+  return <img alt={"Logarithm"} src={Logarithm} />
 }
 export const LogarithmToBaseTenIcon = () => {
-  return <img src={LogarithmToBaseTen} />
+  return <img alt={"LogarithmToBaseTen"} src={LogarithmToBaseTen} />
 }
 export const LogarithmToBaseNIcon = () => {
-  return <img src={LogarithmToBaseN} />
+  return <img alt={"LogarithmToBaseN"} src={LogarithmToBaseN} />
 }

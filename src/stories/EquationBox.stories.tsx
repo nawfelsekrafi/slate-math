@@ -3,19 +3,18 @@ import React from 'react';
 import {Plate, createPlugins} from '@udecode/plate';
 import {createEquationBoxPlugin} from '../components/plugin';
 import { getEmptyBoxNode } from '../components/EquationBoxElement/getEquationBoxNode';
-import { MathEditor } from '../components/MathEditor/MathEditor';
 
 
 export default {
     title: 'MathEquation/EquationBox',
-    component: MathEditor,
-  } as ComponentMeta<typeof MathEditor>;
+    component: Plate,
+  } as ComponentMeta<typeof Plate>;
   
   const plugins = createPlugins([
     createEquationBoxPlugin(),
   ]);
   
-  const Template: ComponentStory<typeof MathEditor> = (args) => <MathEditor {...args} />;
+  const Template: ComponentStory<typeof Plate> = (args) => <Plate {...args} />;
   
   export const EmptyBox = Template.bind({});
 

@@ -17,13 +17,12 @@ import { ELEMENT_BIG_OPERATOR } from './BigOperator'
 import { ELEMENT_EQUATIONBOX } from './EquationBoxElement'
 import { EquationBox } from './EquationBoxElement/getEquationBoxElement'
 import { ELEMENT_EQUATION_TEXT } from './EquationText'
-import { PlateMath } from './EquationText/getEquationTextRenderLeaf'
+import { EquationText } from './EquationText/getEquationText'
 import { ELEMENT_FRACTION } from './Fraction'
 import { ELEMENT_LIMIT, LimitComponent } from './Limit'
 import { ELEMENT_LOG } from './Log'
-import { ELEMENT_MATRIX } from './Matrix/defaults'
+import { ELEMENT_MATRIX, ELEMENT_MATRIX_BOX } from './Matrix/defaults'
 import { ELEMENT_EQUATION_MENTION } from './mention/constants'
-import { ELEMENT_EQUATION_MENTION_INSERT } from './mention/defaults'
 import { EquationMentionElement } from './mention/equationMentionElement'
 import { equationMentionNode } from './mention/equationMentionNode'
 import {
@@ -34,8 +33,6 @@ import { equationBoxOnKeyDown } from './util'
 import { LogComponent } from './Log/getLogElements'
 import { AccentComponent } from './Accent/getAccentElements'
 import { ELEMENT_ACCENT } from './Accent'
-import { ELEMENT_MATHEDITOR } from './MathEditor/constants'
-import { MathEditor } from './MathEditor/MathEditor'
 // import {limitElement} from './Limit/getLimitElements';
 import {withBox} from "./EquationBoxElement/withBox"
 import { ELEMENT_MATH_CONTAINER } from "./MathContainer/defaults";
@@ -53,9 +50,19 @@ export const createEquationBoxPlugin = createPluginFactory({
   },
 })
 
+export const createEquationBoxMatrixPlugin = createPluginFactory({
+  key: ELEMENT_MATRIX_BOX,
+  isElement: true,
+  component: EquationBox,
+  withOverrides: withBox,
+  handlers: {
+    onKeyDown: equationBoxOnKeyDown(),
+  },
+})
+
 export const createMatrixPlugin = createPluginFactory({
   key: ELEMENT_MATRIX,
-  //isInline: true,
+  isInline: true,
   isElement: true,
   //renderLeaf: getRenderLeaf(ELEMENT_EQUATIONBOX),
   component: withProps(StyledElement, {
@@ -63,7 +70,7 @@ export const createMatrixPlugin = createPluginFactory({
     as: 'table',
     styles: {
       root: {
-        display: 'inline-table',
+        display: 'table',
         verticalAlign: 'middle',
         maxWidth: 'none',
       },
@@ -73,7 +80,7 @@ export const createMatrixPlugin = createPluginFactory({
 
 export const createEquationTextPlugin = createPluginFactory({
   key: ELEMENT_EQUATION_TEXT,
-  component: PlateMath,
+  component: EquationText,
   isInline: true,
   isVoid: true,
   isElement: true,
@@ -126,12 +133,7 @@ export const createAccentPlugin = createPluginFactory({
   isInline: true,
 }) // parameter is a PlatePlugin object
 
-export const createEquationMentionInsert = createPluginFactory({
-  key: ELEMENT_EQUATION_MENTION_INSERT,
-  component: EquationMentionElement,
-  isInline: true,
-  isElement: true,
-})
+
 export const createMathContainerPlugin = createPluginFactory({
   key: ELEMENT_MATH_CONTAINER,
   isInline: true,
@@ -149,13 +151,7 @@ export const createEquationMentionPlugin = (): PlatePlugin => {
   })
 }
 
-export const createMathEditorPlugin = createPluginFactory({
-  key: ELEMENT_MATHEDITOR,
-  component: MathEditor,
-  //isInline: true,
-  isVoid: true,
-  isElement: true,
-})
+
 
 export const createMathPlugins = () => {
   return createPlugins(
@@ -171,9 +167,8 @@ export const createMathPlugins = () => {
       createFractionPlugin(),
       createEquationTextPlugin(),
       createMatrixPlugin(),
-      createEquationMentionInsert(),
       createEquationMentionPlugin(),
-      createMathEditorPlugin(),
+      createEquationBoxMatrixPlugin(),
     ],
     {
       components: components,

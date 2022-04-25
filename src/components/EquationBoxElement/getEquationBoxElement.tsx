@@ -28,9 +28,8 @@ export const EquationBox = (props: EquationBoxElementStyleProps) => {
     focused,
     
   });
-  var overwriteStyles = element.styles;
   
-  styles.root.css.push(element.styles)
+  styles.root.css.push(element.styles) //overwrite syles
   return (
     <span
       {...attributes}

@@ -1,1 +1,0 @@
-export const ELEMENT_EQUATION_MENTION_INSERT = 'equationMentionInsert'

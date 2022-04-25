@@ -13,6 +13,7 @@ export const getEquationBoxStyles = (props: EquationBoxElementStyleProps) => {
             text-align: center;
             font-style: normal; font-variant: normal;
             :hover {box-shadow: 0px 0px 5px 1px #9a9a9a;}
+            align-content: center;
 
             `,
             tw`my-0 mx-px align-baseline inline-grid`,

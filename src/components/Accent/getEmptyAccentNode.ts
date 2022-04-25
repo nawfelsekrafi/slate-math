@@ -2,7 +2,8 @@ import { ELEMENT_TR, StyledElement, TablePluginOptions, TElement, withProps } fr
 import { ELEMENT_ACCENT } from './defaults'
 import { ELEMENT_EQUATION_TEXT } from '../EquationText'
 import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode'
-
+import { css } from 'twin.macro'
+const accentStyle = css`top: 0.9em; font-size: 16px; margin-bottom: 3px;`
 export const getRightwardsArrowAboveAccentNode = () => {
   return <TElement>{
     type: ELEMENT_ACCENT,
@@ -13,8 +14,7 @@ export const getRightwardsArrowAboveAccentNode = () => {
 const getRightwardsArrowSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u2192' }],
   }
 }
@@ -31,8 +31,7 @@ export const getLeftwardsArrowAboveAccentNode = () => {
 const getLefttwardsArrowSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: css`top: 0.9em; font-size: 16px; display: block;`,
     children: [{ text: '\u2190' }],
   }
 }
@@ -48,8 +47,7 @@ export const getRightLeftArrowAboveAccentNode = () => {
 const getRightLeftArrowSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u2194' }],
   }
 }
@@ -66,8 +64,7 @@ export const getTildeAccentNode = () => {
 const getTildeSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u007E' }],
   }
 }
@@ -83,8 +80,7 @@ export const getDotAccentNode = () => {
 const getDotSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u00B7' }],
   }
 }
@@ -100,8 +96,7 @@ export const getDoubleDotAccentNode = () => {
 const getDoubleDotSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u0022' }],
   }
 }
@@ -117,8 +112,7 @@ export const getRightwardHarpoonAccentNode = () => {
 const getRightwardHarpoonSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u21C0' }],
     //children: [{text: "\u00B7"}]
   }
@@ -135,8 +129,7 @@ export const getBarAccentNode = () => {
 const getBarSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u2015' }],
   }
 }
@@ -152,8 +145,7 @@ export const getOverCurlyBraceNode = () => {
 const getOverCurlyBraceSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u23DE' }],
   }
 }
@@ -169,8 +161,7 @@ export const getOverParenthesisAccentNode = () => {
 const getOverParenthesisSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u23DC' }],
   }
 }
@@ -186,8 +177,7 @@ export const getBreveAccentNode = () => {
 const getBreveSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u23D1' }],
   }
 }
@@ -203,8 +193,7 @@ export const getHatAccentNode = () => {
 const getHatSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u005E' }],
   }
 }
@@ -220,8 +209,7 @@ export const getCheckAccentNode = () => {
 const getCheckSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u02C7' }],
   }
 }
@@ -237,8 +225,7 @@ export const getTripleDotAccentNode = () => {
 const getTripleDotSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u20DB' }],
   }
 }
@@ -254,8 +241,7 @@ export const getGraveAccentNode = () => {
 const getGraveSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u0060' }],
   }
 }
@@ -271,8 +257,7 @@ export const getAcuteAccentNode = () => {
 const getAcuteSymbol = () => {
   return {
     type: ELEMENT_EQUATION_TEXT,
-    top: '.9em',
-    fontSize: '16px',
+    styles: accentStyle,
     children: [{ text: '\u02CA' }],
   }
 }

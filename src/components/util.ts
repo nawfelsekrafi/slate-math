@@ -23,6 +23,7 @@ import { ELEMENT_FRACTION } from './Fraction'
 import { ELEMENT_LIMIT } from './Limit'
 import { ELEMENT_LOG } from './Log'
 import { ELEMENT_MATH_CONTAINER } from './MathContainer/defaults'
+import { ELEMENT_MATRIX } from './Matrix/defaults'
 import {
   ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
   ELEMENT_UNEDITABLE_BIG_OPERATOR,
@@ -114,7 +115,8 @@ export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {
                     e.stopPropagation()
                     break
                 }
-                sibling = Path.previous(sibling)
+                if(pathParent.at(pathParent.length-1)!==0)
+                  sibling = Path.previous(sibling)
                 }
             }
         }
@@ -167,6 +169,7 @@ export const isMathNode = (node: any, editor: PlateEditor): boolean => {
     ELEMENT_LOG,
     ELEMENT_LIMIT,
     ELEMENT_FRACTION,
+    ELEMENT_MATRIX
   ]
   for (var i = 0; i < types.length; i++) {
     if (node.type === getPluginType(editor, types[i])) return true

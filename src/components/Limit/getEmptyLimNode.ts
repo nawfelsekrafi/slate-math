@@ -23,7 +23,7 @@ const getEmptyLimRowNode = () => {
       ),
       getEmptyArrowCellNode(
         css`
-          top: -5px;
+          top: -2px;
         `
       ),
       getEmptyBoxNode(

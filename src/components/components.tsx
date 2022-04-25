@@ -121,7 +121,7 @@ export const components = createPlateUI({
             'symbol .'
             '. .';
           align-items: center;
-          justify-items: center;
+          justify-items: left;
         `,
       ],
     },
@@ -150,7 +150,6 @@ export const components = createPlateUI({
           display: inline-flex;
           justify-content: flex-start;
           flex-direction: column;
-          width: auto;
           text-align: center;
           position: relative;
           bottom: .78rem;

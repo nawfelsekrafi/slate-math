@@ -14,9 +14,7 @@ export function insertMathNode(
   if (noContainer)
     insertNodes(editor, nodeFunction(nodeValue));
   else {
-    console.log(nodeValue)
     var v = nodeFunction.call(nodeValue,nodeValue)
-    console.log(v)
     insertNodes(editor, getContainerNode(v));
     selectFirstBox(editor);
   }
