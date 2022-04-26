@@ -167,8 +167,9 @@ export const createMathPlugins = () => {
       createFractionPlugin(),
       createEquationTextPlugin(),
       createMatrixPlugin(),
-      createEquationMentionPlugin(),
       createEquationBoxMatrixPlugin(),
+      createEquationMentionPlugin(),
+      
     ],
     {
       components: components,
