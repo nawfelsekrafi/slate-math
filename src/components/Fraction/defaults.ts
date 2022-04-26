@@ -1,1 +1,1 @@
-export const ELEMENT_FRACTION = "fraction"
+export const ELEMENT_FRACTION = "fractionsymbol"

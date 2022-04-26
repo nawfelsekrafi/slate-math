@@ -22,6 +22,8 @@ import {
   ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
   ELEMENT_UNEDITABLE_BIG_OPERATOR,
 } from './UneditableBigOperator/defaults'
+import { ELEMENT_STACKED,ELEMENT_SKEWED, ELEMENT_LINEAR } from './Fraction/FractionDefaults/defaults'
+import { ELEMENT_BRACKET } from './Bracket'
 export const components = createPlateUI({
   //[ELEMENT_MENTION]: EquationMentionElement,
 
@@ -168,6 +170,87 @@ export const components = createPlateUI({
           flex-direction: column;
           width: auto;
           text-align: center;
+        `,
+      ],
+    },
+  }),
+
+  [ELEMENT_BRACKET]: withProps(StyledElement, {
+    className: 'slate-bracket',
+    as: 'span',
+    styles: {
+      root: [
+        css`
+          display: inline-flex;
+          justify-content: flex-start;
+          flex-direction: row;
+          width: auto;
+          text-align: center;
+          position: relative;
+          top: 0px;
+          bottom: .78rem;
+        `,
+      ],
+    },
+  }),
+
+  [ELEMENT_STACKED]: withProps(StyledElement, {
+    className: 'slate-stackedfraction',
+    as: 'span',
+    styles: {
+      root: [
+        css`
+          display: inline-grid;
+          gap: 3px 3px;
+          grid-auto-flow: row;
+          grid-template-rows: auto auto auto;
+          grid-template-areas:
+            '. '
+            'symbol'
+            '.';
+          align-items: center;
+          justify-items: center;
+        `,
+      ],
+    },
+  }),
+
+  [ELEMENT_SKEWED]: withProps(StyledElement, {
+    className: 'slate-skewedfraction',
+    as: 'span',
+    styles: {
+      root: [
+        css`
+          display: inline;
+          gap: 3px 3px;
+          grid-auto-flow: column;
+          grid-template-rows: auto auto auto;
+          grid-template-areas:
+            '. . .'
+            'symbol'
+            '.';
+          align-items: center;
+          justify-items: center;
+        `,
+      ],
+    },
+  }),
+  [ELEMENT_LINEAR]: withProps(StyledElement, {
+    className: 'slate-linearfraction',
+    as: 'span',
+    styles: {
+      root: [
+        css`
+          display: inline;
+          gap: 3px 3px;
+          grid-auto-flow: column;
+          grid-template-rows: auto auto auto;
+          grid-template-areas:
+            '. . .'
+            'symbol'
+            '.';
+          align-items: center;
+          justify-items: center;
         `,
       ],
     },

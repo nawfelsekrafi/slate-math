@@ -1,0 +1,36 @@
+.brackets {
+    position: relative;
+    display: inline-block;
+    margin: 0 0.2em;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bolder;
+  }
+  
+  .brackets .symbol-ico {
+    font-size: 2em;
+    font-weight: normal;
+  }
+
+ /* 
+  .brackets .slate-equationbox:nth-child(1) {
+    padding-bottom: 0em;
+    
+  }
+  .brackets .slate-equationbox:nth-child(2) {
+    display: block;
+    margin-top: -15px;
+    margin-bottom: 20px;
+  }
+  
+  .brackets > div:nth-child(2) {
+    margin-top: -14px;
+  }
+  */
+  .bracket-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 0.8em;
+    grid-row-gap: 0.8em;
+  }
+  

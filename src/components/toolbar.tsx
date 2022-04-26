@@ -19,7 +19,7 @@ import { bigOpIcon } from './BigOperator'
 import { ELEMENT_LIMIT, limitIcon } from './Limit'
 import { logIcon } from './Log/getLogElements'
 
-import { fractionIcon, getEmptyFractionNode } from './Fraction'
+import { fractionIcon} from './Fraction/getFractionElements'
 import { MatrixTableDropDown } from './Matrix/matrixDropDown'
 import { ELEMENT_MATRIX } from './Matrix/defaults'
 import { Matrix } from '@styled-icons/simple-icons/Matrix'
@@ -28,6 +28,9 @@ import { accentIcon } from './Accent/getAccentElements'
 import EqLoader from './load'
 import EqSaver from './save'
 import { ELEMENT_ACCENT } from './Accent'
+import { ELEMENT_BRACKET } from './Bracket'
+import { bracketIcon } from './Bracket/getBracketElements'
+import { BracketToolBarButton } from './Bracket/BracketDropDownMenu'
 import { ELEMENT_LOG } from './Log'
 import { LimitToolBarButton } from './Limit/LimitDropDownMenu'
 import { LogToolBarButton } from './Log/LogDropDownMenu'
@@ -40,6 +43,8 @@ import { insertMathNode } from './insertMathNode'
 import { MathMentionCombobox } from './mention/mathMentionComboBox'
 import { MENTIONABLES } from './mention/mentionables'
 import { ELEMENT_EQUATION_MENTION } from './mention/constants'
+import { ELEMENT_FRACTION} from './Fraction'
+import { FractionToolBarButton} from './Fraction/FractionDropDownMenu'
 
 export const MathToolbar = () => {
   const editor = getPlateEditorRef()!
@@ -120,12 +125,14 @@ export const MathToolbar = () => {
           onMouseDown={e=> insertMathNode(getLogarithmToBaseNnode, editor)}
       /> */}
 
+      {/*}
       <ToolbarButton
         type={getPluginType(editor, FRACTION)}
         icon={fractionIcon()}
         tooltip={{ content: 'Create Fraction', theme: 'light-border' }}
         onMouseDown={(e) => insertMathNode(getEmptyFractionNode, editor)}
-      />
+      />*/}
+      
       <ToolbarButton
         type={getPluginType(editor, BIG_OPERATOR)}
         icon={bigOpIcon()}
@@ -142,6 +149,10 @@ export const MathToolbar = () => {
       <MathMentionCombobox items={MENTIONABLES} id={ELEMENT_EQUATION_MENTION} />
 
       <AccentToolBarButton pluginKey={ELEMENT_ACCENT} icon={accentIcon()} />
+
+      <BracketToolBarButton pluginKey={ELEMENT_BRACKET} icon={bracketIcon()} />
+      
+      <FractionToolBarButton pluginKey={ELEMENT_FRACTION} icon={fractionIcon()} />
 
       <EqLoader />
       <EqSaver />

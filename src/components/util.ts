@@ -17,6 +17,7 @@ import { BaseEditor, Editor, Path, Range, Transforms } from 'slate'
 import { ReactEditor } from 'slate-react'
 import { ELEMENT_ACCENT } from './Accent'
 import { ELEMENT_BIG_OPERATOR } from './BigOperator'
+import { ELEMENT_BRACKET } from './Bracket'
 import { ELEMENT_EQUATIONBOX } from './EquationBoxElement'
 import { ELEMENT_EQUATION_TEXT } from './EquationText'
 import { ELEMENT_FRACTION } from './Fraction'
@@ -28,6 +29,8 @@ import {
   ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
   ELEMENT_UNEDITABLE_BIG_OPERATOR,
 } from './UneditableBigOperator/defaults'
+import { ELEMENT_STACKED, ELEMENT_SKEWED, ELEMENT_LINEAR } from './Fraction/FractionDefaults/defaults'
+
 
 export const getCurrentSelection = (editor: PlateEditor): Path | undefined => {
   var at = editor.selection
@@ -169,7 +172,11 @@ export const isMathNode = (node: any, editor: PlateEditor): boolean => {
     ELEMENT_LOG,
     ELEMENT_LIMIT,
     ELEMENT_FRACTION,
-    ELEMENT_MATRIX
+    ELEMENT_MATRIX,
+    ELEMENT_BRACKET,
+    ELEMENT_STACKED,
+    ELEMENT_SKEWED,
+    ELEMENT_LINEAR,
   ]
   for (var i = 0; i < types.length; i++) {
     if (node.type === getPluginType(editor, types[i])) return true

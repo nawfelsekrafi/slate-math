@@ -19,6 +19,7 @@ import { EquationBox } from './EquationBoxElement/getEquationBoxElement'
 import { ELEMENT_EQUATION_TEXT } from './EquationText'
 import { EquationText } from './EquationText/getEquationText'
 import { ELEMENT_FRACTION } from './Fraction'
+import { FractionComponent } from './Fraction/getFractionElements'
 import { ELEMENT_LIMIT, LimitComponent } from './Limit'
 import { ELEMENT_LOG } from './Log'
 import { ELEMENT_MATRIX, ELEMENT_MATRIX_BOX } from './Matrix/defaults'
@@ -36,6 +37,10 @@ import { ELEMENT_ACCENT } from './Accent'
 // import {limitElement} from './Limit/getLimitElements';
 import {withBox} from "./EquationBoxElement/withBox"
 import { ELEMENT_MATH_CONTAINER } from "./MathContainer/defaults";
+import { ELEMENT_BRACKET } from './Bracket'
+import { BracketComponent } from './Bracket/getBracketElements'
+import { ELEMENT_SKEWED, ELEMENT_STACKED, ELEMENT_LINEAR } from './Fraction/FractionDefaults/defaults'
+
 
 import { TComboboxItem } from '@udecode/plate';
 
@@ -133,6 +138,30 @@ export const createAccentPlugin = createPluginFactory({
   isInline: true,
 }) // parameter is a PlatePlugin object
 
+export const createStackedFraction = createPluginFactory({
+  key: ELEMENT_STACKED,
+  isInline: true,
+  isElement: true,
+})
+
+export const createSkewedFraction = createPluginFactory({
+  key: ELEMENT_SKEWED,
+  isInline: true,
+  isElement: true,
+})
+
+export const createLinearFraction = createPluginFactory({
+  key: ELEMENT_LINEAR,
+  isInline: true,
+  isElement: true,
+})
+
+export const createBracketPlugin = createPluginFactory({
+  key: ELEMENT_BRACKET,
+  isElement: true,
+  component: BracketComponent,
+  isInline: true,
+})
 
 export const createMathContainerPlugin = createPluginFactory({
   key: ELEMENT_MATH_CONTAINER,
@@ -163,7 +192,11 @@ export const createMathPlugins = () => {
       createLimitPlugin(),
       createLogPlugin(),
       createAccentPlugin(),
+      createBracketPlugin(),
       createBigOperatorPlugin(),
+      createStackedFraction(),
+      createSkewedFraction(),
+      createLinearFraction(),
       createFractionPlugin(),
       createEquationTextPlugin(),
       createMatrixPlugin(),

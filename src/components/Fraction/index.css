@@ -1,4 +1,5 @@
-/*Fractions*/
+
+/*
 .fraction {
   display: inline-block;
   vertical-align: middle;
@@ -25,7 +26,7 @@
   border-style: dashed;
   border-color: blue;
 }
-/*Intellisense icon*/
+
 .fraction-icon {
   font-size: 1em;
   font-weight: bolder;
@@ -60,5 +61,27 @@
 .slate-fraction > .slate-equationbox:nth-child(2) {
   border-top: thin solid black;
 }
+*/
+.fractions {
+  position: relative;
+  display: inline-block;
+  margin: 0 0.2em;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: bolder;
+}
 
-/*End of Fractions*/
+.fractions .symbol-ico {
+  margin-left: 20px;
+  margin-right: 15px;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+
+.fraction-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 0.8em;
+  grid-row-gap: 0.8em;
+}
