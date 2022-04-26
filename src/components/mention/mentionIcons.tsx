@@ -52,6 +52,18 @@ import NaturalLogarithm from '../../assets/Logs/NaturalLogarithm.png'
 import Logarithm from '../../assets/Logs/Logarithm.png'
 import LogarithmToBaseTen from '../../assets/Logs/LogarithmToBaseTen.png'
 import LogarithmToBaseN from '../../assets/Logs/LogarithmToBaseN.png'
+import Cos from '../../assets/Trig/Cos.png'
+import Cosh from '../../assets/Trig/Cosh.png'
+import Cot from '../../assets/Trig/Cot.png'
+import Coth from '../../assets/Trig/Coth.png'
+import Csc from '../../assets/Trig/Csc.png'
+import Csch from '../../assets/Trig/Csch.png'
+import Sec from '../../assets/Trig/Sec.png'
+import Sech from '../../assets/Trig/Sech.png'
+import Sin from '../../assets/Trig/Sin.png'
+import Sinh from '../../assets/Trig/Sinh.png'
+import Tan from '../../assets/Trig/Tan.png'
+import Tanh from '../../assets/Trig/Tanh.png'
 
 //accent icons
 export const RightArrowIcon = () => {
@@ -209,4 +221,42 @@ export const LogarithmToBaseTenIcon = () => {
 }
 export const LogarithmToBaseNIcon = () => {
   return <img alt={"LogarithmToBaseN"} src={LogarithmToBaseN} />
+}
+
+//Trig
+export const CosIcon = () => {
+  return <img alt={"Cos"} src={Cos} />
+}
+export const CoshIcon = () => {
+  return <img alt={"Cosh"} src={Cosh} />
+}
+export const CotIcon = () => {
+  return <img alt={"Cot"} src={Cot} />
+}
+export const CothIcon = () => {
+  return <img alt={"Coth"} src={Coth} />
+}
+export const CscIcon = () => {
+  return <img alt={"Csc"} src={Csc} />
+}
+export const CschIcon = () => {
+  return <img alt={"Csch"} src={Csch} />
+}
+export const SecIcon = () => {
+  return <img alt={"Sec"} src={Sec} />
+}
+export const SechIcon = () => {
+  return <img alt={"Sech"} src={Sech} />
+}
+export const SinIcon = () => {
+  return <img alt={"Sin"} src={Sin} />
+}
+export const SinhIcon = () => {
+  return <img alt={"Sinh"} src={Sinh} />
+}
+export const TanIcon = () => {
+  return <img alt={"Tanh"} src={Tanh} />
+}
+export const TanhIcon = () => {
+  return <img alt={"Tanh"} src={Tanh} />
 }

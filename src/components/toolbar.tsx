@@ -45,6 +45,8 @@ import { MENTIONABLES } from './mention/mentionables'
 import { ELEMENT_EQUATION_MENTION } from './mention/constants'
 import { ELEMENT_FRACTION} from './Fraction'
 import { FractionToolBarButton} from './Fraction/FractionDropDownMenu'
+import { TrigTableDropDown } from './Trig/TrigDropdown'
+import { ELEMENT_TRIG, TrigIcon } from './Trig'
 
 export const MathToolbar = () => {
   const editor = getPlateEditorRef()!
@@ -153,6 +155,11 @@ export const MathToolbar = () => {
       <BracketToolBarButton pluginKey={ELEMENT_BRACKET} icon={bracketIcon()} />
       
       <FractionToolBarButton pluginKey={ELEMENT_FRACTION} icon={fractionIcon()} />
+
+      <TrigTableDropDown
+          pluginKey={ELEMENT_TRIG}
+          icon={TrigIcon()}
+      />
 
       <EqLoader />
       <EqSaver />

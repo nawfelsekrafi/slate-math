@@ -24,6 +24,7 @@ import {
 } from './UneditableBigOperator/defaults'
 import { ELEMENT_STACKED,ELEMENT_SKEWED, ELEMENT_LINEAR } from './Fraction/FractionDefaults/defaults'
 import { ELEMENT_BRACKET } from './Bracket'
+import { ELEMENT_TRIG } from './Trig'
 export const components = createPlateUI({
   //[ELEMENT_MENTION]: EquationMentionElement,
 
@@ -254,6 +255,20 @@ export const components = createPlateUI({
         `,
       ],
     },
+  }),
+
+  [ELEMENT_TRIG]: withProps(StyledElement, {
+    className:'slate-trig',
+    as:'span',
+    styles: {
+      root: [
+        css`
+        display: inline-flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        `,
+      ]
+    }
   }),
 
   /*    [FRACTION]: withProps(StyledElement, {
