@@ -18,18 +18,20 @@ import Grave from '../../assets/Grave.png'
 import Acute from '../../assets/Acute.png'
 import { insertNodes, getPlateEditorRef } from '@udecode/plate'
 import { selectFirstBox } from '../util'
-import { getSinNode, 
-    getCosNode, 
-    getTanNode, 
-    getCscNode, 
-    getSecNode, 
-    getCotNode, 
-    getSinhNode,
-    getCoshNode, 
-    getTanhNode,
-    getCschNode,
-    getSechNode,
-    getCothNode} from './getTrigNode';
+import {
+  getSinNode,
+  getCosNode,
+  getTanNode,
+  getCscNode,
+  getSecNode,
+  getCotNode,
+  getSinhNode,
+  getCoshNode,
+  getTanhNode,
+  getCschNode,
+  getSechNode,
+  getCothNode,
+} from './getTrigNode'
 import { MENTIONABLES } from '../mention/mentionables'
 import Cos from '../../assets/Trig/Cos.png'
 import Cosh from '../../assets/Trig/Cosh.png'
@@ -49,85 +51,70 @@ const initializeEquationMap = () => {
   const editor = getPlateEditorRef()!
   const nameToClickFuncMap = new Map<string, any>()
   nameToClickFuncMap.set('1x1', () => {
-    insertMathNode( getSinNode,editor,undefined,false,true)
+    insertMathNode(getSinNode, editor, undefined, false, true)
   })
   nameToClickFuncMap.set('1x2', () => {
-    insertMathNode( getCosNode,editor,undefined,false,true)
+    insertMathNode(getCotNode, editor, undefined, false, true)
   })
   nameToClickFuncMap.set('1x3', () => {
-
-
-    insertMathNode( getTanNode,editor,undefined,false,true)
+    insertMathNode(getSinhNode, editor, undefined, false, true)
   })
   nameToClickFuncMap.set('1x4', () => {
-
-
-    insertMathNode( getCscNode,editor,undefined,false,true)
+    insertMathNode(getCothNode, editor, undefined, false, true)
   })
   nameToClickFuncMap.set('2x1', () => {
-
-
-    insertMathNode( getSecNode,editor,undefined,false,true)
+    insertMathNode(getCosNode, editor, undefined, false, true)
   })
   nameToClickFuncMap.set('2x2', () => {
-
-
-    insertMathNode( getCotNode,editor,undefined,false,true)
+    insertMathNode(getSecNode, editor, undefined, false, true)
   })
   nameToClickFuncMap.set('2x3', () => {
-
-
-    insertMathNode( getSinhNode,editor,undefined,false,true)
+    insertMathNode(getCoshNode, editor, undefined, false, true)
   })
   nameToClickFuncMap.set('2x4', () => {
-
-    insertMathNode( getCoshNode,editor,undefined,false,true)
+    insertMathNode(getSechNode, editor, undefined, false, true)
   })
   nameToClickFuncMap.set('3x1', () => {
-
-    insertMathNode( getTanhNode,editor,undefined,false,true)
+    insertMathNode(getTanNode, editor, undefined, false, true)
   })
   nameToClickFuncMap.set('3x2', () => {
-
-    insertMathNode( getCschNode,editor,undefined,false,true)
+    insertMathNode(getCscNode, editor, undefined, false, true)
   })
   nameToClickFuncMap.set('3x3', () => {
-    insertMathNode( getSechNode,editor,undefined,false,true)
+    insertMathNode(getTanhNode, editor, undefined, false, true)
   })
   nameToClickFuncMap.set('3x4', () => {
-    insertMathNode( getCothNode,editor,undefined,false,true)
+    insertMathNode(getCschNode, editor, undefined, false, true)
   })
 
   const nameToImgMap = new Map<string, any>()
   nameToImgMap.set('1x1', Sin)
-  nameToImgMap.set('1x2', Cos)
-  nameToImgMap.set('1x3', Tan)
-  nameToImgMap.set('1x4', Csc)
-  nameToImgMap.set('2x1', Sec)
-  nameToImgMap.set('2x2', Cot)
-  nameToImgMap.set('2x3', Sinh)
-  nameToImgMap.set('2x4', Cosh)
-  nameToImgMap.set('3x1', Tanh)
-  nameToImgMap.set('3x2', Csch)
-  nameToImgMap.set('3x3', Sech)
-  nameToImgMap.set('3x4', Coth)
-  
-
+  nameToImgMap.set('1x2', Cot)
+  nameToImgMap.set('1x3', Sinh)
+  nameToImgMap.set('1x4', Coth)
+  nameToImgMap.set('2x1', Cos)
+  nameToImgMap.set('2x2', Sec)
+  nameToImgMap.set('2x3', Cosh)
+  nameToImgMap.set('2x4', Sech)
+  nameToImgMap.set('3x1', Tan)
+  nameToImgMap.set('3x2', Csc)
+  nameToImgMap.set('3x3', Tanh)
+  nameToImgMap.set('3x4', Csch)
 
   const nameToTrigNameMap = new Map<string, string>()
   nameToTrigNameMap.set('1x1', 'Sin')
-  nameToTrigNameMap.set('1x2', 'Cos')
-  nameToTrigNameMap.set('1x3', 'Tan')
-  nameToTrigNameMap.set('1x4', 'Csc')
-  nameToTrigNameMap.set('2x1', 'Sec')
-  nameToTrigNameMap.set('2x2', 'Cot')
-  nameToTrigNameMap.set('2x3', 'Sinh')
-  nameToTrigNameMap.set('2x4', 'Cosh')
-  nameToTrigNameMap.set('3x1', 'Tanh')
-  nameToTrigNameMap.set('3x2', 'Csch')
-  nameToTrigNameMap.set('3x3', 'Sech')
-  nameToTrigNameMap.set('3x4', 'Coth')
- return { nameToClickFuncMap, nameToTrigNameMap, nameToImgMap }
+  nameToTrigNameMap.set('1x2', 'Cot')
+  nameToTrigNameMap.set('1x3', 'Sinh')
+  nameToTrigNameMap.set('1x4', 'Coth')
+  nameToTrigNameMap.set('2x1', 'Cos')
+  nameToTrigNameMap.set('2x2', 'Sec')
+  nameToTrigNameMap.set('2x3', 'Cosh')
+  nameToTrigNameMap.set('2x4', 'Sech')
+  nameToTrigNameMap.set('3x1', 'Tan')
+  nameToTrigNameMap.set('3x2', 'Csc')
+  nameToTrigNameMap.set('3x3', 'Tanh')
+  nameToTrigNameMap.set('3x4', 'Csch')
+  return { nameToClickFuncMap, nameToTrigNameMap, nameToImgMap }
 }
 
 type TrigPickerProps = {
@@ -137,7 +124,8 @@ type TrigPickerProps = {
 }
 
 export const TrigPicker = ({ trigs, onToggle }: TrigPickerProps) => {
-  const { nameToClickFuncMap, nameToTrigNameMap, nameToImgMap } = initializeEquationMap()
+  const { nameToClickFuncMap, nameToTrigNameMap, nameToImgMap } =
+    initializeEquationMap()
   return (
     <div className="trig-container" id="trigContainer">
       {trigs.map(({ name }) => (

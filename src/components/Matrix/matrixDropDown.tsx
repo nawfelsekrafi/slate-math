@@ -9,6 +9,7 @@ import {
   getPluginType,
   usePlateEditorRef,
   usePlateEditorState,
+  RootStyles,
 } from '@udecode/plate'
 import React, { ReactNode, useCallback } from 'react'
 import { Transforms } from 'slate'
@@ -24,6 +25,7 @@ type MatrixPickerToolbarDropdownProps = {
   icon: ReactNode
   selectedIcon: ReactNode
   matrixes?: MatrixType[]
+  styles?: Partial<RootStyles>
 }
 export const MatrixTableDropDown = ({
   pluginKey,

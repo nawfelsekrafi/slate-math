@@ -9,6 +9,7 @@ import {
   getPluginType,
   usePlateEditorRef,
   usePlateEditorState,
+  RootStyles,
 } from '@udecode/plate'
 import React, { ReactNode, useCallback } from 'react'
 import { Transforms } from 'slate'
@@ -21,6 +22,7 @@ type ToolbarDropdownProps = {
   pluginKey: string
   icon: ReactNode
   fractions?: FractionType[]
+  styles?: Partial<RootStyles>
 }
 export const FractionToolBarButton = ({
   pluginKey,
@@ -43,7 +45,7 @@ export const FractionToolBarButton = ({
           <ToolbarButton
             active={!!editor?.selection && isMarkActive(editor, type)}
             icon={icon}
-            tooltip={{ content: 'Fraction', theme: 'light-border' }}
+            tooltip={{ content: 'Create Fraction', theme: 'light-border' }}
             {...rest}
           />
         }

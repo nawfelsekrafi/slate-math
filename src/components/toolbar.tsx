@@ -5,12 +5,7 @@ import {
 } from '@udecode/plate'
 import { ToolbarButton } from '@udecode/plate-toolbar'
 import { getEmptyBigOpNode } from './BigOperator/getEmptyBigOpNode'
-import {
-  BIG_OPERATOR,
-  FRACTION,
-  INTEGRAL,
-  SUMMATION,
-} from './defaults'
+import { BIG_OPERATOR, FRACTION, INTEGRAL, SUMMATION } from './defaults'
 import { integralIcon } from './Integral/icon'
 import { getEmptyLimNode } from './Limit/getEmptyLimNode'
 import { getLogarithmToBaseNnode } from './Log/getEmptyLogNode'
@@ -19,11 +14,14 @@ import { bigOpIcon } from './BigOperator'
 import { ELEMENT_LIMIT, limitIcon } from './Limit'
 import { logIcon } from './Log/getLogElements'
 
-import { fractionIcon} from './Fraction/getFractionElements'
+import { fractionIcon } from './Fraction/getFractionElements'
 import { MatrixTableDropDown } from './Matrix/matrixDropDown'
 import { ELEMENT_MATRIX } from './Matrix/defaults'
 import { Matrix } from '@styled-icons/simple-icons/Matrix'
-import { getIntegralNode, getSummationNode } from './UneditableBigOperator/getEmptyBigOpNode'
+import {
+  getIntegralNode,
+  getSummationNode,
+} from './UneditableBigOperator/getEmptyBigOpNode'
 import { accentIcon } from './Accent/getAccentElements'
 import EqLoader from './load'
 import EqSaver from './save'
@@ -43,8 +41,8 @@ import { insertMathNode } from './insertMathNode'
 import { MathMentionCombobox } from './mention/mathMentionComboBox'
 import { MENTIONABLES } from './mention/mentionables'
 import { ELEMENT_EQUATION_MENTION } from './mention/constants'
-import { ELEMENT_FRACTION} from './Fraction'
-import { FractionToolBarButton} from './Fraction/FractionDropDownMenu'
+import { ELEMENT_FRACTION } from './Fraction'
+import { FractionToolBarButton } from './Fraction/FractionDropDownMenu'
 import { TrigTableDropDown } from './Trig/TrigDropdown'
 import { ELEMENT_TRIG, TrigIcon } from './Trig'
 
@@ -110,7 +108,7 @@ export const MathToolbar = () => {
         icon={logIcon()}
         styles={{
           root: {
-            marginRight: 20,
+            marginRight: 25,
           },
         }}
       />
@@ -134,7 +132,7 @@ export const MathToolbar = () => {
         tooltip={{ content: 'Create Fraction', theme: 'light-border' }}
         onMouseDown={(e) => insertMathNode(getEmptyFractionNode, editor)}
       />*/}
-      
+
       <ToolbarButton
         type={getPluginType(editor, BIG_OPERATOR)}
         icon={bigOpIcon()}
@@ -146,19 +144,46 @@ export const MathToolbar = () => {
         pluginKey={ELEMENT_MATRIX}
         icon={<Matrix />}
         selectedIcon={<Matrix />}
+        styles={{
+          root: {
+            marginLeft: 5,
+          },
+        }}
       />
 
       <MathMentionCombobox items={MENTIONABLES} id={ELEMENT_EQUATION_MENTION} />
 
-      <AccentToolBarButton pluginKey={ELEMENT_ACCENT} icon={accentIcon()} />
+      <AccentToolBarButton
+        pluginKey={ELEMENT_ACCENT}
+        icon={accentIcon()}
+        styles={{
+          root: {
+            marginRight: 5,
+          },
+        }}
+      />
 
       <BracketToolBarButton pluginKey={ELEMENT_BRACKET} icon={bracketIcon()} />
-      
-      <FractionToolBarButton pluginKey={ELEMENT_FRACTION} icon={fractionIcon()} />
+
+      <FractionToolBarButton
+        pluginKey={ELEMENT_FRACTION}
+        icon={fractionIcon()}
+        styles={{
+          root: {
+            marginLeft: 5,
+          },
+        }}
+      />
 
       <TrigTableDropDown
-          pluginKey={ELEMENT_TRIG}
-          icon={TrigIcon()}
+        pluginKey={ELEMENT_TRIG}
+        icon={TrigIcon()}
+        styles={{
+          root: {
+            marginLeft: 5,
+            marginRight: 5,
+          },
+        }}
       />
 
       <EqLoader />
@@ -166,4 +191,3 @@ export const MathToolbar = () => {
     </>
   )
 }
-

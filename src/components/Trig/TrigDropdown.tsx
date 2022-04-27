@@ -9,6 +9,7 @@ import {
   getPluginType,
   usePlateEditorRef,
   usePlateEditorState,
+  RootStyles,
 } from '@udecode/plate'
 import React, { ReactNode, useCallback } from 'react'
 import { Transforms } from 'slate'
@@ -22,6 +23,7 @@ type TrigPickerToolbarDropdownProps = {
   pluginKey: string
   icon: ReactNode
   trigs?: TrigType[]
+  styles?: Partial<RootStyles>
 }
 export const TrigTableDropDown = ({
   pluginKey,
@@ -44,6 +46,7 @@ export const TrigTableDropDown = ({
           <ToolbarButton
             active={!!editor?.selection && isMarkActive(editor, type)}
             icon={icon}
+            tooltip={{ content: 'Create Function', theme: 'light-border' }}
             {...rest}
           />
         }

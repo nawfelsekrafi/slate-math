@@ -9,6 +9,7 @@ import {
   getPluginType,
   usePlateEditorRef,
   usePlateEditorState,
+  RootStyles,
 } from '@udecode/plate'
 import React, { ReactNode, useCallback } from 'react'
 import { Transforms } from 'slate'
@@ -21,6 +22,7 @@ type ToolbarDropdownProps = {
   pluginKey: string
   icon: ReactNode
   accents?: AccentType[]
+  styles?: Partial<RootStyles>
 }
 export const AccentToolBarButton = ({
   pluginKey,
