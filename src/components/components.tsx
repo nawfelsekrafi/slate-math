@@ -22,7 +22,11 @@ import {
   ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
   ELEMENT_UNEDITABLE_BIG_OPERATOR,
 } from './UneditableBigOperator/defaults'
-import { ELEMENT_STACKED,ELEMENT_SKEWED, ELEMENT_LINEAR } from './Fraction/FractionDefaults/defaults'
+import {
+  ELEMENT_STACKED_FRACTION,
+  ELEMENT_SKEWED_FRACTION,
+  ELEMENT_LINEAR_FRACTION,
+} from './Fraction/FractionDefaults/defaults'
 import { ELEMENT_BRACKET } from './Bracket'
 import { ELEMENT_TRIG } from './Trig'
 export const components = createPlateUI({
@@ -155,7 +159,7 @@ export const components = createPlateUI({
           flex-direction: column;
           text-align: center;
           position: relative;
-          bottom: .78rem;
+          bottom: 0.78rem;
         `,
       ],
     },
@@ -189,13 +193,13 @@ export const components = createPlateUI({
           text-align: center;
           position: relative;
           top: 0px;
-          bottom: .78rem;
+          bottom: 0.78rem;
         `,
       ],
     },
   }),
 
-  [ELEMENT_STACKED]: withProps(StyledElement, {
+  [ELEMENT_STACKED_FRACTION]: withProps(StyledElement, {
     className: 'slate-stackedfraction',
     as: 'span',
     styles: {
@@ -216,7 +220,7 @@ export const components = createPlateUI({
     },
   }),
 
-  [ELEMENT_SKEWED]: withProps(StyledElement, {
+  [ELEMENT_SKEWED_FRACTION]: withProps(StyledElement, {
     className: 'slate-skewedfraction',
     as: 'span',
     styles: {
@@ -236,7 +240,7 @@ export const components = createPlateUI({
       ],
     },
   }),
-  [ELEMENT_LINEAR]: withProps(StyledElement, {
+  [ELEMENT_LINEAR_FRACTION]: withProps(StyledElement, {
     className: 'slate-linearfraction',
     as: 'span',
     styles: {
@@ -258,17 +262,17 @@ export const components = createPlateUI({
   }),
 
   [ELEMENT_TRIG]: withProps(StyledElement, {
-    className:'slate-trig',
-    as:'span',
+    className: 'slate-trig',
+    as: 'span',
     styles: {
       root: [
         css`
-        display: inline-flex;
-        justify-content: flex-start;
-        flex-direction: row;
+          display: inline-flex;
+          justify-content: flex-start;
+          flex-direction: row;
         `,
-      ]
-    }
+      ],
+    },
   }),
 
   /*    [FRACTION]: withProps(StyledElement, {

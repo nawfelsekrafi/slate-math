@@ -39,7 +39,11 @@ import {withBox} from "./EquationBoxElement/withBox"
 import { ELEMENT_MATH_CONTAINER } from "./MathContainer/defaults";
 import { ELEMENT_BRACKET } from './Bracket'
 import { BracketComponent } from './Bracket/getBracketElements'
-import { ELEMENT_SKEWED, ELEMENT_STACKED, ELEMENT_LINEAR } from './Fraction/FractionDefaults/defaults'
+import {
+  ELEMENT_SKEWED_FRACTION,
+  ELEMENT_STACKED_FRACTION,
+  ELEMENT_LINEAR_FRACTION,
+} from './Fraction/FractionDefaults/defaults'
 import { ELEMENT_TRIG, TrigComponent } from './Trig'
 
 
@@ -140,19 +144,19 @@ export const createAccentPlugin = createPluginFactory({
 }) // parameter is a PlatePlugin object
 
 export const createStackedFraction = createPluginFactory({
-  key: ELEMENT_STACKED,
+  key: ELEMENT_STACKED_FRACTION,
   isInline: true,
   isElement: true,
 })
 
 export const createSkewedFraction = createPluginFactory({
-  key: ELEMENT_SKEWED,
+  key: ELEMENT_SKEWED_FRACTION,
   isInline: true,
   isElement: true,
 })
 
 export const createLinearFraction = createPluginFactory({
-  key: ELEMENT_LINEAR,
+  key: ELEMENT_LINEAR_FRACTION,
   isInline: true,
   isElement: true,
 })
