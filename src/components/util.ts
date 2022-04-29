@@ -34,6 +34,8 @@ import {
   ELEMENT_SKEWED_FRACTION,
   ELEMENT_LINEAR_FRACTION,
 } from './Fraction/FractionDefaults/defaults'
+import { ELEMENT_CUSTOMTABLE } from './Table/defaults'
+import { ELEMENT_TRIG } from './Trig'
 
 
 export const getCurrentSelection = (editor: PlateEditor): Path | undefined => {
@@ -181,6 +183,8 @@ export const isMathNode = (node: any, editor: PlateEditor): boolean => {
     ELEMENT_STACKED_FRACTION,
     ELEMENT_SKEWED_FRACTION,
     ELEMENT_LINEAR_FRACTION,
+    ELEMENT_TRIG,
+    ELEMENT_CUSTOMTABLE,
   ]
   for (var i = 0; i < types.length; i++) {
     if (node.type === getPluginType(editor, types[i])) return true

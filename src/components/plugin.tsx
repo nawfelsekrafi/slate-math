@@ -45,6 +45,7 @@ import {
   ELEMENT_LINEAR_FRACTION,
 } from './Fraction/FractionDefaults/defaults'
 import { ELEMENT_TRIG, TrigComponent } from './Trig'
+import { ELEMENT_CUSTOMTABLE} from './Table/defaults'
 
 
 import { TComboboxItem } from '@udecode/plate';
@@ -176,6 +177,12 @@ export const createTrigPlugin = createPluginFactory({
 
 })
 
+export const createCustomTablePlugin = createPluginFactory({
+  key: ELEMENT_CUSTOMTABLE,
+  isInline: true,
+  isElement: true,
+})
+
 export const createMathContainerPlugin = createPluginFactory({
   key: ELEMENT_MATH_CONTAINER,
   isInline: true,
@@ -211,6 +218,7 @@ export const createMathPlugins = () => {
       createSkewedFraction(),
       createTrigPlugin(),
       createLinearFraction(),
+      createCustomTablePlugin(),
       createFractionPlugin(),
       createEquationTextPlugin(),
       createMatrixPlugin(),
