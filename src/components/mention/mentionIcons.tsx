@@ -255,7 +255,7 @@ export const SinhIcon = () => {
   return <img alt={"Sinh"} src={Sinh} />
 }
 export const TanIcon = () => {
-  return <img alt={"Tanh"} src={Tanh} />
+  return <img alt={"Tan"} src={Tan} />
 }
 export const TanhIcon = () => {
   return <img alt={"Tanh"} src={Tanh} />
