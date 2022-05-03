@@ -3,9 +3,8 @@ import { css } from 'twin.macro'
 import { ELEMENT_FRACTION } from '.'
 import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode'
 import { ELEMENT_EQUATION_TEXT, getEquationTextNode } from '../EquationText'
-import { ELEMENT_STACKED, ELEMENT_SKEWED,ELEMENT_LINEAR } from './defaults';
 import { ELEMENT_UNEDITABLE_BIG_OPERATOR, ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT } from '../UneditableBigOperator/defaults';
-import { ELEMENT_LINEAR_FRACTION, ELEMENT_SKEWED_FRACTION, ELEMENT_STACKED_FRACTION } from './FractionDefaults/defaults'
+import { ELEMENT_LINEAR_FRACTION, ELEMENT_SKEWED_FRACTION, ELEMENT_STACKED_FRACTION } from '.'
 
 
 export const getEmptyFractionNode = () => {

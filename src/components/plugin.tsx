@@ -18,7 +18,7 @@ import { ELEMENT_EQUATIONBOX } from './EquationBoxElement'
 import { EquationBox } from './EquationBoxElement/getEquationBoxElement'
 import { ELEMENT_EQUATION_TEXT } from './EquationText'
 import { EquationText } from './EquationText/getEquationText'
-import { ELEMENT_FRACTION } from './Fraction'
+import { ELEMENT_FRACTION, ELEMENT_LINEAR_FRACTION, ELEMENT_SKEWED_FRACTION, ELEMENT_STACKED_FRACTION } from './Fraction'
 import { FractionComponent } from './Fraction/getFractionElements'
 import { ELEMENT_LIMIT, LimitComponent } from './Limit'
 import { ELEMENT_LOG } from './Log'
@@ -39,14 +39,12 @@ import {withBox} from "./EquationBoxElement/withBox"
 import { ELEMENT_MATH_CONTAINER } from "./MathContainer/defaults";
 import { ELEMENT_BRACKET } from './Bracket'
 import { BracketComponent } from './Bracket/getBracketElements'
-import { ELEMENT_SKEWED, ELEMENT_STACKED, ELEMENT_LINEAR } from './Fraction/defaults'
 import { ELEMENT_TRIG, TrigComponent } from './Trig'
 import { ELEMENT_CUSTOMTABLE} from './Table/defaults'
 
 
 import { TComboboxItem } from '@udecode/plate';
 import { withContainer } from './MathContainer/withContainer'
-import { ELEMENT_LINEAR_FRACTION, ELEMENT_SKEWED_FRACTION, ELEMENT_STACKED_FRACTION } from './Fraction/FractionDefaults/defaults'
 
 export const createEquationBoxPlugin = createPluginFactory({
   key: ELEMENT_EQUATIONBOX,

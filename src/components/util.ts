@@ -29,8 +29,7 @@ import {
   ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
   ELEMENT_UNEDITABLE_BIG_OPERATOR,
 } from './UneditableBigOperator/defaults'
-import { ELEMENT_STACKED, ELEMENT_SKEWED, ELEMENT_LINEAR } from './Fraction/defaults'
-import { ELEMENT_LINEAR_FRACTION, ELEMENT_SKEWED_FRACTION, ELEMENT_STACKED_FRACTION } from './Fraction/FractionDefaults/defaults'
+import { ELEMENT_LINEAR_FRACTION, ELEMENT_SKEWED_FRACTION, ELEMENT_STACKED_FRACTION } from './Fraction/defaults'
 import { ELEMENT_TRIG } from './Trig'
 import { ELEMENT_CUSTOMTABLE } from './Table/defaults'
 
