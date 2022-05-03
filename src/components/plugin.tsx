@@ -39,11 +39,12 @@ import {withBox} from "./EquationBoxElement/withBox"
 import { ELEMENT_MATH_CONTAINER } from "./MathContainer/defaults";
 import { ELEMENT_BRACKET } from './Bracket'
 import { BracketComponent } from './Bracket/getBracketElements'
-import { ELEMENT_SKEWED, ELEMENT_STACKED, ELEMENT_LINEAR } from './Fraction/FractionDefaults/defaults'
+import { ELEMENT_SKEWED, ELEMENT_STACKED, ELEMENT_LINEAR } from './Fraction/defaults'
 import { ELEMENT_TRIG, TrigComponent } from './Trig'
 
 
 import { TComboboxItem } from '@udecode/plate';
+import { withContainer } from './MathContainer/withContainer'
 
 export const createEquationBoxPlugin = createPluginFactory({
   key: ELEMENT_EQUATIONBOX,

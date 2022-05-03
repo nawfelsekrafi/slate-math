@@ -3,6 +3,8 @@ import { css } from 'styled-components';
 import tw from 'twin.macro';
 import { EquationBoxElementStyleProps } from './getEquationBoxElement.types';
 export const getEquationBoxStyles = (props: EquationBoxElementStyleProps) => {
+    if (!props.boxStyles)
+        props.boxStyles = []
     return(
     createStyles({prefixClassNames: 'isEmpty', ...props}, {
         root: [
@@ -16,6 +18,7 @@ export const getEquationBoxStyles = (props: EquationBoxElementStyleProps) => {
             align-content: center;
 
             `,
+            ...props.boxStyles,
             tw`my-0 mx-px align-baseline inline-grid`,
             props.selected && tw`boxShadow[0 0 0 2px #B4D5FF] bg-gray-300`,
             props.isEmpty && `background-color: #eee;`,

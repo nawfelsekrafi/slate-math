@@ -6,6 +6,7 @@ import { ELEMENT_BIG_OPERATOR } from "./components/BigOperator";
 import { ELEMENT_EQUATION_TEXT } from "./components/EquationText";
 import { ELEMENT_FRACTION } from "./components/Fraction";
 import { ELEMENT_LIMIT } from "./components/Limit";
+import { ELEMENT_MATH_CONTAINER } from "./components/MathContainer/defaults";
 import { ELEMENT_MATRIX } from "./components/Matrix/defaults";
 import { autoformatRules } from "./components/mention/autoformat/autoformatRules";
 import { MENTIONABLES } from "./components/mention/mentionables";
@@ -159,7 +160,7 @@ const resetBlockTypesCommonRule = {
     selectOnBackspace: {
       options: {
         query: {
-          allow: [ELEMENT_IMAGE, ELEMENT_MEDIA_EMBED, ELEMENT_HR],
+          allow: [ELEMENT_IMAGE, ELEMENT_MEDIA_EMBED, ELEMENT_HR, ELEMENT_MATH_CONTAINER],
         },
       },
     },

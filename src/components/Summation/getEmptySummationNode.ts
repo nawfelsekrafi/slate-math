@@ -13,9 +13,9 @@ export const getSummationWithLimitNode = (text?: string) => {
   return <TElement>{
     type: ELEMENT_UNEDITABLE_BIG_OPERATOR,
     children: [
-      getEmptyBoxNode(css`font-size: 10px; bottom: 3px;`),
+      getEmptyBoxNode(css`font-size: 10px; top: 7px;`),
       getEquationTextNode(text),
-      getEmptyBoxNode(css`font-size: 10px; bottom: 7px;`),
+      getEmptyBoxNode(css`font-size: 10px; bottom: 5px;`),
     ],
   }
 }
@@ -26,9 +26,9 @@ export const getSummationWithSubscriptLimitNode = (text?: string) => {
   return <TElement>{
     type: ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
     children: [
-      getEmptyBoxNode(css`font-size: 10px;`),
+      getEmptyBoxNode(css`font-size: 10px; right: 2px;`),
       getEquationTextNode(text),
-      getEmptyBoxNode(css`font-size: 10px;`),
+      getEmptyBoxNode(css`font-size: 10px; right: 3px;`),
     ],
   }
 }

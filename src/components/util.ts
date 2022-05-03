@@ -29,7 +29,7 @@ import {
   ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT,
   ELEMENT_UNEDITABLE_BIG_OPERATOR,
 } from './UneditableBigOperator/defaults'
-import { ELEMENT_STACKED, ELEMENT_SKEWED, ELEMENT_LINEAR } from './Fraction/FractionDefaults/defaults'
+import { ELEMENT_STACKED, ELEMENT_SKEWED, ELEMENT_LINEAR } from './Fraction/defaults'
 
 
 export const getCurrentSelection = (editor: PlateEditor): Path | undefined => {

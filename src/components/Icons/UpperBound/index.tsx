@@ -1,5 +1,5 @@
 import React from "react";
-const dom = (eq) => ({
+const dom = (eq?: any) => ({
   type: "toplimit",
   subtype: "math",
   children: [
@@ -10,7 +10,7 @@ const dom = (eq) => ({
   ],
 });
 
-const Element = (attributes, children) => {
+const Element = (attributes: JSX.IntrinsicAttributes & React.ClassAttributes<HTMLSpanElement> & React.HTMLAttributes<HTMLSpanElement>, children: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined) => {
   return (
     <span className="top-limit" {...attributes}>
       {children}

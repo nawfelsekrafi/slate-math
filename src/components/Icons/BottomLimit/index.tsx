@@ -1,7 +1,6 @@
 import React from "react";
-import "./bottomlimit.css";
 
-const dom = eq => ({
+const dom = (eq?: any) => ({
   type: "math",
   subtype: "bottomlimit",
   children: [
@@ -12,7 +11,7 @@ const dom = eq => ({
   ]
 });
 
-const Element = (attributes, children) => {
+const Element = (attributes: JSX.IntrinsicAttributes & React.ClassAttributes<HTMLSpanElement> & React.HTMLAttributes<HTMLSpanElement>, children: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined) => {
   return (
     <span className="bottom-limit" {...attributes}>
       {children}

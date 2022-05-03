@@ -51,7 +51,7 @@ export const mathMentionOnSelect = <TData extends Data = NoData>({
       insertMathNode(mentionData.node,editor,mentionData.value)
     }
     else{
-      insertMathNode(getEquationTextNode,editor,mentionData.value)
+      insertMathNode(getEquationTextNode,editor,mentionData.value,true)
     }
 
     // move the selection after the element

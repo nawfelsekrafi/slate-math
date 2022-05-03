@@ -16,11 +16,8 @@ import { IntegralButton } from './IntegralButton'
 import { selectFirstBox } from '../util'
 import { IntegralType } from './IntegralType'
 import { getEmptyUneditableBigOpNode } from '../UneditableBigOperator/getEmptyBigOpNode'
-import {
-  getIntegralWithLimitNode,
-  getIntegralWithStackedLimtNode,
-} from './getEmptyIntegralNode'
 import { insertMathNode } from '../insertMathNode'
+import { getIntegralWithLimitNode, getIntegralWithStackedLimtNode } from './getEmptyIntegralNode'
 
 const initializeEquationMap = () => {
   const editor = getPlateEditorRef()!

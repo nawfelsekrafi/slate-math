@@ -4,7 +4,7 @@ import {
   MentionPlugin,
 } from '@udecode/plate-mention';
 import { mathMentionOnSelect } from './mathMentionOnSelect';
-import { Combobox, ComboboxProps, Data, NoData, TComboboxItem } from '@udecode/plate';
+import { Combobox, ComboboxProps, Data, NoData, TComboboxItem, useComboboxSelectors } from '@udecode/plate';
 import { MentionEquationData } from './mentionables';
 
 export const MathMentionCombobox = <TData extends Data = NoData>({
@@ -18,11 +18,18 @@ export const MathMentionCombobox = <TData extends Data = NoData>({
   'id' | 'items' | 'component' | 'onRenderItem'
 > & { pluginKey?: string }) => {
   const editor = usePlateEditorRef()!;
-  
+
+  function searchMath(search: string) {
+    return function(item: TComboboxItem<TData>) {
+      let nodeText:string = item.text
+      return nodeText.search(search) != -1;
+    }
+  }
   const { trigger } = getPluginOptions<MentionPlugin>(editor, pluginKey);
   return (
     <Combobox
       id={id}
+      filter={searchMath}
       trigger={trigger!}
       controlled
       items={items}
@@ -34,6 +41,7 @@ export const MathMentionCombobox = <TData extends Data = NoData>({
     />
   );
 };
+
 
 
 export const RenderItem = (props:any) =>{

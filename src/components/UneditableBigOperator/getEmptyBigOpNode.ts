@@ -11,7 +11,7 @@ export const getEmptyUneditableBigOpNode = (text?:string) => {
   return <TElement>{
     type: ELEMENT_UNEDITABLE_BIG_OPERATOR,
     children: [
-      getEmptyBoxNode(css`font-size: 10px; top:10px;`),
+      getEmptyBoxNode(css`font-size: 10px;`),
       getEquationTextNode(text?text:''),
       getEmptyBoxNode(css`font-size: 10px;`),
     ],

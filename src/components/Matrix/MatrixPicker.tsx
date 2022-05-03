@@ -7,12 +7,11 @@ type MatrixPickerProps = {
     updateMatrix: (rows:number, cols:number) => void
   };
 
+  
   export const MatrixPicker = ({
-      matrix,
       matrixes,
       updateMatrix
   }:MatrixPickerProps) => {
-    //const styles = getMatrixPickerStyles();
     return (
         <div className="matrix-container">
           {matrixes.map(({ name, rows, cols }) => (

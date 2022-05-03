@@ -1,11 +1,13 @@
 import { MentionNode, MentionNodeData } from '@udecode/plate-mention';
 import { StyledElementProps } from '@udecode/plate-styled-components';
+import { CSSProp } from 'styled-components';
 
 export interface EquationBoxElementStyleProps
   extends EquationBoxInputElementProps {
   selected?: boolean;
   focused?: boolean;
   isEmpty?: boolean;
+  boxStyles?:any;
 }
 
 // renderElement props

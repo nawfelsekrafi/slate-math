@@ -11,6 +11,7 @@ export function insertMathNode(
   textInsert?: boolean
 ): void {
     var text = getText(editor,editor.selection)
+    
   if (noContainer)
     insertNodes(editor, nodeFunction(nodeValue));
   else {

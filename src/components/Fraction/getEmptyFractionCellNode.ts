@@ -5,7 +5,7 @@ import { css } from 'twin.macro';
 import { ELEMENT_FRACTION } from '.';
 import { getEmptyBoxNode } from '../EquationBoxElement/getEquationBoxNode';
 import { ELEMENT_EQUATION_TEXT, getEquationTextNode } from '../EquationText'
-import { ELEMENT_STACKED, ELEMENT_SKEWED,ELEMENT_LINEAR } from './FractionDefaults/defaults';
+import { ELEMENT_STACKED, ELEMENT_SKEWED,ELEMENT_LINEAR } from './defaults';
 import { ELEMENT_UNEDITABLE_BIG_OPERATOR, ELEMENT_BIG_OPERATOR_LIMITS_ON_RIGHT } from '../UneditableBigOperator/defaults';
 
 
@@ -28,9 +28,9 @@ export const getEmptyStackedFractionNode = () => {
   return <TElement>{
     type: ELEMENT_STACKED,
     children: [
-      getEmptyBoxNode(css`font-size: 10px; bottom: -14px;`),
-      getEquationTextNode('\u2015'),
-      getEmptyBoxNode(css`font-size: 10px; bottom: 20px;`),
+      getEmptyBoxNode(css`font-size: 10px; bottom: -14px; z-index:1;`),
+      getEquationTextNode('\u2015',),
+      getEmptyBoxNode(css`font-size: 10px; bottom: 20px;z-index:1;`),
 
     ],
   }
@@ -53,7 +53,7 @@ export const getEmptyLinearFractionNode = () => {
     type: ELEMENT_LINEAR,
     children: [
       getEmptyBoxNode(css`font-size: 10px; bottom:10px; left:2px;`),
-      getEquationTextNode('\u002F'),
+      getEquationTextNode('\u002F', css`z-index:-1;`),
       getEmptyBoxNode(css`font-size: 10px; bottom:10px; right:3px;`),
 
     ],

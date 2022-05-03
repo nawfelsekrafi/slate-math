@@ -26,10 +26,9 @@ export const EquationBox = (props: EquationBoxElementStyleProps) => {
     isEmpty,
     selected,
     focused,
-    
+    boxStyles: element.styles //overrides styles
   });
   
-  styles.root.css.push(element.styles) //overwrite syles
   return (
     <span
       {...attributes}

@@ -36,13 +36,13 @@ export const getIntegralWithStackedLimtNode = (text?: string) => {
       getEmptyBoxNode(
         css`
           font-size: 10px;
-          bottom: 5px;
+          top: 3px;
         `
       ),
       getEquationTextNode(text),
       getEmptyBoxNode(css`
         font-size: 10px;
-        top: -10px;
+        bottom: 5px;
       `),
     ],
   }
