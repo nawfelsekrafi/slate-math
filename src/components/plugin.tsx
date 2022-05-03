@@ -41,10 +41,12 @@ import { ELEMENT_BRACKET } from './Bracket'
 import { BracketComponent } from './Bracket/getBracketElements'
 import { ELEMENT_SKEWED, ELEMENT_STACKED, ELEMENT_LINEAR } from './Fraction/defaults'
 import { ELEMENT_TRIG, TrigComponent } from './Trig'
+import { ELEMENT_CUSTOMTABLE} from './Table/defaults'
 
 
 import { TComboboxItem } from '@udecode/plate';
 import { withContainer } from './MathContainer/withContainer'
+import { ELEMENT_LINEAR_FRACTION, ELEMENT_SKEWED_FRACTION, ELEMENT_STACKED_FRACTION } from './Fraction/FractionDefaults/defaults'
 
 export const createEquationBoxPlugin = createPluginFactory({
   key: ELEMENT_EQUATIONBOX,
@@ -141,19 +143,19 @@ export const createAccentPlugin = createPluginFactory({
 }) // parameter is a PlatePlugin object
 
 export const createStackedFraction = createPluginFactory({
-  key: ELEMENT_STACKED,
+  key: ELEMENT_STACKED_FRACTION,
   isInline: true,
   isElement: true,
 })
 
 export const createSkewedFraction = createPluginFactory({
-  key: ELEMENT_SKEWED,
+  key: ELEMENT_SKEWED_FRACTION,
   isInline: true,
   isElement: true,
 })
 
 export const createLinearFraction = createPluginFactory({
-  key: ELEMENT_LINEAR,
+  key: ELEMENT_LINEAR_FRACTION,
   isInline: true,
   isElement: true,
 })
@@ -171,6 +173,12 @@ export const createTrigPlugin = createPluginFactory({
   isElement: true,
   component: TrigComponent,
 
+})
+
+export const createCustomTablePlugin = createPluginFactory({
+  key: ELEMENT_CUSTOMTABLE,
+  isInline: true,
+  isElement: true,
 })
 
 export const createMathContainerPlugin = createPluginFactory({
@@ -208,6 +216,7 @@ export const createMathPlugins = () => {
       createSkewedFraction(),
       createTrigPlugin(),
       createLinearFraction(),
+      createCustomTablePlugin(),
       createFractionPlugin(),
       createEquationTextPlugin(),
       createMatrixPlugin(),

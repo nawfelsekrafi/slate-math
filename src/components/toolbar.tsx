@@ -45,6 +45,9 @@ import { ELEMENT_FRACTION } from './Fraction'
 import { FractionToolBarButton } from './Fraction/FractionDropDownMenu'
 import { TrigTableDropDown } from './Trig/TrigDropdown'
 import { ELEMENT_TRIG, TrigIcon } from './Trig'
+import { TableDropDown } from './Table/TableDropDown'
+import { ELEMENT_CUSTOMTABLE } from './Table/defaults'
+import { Tableicon } from './Table/TableIcon'
 
 export const MathToolbar = () => {
   const editor = getPlateEditorRef()!
@@ -182,6 +185,17 @@ export const MathToolbar = () => {
           root: {
             marginLeft: 5,
             marginRight: 5,
+          },
+        }}
+      />
+
+      <TableDropDown
+        pluginKey={ELEMENT_CUSTOMTABLE}
+        icon={Tableicon()}
+        selectedIcon={Tableicon()}
+        styles={{
+          root: {
+            marginLeft: 5,
           },
         }}
       />
