@@ -28,9 +28,9 @@ export const getEmptyStackedFractionNode = () => {
   return <TElement>{
     type: ELEMENT_STACKED_FRACTION,
     children: [
-      getEmptyBoxNode(css`font-size: 10px; bottom: -14px; z-index:1;`),
+      getEmptyBoxNode(css`font-size: 10px; top: 15px; z-index:1;`),
       getEquationTextNode('\u2015',),
-      getEmptyBoxNode(css`font-size: 10px; bottom: 20px;z-index:1;`),
+      getEmptyBoxNode(css`font-size: 10px; bottom: 15px;z-index:1;`),
 
     ],
   }

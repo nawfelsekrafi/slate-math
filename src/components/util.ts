@@ -75,7 +75,6 @@ export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {
     if (e.key === 'Enter'){
       if(comboboxStore.get.isOpen())
       {
-        console.log("open")
         e.preventDefault()
         e.stopPropagation()
       }

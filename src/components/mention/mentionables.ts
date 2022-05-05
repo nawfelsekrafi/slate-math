@@ -41,18 +41,7 @@ import {
   getSummationWithSubscriptLimitNode,
 } from '../Summation/getEmptySummationNode'
 import { getEmptyUneditableBigOpNode } from '../UneditableBigOperator/getEmptyBigOpNode'
-import { getSinNode, 
-  getCosNode, 
-  getTanNode, 
-  getCscNode, 
-  getSecNode, 
-  getCotNode, 
-  getSinhNode,
-  getCoshNode, 
-  getTanhNode,
-  getCschNode,
-  getSechNode,
-  getCothNode} from '../Trig/getTrigNode';
+import { getTrigNode} from '../Trig/getTrigNode';
 import {
   AcuteIcon,
   BarIcon,
@@ -411,62 +400,62 @@ export const MENTIONABLES: TComboboxItem<MentionEquationData>[] = [
   },
   {
     key: '56',
-    data: { node: getSinNode, icon: SinIcon(), value: 'sin' },
+    data: { node: getTrigNode, icon: SinIcon(), value: 'sin' },
     text: 'sin',
   },
   {
     key: '57',
-    data: { node: getCosNode, icon: CosIcon(), value: 'cos' },
+    data: { node: getTrigNode, icon: CosIcon(), value: 'cos' },
     text: 'cos',
   },
   {
     key: '58',
-    data: { node: getTanNode, icon: TanIcon(), value: 'tan' },
+    data: { node: getTrigNode, icon: TanIcon(), value: 'tan' },
     text: 'tan',
   },
   {
     key: '59',
-    data: { node: getCscNode, icon: CscIcon(), value: 'csc' },
+    data: { node: getTrigNode, icon: CscIcon(), value: 'csc' },
     text: 'csc',
   },
   {
     key: '60',
-    data: { node: getSecNode, icon: SecIcon(), value: 'sec' },
+    data: { node: getTrigNode, icon: SecIcon(), value: 'sec' },
     text: 'sec',
   },
   {
     key: '61',
-    data: { node: getCotNode, icon: CotIcon(), value: 'cot' },
+    data: { node: getTrigNode, icon: CotIcon(), value: 'cot' },
     text: 'cot',
   },
   {
     key: '62',
-    data: { node: getSinhNode, icon: SinhIcon(), value: 'sinh' },
+    data: { node: getTrigNode, icon: SinhIcon(), value: 'sinh' },
     text: 'sinh',
   },
   {
     key: '63',
-    data: { node: getCoshNode, icon: CoshIcon(), value: 'cosh' },
+    data: { node: getTrigNode, icon: CoshIcon(), value: 'cosh' },
     text: 'cosh',
   },
   {
     key: '64',
-    data: { node: getTanhNode, icon: TanIcon(), value: 'tanh' },
+    data: { node: getTrigNode, icon: TanIcon(), value: 'tanh' },
     text: 'tanh',
   },
   {
     key: '65',
-    data: { node: getCschNode, icon: CscIcon(), value: 'csch' },
+    data: { node: getTrigNode, icon: CscIcon(), value: 'csch' },
     text: 'csch',
   },
   {
     key: '66',
-    data: { node: getSechNode, icon: SechIcon(), value: 'sech' },
+    data: { node: getTrigNode, icon: SechIcon(), value: 'sech' },
     text: 'sech',
   },
   {
     key: '67',
-    data: { node: getCothNode, icon: CothIcon(), value: 'coth' },
+    data: { node: getTrigNode, icon: CothIcon(), value: 'coth' },
     text: 'coth',
   },
   {

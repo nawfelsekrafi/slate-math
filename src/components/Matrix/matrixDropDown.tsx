@@ -14,6 +14,7 @@ import {
 import React, { ReactNode, useCallback } from 'react'
 import { Transforms } from 'slate'
 import { ReactEditor } from 'slate-react'
+import { css } from 'twin.macro'
 import { getDefaultMatrixes } from './constants'
 import { createMatrix } from './createMatrix'
 import { MatrixButton } from './matrixButton'
@@ -51,7 +52,6 @@ export const MatrixTableDropDown = ({
       onToggle()
     }
   }
-
   return (
     <ToolbarDropdown
       control={

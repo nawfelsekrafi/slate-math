@@ -1,6 +1,6 @@
-import { getText, insertNodes, PlateEditor, TElement } from '@udecode/plate';
+import { getNode, getText, insertNodes, PlateEditor, TElement } from '@udecode/plate';
 import { getContainerNode } from './MathContainer/getContainerNode';
-import { selectFirstBox } from './util';
+import { getCurrentSelection, selectFirstBox } from './util';
 
 //
 export function insertMathNode(
@@ -10,12 +10,15 @@ export function insertMathNode(
   noContainer?: boolean,
   textInsert?: boolean
 ): void {
-    var text = getText(editor,editor.selection)
+    let path = getCurrentSelection(editor)
+    if(!path) return;
+    if(!getNode(editor,path)) return; //node should not be  null
+    let text = getText(editor,editor.selection)
     
   if (noContainer)
     insertNodes(editor, nodeFunction(nodeValue));
   else {
-    var v = nodeFunction.call(nodeValue,nodeValue)
+    let v = nodeFunction.call(nodeValue,nodeValue)
     insertNodes(editor, getContainerNode(v));
     selectFirstBox(editor);
   }

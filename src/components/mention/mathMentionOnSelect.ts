@@ -18,7 +18,7 @@ export const mathMentionOnSelect = <TData extends Data = NoData>({
 }: PlatePluginKey = {}): ComboboxOnSelectItem<TData> => (editor, item) => {
   const targetRange = comboboxStore.get.targetRange();
   if (!targetRange) return;
-  
+  console.log(targetRange)
   const {
     type,
     options: { insertSpaceAfterMention, createMentionNode },
@@ -46,7 +46,6 @@ export const mathMentionOnSelect = <TData extends Data = NoData>({
 
 
     var mentionData = item.data as MentionEquationData
-    console.log(mentionData)
     if(mentionData.node){
       insertMathNode(mentionData.node,editor,mentionData.value)
     }

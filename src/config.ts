@@ -160,7 +160,7 @@ const resetBlockTypesCommonRule = {
     selectOnBackspace: {
       options: {
         query: {
-          allow: [ELEMENT_IMAGE, ELEMENT_MEDIA_EMBED, ELEMENT_HR, ELEMENT_MATH_CONTAINER],
+          allow: [ELEMENT_IMAGE, ELEMENT_MEDIA_EMBED, ELEMENT_HR],
         },
       },
     },

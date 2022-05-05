@@ -19,18 +19,7 @@ import Acute from '../../assets/Acute.png'
 import { insertNodes, getPlateEditorRef } from '@udecode/plate'
 import { selectFirstBox } from '../util'
 import {
-  getSinNode,
-  getCosNode,
-  getTanNode,
-  getCscNode,
-  getSecNode,
-  getCotNode,
-  getSinhNode,
-  getCoshNode,
-  getTanhNode,
-  getCschNode,
-  getSechNode,
-  getCothNode,
+  getTrigNode,
 } from './getTrigNode'
 import { MENTIONABLES } from '../mention/mentionables'
 import Cos from '../../assets/Trig/Cos.png'
@@ -51,40 +40,40 @@ const initializeEquationMap = () => {
   const editor = getPlateEditorRef()!
   const nameToClickFuncMap = new Map<string, any>()
   nameToClickFuncMap.set('1x1', () => {
-    insertMathNode(getSinNode, editor, undefined, false, true)
+    insertMathNode(getTrigNode, editor, 'sin', false, true)
   })
   nameToClickFuncMap.set('1x2', () => {
-    insertMathNode(getCotNode, editor, undefined, false, true)
+    insertMathNode(getTrigNode, editor, 'cot', false, true)
   })
   nameToClickFuncMap.set('1x3', () => {
-    insertMathNode(getSinhNode, editor, undefined, false, true)
+    insertMathNode(getTrigNode, editor, 'sinh', false, true)
   })
   nameToClickFuncMap.set('1x4', () => {
-    insertMathNode(getCothNode, editor, undefined, false, true)
+    insertMathNode(getTrigNode, editor, 'coth', false, true)
   })
   nameToClickFuncMap.set('2x1', () => {
-    insertMathNode(getCosNode, editor, undefined, false, true)
+    insertMathNode(getTrigNode, editor, 'cos', false, true)
   })
   nameToClickFuncMap.set('2x2', () => {
-    insertMathNode(getSecNode, editor, undefined, false, true)
+    insertMathNode(getTrigNode, editor, 'sec', false, true)
   })
   nameToClickFuncMap.set('2x3', () => {
-    insertMathNode(getCoshNode, editor, undefined, false, true)
+    insertMathNode(getTrigNode, editor, 'cosh', false, true)
   })
   nameToClickFuncMap.set('2x4', () => {
-    insertMathNode(getSechNode, editor, undefined, false, true)
+    insertMathNode(getTrigNode, editor, 'sech', false, true)
   })
   nameToClickFuncMap.set('3x1', () => {
-    insertMathNode(getTanNode, editor, undefined, false, true)
+    insertMathNode(getTrigNode, editor, 'tan', false, true)
   })
   nameToClickFuncMap.set('3x2', () => {
-    insertMathNode(getCscNode, editor, undefined, false, true)
+    insertMathNode(getTrigNode, editor, 'csc', false, true)
   })
   nameToClickFuncMap.set('3x3', () => {
-    insertMathNode(getTanhNode, editor, undefined, false, true)
+    insertMathNode(getTrigNode, editor, 'tanh', false, true)
   })
   nameToClickFuncMap.set('3x4', () => {
-    insertMathNode(getCschNode, editor, undefined, false, true)
+    insertMathNode(getTrigNode, editor, 'csch', false, true)
   })
 
   const nameToImgMap = new Map<string, any>()
