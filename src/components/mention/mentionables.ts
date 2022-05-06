@@ -1403,4 +1403,5 @@ export const MENTIONABLES: TComboboxItem<MentionEquationData>[] = [
     },
     text: 'sub script base'
   }
+  
 ]
