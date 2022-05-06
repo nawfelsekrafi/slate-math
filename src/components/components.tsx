@@ -180,14 +180,8 @@ export const components = createPlateUI({
     styles: {
       root: [
         css`
-          display: inline-flex;
-          justify-content: flex-start;
-          flex-direction: row;
-          width: auto;
-          text-align: center;
-          position: relative;
-          top: 0px;
-          bottom: 0.78rem;
+          display: inline;
+
         `,
       ],
     },
