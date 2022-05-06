@@ -64,7 +64,39 @@ import Sin from '../../assets/Trig/Sin.png'
 import Sinh from '../../assets/Trig/Sinh.png'
 import Tan from '../../assets/Trig/Tan.png'
 import Tanh from '../../assets/Trig/Tanh.png'
-import FractionLinear from '../../assets/Fractions/FractionLinear.png'
+import AngleBracket from '../../assets/Brackets/AngleBracket.png'
+import Ceiling from '../../assets/Brackets/Ceiling.png'
+import CurlyBracket from '../../assets/Brackets/CurlyBracket.png'
+import DoubleBracket from '../../assets/Brackets/DoubleBracket.png'
+import DoubleLeftSquareBracket from '../../assets/Brackets/DoubleLeftSquareBracket.png'
+import DoubleRightSquareBracket from '../../assets/Brackets/DoubleRightSquareBracket.png'
+import Floor from '../../assets/Brackets/Floor.png'
+import InverseBracket from '../../assets/Brackets/InverseBracket.png'
+import LeftAngle from '../../assets/Brackets/LeftAngle.png'
+import LeftBar from '../../assets/Brackets/LeftBar.png'
+import LeftCeiling from '../../assets/Brackets/LeftCeiling.png'
+import LeftCurly from '../../assets/Brackets/LeftCurly.png'
+import LeftDoubleBracket from '../../assets/Brackets/LeftDoubleBracket.png'
+import LeftFloor from '../../assets/Brackets/LeftFloor.png'
+import LeftParallel from '../../assets/Brackets/LeftParallel.png'
+import LeftParen from '../../assets/Brackets/LeftParen.png'
+import LeftSquare from '../../assets/Brackets/LeftSquare.png'
+import ParallelBracket from '../../assets/Brackets/ParallelBracket.png'
+import Paren from '../../assets/Brackets/Paren.png'
+import RightAngle from '../../assets/Brackets/RightAngle.png'
+import RightBar from '../../assets/Brackets/RightBar.png'
+import RightCeiling from '../../assets/Brackets/RightCeiling.png'
+import RightCurly from '../../assets/Brackets/RightCurly.png'
+import RightDoubleBracket from '../../assets/Brackets/RightDoubleBracket.png'
+import RightFloor from '../../assets/Brackets/RightFloor.png'
+import RightParallel from '../../assets/Brackets/RightParallel.png'
+import RightParen from '../../assets/Brackets/RightParen.png'
+import RightSquare from '../../assets/Brackets/RightSquare.png'
+import SquareBracket from '../../assets/Brackets/SquareBracket.png'
+import VerticalBar from '../../assets/Brackets/VerticalBar.png'
+import LinearFraction from '../../assets/Fractions/LinearFraction.png'
+import SkewedFraction from '../../assets/Fractions/SkewedFraction.png'
+import StackedFraction from '../../assets/Fractions/StackedFraction.png'
 
 //accent icons
 export const RightArrowIcon = () => {
@@ -260,4 +292,107 @@ export const TanIcon = () => {
 }
 export const TanhIcon = () => {
   return <img alt={"Tanh"} src={Tanh} />
+}
+
+//Brackets
+export const AngleBracketIcon = () => {
+  return <img alt={"AngleBracket"} src={AngleBracket} />
+}
+export const CeilingIcon = () => {
+  return <img alt={"Ceiling"} src={Ceiling} />
+}
+export const CurlyBracketIcon = () => {
+  return <img alt={"CurlyBracket"} src={CurlyBracket} />
+}
+export const DoubleBracketIcon = () => {
+  return <img alt={"DoubleBracket"} src={DoubleBracket} />
+}
+export const DoubleLeftSquareBracketIcon = () => {
+  return <img alt={"DoubleLeftSquareBracket"} src={DoubleLeftSquareBracket} />
+}
+export const DoubleRightSquareBracketIcon = () => {
+  return <img alt={"DoubleRightSquareBracket"} src={DoubleRightSquareBracket} />
+}
+export const FloorIcon = () => {
+  return <img alt={"Floor"} src={Floor} />
+}
+export const InverseBracketIcon = () => {
+  return <img alt={"InverseBracketBracket"} src={InverseBracket} />
+}
+export const LeftAngleBracketIcon = () => {
+  return <img alt={"LeftAngleBracket"} src={LeftAngle} />
+}
+export const LeftBarIcon = () => {
+  return <img alt={"LeftBar"} src={LeftBar} />
+}
+export const LeftCeilingIcon = () => {
+  return <img alt={"LeftCeiling"} src={LeftCeiling} />
+}
+export const LeftCurlyIcon = () => {
+  return <img alt={"LeftCurly"} src={LeftCurly} />
+}
+export const LeftDoubleBracketIcon = () => {
+  return <img alt={"LeftDoubleBracket"} src={DoubleLeftSquareBracket} />
+}
+export const LeftFloorIcon = () => {
+  return <img alt={"LeftFloor"} src={LeftFloor} />
+}
+export const LeftParallelIcon = () => {
+  return <img alt={"LeftParallel"} src={LeftParallel} />
+}
+export const LeftParenIcon = () => {
+  return <img alt={"LeftParen"} src={LeftParen} />
+}
+export const LeftSquareIcon = () => {
+  return <img alt={"LeftSquare"} src={LeftSquare} />
+}
+export const ParallelBracketIcon = () => {
+  return <img alt={"ParallelBracket"} src={ParallelBracket} />
+}
+export const ParenIcon = () => {
+  return <img alt={"Paren"} src={Paren} />
+}
+export const RightAngleIcon = () => {
+  return <img alt={"RightAngle"} src={RightAngle} />
+}
+export const RightBarIcon = () => {
+  return <img alt={"RightBar"} src={RightBar} />
+}
+export const RightCeilingIcon = () => {
+  return <img alt={"RightCeiling"} src={RightCeiling} />
+}
+export const RightCurlyIcon = () => {
+  return <img alt={"RightCurly"} src={RightCurly} />
+}
+export const RightDoubleBracketIcon = () => {
+  return <img alt={"RightDoubleBracket"} src={RightDoubleBracket} />
+}
+export const RightFloorIcon = () => {
+  return <img alt={"RightFloor"} src={RightFloor} />
+}
+export const RightParallelIcon = () => {
+  return <img alt={"RightParallel"} src={RightParallel} />
+}
+export const RightParenIcon = () => {
+  return <img alt={"RightParen"} src={RightParen} />
+}
+export const RightSquareIcon = () => {
+  return <img alt={"RightSquare"} src={RightSquare} />
+}
+export const SquareBracketIcon = () => {
+  return <img alt={"SquareBracket"} src={SquareBracket} />
+}
+export const VerticalBarIcon = () => {
+  return <img alt={"VerticalBar"} src={VerticalBar} />
+}
+
+//fractions
+export const StackedFractionIcon = () => {
+  return <img alt={"StackedFraction"} src = {StackedFraction} />
+}
+export const SkewedFractionIcon = () => {
+  return <img alt={"SkewedFraction"} src = {SkewedFraction} />
+}
+export const LinearFractionIcon = () => {
+  return <img alt={"LinearFraction"} src = {LinearFraction} />
 }

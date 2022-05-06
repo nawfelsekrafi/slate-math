@@ -43,6 +43,42 @@ import {
 import { getEmptyUneditableBigOpNode } from '../UneditableBigOperator/getEmptyBigOpNode'
 import { getTrigNode} from '../Trig/getTrigNode';
 import {
+  getParenthesisBracketNode,
+  getSquareBracketNode,
+  getCurlyBracketNode,
+  getAngleBracketNode,
+  getFloorBracketNode,
+  getCeilingBracketNode,
+  getBarBracketNode,
+  getParallelBracketNode,
+  getDoubleLeftBracketNode,
+  getDoubleRightBracketNode,
+  getInverseBracketNode,
+  getDoubleBracketNode,
+  getLeftParenBracketNode,
+  getRightParenBracketNode,
+  getLeftSquareBracketNode,
+  getRightSquareBracketNode,
+  getLeftCurlyBracketNode,
+  getRightCurlyBracketNode,
+  getLeftAngleBracketNode,
+  getRightAngleBracketNode,
+  getLeftFloorBracketNode,
+  getRightFloorBracketNode,
+  getLeftCeilingBracketNode,
+  getRightCeilingBracketNode,
+  getLeftBarBracketNode,
+  getRightBarBracketNode,
+  getLeftParallelBracketNode,
+  getRightParallelBracketNode,
+  getLeftDoubleBracketNode,
+  getRightDoubleBracketNode,
+} from "../Bracket/getEmptyBracketNode"
+import { 
+  getEmptyStackedFractionNode,
+  getEmptySkewedFractionNode,
+  getEmptyLinearFractionNode } from '../Fraction/getEmptyFractionCellNode'
+import {
   AcuteIcon,
   BarIcon,
   BreveIcon,
@@ -102,8 +138,42 @@ import {
   SinIcon, 
   SinhIcon, 
   TanIcon, 
-  TanhIcon
+  TanhIcon,
+  CeilingIcon,
+  CurlyBracketIcon,
+  DoubleBracketIcon,
+  DoubleLeftSquareBracketIcon,
+  DoubleRightSquareBracketIcon,
+  FloorIcon,
+  InverseBracketIcon,
+  LeftAngleBracketIcon,
+  LeftBarIcon,
+  LeftCeilingIcon,
+  LeftCurlyIcon,
+  LeftDoubleBracketIcon,
+  LeftFloorIcon,
+  LeftParallelIcon,
+  LeftParenIcon, 
+  LeftSquareIcon,
+  ParallelBracketIcon,
+  ParenIcon,
+  RightAngleIcon,
+  RightBarIcon,
+  RightCeilingIcon,
+  RightCurlyIcon,
+  RightDoubleBracketIcon,
+  RightFloorIcon,
+  RightParallelIcon,
+  RightParenIcon,
+  RightSquareIcon,
+  SquareBracketIcon,
+  VerticalBarIcon,
+  AngleBracketIcon,
+  StackedFractionIcon,
+  SkewedFractionIcon,
+  LinearFractionIcon
 } from './mentionIcons'
+import { Square } from '@styled-icons/boxicons-regular'
 
 export type MentionEquationData = {
   node: undefined | ((arg0?: string) => TElement<AnyObject>)
@@ -1016,5 +1086,301 @@ export const MENTIONABLES: TComboboxItem<MentionEquationData>[] = [
     },
     text: 'Logarithm To Base n',
   },
-
+  {
+    key: '136',
+    data: {
+      node: getCeilingBracketNode,
+      icon: CeilingIcon(),
+      value: '',
+    },
+    text: 'Ceiling Bracket'
+  },
+  {
+    key: '137',
+    data: {
+      node: getCurlyBracketNode,
+      icon: CurlyBracketIcon(),
+      value: '',
+    },
+    text: 'Curly Bracket'
+  },
+  {
+    key: '138',
+    data: {
+      node: getSquareBracketNode,
+      icon: DoubleBracketIcon(),
+      value: '',
+    },
+    text: 'Ceiling Bracket'
+  },
+  {
+    key: '139',
+    data: {
+      node: getDoubleLeftBracketNode,
+      icon: DoubleLeftSquareBracketIcon(),
+      value: '',
+    },
+    text: 'Double Left Bracket'
+  },
+  {
+    key: '140',
+    data: {
+      node: getDoubleRightBracketNode,
+      icon: DoubleRightSquareBracketIcon(),
+      value: '',
+    },
+    text: 'Double Right Bracket'
+  },
+  {
+    key: '141',
+    data: {
+      node: getFloorBracketNode,
+      icon: FloorIcon(),
+      value: '',
+    },
+    text: 'Floor Bracket'
+  },
+  {
+    key: '142',
+    data: {
+      node: getInverseBracketNode,
+      icon: InverseBracketIcon(),
+      value: '',
+    },
+    text: 'Inverse Bracket'
+  },
+  {
+    key: '143',
+    data: {
+      node: getLeftAngleBracketNode,
+      icon: LeftAngleBracketIcon(),
+      value: '',
+    },
+    text: 'Left Angle Bracket'
+  },
+  {
+    key: '144',
+    data: {
+      node: getLeftBarBracketNode,
+      icon: LeftBarIcon(),
+      value: '',
+    },
+    text: 'Double Right Bracket'
+  },
+  {
+    key: '145',
+    data: {
+      node: getLeftCeilingBracketNode,
+      icon: LeftCeilingIcon(),
+      value: '',
+    },
+    text: 'Left Ceiling Bracket'
+  },
+  {
+    key: '146',
+    data: {
+      node: getLeftCurlyBracketNode,
+      icon: LeftCurlyIcon(),
+      value: '',
+    },
+    text: 'Left Curly Bracket'
+  },
+  {
+    key: '147',
+    data: {
+      node: getLeftDoubleBracketNode,
+      icon: LeftDoubleBracketIcon(),
+      value: '',
+    },
+    text: 'Left Double Bracket'
+  },
+  {
+    key: '148',
+    data: {
+      node: getLeftFloorBracketNode,
+      icon: LeftFloorIcon(),
+      value: '',
+    },
+    text: 'Left Floor Bracket'
+  },
+  {
+    key: '149',
+    data: {
+      node: getLeftParallelBracketNode,
+      icon: LeftParallelIcon(),
+      value: '',
+    },
+    text: 'Left Parallel Bracket'
+  },
+  {
+    key: '150',
+    data: {
+      node: getLeftParenBracketNode,
+      icon: LeftParenIcon(),
+      value: '',
+    },
+    text: 'Left Parenthesis Bracket'
+  },
+  {
+    key: '151',
+    data: {
+      node: getLeftSquareBracketNode,
+      icon: LeftSquareIcon(),
+      value: '',
+    },
+    text: 'Left Square Bracket'
+  },
+  {
+    key: '152',
+    data: {
+      node: getParallelBracketNode,
+      icon: ParallelBracketIcon(),
+      value: '',
+    },
+    text: 'Parallel Bracket'
+  },
+  {
+    key: '153',
+    data: {
+      node: getParenthesisBracketNode,
+      icon: ParenIcon(),
+      value: '',
+    },
+    text: 'Parenthesis Bracket'
+  },
+  {
+    key: '154',
+    data: {
+      node: getRightAngleBracketNode,
+      icon: RightAngleIcon(),
+      value: '',
+    },
+    text: 'Right Angle Bracket'
+  },
+  {
+    key: '155',
+    data: {
+      node: getRightBarBracketNode,
+      icon: RightBarIcon(),
+      value: '',
+    },
+    text: 'Right Bar Bracket'
+  },
+  {
+    key: '156',
+    data: {
+      node: getRightCeilingBracketNode,
+      icon: RightCeilingIcon(),
+      value: '',
+    },
+    text: 'Right Ceiling Bracket'
+  },
+  {
+    key: '157',
+    data: {
+      node: getRightCurlyBracketNode,
+      icon: RightCurlyIcon(),
+      value: '',
+    },
+    text: 'Right Curly Bracket'
+  },
+  {
+    key: '158',
+    data: {
+      node: getRightDoubleBracketNode,
+      icon: RightDoubleBracketIcon(),
+      value: '',
+    },
+    text: 'Right Double Bracket'
+  },
+  {
+    key: '159',
+    data: {
+      node: getRightFloorBracketNode,
+      icon: RightFloorIcon(),
+      value: '',
+    },
+    text: 'Right Floor Bracket'
+  },
+  {
+    key: '160',
+    data: {
+      node: getRightParallelBracketNode,
+      icon: RightParallelIcon(),
+      value: '',
+    },
+    text: 'Right Parallel Bracket'
+  },
+  {
+    key: '161',
+    data: {
+      node: getRightParenBracketNode,
+      icon: RightParenIcon(),
+      value: '',
+    },
+    text: 'Right Parenthesis Bracket'
+  },
+  {
+    key: '162',
+    data: {
+      node: getRightSquareBracketNode,
+      icon: RightSquareIcon(),
+      value: '',
+    },
+    text: 'Right Square Bracket'
+  },
+  {
+    key: '163',
+    data: {
+      node: getSquareBracketNode,
+      icon: SquareBracketIcon(),
+      value: '',
+    },
+    text: 'Square Bracket'
+  },
+  {
+    key: '164',
+    data: {
+      node: getBarBracketNode,
+      icon: VerticalBarIcon(),
+      value: '',
+    },
+    text: 'Vertical Bar Bracket'
+  },
+  {
+    key: '165',
+    data: {
+      node: getAngleBracketNode,
+      icon: AngleBracketIcon(),
+      value: '',
+    },
+    text: 'Angle Bracket'
+  },
+  {
+    key: '166',
+    data: {
+      node: getEmptyStackedFractionNode,
+      icon: StackedFractionIcon(),
+      value: '',
+    },
+    text: 'Stacked Fraction'
+  },
+  {
+    key: '167',
+    data: {
+      node: getEmptySkewedFractionNode,
+      icon: SkewedFractionIcon(),
+      value: '',
+    },
+    text: 'Skewed Fraction'
+  },
+  {
+    key: '168',
+    data: {
+      node: getEmptyLinearFractionNode,
+      icon: LinearFractionIcon(),
+      value: '',
+    },
+    text: 'Linear Fraction'
+  },
 ]

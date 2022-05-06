@@ -43,7 +43,7 @@ export const getEmptySkewedFractionNode = () => {
       getEmptyBoxNode(
         css`
           font-size: 10px;
-          bottom: 15px;
+          bottom: 10px;
           left: 3px;
         `
       ),
@@ -51,7 +51,7 @@ export const getEmptySkewedFractionNode = () => {
       getEmptyBoxNode(
         css`
           font-size: 10px;
-          left: -5px;
+          left: 0px;
         `
       ),
     ],
@@ -62,9 +62,9 @@ export const getEmptyLinearFractionNode = () => {
   return <TElement>{
     type: ELEMENT_LINEAR_FRACTION,
     children: [
-      getEmptyBoxNode(css`font-size: 10px; bottom:10px; left:2px;`),
+      getEmptyBoxNode(css`font-size: 10px; bottom:5px; left:2px;`),
       getEquationTextNode('\u002F', css`z-index:-1;`),
-      getEmptyBoxNode(css`font-size: 10px; bottom:10px; right:3px;`),
+      getEmptyBoxNode(css`font-size: 10px; bottom:5px; right:3px;`),
 
     ],
   }
