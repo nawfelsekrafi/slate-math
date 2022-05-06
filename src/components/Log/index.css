@@ -28,14 +28,17 @@
 }
 
 .logs .symbol-ico {
-  font-size: 0.7em;
-  font-weight: normal;
+  font-size: .6em;
+  top: .3rem;
+  position: relative;
+  right: .2em;
 }
 
 .logs .symbol-ico2 {
   font-size: 1em;
   font-weight: normal;
-  vertical-align: super;
+  position: relative;
+  right: .2em;
 }
 
 .logs .slate-equationbox:nth-child(3) {

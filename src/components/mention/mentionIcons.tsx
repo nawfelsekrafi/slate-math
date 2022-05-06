@@ -97,6 +97,9 @@ import VerticalBar from '../../assets/Brackets/VerticalBar.png'
 import LinearFraction from '../../assets/Fractions/LinearFraction.png'
 import SkewedFraction from '../../assets/Fractions/SkewedFraction.png'
 import StackedFraction from '../../assets/Fractions/StackedFraction.png'
+import SubScript from '../../assets/Scripts/SubScript.png'
+import SuperScript from '../../assets/Scripts/SuperScript.png'
+import { css } from 'twin.macro'
 
 //accent icons
 export const RightArrowIcon = () => {

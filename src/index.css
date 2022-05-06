@@ -56,11 +56,7 @@ table tr:last-child th {
 }
 
 
-.matrix-container {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-column-gap: 0.5em;
-}
+
 
 .slate-matrix > .slate-tr > .slate-td  {
   text-align: center;

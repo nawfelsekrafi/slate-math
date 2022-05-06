@@ -12,7 +12,7 @@ import {
   PlateEditor,
   comboboxStore,
 } from '@udecode/plate'
-import { copyBlockMarksToSpanChild, findDescendant, PEditor, TNode } from '@udecode/plate-core'
+import { copyBlockMarksToSpanChild, findDescendant, getBlockAbove, getLastChild, PEditor, TNode } from '@udecode/plate-core'
 import { BaseEditor, Editor, Path, Range, Transforms } from 'slate'
 import { ReactEditor } from 'slate-react'
 import { ELEMENT_ACCENT } from './Accent'
@@ -31,7 +31,7 @@ import {
 } from './UneditableBigOperator/defaults'
 import { ELEMENT_LINEAR_FRACTION, ELEMENT_SKEWED_FRACTION, ELEMENT_STACKED_FRACTION } from './Fraction/defaults'
 import { ELEMENT_TRIG } from './Trig'
-import { ELEMENT_CUSTOMTABLE } from './Table/defaults'
+import { ELEMENT_EXPONENT } from './Exponent/defaults'
 
 
 export const getCurrentSelection = (editor: PlateEditor): Path | undefined => {
@@ -85,24 +85,24 @@ export const equationBoxOnKeyDown = (): KeyboardHandler => (editor) => (e) => {
       }
     }
     else if (e.key === 'Tab' || e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-          if (selection) {
-            if(!containsMath(editor,selection)||comboboxStore.get.isOpen()) //if not at math node of if combobox is open do nothing
-              return
-            let pathParent = Path.parent(selection) //get parent
-            let sibling = Path.next(pathParent)
-            while (getNode(editor,sibling)){ //check if math equation node has any more boxes
-              let textNode = findNode(editor, {at: sibling, match: {type: getPluginType(editor, ELEMENT_EQUATIONBOX)}})
-              if(textNode){ //if found another box, select it
-                let target = Editor.range(editor, sibling)
-                Transforms.setSelection(editor, Editor.range(editor, target))
-                e.preventDefault()
-                e.stopPropagation()
-                break
-              }
-              sibling = Path.next(sibling)
-            }
+      if (selection) {
+        if(!containsMath(editor,selection)||comboboxStore.get.isOpen()) //if not at math node of if combobox is open do nothing
+          return
+        let pathParent = Path.parent(selection) //get parent
+        let sibling = Path.next(pathParent)
+        while (getNode(editor,sibling)){ //check if math equation node has any more boxes
+          let textNode = findNode(editor, {at: sibling, match: {type: getPluginType(editor, ELEMENT_EQUATIONBOX)}})
+          if(textNode){ //if found another box, select it
+            let target = Editor.range(editor, sibling)
+            Transforms.setSelection(editor, Editor.range(editor, target))
+            e.preventDefault()
+            e.stopPropagation()
+            break
           }
-    }
+          sibling = Path.next(sibling)
+        }
+      }
+}
     else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         if (selection) {
             if(!containsMath(editor,selection)||comboboxStore.get.isOpen()) ////if not at math node of if combobox is open do nothing
@@ -179,7 +179,7 @@ export const isMathNode = (node: any, editor: PlateEditor): boolean => {
     ELEMENT_SKEWED_FRACTION,
     ELEMENT_LINEAR_FRACTION,
     ELEMENT_TRIG,
-    ELEMENT_CUSTOMTABLE,
+    ELEMENT_EXPONENT
   ]
   for (var i = 0; i < types.length; i++) {
     if (node.type === getPluginType(editor, types[i])) return true

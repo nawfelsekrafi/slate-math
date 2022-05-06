@@ -1,6 +1,6 @@
 import { MatrixButton } from "./matrixButton";
 import { MatrixType } from "./matrixType";
-
+import "./index.css";
 type MatrixPickerProps = {
     matrix?: string;
     matrixes: MatrixType[];

@@ -12,7 +12,7 @@ export const withBox: WithOverride<{}, EquationBoxInputElementProps> = (
   editor
 ) => {
 
-    const { normalizeNode, deleteBackward, deleteFragment, deleteForward } = editor;
+    const { normalizeNode, deleteBackward, deleteForward } = editor;
     // not a great solution but allows math nodes to override slates normalization properties.
     // inline nodes wont generate extra unneeded text elements
     editor.normalizeNode = ([node, path]) => {
@@ -22,38 +22,6 @@ export const withBox: WithOverride<{}, EquationBoxInputElementProps> = (
       return normalizeNode([node, path])
       
       
-    };
-
-    editor.deleteFragment = () => {
-      const { selection } = editor;
-      let _nodes = Editor.nodes(editor, {
-        match: matchCells,
-        at: selection?.anchor.path,
-      });
-      const [start] = Array.from(_nodes);
-      _nodes = Editor.nodes(editor, {
-        match: matchCells,
-        at: selection?.focus.path,
-      });
-      const [end] = Array.from(_nodes);
-      // Skip deletes if they start or end in a table cell, unless start & end in the same cell
-      if ((start || end) && start?.[0] !== end?.[0]) {
-        const _cells = Editor.nodes(editor, {
-          match: matchCells,
-        });
-        // Clear cells content
-        const cells = Array.from(_cells);
-        for (const [, path] of cells) {
-          for (const [, childPath] of Node.children(editor, path, {
-            reverse: true,
-          })) {
-            Transforms.removeNodes(editor, { at: childPath });
-          }
-        }
-        Transforms.collapse(editor);
-        return;
-      }
-      deleteFragment();
     };
 
     

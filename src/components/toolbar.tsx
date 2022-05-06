@@ -45,10 +45,9 @@ import { ELEMENT_FRACTION } from './Fraction'
 import { FractionToolBarButton } from './Fraction/FractionDropDownMenu'
 import { TrigTableDropDown } from './Trig/TrigDropdown'
 import { ELEMENT_TRIG, TrigIcon } from './Trig'
-import { TableDropDown } from './Table/TableDropDown'
-import { ELEMENT_CUSTOMTABLE } from './Table/defaults'
-import { Tableicon } from './Table/TableIcon'
-import { getEmptyExponentNode } from './Exponent/getEmptyExponentNode'
+import { getEmptySubscriptNode, getEmptySuperScriptNode } from './Exponent/getEmptyExponentNode'
+import { ELEMENT_EXPONENT } from './Exponent/defaults'
+import { SubScriptIcon, SuperScriptIcon } from './Exponent/getExponentElements'
 
 export const MathToolbar = () => {
   const editor = getPlateEditorRef()!
@@ -57,7 +56,15 @@ export const MathToolbar = () => {
     <>
       <IntegralToolBarButton
         pluginKey={ELEMENT_INTEGRAL}
-        icon={integralIcon()}
+        icon={integralIcon()
+        }
+        styles={{
+          root: {
+            marginLeft: 5,
+            marginRight: 5,
+            WebkitTransform: 'scale(0.7, 0.7)'
+          },
+        }}
       />
       {/* 
       <ToolbarButton
@@ -72,6 +79,11 @@ export const MathToolbar = () => {
       <SummationToolBarButton
         pluginKey={ELEMENT_SUMMATION}
         icon={summationIcon()}
+        styles={{
+          root: {
+            WebkitTransform: 'scale(0.8, 0.8)'
+          },
+        }}
       />
 
       {/* <ToolbarButton
@@ -142,6 +154,11 @@ export const MathToolbar = () => {
         icon={bigOpIcon()}
         tooltip={{ content: 'Create Big Operator', theme: 'light-border' }}
         onMouseDown={(e) => insertMathNode(getEmptyBigOpNode, editor)}
+        styles={{
+          root: {
+            WebkitTransform: 'scale(0.7, 0.7)'
+          },
+        }}
       />
 
       <MatrixTableDropDown
@@ -190,21 +207,19 @@ export const MathToolbar = () => {
         }}
       />
 
-      <TableDropDown
-        pluginKey={ELEMENT_CUSTOMTABLE}
-        icon={Tableicon()}
-        selectedIcon={Tableicon()}
-        styles={{
-          root: {
-            marginLeft: 5,
-          },
-        }}
+      <ToolbarButton
+        type={getPluginType(editor, ELEMENT_EXPONENT)}
+        icon={SuperScriptIcon()}
+        tooltip={{ content: 'Create SuperScript', theme: 'light-border' }}
+        onMouseDown={(e) => insertMathNode(getEmptySuperScriptNode, editor)}
+
       />
       <ToolbarButton
-        type={getPluginType(editor, BIG_OPERATOR)}
-        icon={bigOpIcon()}
-        tooltip={{ content: 'Create Exponent', theme: 'light-border' }}
-        onMouseDown={(e) => insertMathNode(getEmptyExponentNode, editor)}
+        type={getPluginType(editor, ELEMENT_EXPONENT)}
+        icon={SubScriptIcon()}
+        tooltip={{ content: 'Create SubScript', theme: 'light-border' }}
+        onMouseDown={(e) => insertMathNode(getEmptySubscriptNode, editor)}
+
       />
       <EqLoader />
       <EqSaver />

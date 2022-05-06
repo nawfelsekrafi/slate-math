@@ -3,7 +3,7 @@ import { getEmptyBoxNode } from "../EquationBoxElement/getEquationBoxNode"
 import { ELEMENT_EXPONENT } from "./defaults"
 
 
-export const getEmptyExponentNode = () => {
+export const getEmptySuperScriptNode = () => {
     return {
         type: ELEMENT_EXPONENT,
         children: [getEmptyBoxNode(), getEmptyBoxNode(css`font-size: .5rem; bottom:10px;`)]
@@ -13,6 +13,6 @@ export const getEmptyExponentNode = () => {
 export const getEmptySubscriptNode = () => {
     return {
         type: ELEMENT_EXPONENT,
-        children: [getEmptyBoxNode(), getEmptyBoxNode(css`font-size: .5rem; top:10px;`)]
+        children: [getEmptyBoxNode(), getEmptyBoxNode(css`font-size: .5rem; top:7px; z-axis`)]
     }
 }

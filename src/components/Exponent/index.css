@@ -1,0 +1,21 @@
+.exponent-ico > .exp {
+    position: relative;
+    top: .2em;
+  }
+
+  .exponent-ico > .exp-top {
+    position: relative;
+    bottom: .7em;
+    scale: .5;
+    font-size: .5em;
+  }
+  .exponent-ico > .exp-bot {
+    position: relative;
+    top: .7em;
+    scale: .5;
+    font-size: .5em;
+  }
+
+
+  
+  

@@ -171,9 +171,11 @@ import {
   AngleBracketIcon,
   StackedFractionIcon,
   SkewedFractionIcon,
-  LinearFractionIcon
+  LinearFractionIcon,
 } from './mentionIcons'
 import { Square } from '@styled-icons/boxicons-regular'
+import { getEmptySubscriptNode, getEmptySuperScriptNode } from '../Exponent/getEmptyExponentNode'
+import { SubScriptIcon, SuperScriptIcon } from '../Exponent/getExponentElements'
 
 export type MentionEquationData = {
   node: undefined | ((arg0?: string) => TElement<AnyObject>)
@@ -1383,4 +1385,22 @@ export const MENTIONABLES: TComboboxItem<MentionEquationData>[] = [
     },
     text: 'Linear Fraction'
   },
+  {
+    key: '169',
+    data: {
+      node: getEmptySuperScriptNode,
+      icon: SuperScriptIcon(),
+      value: '',
+    },
+    text: 'exponent super script'
+  },
+  {
+    key: '170',
+    data: {
+      node: getEmptySubscriptNode,
+      icon: SubScriptIcon(),
+      value: '',
+    },
+    text: 'sub script base'
+  }
 ]

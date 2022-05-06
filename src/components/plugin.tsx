@@ -40,7 +40,6 @@ import { ELEMENT_MATH_CONTAINER } from "./MathContainer/defaults";
 import { ELEMENT_BRACKET } from './Bracket'
 import { BracketComponent } from './Bracket/getBracketElements'
 import { ELEMENT_TRIG, TrigComponent } from './Trig'
-import { ELEMENT_CUSTOMTABLE} from './Table/defaults'
 
 
 import { TComboboxItem } from '@udecode/plate';
@@ -174,11 +173,6 @@ export const createTrigPlugin = createPluginFactory({
 
 })
 
-export const createCustomTablePlugin = createPluginFactory({
-  key: ELEMENT_CUSTOMTABLE,
-  isInline: true,
-  isElement: true,
-})
 
 export const createMathContainerPlugin = createPluginFactory({
   key: ELEMENT_MATH_CONTAINER,
@@ -221,7 +215,6 @@ export const createMathPlugins = () => {
       createSkewedFraction(),
       createTrigPlugin(),
       createLinearFraction(),
-      createCustomTablePlugin(),
       createFractionPlugin(),
       createEquationTextPlugin(),
       createMatrixPlugin(),
