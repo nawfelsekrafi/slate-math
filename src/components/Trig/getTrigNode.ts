@@ -16,7 +16,7 @@ export const getTrigNode = (text?:string) => {
         type: ELEMENT_EQUATION_TEXT,
         children: [{ text: '(' }],
       },
-      getEmptyBoxNode(css`display:flex;`),
+      getEmptyBoxNode(),
       {
         type: ELEMENT_EQUATION_TEXT,
         children: [{ text: ')' }],

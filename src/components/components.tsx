@@ -136,9 +136,7 @@ export const components = createPlateUI({
     styles: {
       root: [
         css`
-          display: inline-flex;
-          justify-content: flex-start;
-          flex-direction: row;
+          display: inline;
         `,
       ],
     },
@@ -263,9 +261,7 @@ export const components = createPlateUI({
     styles: {
       root: [
         css`
-          display: inline-flex;
-          justify-content: flex-start;
-          flex-direction: row;
+          display: inline;
         `,
       ],
     },

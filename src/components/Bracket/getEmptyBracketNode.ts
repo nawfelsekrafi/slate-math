@@ -10,7 +10,7 @@ import { css } from 'twin.macro'
 export const getParenthesisBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftParenSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightParenSymbol()],
+        children: [getLeftParenSymbol(), getEmptyBoxNode(css`font-size: 17px; `), getRightParenSymbol()],
     }
 }
 
@@ -18,7 +18,7 @@ export const getParenthesisBracketNode = () => {
 export const getSquareBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftSquareBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightSquareBracketSymbol()],
+        children: [getLeftSquareBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; `), getRightSquareBracketSymbol()],
     }
 }
 
@@ -26,7 +26,7 @@ export const getSquareBracketNode = () => {
 export const getCurlyBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftCurlySymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightCurlySymbol()],
+        children: [getLeftCurlySymbol(), getEmptyBoxNode(css`font-size: 17px; `), getRightCurlySymbol()],
     }
 }
 
@@ -34,7 +34,7 @@ export const getCurlyBracketNode = () => {
 export const getAngleBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftAngleSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightAngleSymbol()],
+        children: [getLeftAngleSymbol(), getEmptyBoxNode(css`font-size: 17px; `), getRightAngleSymbol()],
     }
 }
 
@@ -42,7 +42,7 @@ export const getAngleBracketNode = () => {
 export const getFloorBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftFloorSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightFloorSymbol()],
+        children: [getLeftFloorSymbol(), getEmptyBoxNode(css`font-size: 17px; `), getRightFloorSymbol()],
     }
 }
 
@@ -50,7 +50,7 @@ export const getFloorBracketNode = () => {
 export const getCeilingBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftCeilingSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightCeilingSymbol()],
+        children: [getLeftCeilingSymbol(), getEmptyBoxNode(css`font-size: 17px; `), getRightCeilingSymbol()],
     }
 }
 
@@ -58,7 +58,7 @@ export const getCeilingBracketNode = () => {
 export const getBarBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getVerticalBarSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getVerticalBarSymbol()],
+        children: [getVerticalBarSymbol(), getEmptyBoxNode(css`font-size: 17px; `), getVerticalBarSymbol()],
     }
 }
 
@@ -66,7 +66,7 @@ export const getBarBracketNode = () => {
 export const getParallelBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getParallelSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getParallelSymbol()],
+        children: [getParallelSymbol(), getEmptyBoxNode(css`font-size: 17px; `), getParallelSymbol()],
     }
 }
 
@@ -74,7 +74,7 @@ export const getParallelBracketNode = () => {
 export const getDoubleLeftBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftSquareBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getLeftSquareBracketSymbol()],
+        children: [getLeftSquareBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; `), getLeftSquareBracketSymbol()],
     }
 }
 
@@ -82,7 +82,7 @@ export const getDoubleLeftBracketNode = () => {
 export const getDoubleRightBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getRightSquareBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightSquareBracketSymbol()],
+        children: [getRightSquareBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; `), getRightSquareBracketSymbol()],
     }
 }
 
@@ -90,7 +90,7 @@ export const getDoubleRightBracketNode = () => {
 export const getInverseBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getRightSquareBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getLeftSquareBracketSymbol()],
+        children: [getRightSquareBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; `), getLeftSquareBracketSymbol()],
     }
 }
 
@@ -98,7 +98,7 @@ export const getInverseBracketNode = () => {
 export const getDoubleBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftDoubleBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightDoubleBracketSymbol()],
+        children: [getLeftDoubleBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; `), getRightDoubleBracketSymbol()],
     }
 }
 
@@ -106,7 +106,7 @@ export const getDoubleBracketNode = () => {
 export const getLeftParenBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftParenSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `)],
+        children: [getLeftParenSymbol(), getEmptyBoxNode(css`font-size: 17px; `)],
     }
 }
 
@@ -114,7 +114,7 @@ export const getLeftParenBracketNode = () => {
 export const getRightParenBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightParenSymbol()],
+        children: [getEmptyBoxNode(css`font-size: 17px; `), getRightParenSymbol()],
     }
 }
 
@@ -122,7 +122,7 @@ export const getRightParenBracketNode = () => {
 export const getLeftSquareBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftSquareBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `)],
+        children: [getLeftSquareBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; `)],
     }
 }
 
@@ -130,7 +130,7 @@ export const getLeftSquareBracketNode = () => {
 export const getRightSquareBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightSquareBracketSymbol()],
+        children: [getEmptyBoxNode(css`font-size: 17px; `), getRightSquareBracketSymbol()],
     }
 }
 
@@ -138,7 +138,7 @@ export const getRightSquareBracketNode = () => {
 export const getLeftCurlyBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftCurlySymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `)],
+        children: [getLeftCurlySymbol(), getEmptyBoxNode(css`font-size: 17px; `)],
     }
 }
 
@@ -146,7 +146,7 @@ export const getLeftCurlyBracketNode = () => {
 export const getRightCurlyBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightCurlySymbol()],
+        children: [getEmptyBoxNode(css`font-size: 17px; `), getRightCurlySymbol()],
     }
 }
 
@@ -154,7 +154,7 @@ export const getRightCurlyBracketNode = () => {
 export const getLeftAngleBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftAngleSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `)],
+        children: [getLeftAngleSymbol(), getEmptyBoxNode(css`font-size: 17px; `)],
     }
 }
 
@@ -162,7 +162,7 @@ export const getLeftAngleBracketNode = () => {
 export const getRightAngleBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightAngleSymbol()],
+        children: [getEmptyBoxNode(css`font-size: 17px; `), getRightAngleSymbol()],
     }
 }
 
@@ -170,7 +170,7 @@ export const getRightAngleBracketNode = () => {
 export const getLeftFloorBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftFloorSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `)],
+        children: [getLeftFloorSymbol(), getEmptyBoxNode(css`font-size: 17px; `)],
     }
 }
 
@@ -178,7 +178,7 @@ export const getLeftFloorBracketNode = () => {
 export const getRightFloorBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightFloorSymbol()],
+        children: [getEmptyBoxNode(css`font-size: 17px; `), getRightFloorSymbol()],
     }
 }
 
@@ -186,7 +186,7 @@ export const getRightFloorBracketNode = () => {
 export const getLeftCeilingBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftCeilingSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `)],
+        children: [getLeftCeilingSymbol(), getEmptyBoxNode(css`font-size: 17px; `)],
     }
 }
 
@@ -194,7 +194,7 @@ export const getLeftCeilingBracketNode = () => {
 export const getRightCeilingBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightCeilingSymbol()],
+        children: [getEmptyBoxNode(css`font-size: 17px; `), getRightCeilingSymbol()],
     }
 }
 
@@ -202,7 +202,7 @@ export const getRightCeilingBracketNode = () => {
 export const getLeftBarBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getVerticalBarSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `)],
+        children: [getVerticalBarSymbol(), getEmptyBoxNode(css`font-size: 17px; `)],
     }
 }
 
@@ -210,7 +210,7 @@ export const getLeftBarBracketNode = () => {
 export const getRightBarBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getVerticalBarSymbol()],
+        children: [getEmptyBoxNode(css`font-size: 17px; `), getVerticalBarSymbol()],
     }
 }
 
@@ -218,7 +218,7 @@ export const getRightBarBracketNode = () => {
 export const getLeftParallelBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getParallelSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `)],
+        children: [getParallelSymbol(), getEmptyBoxNode(css`font-size: 17px; `)],
     }
 }
 
@@ -226,7 +226,7 @@ export const getLeftParallelBracketNode = () => {
 export const getRightParallelBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getParallelSymbol()],
+        children: [getEmptyBoxNode(css`font-size: 17px; `), getParallelSymbol()],
     }
 }
 
@@ -234,7 +234,7 @@ export const getRightParallelBracketNode = () => {
 export const getLeftDoubleBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getLeftDoubleBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; top: 6px; `)],
+        children: [getLeftDoubleBracketSymbol(), getEmptyBoxNode(css`font-size: 17px; `)],
     }
 }
 
@@ -242,7 +242,7 @@ export const getLeftDoubleBracketNode = () => {
 export const getRightDoubleBracketNode = () => {
     return <TElement>{
         type:ELEMENT_BRACKET,
-        children: [getEmptyBoxNode(css`font-size: 17px; top: 6px; `), getRightDoubleBracketSymbol()],
+        children: [getEmptyBoxNode(css`font-size: 17px; `), getRightDoubleBracketSymbol()],
     }
 }
 
