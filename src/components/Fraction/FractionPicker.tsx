@@ -8,9 +8,9 @@ import {
   getEmptySkewedFractionNode,
   getEmptyLinearFractionNode } from './getEmptyFractionCellNode'
 import Angle from '../../assets/Brackets/Angle.png'
-import FractionLinear from '../../assets/Fractions/FractionLinear.png'
-import FractionSkewed from '../../assets/Fractions/FractionSkewed.png'
-import FractionStack from '../../assets/Fractions/FractionStack.png'
+import LinearFraction from '../../assets/Fractions/LinearFraction.png'
+import SkewedFraction from '../../assets/Fractions/SkewedFraction.png'
+import StackedFraction from '../../assets/Fractions/StackedFraction.png'
 
 const initializeEquationMap = () => {
     const editor = getPlateEditorRef()!
@@ -26,9 +26,9 @@ const initializeEquationMap = () => {
     })
 
     const nameToImgMap = new Map<string, any>()
-    nameToImgMap.set('1x1', FractionStack)
-    nameToImgMap.set('1x2', FractionSkewed)
-    nameToImgMap.set('1x3', FractionLinear)
+    nameToImgMap.set('1x1', StackedFraction)
+    nameToImgMap.set('1x2', SkewedFraction)
+    nameToImgMap.set('1x3', LinearFraction)
 
     const nameToFractionNameMap = new Map<string,string>()
     nameToFractionNameMap.set('1x1', 'Stacked Fraction')

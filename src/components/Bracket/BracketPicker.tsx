@@ -38,6 +38,7 @@ import {
 
 
 //pngs
+/*
 import Parenthesis from '../../assets/Brackets/Parenthesis.png'
 import Bracket from '../../assets/Brackets/Bracket.png'
 import Curly from '../../assets/Brackets/Curly.png'
@@ -69,7 +70,37 @@ import LeftParallel from '../../assets/Brackets/LeftParallel.png'
 import RightParallel from '../../assets/Brackets/RightParallel.png'
 import LeftDblBracket from '../../assets/Brackets/LeftDblBracket.png'
 import RightDblBracket from '../../assets/Brackets/RightDblBracket.png'
-
+*/
+import AngleBracket from '../../assets/Brackets/AngleBracket.png'
+import Ceiling from '../../assets/Brackets/Ceiling.png'
+import CurlyBracket from '../../assets/Brackets/CurlyBracket.png'
+import DoubleBracket from '../../assets/Brackets/DoubleBracket.png'
+import DoubleLeftSquareBracket from '../../assets/Brackets/DoubleLeftSquareBracket.png'
+import DoubleRightSquareBracket from '../../assets/Brackets/DoubleRightSquareBracket.png'
+import Floor from '../../assets/Brackets/Floor.png'
+import InverseBracket from '../../assets/Brackets/InverseBracket.png'
+import LeftAngle from '../../assets/Brackets/LeftAngle.png'
+import LeftBar from '../../assets/Brackets/LeftBar.png'
+import LeftCeiling from '../../assets/Brackets/LeftCeiling.png'
+import LeftCurly from '../../assets/Brackets/LeftCurly.png'
+import LeftDoubleBracket from '../../assets/Brackets/LeftDoubleBracket.png'
+import LeftFloor from '../../assets/Brackets/LeftFloor.png'
+import LeftParallel from '../../assets/Brackets/LeftParallel.png'
+import LeftParen from '../../assets/Brackets/LeftParen.png'
+import LeftSquare from '../../assets/Brackets/LeftSquare.png'
+import ParallelBracket from '../../assets/Brackets/ParallelBracket.png'
+import Paren from '../../assets/Brackets/Paren.png'
+import RightAngle from '../../assets/Brackets/RightAngle.png'
+import RightBar from '../../assets/Brackets/RightBar.png'
+import RightCeiling from '../../assets/Brackets/RightCeiling.png'
+import RightCurly from '../../assets/Brackets/RightCurly.png'
+import RightDoubleBracket from '../../assets/Brackets/RightDoubleBracket.png'
+import RightFloor from '../../assets/Brackets/RightFloor.png'
+import RightParallel from '../../assets/Brackets/RightParallel.png'
+import RightParen from '../../assets/Brackets/RightParen.png'
+import RightSquare from '../../assets/Brackets/RightSquare.png'
+import SquareBracket from '../../assets/Brackets/SquareBracket.png'
+import VerticalBar from '../../assets/Brackets/VerticalBar.png'
 
 const initializeEquationMap = () => {
     const editor = getPlateEditorRef()!
@@ -168,22 +199,22 @@ const initializeEquationMap = () => {
 
     
     const nameToImgMap = new Map<string, any>()
-    nameToImgMap.set('1x1', Parenthesis)
-    nameToImgMap.set('1x2', Bracket)
-    nameToImgMap.set('1x3', Curly)
-    nameToImgMap.set('1x4', Angle)
+    nameToImgMap.set('1x1', Paren)
+    nameToImgMap.set('1x2', SquareBracket)
+    nameToImgMap.set('1x3', CurlyBracket)
+    nameToImgMap.set('1x4', AngleBracket)
     nameToImgMap.set('2x1', Floor)
     nameToImgMap.set('2x2', Ceiling)
-    nameToImgMap.set('2x3', VertivalBar)
-    nameToImgMap.set('2x4', Parallel)
-    nameToImgMap.set('3x1', DblLeftBracket)
-    nameToImgMap.set('3x2', DblRightBracket)
+    nameToImgMap.set('2x3', VerticalBar)
+    nameToImgMap.set('2x4', ParallelBracket)
+    nameToImgMap.set('3x1', DoubleLeftSquareBracket)
+    nameToImgMap.set('3x2', DoubleRightSquareBracket)
     nameToImgMap.set('3x3', InverseBracket)
-    nameToImgMap.set('3x4', DblBracket)
+    nameToImgMap.set('3x4', DoubleBracket)
     nameToImgMap.set('4x1', LeftParen)
     nameToImgMap.set('4x2', RightParen)
-    nameToImgMap.set('4x3', LeftBracket)
-    nameToImgMap.set('4x4', RightBracket)
+    nameToImgMap.set('4x3', LeftSquare)
+    nameToImgMap.set('4x4', RightSquare)
     nameToImgMap.set('5x1', LeftCurly)
     nameToImgMap.set('5x2', RightCurly)
     nameToImgMap.set('5x3', LeftAngle)
@@ -196,8 +227,8 @@ const initializeEquationMap = () => {
     nameToImgMap.set('7x2', RightBar)
     nameToImgMap.set('7x3', LeftParallel)
     nameToImgMap.set('7x4', RightParallel)
-    nameToImgMap.set('8x1', LeftDblBracket)
-    nameToImgMap.set('8x2', RightDblBracket)
+    nameToImgMap.set('8x1', LeftDoubleBracket)
+    nameToImgMap.set('8x2', RightDoubleBracket)
 
     const nameToBracketNameMap = new Map<string,string>()
     nameToBracketNameMap.set('1x1', 'Parenthesis')
