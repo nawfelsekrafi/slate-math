@@ -1016,4 +1016,5 @@ export const MENTIONABLES: TComboboxItem<MentionEquationData>[] = [
     },
     text: 'Logarithm To Base n',
   },
+
 ]

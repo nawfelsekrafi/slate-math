@@ -64,6 +64,7 @@ import Sin from '../../assets/Trig/Sin.png'
 import Sinh from '../../assets/Trig/Sinh.png'
 import Tan from '../../assets/Trig/Tan.png'
 import Tanh from '../../assets/Trig/Tanh.png'
+import FractionLinear from '../../assets/Fractions/FractionLinear.png'
 
 //accent icons
 export const RightArrowIcon = () => {

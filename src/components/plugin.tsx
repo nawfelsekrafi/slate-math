@@ -45,6 +45,7 @@ import { ELEMENT_CUSTOMTABLE} from './Table/defaults'
 
 import { TComboboxItem } from '@udecode/plate';
 import { withContainer } from './MathContainer/withContainer'
+import { ELEMENT_EXPONENT } from './Exponent/defaults'
 
 export const createEquationBoxPlugin = createPluginFactory({
   key: ELEMENT_EQUATIONBOX,
@@ -185,6 +186,12 @@ export const createMathContainerPlugin = createPluginFactory({
   isElement: true,
 })
 
+export const createExponentPlugin = createPluginFactory({
+  key: ELEMENT_EXPONENT,
+  isInline: true,
+  isElement: true,
+})
+
 export const createEquationMentionPlugin = (): PlatePlugin => {
   return createMentionPlugin({
     options: {
@@ -219,6 +226,7 @@ export const createMathPlugins = () => {
       createEquationTextPlugin(),
       createMatrixPlugin(),
       createEquationBoxMatrixPlugin(),
+      createExponentPlugin(),
       createEquationMentionPlugin(),
       
     ],

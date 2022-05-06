@@ -23,7 +23,7 @@ export const getEquationBoxStyles = (props: EquationBoxElementStyleProps) => {
             tw`bg-opacity-0`,
             props.selected && tw`boxShadow[0 0 0 2px #B4D5FF] bg-gray-300`,
             props.isEmpty && `background-color: #eee;`,
-            props.isEmpty && `padding: 0px 7px 0px;`,
+            props.isEmpty && `padding: 0px 0.5em 0px;`,
         ]
     })
     )

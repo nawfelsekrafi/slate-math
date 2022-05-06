@@ -48,6 +48,7 @@ import { ELEMENT_TRIG, TrigIcon } from './Trig'
 import { TableDropDown } from './Table/TableDropDown'
 import { ELEMENT_CUSTOMTABLE } from './Table/defaults'
 import { Tableicon } from './Table/TableIcon'
+import { getEmptyExponentNode } from './Exponent/getEmptyExponentNode'
 
 export const MathToolbar = () => {
   const editor = getPlateEditorRef()!
@@ -199,7 +200,12 @@ export const MathToolbar = () => {
           },
         }}
       />
-
+      <ToolbarButton
+        type={getPluginType(editor, BIG_OPERATOR)}
+        icon={bigOpIcon()}
+        tooltip={{ content: 'Create Exponent', theme: 'light-border' }}
+        onMouseDown={(e) => insertMathNode(getEmptyExponentNode, editor)}
+      />
       <EqLoader />
       <EqSaver />
     </>
